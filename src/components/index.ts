@@ -10,8 +10,6 @@ const requireComponent = require.context(
   /\.vue$/
 )
 
-console.log(requireComponent.keys())
-
 export default function(app: any) {
   requireComponent.keys().forEach(fileName => {
     // 获取组件配置
@@ -26,7 +24,6 @@ export default function(app: any) {
           .replace(/\.\w+$/, '')
       )
     )
-    console.log(componentName)
     // 全局注册组件
     app.component(
       componentName,
