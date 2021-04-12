@@ -26,7 +26,8 @@
 <script lang="ts">
 import { computed, defineComponent } from 'vue'
 import ImageCropUpload from 'vue-image-crop-upload'
-import { AppModule } from '@/store/modules/app/app'
+import { useStore } from '@/store'
+// import { AppModule } from '@/store/modules/app'
 
 export default defineComponent({
   components: {
@@ -76,8 +77,9 @@ export default defineComponent({
         contex.emit('input', [...value])
       }
     })
+    const store = useStore()
     const language = computed(() => {
-      return languageTypeList[AppModule.language]
+      return languageTypeList[store.state.app.language]
     })
     const srcFileSet = (fileName: string, fileType: string, fileSize: number) => {
       contex.emit('src-file-set', fileName, fileType, fileSize)

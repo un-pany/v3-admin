@@ -16,6 +16,7 @@
     "mock": "cd mock && ts-node-dev mock.ts"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "axios-mapper": "^0.4.4",
     "chalk": "^4.1.0",
     "core-js": "^3.6.5",

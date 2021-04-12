@@ -16,11 +16,13 @@ import '@/styles/index.scss'
 import 'normalize.css'
 import * as directives from '@/directives'
 import '@/permission'
+import loadComponents from '@/components'
 
 const app = createApp(App)
 // 加载所有插件
 loadAllPlugins(app)
 
+loadComponents(app)
 console.log(process.env.VUE_APP_BASE_API)
 
 // 自定义指令
