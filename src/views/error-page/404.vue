@@ -1,31 +1,18 @@
 <template>
   <div class="errPage-container">
-    <el-button
-      icon="el-icon-arrow-left"
-      class="back-btn"
-      @click="back"
-    >
-      返回
-    </el-button>
     <el-row>
-      <el-col :span="12">
-        <h1 class="text-jumbo text-ginormous">
+      <el-col :span="12" class="text">
+        <el-button
+          icon="el-icon-arrow-left"
+          class="back-btn"
+          @click="back"
+        >
+          返回
+        </el-button>
+        <h1 class="text-jumbo">
           404!
         </h1>
-        <h2>找不到该页面 </h2>
-        <ul class="list-unstyled">
-          <li>或者你可以：</li>
-          <li class="link-type">
-            <router-link to="/dashboard">
-              回首页
-            </router-link>
-          </li>
-          <li class="link-type">
-            <router-link to="/login">
-              重新登录
-            </router-link>
-          </li>
-        </ul>
+        <h2>找不到该页面。</h2>
       </el-col>
       <el-col :span="12">
         <img
@@ -33,19 +20,9 @@
           class="some-gif"
           width="313"
           height="428"
-          alt="Girl has dropped her ice cream."
         >
       </el-col>
     </el-row>
-    <el-dialog
-      v-model:visible="dialogVisible"
-      title="随便看"
-    >
-      <img
-        :src="ewizardClap"
-        class="some-img"
-      >
-    </el-dialog>
   </div>
 </template>
 
@@ -60,8 +37,6 @@ export default defineComponent({
 
     const data = reactive({
       errGif: errGif + '?' + +new Date(),
-      ewizardClap: 'https://wpimg.wallstcn.com/007ef517-bafd-4066-aae4-6883632d9646',
-      dialogVisible: false,
       back() {
         if (route.query.noGoBack) {
           router.push({ path: '/dashboard' }).catch(err => {
@@ -85,6 +60,13 @@ export default defineComponent({
   max-width: 100%;
   margin: 100px auto;
 
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
   .back-btn {
     background: #008489;
     color: #fff;
@@ -106,23 +88,6 @@ export default defineComponent({
     font-size: 60px;
     font-weight: 700;
     color: #484848;
-  }
-
-  .list-unstyled {
-    font-size: 14px;
-
-    li {
-      padding-bottom: 5px;
-    }
-
-    a {
-      color: #008489;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
 }
 </style>

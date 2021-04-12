@@ -20,14 +20,6 @@ asyncFiles.keys().forEach((key) => {
 // 路由表
 export const constantRoutes: Array<RouteRecordRaw> = [
   {
-    path: '/401',
-    component: () => import(/* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue')
-  },
-  {
-    path: '/404',
-    component: () => import(/* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue')
-  },
-  {
     path: '/redirect',
     component: Layout,
     meta: { hidden: true },
@@ -55,9 +47,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
-  ...constantModules,
-  // 404
-  { path: '/:pathMatch(.*)*', redirect: '/404' }
+  ...constantModules
 ]
 
 export const asyncRoutes: Array<RouteRecordRaw> = [

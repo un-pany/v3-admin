@@ -3,12 +3,11 @@ import Layout from '@/layout/Index.vue'
 
 const ExampleRouter: Array<RouteRecordRaw> = [
   {
-    path: '/error',
+    path: '/:pathMatch(.*)*',
     component: Layout,
-    redirect: 'noredirect',
+    redirect: '/404',
     meta: {
-      title: 'errorPages',
-      icon: '#icon404'
+      hidden: true
     },
     children: [
       {
@@ -17,7 +16,8 @@ const ExampleRouter: Array<RouteRecordRaw> = [
         name: 'Page401',
         meta: {
           title: 'page401',
-          noCache: true
+          noCache: true,
+          hidden: true
         }
       },
       {
@@ -26,7 +26,8 @@ const ExampleRouter: Array<RouteRecordRaw> = [
         name: 'Page404',
         meta: {
           title: 'page404',
-          noCache: true
+          noCache: true,
+          hidden: true
         }
       }
     ]
