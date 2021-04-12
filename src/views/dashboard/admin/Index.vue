@@ -9,9 +9,6 @@
   <div class="dashboard-editor-container">
     <GithubCorner class="github-corner" />
     <filter-container />
-    <!-- <p>{{ tableHeader[0].label }}</p>
-
-    <p>{{ list[0].name }}</p> -->
     <simple-table
       :tableData="list"
       :tableHeader="tableHeader"
