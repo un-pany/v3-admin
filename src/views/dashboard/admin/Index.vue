@@ -1,7 +1,6 @@
 <!-- admin 权限主页 -->
 <template>
   <div class="dashboard-editor-container">
-<<<<<<< HEAD
     <GithubCorner class="github-corner" />
     <filter-container />
     <simple-table
@@ -34,18 +33,29 @@
         <UpdateTimeline />
       </el-col>
     </el-row>
-=======
-    admin 权限可见
->>>>>>> eb9f929e0911ff605d62d879574e5fc635ed2bae
   </div>
 </template>
 
 <script>
-// import { ref } from 'vue'
+import { reactive } from 'vue'
 export default {
   components: {},
   setup() {
-    return {}
+    const tableHeader = [
+      { prop: 'id', label: '编号', width: '100', align: 'center' },
+      { prop: 'name', label: '应用名称', align: 'center' },
+      { prop: 'accessKey', label: '访问键', align: 'center' }
+    ]
+
+    const list = reactive([{
+      id: 1,
+      name: 'sss',
+      accessKey: 'ssasas'
+    }])
+    return {
+      tableHeader,
+      list
+    }
   }
 }
 </script>
