@@ -1,4 +1,4 @@
-<!-- 更改 element 的主题 -->
+<!-- 更改 element 的主题 Demo -->
 
 <template>
   <div class="app-container">

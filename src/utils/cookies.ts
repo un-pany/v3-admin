@@ -15,3 +15,5 @@ export const setSize = (size: string) => Cookies.set(Keys.sizeKey, size)
 export const getToken = () => Cookies.get(Keys.tokenKey)
 export const setToken = (token: string) => Cookies.set(Keys.tokenKey, token)
 export const removeToken = () => Cookies.remove(Keys.tokenKey)
+
+export const setCookie = (key: string, value: string) => Cookies.set(key, value)
