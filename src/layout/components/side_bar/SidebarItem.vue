@@ -86,7 +86,7 @@ export default defineComponent({
     },
     isFirstLevel: {
       type: Boolean,
-      required: true
+      required: false
     },
     basePath: {
       type: String,

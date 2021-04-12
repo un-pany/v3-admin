@@ -8,7 +8,15 @@
 <template>
   <div class="dashboard-editor-container">
     <GithubCorner class="github-corner" />
+    <filter-container />
+    <!-- <p>{{ tableHeader[0].label }}</p>
 
+    <p>{{ list[0].name }}</p> -->
+    <simple-table
+      :tableData="list"
+      :tableHeader="tableHeader"
+      :pageNum="pageNum"
+      :pageSize="pageSize" />
     <el-row :gutter="8">
       <el-col
         :xs="{span: 24}"
@@ -38,7 +46,7 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 import DependsTable from './components/DependsTable.vue'
 export default {
   components: {
@@ -64,12 +72,36 @@ export default {
       }
     }
 
+    const tableHeader = Object.freeze([
+      { prop: 'id', label: '编号', width: '100', align: 'center' },
+      { prop: 'name', label: '应用名称', align: 'center' },
+      { prop: 'accessKey', label: '访问键', align: 'center' }
+    ])
+
+    const list = reactive([{
+      id: 1,
+      name: 'sss',
+      accessKey: 'ssasas'
+    }])
+
+    console.log(tableHeader)
+
+    console.log(list)
+
     const lineChartData = ref(data.newVisitis)
     const handleSetLineChartData = (type) => {
       lineChartData.value = data[type]
     }
 
+    const pageNum = ref(1)
+
+    const pageSize = ref(10)
+
     return {
+      list,
+      tableHeader,
+      pageNum,
+      pageSize,
       lineChartData,
       handleSetLineChartData
     }

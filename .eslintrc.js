@@ -45,6 +45,8 @@ module.exports = {
     'vue/key-spacing': 'error',
     'vue/match-component-file-name': 'error',
     'vue/object-curly-spacing': 'error',
+    'vue/max-attributes-per-line': 'off',
+    'vue/html-closing-bracket-newline': 'off',
     'no-useless-escape': 'off',
     '@typescript-eslint/no-this-alias': [
       'error',
