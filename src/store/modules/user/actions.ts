@@ -1,10 +1,5 @@
-/*
- * @Description: app actions
- * @Author: ZY
- * @Date: 2020-12-23 10:25:37
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 19:11:09
- */
+// app actions
+
 import { ActionTree, ActionContext } from 'vuex'
 import { RootState, useStore } from '@/store'
 import { state, UserState } from './state'

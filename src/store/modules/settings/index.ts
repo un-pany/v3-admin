@@ -1,10 +1,3 @@
-/*
- * @Description: setting moudle
- * @Author: ZY
- * @Date: 2020-12-23 10:25:37
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-26 14:20:15
- */
 import {
   Store as VuexStore,
   CommitOptions,

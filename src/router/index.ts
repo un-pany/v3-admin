@@ -1,13 +1,7 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-07 10:30:20
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 20:10:59
- */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
 
+// 导入常驻路由
 const constantFiles = require.context('./constantModules', true, /\.ts$/)
 let constantModules: Array<RouteRecordRaw> = []
 constantFiles.keys().forEach((key) => {
@@ -15,6 +9,7 @@ constantFiles.keys().forEach((key) => {
   constantModules = constantModules.concat(constantFiles(key).default)
 })
 
+// 导入动态路由
 const asyncFiles = require.context('./permissionModules', true, /\.ts$/)
 let permissionModules: Array<RouteRecordRaw> = []
 asyncFiles.keys().forEach((key) => {
@@ -22,7 +17,16 @@ asyncFiles.keys().forEach((key) => {
   permissionModules = permissionModules.concat(asyncFiles(key).default)
 })
 
+// 路由表
 export const constantRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/401',
+    component: () => import(/* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue')
+  },
+  {
+    path: '/404',
+    component: () => import(/* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue')
+  },
   {
     path: '/redirect',
     component: Layout,
@@ -51,7 +55,9 @@ export const constantRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
-  ...constantModules
+  ...constantModules,
+  // 404
+  { path: '/:pathMatch(.*)*', redirect: '/404' }
 ]
 
 export const asyncRoutes: Array<RouteRecordRaw> = [
@@ -64,7 +70,7 @@ const router = createRouter({
 
 export function resetRouter() {
   const newRouter = router;
-  (router as any).matcher = (newRouter as any).matcher // reset router
+  (router as any).matcher = (newRouter as any).matcher // 重置路由
 }
 
 export default router

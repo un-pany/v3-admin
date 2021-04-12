@@ -1,11 +1,3 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-25 15:03:52
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 21:05:18
- */
-
 import { ActionTree, ActionContext } from 'vuex'
 import { RootState } from '@/store'
 import { PermissionState } from './state'

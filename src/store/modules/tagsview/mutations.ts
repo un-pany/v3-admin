@@ -1,10 +1,3 @@
-/*
- * @Description: app Mutations
- * @Author: ZY
- * @Date: 2020-12-23 10:25:37
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 17:26:27
- */
 import { MutationTree } from 'vuex'
 import { TagsViewState, TagView } from './state'
 import { TagsMutationTypes } from './mutation-types'

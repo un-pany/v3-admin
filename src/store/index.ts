@@ -1,10 +1,3 @@
-/*
- * @Description: st
- * @Author: ZY
- * @Date: 2020-12-07 10:30:20
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 20:46:07
- */
 import { createStore, createLogger } from 'vuex'
 // import createPersistedState from 'vuex-persistedstate'
 import { store as app, AppStore, AppState } from '@/store/modules/app'
@@ -25,10 +18,10 @@ export type Store = AppStore<Pick<RootState, 'app'>> & SettingStore<Pick<RootSta
 & PermissionStore<Pick<RootState, 'permission'>> & UserStore<Pick<RootState, 'user'>>
 & TagsStore<Pick<RootState, 'tagViews'>>
 
-// Plug in logger when in development environment
+// 在开发环境中插入记录器 logger
 const debug = process.env.NODE_ENV !== 'production'
 const plugins = debug ? [createLogger({})] : []
-// Plug in session storage based persistence
+// 插入基于会话存储的 persistence
 // plugins.push(createPersistedState({ storage: window.sessionStorage }))
 
 export const store = createStore({

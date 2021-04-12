@@ -1,10 +1,4 @@
-<!--
- * @Description: 侧边栏item
- * @Author: ZY
- * @Date: 2020-12-25 11:34:00
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-25 08:47:38
--->
+<!-- 侧边栏item -->
 
 <template>
   <div
@@ -171,6 +165,23 @@ export default defineComponent({
 
     &:hover {
       background-color: $subMenuHover !important;
+    }
+  }
+  .el-menu-item{
+    &>span{
+      display: inline-block;
+      padding-left: 5px;
+    }
+  }
+  .el-submenu {
+    overflow: hidden;
+    & > .el-submenu__title {
+      .el-submenu__icon-arrow {
+        display: none;
+      }
+      & > span {
+             padding-left: 5px;
+      }
     }
   }
 }

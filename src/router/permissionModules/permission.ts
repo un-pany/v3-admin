@@ -1,11 +1,3 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2021-01-08 19:32:52
- * @LastEditors: scy😊
- * @LastEditTime: 2021-01-23 15:55:22
- */
-
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
 
@@ -17,8 +9,8 @@ const permissionRouter: Array<RouteRecordRaw> = [
     meta: {
       title: 'permission',
       icon: '#iconquanxian',
-      roles: ['admin', 'editor'], // you can set roles in root nav
-      alwaysShow: true // will always show the root menu
+      roles: ['admin', 'editor'], // 你可以在根导航系统中设置角色
+      alwaysShow: true // 将始终显示根菜单
     },
     children: [
       {
@@ -27,7 +19,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
         name: 'PagePermission',
         meta: {
           title: 'pagePermission',
-          roles: ['admin'] // or you can only set roles in sub nav
+          roles: ['admin'] // 或者你只能在子导航中设置角色
         }
       },
       {
@@ -36,7 +28,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
         name: 'DirectivePermission',
         meta: {
           title: 'directivePermission'
-          // if do not set roles, means: this page does not require permission
+          // 如果未设置角色，则表示：该页面不需要权限
         }
       },
       {

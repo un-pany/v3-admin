@@ -1,10 +1,5 @@
-/*
- * @Description: setting moudle
- * @Author: ZY
- * @Date: 2020-12-23 10:25:37
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 15:39:26
- */
+// setting moudle
+
 import {
   Store as VuexStore,
   CommitOptions,
@@ -13,6 +8,7 @@ import {
 } from 'vuex'
 
 // TODO: How to surpass cyclical dependency linting errors cleanly?
+// TODO：如何清晰地克服周期性依赖项错误？
 import { RootState } from '@/store'
 import { state } from './state'
 import { mutations, Mutations } from './mutations'
@@ -41,5 +37,7 @@ export const store: Module<UserState, RootState> = {
   actions
   // TODO: With namespaced option turned on, having problem how to use dispatch with action types...
   // But without it, a bigger store might have clashes in namings
+  // TODO：启用命名空间选项后，如何在操作类型中使用分派有问题...
+  // 但是如果没有它，更大的 store 可能会在名称上产生冲突
   // namespaced: true,
 }
