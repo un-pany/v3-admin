@@ -10,8 +10,6 @@
     "build:test": "cross-env NODE_ENV=production  dotenv -e .env.test.build vue-cli-service build",
     "serve:prod": "cross-env NODE_ENV=development dotenv -e .env.prod.serve vue-cli-service serve",
     "build:prod": "cross-env NODE_ENV=production  dotenv -e .env.prod.build vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
     "lint": "vue-cli-service lint",
     "mock": "cd mock && ts-node-dev mock.ts"
   },

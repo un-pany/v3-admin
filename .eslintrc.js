@@ -58,15 +58,15 @@ module.exports = {
     'vue/attribute-hyphenation': 'off',
     'vue/custom-event-name-casing': 'off'
   },
-  overrides: [
-    {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)'
-      ],
-      env: {
-        jest: true
-      }
-    }
-  ]
+  // overrides: [
+  //   {
+  //     files: [
+  //       '**/__tests__/*.{j,t}s?(x)',
+  //       '**/tests/unit/**/*.spec.{j,t}s?(x)'
+  //     ],
+  //     env: {
+  //       jest: true
+  //     }
+  //   }
+  // ]
 }
