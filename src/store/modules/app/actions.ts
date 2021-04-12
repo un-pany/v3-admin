@@ -1,10 +1,3 @@
-/*
- * @Description: app actions
- * @Author: ZY
- * @Date: 2020-12-23 10:25:37
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 14:29:18
- */
 import { ActionTree, ActionContext } from 'vuex'
 
 // eslint-disable-next-line import/no-cycle

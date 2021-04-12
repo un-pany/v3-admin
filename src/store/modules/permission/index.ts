@@ -1,11 +1,3 @@
-/*
- * @Description: permission moudle
- * @Author: ZY
- * @Date: 2020-12-26 13:45:52
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-26 14:20:31
- */
-
 import {
   Store as VuexStore,
   CommitOptions,

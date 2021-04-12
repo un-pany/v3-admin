@@ -1,10 +1,3 @@
-/*
- * @Description: app state
- * @Author: ZY
- * @Date: 2020-12-23 10:25:37
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 10:30:35
- */
 import { getSidebarStatus, getSize } from '@/utils/cookies'
 import { getLocale } from '@/locales'
 

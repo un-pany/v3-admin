@@ -1,11 +1,3 @@
-/*
- * @Description: app actions type
- * @Author: ZY
- * @Date: 2020-12-23 10:25:37
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 11:18:02
- */
-
 export enum TagsActionTypes {
   ACTION_ADD_VIEW = 'ACTION_ADD_VIEW',
   ACTION_ADD_VISITED_VIEW = 'ACTION_ADD_VISITED_VIEW',

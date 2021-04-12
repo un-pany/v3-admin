@@ -1,10 +1,3 @@
-<!--
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-24 10:35:47
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 09:04:08
--->
 <template>
   <div :class="{'has-logo': showLogo}">
     <SidebarLogo

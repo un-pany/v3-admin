@@ -1,288 +1,126 @@
-<!--
- * @Description: 404 错误页面
- * @Author: ZY
- * @Date: 2021-01-11 19:20:47
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-11 19:25:29
--->
 <template>
-  <div class="wscn-http404-container">
-    <div class="wscn-http404">
-      <div class="pic-404">
+  <div class="errPage-container">
+    <el-button
+      icon="el-icon-arrow-left"
+      class="back-btn"
+      @click="back"
+    >
+      返回
+    </el-button>
+    <el-row>
+      <el-col :span="12">
+        <h1 class="text-jumbo text-ginormous">
+          404!
+        </h1>
+        <h2>找不到该页面 </h2>
+        <ul class="list-unstyled">
+          <li>或者你可以：</li>
+          <li class="link-type">
+            <router-link to="/dashboard">
+              回首页
+            </router-link>
+          </li>
+          <li class="link-type">
+            <router-link to="/login">
+              重新登录
+            </router-link>
+          </li>
+        </ul>
+      </el-col>
+      <el-col :span="12">
         <img
-          class="pic-404__parent"
-          src="@/assets/404-images/404.png"
-          alt="404"
+          :src="errGif"
+          class="some-gif"
+          width="313"
+          height="428"
+          alt="Girl has dropped her ice cream."
         >
-        <img
-          class="pic-404__child left"
-          src="@/assets/404-images/404-cloud.png"
-          alt="404"
-        >
-        <img
-          class="pic-404__child mid"
-          src="@/assets/404-images/404-cloud.png"
-          alt="404"
-        >
-        <img
-          class="pic-404__child right"
-          src="@/assets/404-images/404-cloud.png"
-          alt="404"
-        >
-      </div>
-      <div class="text-404">
-        <div class="text-404__oops">
-          OOPS!
-        </div>
-        <div class="text-404__info">
-          All rights reserved
-          <a
-            style="color:#20a0ff"
-            href="https://wallstreetcn.com"
-            target="_blank"
-          >wallstreetcn</a>
-        </div>
-        <div class="text-404__headline">
-          {{ message }}
-        </div>
-        <div class="text-404__info">
-          Please check that the URL you entered is correct, or click the button below to return to the homepage.
-        </div>
-        <a
-          href=""
-          class="text-404__return-home"
-        >Back to home</a>
-      </div>
-    </div>
+      </el-col>
+    </el-row>
+    <el-dialog
+      v-model:visible="dialogVisible"
+      title="随便看"
+    >
+      <img
+        :src="ewizardClap"
+        class="some-img"
+      >
+    </el-dialog>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
+import errGif from '@/assets/401-images/401.gif'
+import { useRoute, useRouter } from 'vue-router'
 export default defineComponent({
   setup() {
-    return {
-      message: '404 Page Not Found'
-    }
+    const route = useRoute()
+    const router = useRouter()
+
+    const data = reactive({
+      errGif: errGif + '?' + +new Date(),
+      ewizardClap: 'https://wpimg.wallstcn.com/007ef517-bafd-4066-aae4-6883632d9646',
+      dialogVisible: false,
+      back() {
+        if (route.query.noGoBack) {
+          router.push({ path: '/dashboard' }).catch(err => {
+            console.warn(err)
+          })
+        } else {
+          router.go(-1)
+        }
+      }
+    })
+
+    return { ...toRefs(data) }
   }
 })
+
 </script>
 
 <style lang="scss" scoped>
-.wscn-http404-container {
-  transform: translate(-50%,-50%);
-  position: absolute;
-  top: 40%;
-  left: 50%;
-}
+.errPage-container {
+  width: 800px;
+  max-width: 100%;
+  margin: 100px auto;
 
-.wscn-http404 {
-  position: relative;
-  width: 1200px;
-  padding: 0 50px;
-  overflow: hidden;
-
-  .pic-404 {
-    position: relative;
-    float: left;
-    width: 600px;
-    overflow: hidden;
-
-    &__parent {
-      width: 100%;
-    }
-
-    &__child {
-      position: absolute;
-
-      &.left {
-        width: 80px;
-        top: 17px;
-        left: 220px;
-        opacity: 0;
-        animation-name: cloudLeft;
-        animation-duration: 2s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        animation-delay: 1s;
-      }
-
-      &.mid {
-        width: 46px;
-        top: 10px;
-        left: 420px;
-        opacity: 0;
-        animation-name: cloudMid;
-        animation-duration: 2s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        animation-delay: 1.2s;
-      }
-
-      &.right {
-        width: 62px;
-        top: 100px;
-        left: 500px;
-        opacity: 0;
-        animation-name: cloudRight;
-        animation-duration: 2s;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        animation-delay: 1s;
-      }
-
-      @keyframes cloudLeft {
-        0% {
-          top: 17px;
-          left: 220px;
-          opacity: 0;
-        }
-
-        20% {
-          top: 33px;
-          left: 188px;
-          opacity: 1;
-        }
-
-        80% {
-          top: 81px;
-          left: 92px;
-          opacity: 1;
-        }
-
-        100% {
-          top: 97px;
-          left: 60px;
-          opacity: 0;
-        }
-      }
-
-      @keyframes cloudMid {
-        0% {
-          top: 10px;
-          left: 420px;
-          opacity: 0;
-        }
-
-        20% {
-          top: 40px;
-          left: 360px;
-          opacity: 1;
-        }
-
-        70% {
-          top: 130px;
-          left: 180px;
-          opacity: 1;
-        }
-
-        100% {
-          top: 160px;
-          left: 120px;
-          opacity: 0;
-        }
-      }
-
-      @keyframes cloudRight {
-        0% {
-          top: 100px;
-          left: 500px;
-          opacity: 0;
-        }
-
-        20% {
-          top: 120px;
-          left: 460px;
-          opacity: 1;
-        }
-
-        80% {
-          top: 180px;
-          left: 340px;
-          opacity: 1;
-        }
-
-        100% {
-          top: 200px;
-          left: 300px;
-          opacity: 0;
-        }
-      }
-    }
+  .back-btn {
+    background: #008489;
+    color: #fff;
+    border: none!important;
   }
 
-  .text-404 {
-    position: relative;
-    float: left;
-    width: 300px;
-    padding: 30px 0;
-    overflow: hidden;
+  .some-gif {
+    margin: 0 auto;
+    display: block;
+  }
 
-    &__oops {
-      font-size: 32px;
-      font-weight: bold;
-      line-height: 40px;
-      color: #1482f0;
-      opacity: 0;
-      margin-bottom: 20px;
-      animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-fill-mode: forwards;
+  .some-img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .text-jumbo {
+    font-size: 60px;
+    font-weight: 700;
+    color: #484848;
+  }
+
+  .list-unstyled {
+    font-size: 14px;
+
+    li {
+      padding-bottom: 5px;
     }
 
-    &__headline {
-      font-size: 20px;
-      line-height: 24px;
-      color: #222;
-      font-weight: bold;
-      opacity: 0;
-      margin-bottom: 10px;
-      animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-delay: 0.1s;
-      animation-fill-mode: forwards;
-    }
+    a {
+      color: #008489;
+      text-decoration: none;
 
-    &__info {
-      font-size: 13px;
-      line-height: 21px;
-      color: grey;
-      opacity: 0;
-      margin-bottom: 30px;
-      animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-delay: 0.2s;
-      animation-fill-mode: forwards;
-    }
-
-    &__return-home {
-      display: block;
-      float: left;
-      width: 110px;
-      height: 36px;
-      background: #1482f0;
-      border-radius: 100px;
-      text-align: center;
-      color: #ffffff;
-      opacity: 0;
-      font-size: 14px;
-      line-height: 36px;
-      cursor: pointer;
-      animation-name: slideUp;
-      animation-duration: 0.5s;
-      animation-delay: 0.3s;
-      animation-fill-mode: forwards;
-    }
-
-    @keyframes slideUp {
-      0% {
-        transform: translateY(60px);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateY(0);
-        opacity: 1;
+      &:hover {
+        text-decoration: underline;
       }
     }
   }

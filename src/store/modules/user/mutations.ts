@@ -1,10 +1,5 @@
-/*
- * @Description: app Mutations
- * @Author: ZY
- * @Date: 2020-12-23 10:25:37
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-28 11:45:02
- */
+// app Mutations
+
 import { MutationTree } from 'vuex'
 import { UserState } from './state'
 import { UserMutationTypes } from './mutation-types'

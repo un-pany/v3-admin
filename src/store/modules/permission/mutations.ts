@@ -1,10 +1,3 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-25 14:28:12
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-25 15:03:37
- */
 import { MutationTree } from 'vuex'
 import { PermissionState } from './state'
 import { PermissionMutationType } from './mutation-types'

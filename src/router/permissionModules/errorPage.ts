@@ -1,4 +1,3 @@
-
 import { RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
 

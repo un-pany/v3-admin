@@ -1,10 +1,5 @@
-<!--
- * @Description: app 布局入口
- * @Author: ZY
- * @Date: 2020-12-17 15:32:33
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 17:02:39
--->
+<!-- 布局入口 -->
+
 <template>
   <div
     :class="classObj"
