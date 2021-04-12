@@ -80,8 +80,8 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
   }
 })
 
-router.afterEach((to: RouteLocationNormalized) => {
-  console.log(to)
+router.afterEach(() => {
+  // console.log(to)
   // Finish progress bar
   // hack: https://github.com/PanJiaChen/vue-element-admin/pull/2939
   NProgress.done()
