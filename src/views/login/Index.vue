@@ -1,278 +1,260 @@
 <template>
   <div class="login-container">
-    <video
-      poster="../../assets/images/login/video-cover.jpeg"
-      loop
-      autoplay
-      muted
-    >
-      <source src="../../assets/images/login/night.mp4">
-    </video>
-
-    <el-form
-      ref="loginFormRef"
-      :model="loginForm"
-      :rules="loginRules"
-      class="login-form"
-      autocomplete="on"
-      label-position="left"
-    >
+    <el-form ref="loginFormDom" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
       <div class="title-container">
         <h3 class="title">
-          {{ t("login.title") }}
+          Vue - Admim
         </h3>
       </div>
 
       <el-form-item prop="username">
         <span class="svg-container">
-          <i class="el-icon-user" />
+          <svg-icon name="user" />
         </span>
         <el-input
-          ref="userNameRef"
+          ref="userNameDom"
           v-model="loginForm.username"
-          :placeholder="t('login.username')"
+          placeholder="用户名"
           name="username"
           type="text"
           tabindex="1"
-          autocomplete="on"
+          auto-complete="off"
         />
       </el-form-item>
 
-      <el-tooltip
-        v-model="capsTooltip"
-        content="Caps lock is On"
-        placement="right"
-        manual
-      >
-        <el-form-item prop="password">
-          <span class="svg-container">
-            <i class="el-icon-lock" />
-          </span>
-          <el-input
-            :key="passwordType"
-            ref="passwordRef"
-            v-model="loginForm.password"
-            :type="passwordType"
-            :placeholder="t('login.password')"
-            name="password"
-            tabindex="2"
-            autocomplete="on"
-            @keyup="checkCapslock"
-            @blur="capsTooltip = false"
-            @keyup.enter="handleLogin"
-          />
-          <span
-            class="show-pwd"
-            @click="showPwd"
-          >
-            <!-- <svg-icon
-              :name="passwordType === 'password' ? 'eye-off' : 'eye-on'"
-            /> -->
-          </span>
-        </el-form-item>
-      </el-tooltip>
+      <el-form-item prop="password">
+        <span class="svg-container">
+          <svg-icon name="password" />
+        </span>
+        <el-input
+          :key="passwordType"
+          ref="passwordDom"
+          v-model="loginForm.password"
+          :type="passwordType"
+          placeholder="密码"
+          name="password"
+          tabindex="2"
+          auto-complete="off"
+        />
+        <!-- @keyup.enter.native="handleLogin" -->
+        <span class="show-pwd" @click="showPwd">
+          <svg-icon :name="passwordType === 'password' ? 'eye' : 'eye-open'" />
+        </span>
+      </el-form-item>
 
-      <el-button
-        :loading="loading"
-        type="primary"
-        style="width:100%; margin-bottom:30px;"
-        @click.prevent="handleLogin"
-      >
-        {{ t("login.logIn") }}
+      <el-form-item prop="code" style="width:330px;">
+        <span class="svg-container">
+          <svg-icon name="table" />
+        </span>
+        <el-input
+          ref="codeDom"
+          v-model="loginForm.code"
+          placeholder="验证码"
+          name="code"
+          type="text"
+          tabindex="3"
+          auto-complete="off"
+        />
+        <span class="show-code">
+          <img style="width: 100px; height: 52px;background: #f4def6;border-radius: 4px;" :src="src" alt="验证码" @click="createCode">
+        </span>
+      </el-form-item>
+
+      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.prevent="handleLogin">
+        登录
       </el-button>
-
-      <div style="position:relative">
-        <div class="tips">
-          <span>{{ t("login.username") }} : admin </span>
-          <span>{{ t("login.password") }} : {{ t("login.any") }} </span>
-        </div>
-        <div class="tips">
-          <span>{{ t("login.username") }} : editor </span>
-          <span>{{ t("login.password") }} : {{ t("login.any") }} </span>
-        </div>
-
-        <el-button
-          class="thirdparty-button"
-          type="primary"
-          @click="showDialog = true"
-        >
-          {{ t("login.thirdparty") }}
-        </el-button>
-      </div>
     </el-form>
-
-    <el-dialog
-      :title="t('login.thirdparty')"
-      v-model="showDialog"
-    >
-      {{ t("login.thirdpartyTips") }}
-      <br>
-      <br>
-      <br>
-    </el-dialog>
   </div>
 </template>
 
-<script lang="ts">
-import {
-  defineComponent,
-  onMounted,
-  reactive,
-  watch,
-  ref,
-  nextTick,
-  toRefs
-} from 'vue'
-import { isValidUsername } from '@/utils/validate'
-import { useRoute, LocationQuery, useRouter } from 'vue-router'
+<script lang='ts'>
+import { defineComponent, reactive, ref, nextTick } from 'vue'
+// import { setCookie } from '@/utils/cookies'
 import { useStore } from '@/store'
 import { UserActionTypes } from '@/store/modules/user/action-types'
-import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
+
+interface LoginForm {
+  username: string
+  password: string
+  code: string
+  checkCode: string
+}
+
+interface LoginRules {
+  username: Array<any>
+  password: Array<any>
+  code: Array<any>
+}
+
+interface InterfaceObject {
+  [key: string]: any
+}
+
+const validateUsername = (rule: any, value: string, callback: Function) => {
+  if (!value.length) {
+    callback(new Error('请输入用户名'))
+  } else {
+    callback()
+  }
+}
+const validatePassword = (rule: any, value: string, callback: Function) => {
+  if (value.length < 6) {
+    callback(new Error('密码不能少于6位'))
+  } else {
+    callback()
+  }
+}
+const validateCode = (rule: any, value: string, callback: Function) => {
+  if (value.length === 0) {
+    callback(new Error('请输入验证码'))
+  } else {
+    callback()
+  }
+}
+
 export default defineComponent({
-  components: {
-  },
+  name: 'Login',
   setup() {
-    const userNameRef = ref(null)
-    const passwordRef = ref(null)
-    const loginFormRef = ref(null)
+    // hooks
     const router = useRouter()
-    const route = useRoute()
     const store = useStore()
-    const { t } = useI18n()
-    const state = reactive({
-      loginForm: {
-        username: 'admin',
-        password: '111111'
-      },
-      loginRules: {
-        username: [{ validator: userNameRef, trigger: 'blur' }],
-        password: [{ validator: passwordRef, trigger: 'blur' }]
-      },
-      passwordType: 'password',
-      loading: false,
-      showDialog: false,
-      capsTooltip: false,
-      redirect: '',
-      otherQuery: {}
+    // data
+    const src = ref<string>('')
+    const loginForm = reactive<LoginForm>({
+      username: 'admin或editor',
+      password: '123456',
+      code: '1234',
+      checkCode: ''
     })
-    const methods = reactive({
-      validateUsername: (rule: any, value: string, callback: Function) => {
-        if (!isValidUsername(value)) {
-          callback(new Error('Please enter the correct user name'))
-        } else {
-          callback()
-        }
-      },
-      validatePassword: (rule: any, value: string, callback: Function) => {
-        if (value.length < 6) {
-          callback(new Error('The password can not be less than 6 digits'))
-        } else {
-          callback()
-        }
-      },
-      checkCapslock: (e: KeyboardEvent) => {
-        const { key } = e
-        state.capsTooltip =
-          key !== null && key.length === 1 && key >= 'A' && key <= 'Z'
-      },
-      showPwd: () => {
-        if (state.passwordType === 'password') {
-          state.passwordType = ''
-        } else {
-          state.passwordType = 'password'
-        }
-        nextTick(() => {
-          (passwordRef.value as any).focus()
-        })
-      },
-      handleLogin: () => {
-        (loginFormRef.value as any).validate(async(valid: boolean) => {
-          if (valid) {
-            state.loading = true
-            await store.dispatch(UserActionTypes.ACTION_LOGIN, state.loginForm)
-            router
-              .push({
-                path: state.redirect || '/',
-                query: state.otherQuery
-              })
-              .catch(err => {
-                console.warn(err)
-              })
-            // Just to simulate the time of the request
-            setTimeout(() => {
-              state.loading = false
-            }, 0.5 * 1000)
-          } else {
-            return false
-          }
-        })
+    const loginRules = reactive<LoginRules>({
+      username: [{ required: true, trigger: 'blur', validator: validateUsername }],
+      password: [{ required: true, trigger: 'blur', validator: validatePassword }],
+      code: [{ required: true, trigger: 'blur', validator: validateCode }]
+    })
+    const loading = ref<boolean>(false)
+    const passwordType = ref<string>('password')
+    // dom
+    const loginFormDom = ref<any>()
+    const passwordDom = ref<any>()
+    // 方法
+    const showPwd: () => void = () => {
+      if (passwordType.value === 'password') {
+        passwordType.value = ''
+      } else {
+        passwordType.value = 'password'
       }
-    })
-    function getOtherQuery(query: LocationQuery) {
-      return Object.keys(query).reduce((acc, cur) => {
-        if (cur !== 'redirect') {
-          acc[cur] = query[cur]
-        }
-        return acc
-      }, {} as LocationQuery)
+      nextTick(() => {
+        passwordDom.value.focus()
+      })
     }
-    watch(() => route.query, query => {
-      if (query) {
-        state.redirect = query.redirect?.toString() ?? ''
-        state.otherQuery = getOtherQuery(query)
+    // const $api: InterfaceObject | undefined = inject('$api')
+    const handleLogin: () => void | boolean = () => {
+      // loginFormDom.value.validate(async(valid: boolean) => {
+      //   if (valid) {
+      //     loading.value = true;
+      //     ($api as InterfaceObject).accountLogin({
+      //       username: loginForm.username,
+      //       password: loginForm.password
+      //     }).then((res: any) => {
+      //       const { data } = res
+      //       setCookie('token', `${data.tokenHaed} ${data.token}`)
+      //       setCookie('expiresTime', '1618454940987')
+      //       router.push({ path: '/' })
+      //       loading.value = false
+      //     })
+      //   } else {
+      //     console.log('错误提交！')
+      //     return false
+      //   }
+      // })
+      loginFormDom.value.validate(async(valid: boolean) => {
+        if (valid) {
+          loading.value = true
+          await store.dispatch(UserActionTypes.ACTION_LOGIN, {
+            username: loginForm.username,
+            password: loginForm.password
+          })
+          loading.value = false
+          router.push({
+            path: '/'
+          }).catch(err => {
+            console.warn(err)
+          })
+        } else {
+          return false
+        }
+      })
+    }
+    // 创建验证码
+    const createCode: () => void = () => {
+      // 先清空验证码的输入
+      let code = ''
+      loginForm.code = ''
+      const codeLength = 12
+      // 随机数
+      const random: Array<number | string> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+      for (let i = 0; i < codeLength; i++) {
+        const index = Math.floor(Math.random() * 36)
+        code += random[index]
       }
-    })
-    onMounted(() => {
-      if (state.loginForm.username === '') {
-        (userNameRef.value as any).focus()
-      } else if (state.loginForm.password === '') {
-        (passwordRef.value as any).focus()
-      }
-    })
+      loginForm.checkCode = `${code}`
+      src.value = `/api/v1/login/authcode?token=${code}`
+    }
+
     return {
-      userNameRef,
-      passwordRef,
-      loginFormRef,
-      ...toRefs(state),
-      ...toRefs(methods),
-      t
+      loginFormDom,
+      passwordDom,
+      src,
+      loginForm,
+      loginRules,
+      loading,
+      passwordType,
+      showPwd,
+      handleLogin,
+      createCode
     }
   }
 })
 </script>
 
 <style lang="scss">
-// References: https://www.zhangxinxu.com/wordpress/2018/01/css-caret-color-first-line/
-@supports (-webkit-mask: none) and (not (cater-color: $loginCursorColor)) {
-  .login-container .el-input {
-    input {
-      color: $loginCursorColor;
-    }
-    input::first-line {
-      color: $lightGray;
-    }
+/* 修复input 背景不协调 和光标变色 */
+
+$bg:#283443;
+$light_gray:#fff;
+$cursor: #fff;
+
+@supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
+  .login-container .el-input input {
+    color: $cursor;
   }
 }
+
+/* reset element-ui css */
 .login-container {
   .el-input {
     display: inline-block;
     height: 47px;
     width: 85%;
+
     input {
-      height: 47px;
       background: transparent;
       border: 0px;
+      -webkit-appearance: none;
       border-radius: 0px;
       padding: 12px 5px 12px 15px;
-      color: $lightGray;
-      caret-color: $loginCursorColor;
-      -webkit-appearance: none;
+      color: $light_gray;
+      height: 47px;
+      caret-color: $cursor;
+
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $loginBg inset !important;
-        -webkit-text-fill-color: #fff !important;
+        box-shadow: 0 0 0px 1000px $bg inset !important;
+        -webkit-text-fill-color: $cursor !important;
       }
     }
   }
+
   .el-form-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(0, 0, 0, 0.1);
@@ -283,20 +265,17 @@ export default defineComponent({
 </style>
 
 <style lang="scss" scoped>
+$bg:#2d3a4b;
+$dark_gray:#889aa4;
+$light_gray:#eee;
+
 .login-container {
-  height: 100%;
+  min-height: 100%;
+  min-width: 767px;
   width: 100%;
+  background-color: $bg;
   overflow: hidden;
-  // background-color: $loginBg;
-  video {
-    position: absolute;
-    /* Vertical and Horizontal center*/
-    top: 0; left: 0; right: 0; bottom: 0;
-    width:100%;
-    height:100%;
-    object-fit: cover;
-    z-index: -1;
-  }
+
   .login-form {
     position: relative;
     width: 520px;
@@ -305,59 +284,45 @@ export default defineComponent({
     margin: 0 auto;
     overflow: hidden;
   }
-  .tips {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 10px;
-    span {
-      &:first-of-type {
-        margin-right: 16px;
-      }
-    }
-  }
+
   .svg-container {
     padding: 6px 5px 6px 15px;
-    color: $darkGray;
+    color: $dark_gray;
     vertical-align: middle;
     width: 30px;
     display: inline-block;
   }
+
   .title-container {
     position: relative;
+
     .title {
       font-size: 26px;
-      color: $lightGray;
+      color: $light_gray;
       margin: 0px auto 40px auto;
       text-align: center;
       font-weight: bold;
     }
-    .set-language {
-      color: #fff;
-      position: absolute;
-      top: 3px;
-      font-size: 18px;
-      right: 0px;
-      cursor: pointer;
-    }
   }
+
   .show-pwd {
     position: absolute;
     right: 10px;
     top: 7px;
     font-size: 16px;
-    color: $darkGray;
+    color: $dark_gray;
     cursor: pointer;
     user-select: none;
   }
-  .thirdparty-button {
+
+  .show-code {
     position: absolute;
-    right: 0;
-    bottom: 6px;
-  }
-  @media only screen and (max-width: 470px) {
-    .thirdparty-button {
-      display: none;
-    }
+    right: -120px;
+    top: 0px;
+    font-size: 16px;
+    color: $dark_gray;
+    cursor: pointer;
+    user-select: none;
   }
 }
 </style>

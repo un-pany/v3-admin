@@ -1,10 +1,4 @@
-/*
- * @Description: 权限先关接口
- * @Author: ZY
- * @Date: 2021-01-12 16:37:09
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-13 16:50:20
- */
+/* 权限相关接口 */
 
 import { RolesModels } from '@/model/getRolesModel'
 import { RootObject } from '@/model/rootObject'
