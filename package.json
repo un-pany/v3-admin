@@ -11,6 +11,7 @@
     "serve:prod": "cross-env NODE_ENV=development dotenv -e .env.prod.serve vue-cli-service serve",
     "build:prod": "cross-env NODE_ENV=production  dotenv -e .env.prod.build vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "inspect": "vue-cli-service inspect",
     "mock": "cd mock && ts-node-dev mock.ts"
   },
   "dependencies": {
@@ -69,6 +70,7 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^2.0.0",
     "style-resources-loader": "^1.4.1",
+    "svg-sprite-loader": "^6.0.5",
     "typescript": "~4.0.3",
     "vue-cli-plugin-style-resources-loader": "^0.1.4",
     "vue-jest": "^5.0.0-alpha.8",

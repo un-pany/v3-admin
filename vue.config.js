@@ -63,6 +63,13 @@ module.exports = {
               path.resolve(__dirname, 'src/lang')
             ]
           },
+          {
+            test: /\.svg$/,
+            loader: 'svg-sprite-loader',
+            include: [
+              path.resolve(__dirname, 'src/assets/svg-icons/icons')
+            ]
+          }
         ],
       },
       plugins:[

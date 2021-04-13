@@ -8,6 +8,18 @@
       :tableHeader="tableHeader"
       :pageNum="pageNum"
       :pageSize="pageSize" />
+    <svg-icon name="ump-topology" />
+    <div>
+      <svg-icon name="ump-topology" />
+    </div>
+    <svg-icon name="host" />
+    <svg
+      class="icon"
+      aria-hidden="true"
+      font-size="20px"
+    >
+      <use xlink:href="#iconhamburger" />
+    </svg>
     <el-row :gutter="8">
       <el-col
         :xs="{span: 24}"
@@ -37,6 +49,8 @@
 </template>
 
 <script>
+import './ump-topology.svg'
+import './host.svg'
 import { reactive } from 'vue'
 export default {
   components: {},
