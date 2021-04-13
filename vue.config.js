@@ -51,7 +51,8 @@ module.exports = {
         alias:{
           '@':resolve('src'),
           '*':resolve(''),
-          'Assets':resolve('src/assets')
+          'Assets':resolve('src/assets'),
+          'vue-i18n': 'vue-i18n/dist/vue-i18n.cjs.js' //解决警告You are running the esm-bundler build of vue-i18n.
         }
       },
       module:{
