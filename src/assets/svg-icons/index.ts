@@ -8,11 +8,7 @@
 //   /\.svg$/
 // )
 
-// console.log(requireComponent.keys())
-
 // const result = requireComponent.keys().map(requireComponent)
-
-// console.log(result[0].default)
 
 // export default function (app: any) {
 //   app.config.globalProperties.$IconSvg = result.map(e => e.default.id)
