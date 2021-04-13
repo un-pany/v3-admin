@@ -1,6 +1,5 @@
 <!-- admin 权限主页 -->
 <template>
-<<<<<<< HEAD
   <div class="dashboard-editor-container">
     <GithubCorner class="github-corner" />
     <filter-container />
@@ -52,14 +51,6 @@
 <script>
 import './ump-topology.svg'
 import './host.svg'
-import { reactive } from 'vue'
-=======
-  <div class="dashboard-editor-container" />
-</template>
-
-<script>
-// import { reactive } from 'vue'
->>>>>>> c6ae16eed4e91e319568c4ec617ccb72ec9949a4
 export default {
   components: {},
   setup() {
