@@ -207,7 +207,9 @@ export default defineComponent({
     }
 
     const moveToCurrentTag = () => {
-      const tags = instance?.refs.tag as any[]
+      console.log(instance)
+      const tags = (instance?.refs?.tag) as any[]
+      console.log(tags)
       nextTick(() => {
         if (tags === null || tags === undefined) { return }
         for (const tag of tags) {
