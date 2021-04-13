@@ -1,10 +1,4 @@
-<!--
- * @Description: 大小选择
- * @Author: ZY
- * @Date: 2020-12-24 09:59:06
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 19:15:35
--->
+<!-- 大小选择 -->
 <template>
   <div>
     <el-dropdown

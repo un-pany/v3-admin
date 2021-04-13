@@ -1,10 +1,4 @@
-<!--
- * @Description: 语言选择
- * @Author: ZY
- * @Date: 2020-12-23 20:06:29
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-25 20:05:16
--->
+<!-- 语言选择 -->
 <template>
   <div>
     <el-dropdown>

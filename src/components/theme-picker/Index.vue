@@ -1,10 +1,4 @@
-<!--
- * @Description:  主题选择器
- * @Author: ZY
- * @Date: 2021-01-19 11:06:36
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 15:58:27
--->
+<!-- 主题选择器 -->
 
 <template>
   <el-color-picker
@@ -82,7 +76,7 @@ export default defineComponent({
         xhr.onreadystatechange = () => {
           if (xhr.readyState === 4 && xhr.status === 200) {
             (ctx as any)[variable] = xhr.responseText.replace(/@font-face{[^}]+}/, '')
-            resolve()
+            resolve(true)
           }
         }
         xhr.open('GET', url)

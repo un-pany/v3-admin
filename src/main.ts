@@ -1,13 +1,5 @@
-/*
- * @Description:
- * @Autor: ZY
- * @Date: 2020-12-07 10:30:20
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 19:20:07
- */
 import { createApp, Directive } from 'vue'
 import App from './App.vue'
-// import './pwa/registerServiceWorker'
 import router from './router'
 import { store } from './store'
 import { loadAllPlugins } from './plugins'

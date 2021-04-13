@@ -1,10 +1,3 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-18 15:23:57
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 11:12:08
- */
 import { createI18n } from 'vue-i18n' // import from runtime only
 
 import { getLanguage } from '@/utils/cookies'
