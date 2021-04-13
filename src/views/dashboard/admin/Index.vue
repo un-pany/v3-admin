@@ -1,13 +1,7 @@
 <!-- admin 权限主页 -->
 <template>
   <div class="dashboard-editor-container">
-    <GithubCorner class="github-corner" />
     <filter-container />
-    <simple-table
-      :tableData="list"
-      :tableHeader="tableHeader"
-      :pageNum="pageNum"
-      :pageSize="pageSize" />
     <svg-icon name="host" />
     <el-row :gutter="8">
       <el-col
@@ -16,10 +10,7 @@
         :md="{span: 24}"
         :lg="{span: 16}"
         :xl="{span: 16}"
-        style="padding-right:8px;margin-bottom:30px;"
-      >
-        <DependsTable />
-      </el-col>
+        style="padding-right:8px;margin-bottom:30px;" />
     </el-row>
 
     <el-row>
@@ -29,10 +20,7 @@
         :md="{span: 24}"
         :lg="{span: 16}"
         :xl="{span: 16}"
-        style="padding-right:8px;margin-bottom:30px;"
-      >
-        <UpdateTimeline />
-      </el-col>
+        style="padding-right:8px;margin-bottom:30px;" />
     </el-row>
   </div>
 </template>
@@ -41,8 +29,7 @@
 export default {
   components: {},
   setup() {
-    return {
-    }
+    return {}
   }
 }
 </script>
