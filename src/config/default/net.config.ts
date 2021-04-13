@@ -1,11 +1,3 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-08 09:45:25
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-26 12:27:00
- */
-
 import { ContentType, Device } from '@/constant/headers'
 import { InfoShowType } from '@/constant/network'
 import settings from "./setting.config";

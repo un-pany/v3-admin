@@ -1,8 +1,7 @@
 {
-  "name": "vue3-composition-admin",
+  "name": "vue-admin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://RainManGO.github.io/vue3-composition-admin",
   "scripts": {
     "serve:dev": "cross-env NODE_ENV=development dotenv -e .env.dev.serve vue-cli-service serve",
     "build:dev": "cross-env NODE_ENV=production  dotenv -e .env.dev.build vue-cli-service build",
