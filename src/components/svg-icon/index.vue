@@ -16,11 +16,10 @@ export default {
 }
 </script>
 <style lang="scss">
-.iconSvg {
-  width: 1.2em;
-  height: 1.2em;
-  margin-right: 20px;
-  font-size: 16px;
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
 }

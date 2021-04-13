@@ -1,5 +1,5 @@
-/* 根绝大小变化重新布局 */
-// refer to Bootstrap's responsive design
+/* 根据大小变化重新布局 */
+// 参考 Bootstrap 的响应式设计
 
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
@@ -7,7 +7,7 @@ import { DeviceType } from '@/store/modules/app/state'
 import { computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 const store = useStore()
-const WIDTH = 992 // refer to Bootstrap's responsive design
+const WIDTH = 992 // 参考 Bootstrap 的响应式设计
 
 export default function() {
   const device = computed(() => {
