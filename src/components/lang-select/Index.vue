@@ -9,8 +9,9 @@
             v-for="item in languages"
             :key="item.value"
             :disabled="language===item.value"
+            @click="handleSetLanguage(item.value)"
           >
-            <span @click="handleSetLanguage(item.value)">{{ item.name }}</span>
+            <span>{{ item.name }}</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </template>
