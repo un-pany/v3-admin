@@ -8,7 +8,6 @@
 <template>
   <div>
     <el-dropdown
-      id="size-select"
       trigger="click"
       @command="handleSetSize"
     >
