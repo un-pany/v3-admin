@@ -1,10 +1,4 @@
-<!--
- * @Description: 侧边栏logo(需要跟随侧边栏折叠)
- * @Author: ZY
- * @Date: 2020-12-25 11:34:37
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-09 17:30:30
--->
+<!-- 侧边栏logo(需要跟随侧边栏折叠) -->
 
 <template>
   <div

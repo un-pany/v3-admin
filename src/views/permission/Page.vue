@@ -1,4 +1,4 @@
-<!-- 权限测试（页面权限、指令权限、角色权限）Demo -->
+<!-- 权限测试（页面权限、指令权限、角色权限）Demo，勿删 -->
 
 <template>
   <div class="app-container">
