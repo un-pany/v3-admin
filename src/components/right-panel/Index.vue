@@ -1,10 +1,4 @@
-<!--
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-24 10:44:01
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 15:40:56
--->
+<!-- 右侧悬浮设置面板 -->
 
 <template>
   <div

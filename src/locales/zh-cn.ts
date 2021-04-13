@@ -1,11 +1,3 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-28 17:18:24
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-20 15:18:01
- */
-
 export default {
   route: {
     dashboard: '首页',

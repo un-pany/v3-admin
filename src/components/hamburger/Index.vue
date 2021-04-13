@@ -1,10 +1,4 @@
-<!--
- * @Description: 折叠边栏按钮
- * @Author: ZY
- * @Date: 2020-12-23 16:25:41
- * @LastEditors: ZY
- * @LastEditTime: 2020-12-23 17:55:52
--->
+<!-- 折叠边栏按钮 -->
 
 <template>
   <div

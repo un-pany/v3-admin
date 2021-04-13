@@ -1,10 +1,3 @@
-<!--
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-24 10:35:59
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-28 16:31:09
--->
 <template>
   <div
     id="tags-view-container"

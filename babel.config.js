@@ -1,10 +1,3 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2020-12-07 10:30:20
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-05 17:11:54
- */
 module.exports = {
   presets: [
     '@vue/cli-plugin-babel/preset'

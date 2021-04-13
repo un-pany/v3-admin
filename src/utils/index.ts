@@ -1,10 +1,3 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2021-01-08 17:56:34
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-08 19:01:43
- */
 // Parse the time to string
 export const parseTime = (
   time?: object | string | number | null,

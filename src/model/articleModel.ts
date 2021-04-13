@@ -1,10 +1,3 @@
-/*
- * @Description:
- * @Autor: scy😊
- * @Date: 2021-01-20 11:46:27
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-21 17:33:29
- */
 export interface ArticleModel {
   id: number
   status: string

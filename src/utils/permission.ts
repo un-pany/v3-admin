@@ -1,10 +1,3 @@
-/*
- * @Description:
- * @Author: ZY
- * @Date: 2021-01-12 10:20:08
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-12 10:20:45
- */
 import { useStore } from '@/store'
 
 export const checkPermission = (value: string[]): boolean => {

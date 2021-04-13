@@ -1,10 +1,4 @@
-<!--
- * @Description: 导航栏
- * @Author: ZY
- * @Date: 2020-12-17 15:52:19
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-27 19:16:50
--->
+<!-- 导航栏 -->
 <template>
   <div class="navbar">
     <Hamburger
@@ -66,8 +60,8 @@
 import BreadCrumb from '@/components/bread-crumb/Index.vue'
 import Hamburger from '@/components/hamburger/Index.vue'
 import Screenfull from '@/components/screenfull/Index.vue'
-import LangSelect from '@/components/lang_select/Index.vue'
-import SizeSelect from '@/components/size_select/Index.vue'
+import LangSelect from '@/components/lang-select/Index.vue'
+import SizeSelect from '@/components/size-select/Index.vue'
 
 import { computed, reactive, toRefs } from 'vue'
 import { useStore } from '@/store'

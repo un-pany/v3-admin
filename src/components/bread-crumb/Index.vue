@@ -1,10 +1,4 @@
-<!--
- * @Description: 面包屑组件
- * @Author: ZY
- * @Date: 2020-12-22 11:02:14
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-28 16:28:40
--->
+<!-- 面包屑组件 -->
 <template>
   <el-breadcrumb
     class="app-breadcrumb"
