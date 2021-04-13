@@ -62,15 +62,8 @@ module.exports = {
             include: [ // Use `Rule.include` to specify the files of locale messages to be pre-compiled
               path.resolve(__dirname, 'src/lang')
             ]
-          },
-          {
-            test: /\.svg$/,
-            loader: 'svg-sprite-loader',
-            include: [
-              path.resolve(__dirname, 'src/assets/svg-icons/icons')
-            ]
           }
-        ],
+        ]
       },
       plugins:[
         new WebpackBar({
@@ -79,4 +72,14 @@ module.exports = {
       ]
     }
   },
+  chainWebpack: config => {
+    const dir = path.resolve(__dirname, 'src/assets/svg-icons/icons')
+    config.module
+      .rule('svg-sprite')
+      .test(/\.svg$/)
+      .include.add(dir).end()
+      .use('svg-sprite-loader').loader('svg-sprite-loader').options({ extract: false }).end()
+    config.plugin('svg-sprite').use(require('svg-sprite-loader/plugin')), [{ pluginSprite: true }]
+    config.module.rule('svg').exclude.add(dir)
+  }
 }

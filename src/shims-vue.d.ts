@@ -15,8 +15,9 @@ declare module '*.gif' {
   export const gif: any
 }
 
-declare module '*.svg' {
-  export const svg: any
+declare module "*.svg" {
+  const content: any
+  export default content
 }
 
 // TODO: remove this part after vue-count-to has its typescript file

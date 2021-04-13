@@ -23,8 +23,6 @@ const requireAll = function(requireContext: any) {
 }
 const req = require.context('./icons', false, /\.svg$/)
 
-console.log(req)
-
 requireAll(req)
 
 export default req
