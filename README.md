@@ -2,7 +2,7 @@
 
 ## 简介
 
-项目的项目改进自 [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
+项目改进自 [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
 
 ### 目录结构
 
@@ -97,8 +97,4 @@ or
       "git add"
     ]
   }
-```                                        |
-
-## License
-
-[MIT](https://github.com/rcyj-FED/vue3-composition-admin/blob/main/LICENSE)
+```
