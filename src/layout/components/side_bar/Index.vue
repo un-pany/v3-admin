@@ -1,9 +1,5 @@
 <template>
   <div :class="{'has-logo': showLogo}">
-    <SidebarLogo
-      v-if="showLogo"
-      :collapse="isCollapse"
-    />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :collapse="!isCollapse"
@@ -23,6 +19,10 @@
         />
       </el-menu>
     </el-scrollbar>
+    <SidebarLogo
+      v-if="showLogo"
+      :collapse="isCollapse"
+    />
   </div>
 </template>
 
