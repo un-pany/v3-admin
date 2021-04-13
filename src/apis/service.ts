@@ -63,7 +63,7 @@ function createService() {
   // 响应拦截
   service.interceptors.response.use(
     response => {
-      console.log(response)
+      // console.log(response)
       removePendingAjax(response.config)
       // dataAxios 是 axios 返回数据中的 data
       const dataAxios = response.data

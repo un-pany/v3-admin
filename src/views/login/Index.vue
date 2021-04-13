@@ -1,20 +1,12 @@
-<!--
- * @Description: 登录页面
- * @Author: ZY
- * @Date: 2020-12-28 16:27:50
- * @LastEditors: ZY
- * @LastEditTime: 2021-03-10 13:41:17
--->
-
 <template>
   <div class="login-container">
     <video
-      poster="../../../assets/images/login/video-cover.jpeg"
+      poster="../../assets/images/login/video-cover.jpeg"
       loop
       autoplay
       muted
     >
-      <source src="../../../assets/images/login/night.mp4">
+      <source src="../../assets/images/login/night.mp4">
     </video>
 
     <el-form
@@ -29,10 +21,6 @@
         <h3 class="title">
           {{ t("login.title") }}
         </h3>
-        <LangSelect
-          :isWhite="true"
-          class="set-language"
-        />
       </div>
 
       <el-form-item prop="username">
@@ -77,9 +65,9 @@
             class="show-pwd"
             @click="showPwd"
           >
-            <svg-icon
+            <!-- <svg-icon
               :name="passwordType === 'password' ? 'eye-off' : 'eye-on'"
-            />
+            /> -->
           </span>
         </el-form-item>
       </el-tooltip>
@@ -121,7 +109,6 @@
       <br>
       <br>
       <br>
-      <SocialSign />
     </el-dialog>
   </div>
 </template>
@@ -136,8 +123,6 @@ import {
   nextTick,
   toRefs
 } from 'vue'
-import LangSelect from '@/components/lang_select/Index.vue'
-import SocialSign from './components/SocialSignin.vue'
 import { isValidUsername } from '@/utils/validate'
 import { useRoute, LocationQuery, useRouter } from 'vue-router'
 import { useStore } from '@/store'
@@ -145,8 +130,6 @@ import { UserActionTypes } from '@/store/modules/user/action-types'
 import { useI18n } from 'vue-i18n'
 export default defineComponent({
   components: {
-    LangSelect,
-    SocialSign
   },
   setup() {
     const userNameRef = ref(null)
@@ -172,7 +155,6 @@ export default defineComponent({
       redirect: '',
       otherQuery: {}
     })
-
     const methods = reactive({
       validateUsername: (rule: any, value: string, callback: Function) => {
         if (!isValidUsername(value)) {
@@ -226,7 +208,6 @@ export default defineComponent({
         })
       }
     })
-
     function getOtherQuery(query: LocationQuery) {
       return Object.keys(query).reduce((acc, cur) => {
         if (cur !== 'redirect') {
@@ -235,14 +216,12 @@ export default defineComponent({
         return acc
       }, {} as LocationQuery)
     }
-
     watch(() => route.query, query => {
       if (query) {
         state.redirect = query.redirect?.toString() ?? ''
         state.otherQuery = getOtherQuery(query)
       }
     })
-
     onMounted(() => {
       if (state.loginForm.username === '') {
         (userNameRef.value as any).focus()
@@ -250,7 +229,6 @@ export default defineComponent({
         (passwordRef.value as any).focus()
       }
     })
-
     return {
       userNameRef,
       passwordRef,
@@ -275,13 +253,11 @@ export default defineComponent({
     }
   }
 }
-
 .login-container {
   .el-input {
     display: inline-block;
     height: 47px;
     width: 85%;
-
     input {
       height: 47px;
       background: transparent;
@@ -291,14 +267,12 @@ export default defineComponent({
       color: $lightGray;
       caret-color: $loginCursorColor;
       -webkit-appearance: none;
-
       &:-webkit-autofill {
         box-shadow: 0 0 0px 1000px $loginBg inset !important;
         -webkit-text-fill-color: #fff !important;
       }
     }
   }
-
   .el-form-item {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(0, 0, 0, 0.1);
@@ -331,19 +305,16 @@ export default defineComponent({
     margin: 0 auto;
     overflow: hidden;
   }
-
   .tips {
     font-size: 14px;
     color: #fff;
     margin-bottom: 10px;
-
     span {
       &:first-of-type {
         margin-right: 16px;
       }
     }
   }
-
   .svg-container {
     padding: 6px 5px 6px 15px;
     color: $darkGray;
@@ -351,10 +322,8 @@ export default defineComponent({
     width: 30px;
     display: inline-block;
   }
-
   .title-container {
     position: relative;
-
     .title {
       font-size: 26px;
       color: $lightGray;
@@ -362,7 +331,6 @@ export default defineComponent({
       text-align: center;
       font-weight: bold;
     }
-
     .set-language {
       color: #fff;
       position: absolute;
@@ -372,7 +340,6 @@ export default defineComponent({
       cursor: pointer;
     }
   }
-
   .show-pwd {
     position: absolute;
     right: 10px;
@@ -382,13 +349,11 @@ export default defineComponent({
     cursor: pointer;
     user-select: none;
   }
-
   .thirdparty-button {
     position: absolute;
     right: 0;
     bottom: 6px;
   }
-
   @media only screen and (max-width: 470px) {
     .thirdparty-button {
       display: none;

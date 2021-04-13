@@ -100,7 +100,7 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
   [UserActionTypes.ACTION_LOGIN_OUT](
     { commit }: AugmentedActionContext
   ) {
-    console.log(commit)
+    // console.log(commit)
     removeToken()
     commit(UserMutationTypes.SET_TOKEN, '')
     commit(UserMutationTypes.SET_ROLES, [])

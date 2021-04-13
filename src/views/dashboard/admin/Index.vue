@@ -1,5 +1,6 @@
 <!-- admin 权限主页 -->
 <template>
+<<<<<<< HEAD
   <div class="dashboard-editor-container">
     <GithubCorner class="github-corner" />
     <filter-container />
@@ -52,23 +53,17 @@
 import './ump-topology.svg'
 import './host.svg'
 import { reactive } from 'vue'
+=======
+  <div class="dashboard-editor-container" />
+</template>
+
+<script>
+// import { reactive } from 'vue'
+>>>>>>> c6ae16eed4e91e319568c4ec617ccb72ec9949a4
 export default {
   components: {},
   setup() {
-    const tableHeader = [
-      { prop: 'id', label: '编号', width: '100', align: 'center' },
-      { prop: 'name', label: '应用名称', align: 'center' },
-      { prop: 'accessKey', label: '访问键', align: 'center' }
-    ]
-
-    const list = reactive([{
-      id: 1,
-      name: 'sss',
-      accessKey: 'ssasas'
-    }])
     return {
-      tableHeader,
-      list
     }
   }
 }

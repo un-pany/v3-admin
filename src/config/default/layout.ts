@@ -1,25 +1,18 @@
-/*
- * @Description: 布局配置
- * @Author: ZY
- * @Date: 2020-12-25 10:31:11
- * @LastEditors: ZY
- * @LastEditTime: 2021-01-04 16:55:16
- */
+/* 布局配置 */
 
 interface LayoutSettings {
-    // Controls settings panel display
+    // 控制 settings panel 显示
     showSettings: boolean 
-    // Controls tagsview display
+    // 控制 tagsview 显示
     showTagsView: boolean 
-    // Controls siderbar logo display
+    // 控制 siderbar logo 显示
     showSidebarLogo: boolean 
-    // If true, will fix the header component
+    // 如果为真，将修复 header component
     fixedHeader: boolean 
-    // If true, will change active text color for sidebar based on theme
+    // 如果为真，将根据 theme 更改 sidebar 的 active text color
     sidebarTextTheme: boolean 
   }
   
-  // You can customize below settings :)
   const layoutSettings: LayoutSettings = {
     showSettings: true,
     showTagsView: true,

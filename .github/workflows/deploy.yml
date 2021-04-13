@@ -1,4 +1,4 @@
-name: Build And Deploy vue3-composition-admin
+name: Build And Deploy vue-admin
 
 on:
   push:

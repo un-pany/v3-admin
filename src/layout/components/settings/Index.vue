@@ -88,7 +88,7 @@ export default defineComponent({
     })
 
     watch(() => state.showSidebarLogo, (value) => {
-      console.log(value)
+      // console.log(value)
 
       store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, { key: 'showSidebarLogo', value })
     })
