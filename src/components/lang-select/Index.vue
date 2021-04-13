@@ -2,14 +2,7 @@
 <template>
   <div>
     <el-dropdown>
-      <svg
-        class="icon"
-        aria-hidden="true"
-        font-size="20px"
-        :class="{'svg-color': isWhite}"
-      >
-        <use xlink:href="#iconlanguage" />
-      </svg>
+      <svg-icon name="language" font-size="20px" :class="{'svg-color': isWhite}" />
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item

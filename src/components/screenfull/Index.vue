@@ -6,25 +6,13 @@
       v-if="isFullscreen"
       @click="click"
     >
-      <svg
-        class="icon"
-        aria-hidden="true"
-        font-size="20px"
-      >
-        <use xlink:href="#iconexitfullscreen" />
-      </svg>
+      <svg-icon name="exit-fullscreen" font-size="20px" />
     </div>
     <div
       @click="click"
       v-else
     >
-      <svg
-        class="icon"
-        aria-hidden="true"
-        font-size="20px"
-      >
-        <use xlink:href="#iconfullscreen" />
-      </svg>
+      <svg-icon name="fullscreen" font-size="20px" />
     </div>
   </div>
 </template>

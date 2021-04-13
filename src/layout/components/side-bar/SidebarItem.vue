@@ -14,14 +14,7 @@
           :index="resolvePath(theOnlyOneChild.path)"
           :class="{'submenu-title-noDropdown': isFirstLevel}"
         >
-          <svg
-            v-if="theOnlyOneChild.meta.icon"
-            class="icon"
-            aria-hidden="true"
-            font-size="17px"
-          >
-            <use :xlink:href="theOnlyOneChild.meta.icon" />
-          </svg>
+          <svg-icon v-if="theOnlyOneChild.meta.icon" :name="theOnlyOneChild.meta.icon" font-size="17px" />
           <span
             v-if="theOnlyOneChild.meta.title"
           >{{ t('route.' + theOnlyOneChild.meta.title) }}</span>
@@ -34,14 +27,7 @@
       popper-append-to-body
     >
       <template #title>
-        <svg
-          v-if="item.meta && item.meta.icon"
-          class="icon"
-          aria-hidden="true"
-          font-size="16px"
-        >
-          <use :xlink:href="item.meta.icon" />
-        </svg>
+        <svg-icon v-if="item.meta && item.meta.icon" :name="item.meta.icon" font-size="16px" />
         <span
           v-if="item.meta && item.meta.title"
         >{{ t('route.' +item.meta.title) }}</span>

@@ -15,7 +15,7 @@ const ThemeRouter: Array<RouteRecordRaw> = [
         name: 'Theme',
         meta: {
           title: 'theme',
-          icon: '#iconhuanfu'
+          icon: 'theme'
         }
       }
     ]

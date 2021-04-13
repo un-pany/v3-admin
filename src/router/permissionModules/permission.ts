@@ -8,7 +8,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
     redirect: '/permission/directive',
     meta: {
       title: 'permission',
-      icon: '#iconquanxian',
+      icon: 'lock',
       roles: ['admin', 'editor'], // 你可以在根导航系统中设置角色
       alwaysShow: true // 将始终显示根菜单
     },
