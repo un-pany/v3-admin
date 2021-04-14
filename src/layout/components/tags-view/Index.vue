@@ -200,6 +200,7 @@ export default defineComponent({
     }
 
     const addTags = () => {
+      console.log(currentRoute)
       if (currentRoute.name) {
         store.dispatch(TagsActionTypes.ACTION_ADD_VIEW, currentRoute)
       }
@@ -207,21 +208,17 @@ export default defineComponent({
     }
 
     const moveToCurrentTag = () => {
-      console.log(instance)
-      const tags = (instance?.refs?.tag) as any[]
-      console.log(tags)
-      nextTick(() => {
-        if (tags === null || tags === undefined) { return }
-        for (const tag of tags) {
-          if ((tag.to as TagView).path === currentRoute.path) {
-            (scrollPaneRef.value as any).moveToCurrentTag(tag)
-            // When query is different then update
-            if ((tag.to as TagView).fullPath !== currentRoute.fullPath) {
-              store.dispatch(TagsActionTypes.ACTION_UPDATE_VISITED_VIEW, currentRoute)
-            }
+      const tags = instance?.refs.tag as any[]
+      if (tags === null || tags === undefined || !Array.isArray(tags)) { return }
+      for (const tag of tags) {
+        if ((tag.to as TagView).path === currentRoute.path) {
+          (scrollPaneRef.value as any).moveToCurrentTag(tag)
+          // When query is different then update
+          if ((tag.to as TagView).fullPath !== currentRoute.fullPath) {
+            store.dispatch(TagsActionTypes.ACTION_UPDATE_VISITED_VIEW, currentRoute)
           }
         }
-      })
+      }
     }
 
     watch(() => currentRoute.name, () => {
