@@ -15,7 +15,6 @@ const app = createApp(App)
 loadAllPlugins(app)
 
 loadComponents(app)
-// console.log(process.env.VUE_APP_BASE_API)
 
 // 自定义指令
 Object.keys(directives).forEach(key => {

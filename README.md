@@ -2,12 +2,12 @@
 
 ## 简介
 
-项目改进自 [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
+项目改进自 [vue3-composition-admin minimal分支](https://github.com/rcyj-FED/vue3-composition-admin/tree/minimal)
 
 ### 目录结构
 
 ```
-admin-tmpl
+vue-admin
 ├─ .env.dev.build     # 开发环境
 ├─ .env.dev.serve     # 开发本地本地
 ├─ .env.prod.build    # 生产环境
@@ -17,7 +17,6 @@ admin-tmpl
 ├─ .eslintrc.js       # eslint
 ├─ README.md          
 ├─ dist               # 打包dist
-├─ mock               # mock服务
 ├─ public             # 静态资源
 ├─ src                # 源码
 │  ├─ @types          # ts 声明
@@ -25,7 +24,7 @@ admin-tmpl
 │  ├─ assets          # webpack打包的资源
 │  ├─ components      # 公共组件
 │  ├─ config          # 全部配置
-│  ├─ constant        # 常量
+│  ├─ constant        # 常量/枚举
 │  ├─ directives      # 全局指令
 │  ├─ layout          # 全局Layout
 │  ├─ locales         # 国际化
