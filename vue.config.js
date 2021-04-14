@@ -13,7 +13,7 @@ const  {
   transpileDependencies,
   title,
   devPort,
-} = require('./src/config/vue.custom.config')
+} = require('./src/config/vue.custom.config.ts')
 module.exports = {
   publicPath,
   assetsDir,
