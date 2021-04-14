@@ -1,8 +1,6 @@
-// 默认配置
-import {  netConfig, settingConfig, themeConfig } from './default'
+/* 导出默认配置（vue 配置 | 主题配置 | 网络配置） */
 
-// 自定义配置
-import customConfig from './customConfig'
-
-// 导出配置（自定义配置优先级高）
-export default Object.assign({}, netConfig, settingConfig, themeConfig, customConfig)
+export const netConfig = import('./net.config')
+export const settingConfig = import('./setting.config')
+export const themeConfig = import('./theme.config')
+export const layoutSettings = import('./layout')
