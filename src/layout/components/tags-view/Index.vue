@@ -208,19 +208,17 @@ export default defineComponent({
     }
 
     const moveToCurrentTag = () => {
-      const tags = (instance?.refs?.tag as TagView)
-      console.log(tags.to)
-      console.log(currentRoute)
-      nextTick(() => {
-        if (tags === null || tags === undefined) { return }
-        if ((tags.to as TagView).path === currentRoute.path) {
-          (scrollPaneRef.value as any).moveToCurrentTag(tags)
+      const tags = instance?.refs.tag as any[]
+      if (tags === null || tags === undefined || !Array.isArray(tags)) { return }
+      for (const tag of tags) {
+        if ((tag.to as TagView).path === currentRoute.path) {
+          (scrollPaneRef.value as any).moveToCurrentTag(tag)
           // When query is different then update
-          if ((tags.to as TagView).fullPath !== currentRoute.fullPath) {
+          if ((tag.to as TagView).fullPath !== currentRoute.fullPath) {
             store.dispatch(TagsActionTypes.ACTION_UPDATE_VISITED_VIEW, currentRoute)
           }
         }
-      })
+      }
     }
 
     watch(() => currentRoute.name, () => {
