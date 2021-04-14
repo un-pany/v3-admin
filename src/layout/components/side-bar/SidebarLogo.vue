@@ -37,7 +37,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import settings from '@/config/setting.config'
 
 export default defineComponent({
   props: {
@@ -47,7 +46,7 @@ export default defineComponent({
     }
   },
   setup() {
-    const title = settings.title
+    const title = 'Vue - Admin'
     return {
       title
     }

@@ -1,3 +1,5 @@
+/* vue.config 文件配置 */
+
 const vueDefaultConfig = {
     publicPath: '/',
     outputDir: 'dist',
