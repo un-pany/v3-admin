@@ -118,7 +118,7 @@
 <script lang="ts">
 import { computed, defineComponent, onBeforeMount, reactive, toRefs, ref, nextTick, getCurrentInstance } from 'vue'
 import { RouteRecordRaw } from 'vue-router'
-import { getRoutes, getRoles, delRole, updateRole, createRole } from '@/apis/roles'
+import $api from '@/apis'
 import { resolve } from 'path'
 import { useI18n } from 'vue-i18n'
 import editRole from './editRole'
@@ -274,7 +274,7 @@ export default defineComponent({
           cancelButtonText: 'Cancel',
           type: 'warning'
         }).then(async() => {
-          delRole(row.key).then((res) => {
+          $api.delRole(row.key).then((res: any) => {
             state.rolesList.splice($index, 1)
             ctx.$message({
               type: 'success',
@@ -290,7 +290,7 @@ export default defineComponent({
       const checkedKeys = (treeRef.value as any).getCheckedKeys()
       state.role.routes = generateTree(cloneDeep(state.serviceRoutes as RouteRecordRaw[]), '/', checkedKeys)
       if (isEdit) {
-        await updateRole(state.role.key, { role: state.role }).then(async() => {
+        await $api.updateRole(state.role.key, { role: state.role }).then(async() => {
           for (let index = 0; index < state.rolesList.length; index++) {
             if (state.rolesList[index].key === state.role.key) {
               state.rolesList.splice(index, 1, Object.assign({}, state.role))
@@ -299,7 +299,7 @@ export default defineComponent({
           }
         })
       } else {
-        await createRole({ role: state.role }).then(async(res) => {
+        await $api.createRole({ role: state.role }).then(async(res: any) => {
           state.role.key = res?.data.key
           state.rolesList.push(state.role)
         })
@@ -320,14 +320,14 @@ export default defineComponent({
     }
 
     const getServiceRoutes = () => {
-      getRoutes().then((res) => {
+      $api.getRoutes().then((res: any) => {
         state.serviceRoutes = res?.data.routes as any as RouteRecordRaw[]
         state.reshapedRoutes = getReshapeRoutes(res?.data.routes as any as RouteRecordRaw[])
       })
     }
 
     const getRolesList = () => {
-      getRoles().then((res) => {
+      $api.getRoles().then((res: any) => {
         state.rolesList = res?.data.items as any as Role[]
       })
     }

@@ -6,12 +6,19 @@ interface UserRequestData {
 
 export default (request: AxiosAdapter) => {
   return {
-    // 登录以后返回token
+    // 登录以后返回 token
     accountLogin(data: UserRequestData) {
       return request({
-        url: '/ums/admin/login',
+        url: 'user/login',
         method: 'post',
         data
+      })
+    },
+    // 获取用户详情
+    userInfoRequest() {
+      return request({
+        url: 'user/userInfo',
+        method: 'get'
       })
     }
   }
