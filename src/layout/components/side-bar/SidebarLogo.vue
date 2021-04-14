@@ -37,7 +37,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import settings from '@/config/default/setting.config'
+import settings from '@/config/setting.config'
 
 export default defineComponent({
   props: {

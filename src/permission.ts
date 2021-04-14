@@ -6,7 +6,7 @@ import { useStore } from './store'
 import { UserActionTypes } from './store/modules/user/action-types'
 import { PermissionActionType } from './store/modules/permission/action-types'
 import { ElMessage } from 'element-plus'
-import whiteList from './config/default/whitelist'
+import whiteList from './config/whitelist'
 
 NProgress.configure({ showSpinner: false })
 

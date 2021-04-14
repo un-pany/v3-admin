@@ -6,13 +6,7 @@
       @command="handleSetSize"
     >
       <div>
-        <svg
-          class="icon"
-          aria-hidden="true"
-          font-size="20px"
-        >
-          <use xlink:href="#iconsize" />
-        </svg>
+        <svg-icon name="size" font-size="20px" />
       </div>
       <template #dropdown>
         <el-dropdown-menu>

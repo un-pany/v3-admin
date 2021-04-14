@@ -2,22 +2,16 @@
 <template>
   <div>
     <el-dropdown>
-      <svg
-        class="icon"
-        aria-hidden="true"
-        font-size="20px"
-        :class="{'svg-color': isWhite}"
-      >
-        <use xlink:href="#iconlanguage" />
-      </svg>
+      <svg-icon name="language" font-size="20px" :class="{'svg-color': isWhite}" />
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item
             v-for="item in languages"
             :key="item.value"
             :disabled="language===item.value"
+            @click="handleSetLanguage(item.value)"
           >
-            <span @click="handleSetLanguage(item.value)">{{ item.name }}</span>
+            <span>{{ item.name }}</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </template>

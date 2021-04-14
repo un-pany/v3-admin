@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { get } from 'lodash'
+import { useStore } from '@/store'
 
 // 存储每个请求的标识和取消的函数
 const pendingAjax = new Map()
@@ -76,7 +77,7 @@ function createService() {
       } else {
         // 有 code 代表这是一个后端接口 可以进行进一步的判断
         switch (code) {
-          case 200:
+          case 0:
             // [ 示例 ] code === 0 代表没有错误
             return dataAxios
           default:
@@ -133,10 +134,11 @@ function createRequestFunction() {
     const configDefault = {
       headers: {
         Authorization: token,
+        token: useStore().state.user.token, // mock 接口专用
         'Content-Type': get(config, 'headers.Content-Type', 'application/json')
       },
       timeout: 5000,
-      baseURL: process.env.VUE_APP_API,
+      baseURL: process.env.VUE_APP_BASE_API,
       data: {}
     }
     return service(Object.assign(configDefault, config))

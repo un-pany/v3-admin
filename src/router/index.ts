@@ -41,7 +41,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         name: 'Dashboard',
         meta: {
           title: 'dashboard',
-          icon: '#icondashboard',
+          icon: 'dashboard',
           affix: true
         }
       }

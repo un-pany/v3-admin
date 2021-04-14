@@ -1,5 +1,5 @@
 import elementVariables from '@/styles/element-variables.scss'
-import layoutSettings from '@/config/default/layout'
+import layoutSettings from '@/config/layout'
 export interface SettingsState {
   theme: string
   fixedHeader: boolean
