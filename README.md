@@ -1,13 +1,11 @@
-> 一个管理端模板解决方案，它是基于 vue3, ts 和 element-plus，项目是以 composition api 风格编写
-
 ## 简介
 
-项目改进自 [vue3-composition-admin minimal分支](https://github.com/rcyj-FED/vue3-composition-admin/tree/minimal)
+一个中后台管理系统解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli 4.5
 
 ### 目录结构
 
 ```
-vue-admin
+vu3-admin
 ├─ .env.dev.build     # 开发环境
 ├─ .env.dev.serve     # 开发本地本地
 ├─ .env.prod.build    # 生产环境
@@ -40,17 +38,7 @@ vue-admin
 
 ```
 
-## HighLight
-
-项目均已最新技术实现，Vue3配套升级全家桶和涉及的插件组件等
-
-项目采用技术:
-
-- vue3 + composition api
-- typescript 4
-- sass (dart sass)
-
-vue next 系列:
+## vue next 系列
 
 - [element-plus](https://github.com/element-plus/element-plus)
 - [vue-router-next](https://github.com/vuejs/vue-router-next)
@@ -58,12 +46,13 @@ vue next 系列:
 - [vue-vue-i18n-next](https://github.com/panter/vue-i18next)
 
 
-## Document
+## 可参考文档
 
-- [文档地址](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
+- [vue-element-admin 文档](https://panjiachen.gitee.io/vue-element-admin-site/zh/)
+- [vue3-composition-admin 文档](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
 
 
-## 启动 vue admin
+## 启动 v3-admin
 
 ```shell
     yarn  serve:dev
@@ -83,17 +72,8 @@ or
     npm run lint
 ```
 
+## 站在巨人的肩膀上
 
-提交自动检测：
-
-```json
- "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue,ts,tsx}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  }
-```
+- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+- [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
+- [vue3-composition-admin](https://github.com/d2-projects/d2-admin)
