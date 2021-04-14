@@ -16,7 +16,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "dayjs": "^1.10.3",
-    "element-plus": "^1.0.1-beta.14",
+    "element-plus": "^1.0.2-beta.40",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.20",
     "normalize.css": "^8.0.1",
