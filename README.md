@@ -55,21 +55,23 @@ vu3-admin
 ## 启动 v3-admin
 
 ```shell
-    yarn  serve:dev
+yarn
+yarn serve:dev
 ```
 or
 ```shell
-    npm run serve:dev
+npm i
+npm run serve:dev
 ```
 
 ### eslint
 
 ```shell
-    yarn  lint
+yarn lint
 ```
 or
 ```shell
-    npm run lint
+npm run lint
 ```
 
 ## 站在巨人的肩膀上
