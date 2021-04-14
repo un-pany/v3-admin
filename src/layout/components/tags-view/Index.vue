@@ -226,13 +226,13 @@ export default defineComponent({
       moveToCurrentTag()
     })
 
-    // watch(state.visible.value, (value) => {
-    //   if (value) {
-    //     document.body.addEventListener('click', state.closeMenu)
-    //   } else {
-    //     document.body.removeEventListener('click', state.closeMenu)
-    //   }
-    // })
+    watch(() => state.visible, (value) => {
+      if (value) {
+        document.body.addEventListener('click', state.closeMenu)
+      } else {
+        document.body.removeEventListener('click', state.closeMenu)
+      }
+    })
 
     // life cricle
     onBeforeMount(() => {
