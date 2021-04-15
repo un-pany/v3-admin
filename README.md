@@ -40,7 +40,7 @@
 ## 目录结构
 
 ```
-vue3-admin
+v3-admin
 ├─ .env.dev.build     # 开发环境 build
 ├─ .env.dev.serve     # 开发环境 serve
 ├─ .env.prod.build    # 生产环境 build
@@ -72,12 +72,10 @@ vue3-admin
 └─ vue.config.js      # vue-cli 配置
 ```
 
-
 ## 参考文档
 
 - [vue-element-admin 文档](https://panjiachen.gitee.io/vue-element-admin-site/zh/)
 - [vue3-composition-admin 文档](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
-
 
 ## 开发
 
@@ -119,6 +117,7 @@ yarn lint
 or
 ```bash
 npm run lint
+```
 
 ## 站在巨人的肩膀上
 
