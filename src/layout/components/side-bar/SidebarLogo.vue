@@ -46,7 +46,7 @@ export default defineComponent({
     }
   },
   setup() {
-    const title = 'Vue - Admin'
+    const title = 'V3 - Admin'
     return {
       title
     }

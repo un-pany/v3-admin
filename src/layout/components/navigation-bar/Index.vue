@@ -41,6 +41,14 @@
                 {{ t("navbar.dashboard") }}
               </el-dropdown-item>
             </router-link>
+            <a
+              target="_blank"
+              href="https://github.com/v3-projects/v3-admin"
+            >
+              <el-dropdown-item>
+                {{ t("navbar.github") }}
+              </el-dropdown-item>
+            </a>
             <el-dropdown-item
               divided
               @click="logout"

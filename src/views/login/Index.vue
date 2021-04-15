@@ -3,7 +3,7 @@
     <el-form ref="loginFormDom" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
       <div class="title-container">
         <h3 class="title">
-          Vue - Admim
+          V3 - Admin
         </h3>
       </div>
 
