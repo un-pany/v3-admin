@@ -1,13 +1,13 @@
-## 简介
+## ⚡️ 简介
 
-一个中后台管理系统解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli 4.5
+> 一个中后台管理系统解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli 4.5
 
-## 功能
+## 📚 功能
 
 ```text
 - 用户管理
-	- 登录
-	- 注销
+  - 登录
+  - 注销
 	
 - 权限验证
   - 页面权限
@@ -35,12 +35,12 @@
 
 - Dashboard
 - 错误日志
- ```
+```
 
 ## 目录结构
 
 ```
-v3-admin
+# vue3-admin
 ├─ .env.dev.build     # 开发环境 build
 ├─ .env.dev.serve     # 开发环境 serve
 ├─ .env.prod.build    # 生产环境 build
@@ -72,32 +72,30 @@ v3-admin
 └─ vue.config.js      # vue-cli 配置
 ```
 
-## 参考文档
-
-- [vue-element-admin 文档](https://panjiachen.gitee.io/vue-element-admin-site/zh/)
-- [vue3-composition-admin 文档](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
-
-## 开发
+## 🚀 开发
 
 ```bash
 # 安装依赖
-yarn
+yarn install
+
 # 启动服务
 yarn serve:dev
 ```
 or
 ```bash
 # 安装依赖
-npm i
+npm install
+
 # 启动服务
 npm run serve:dev
 ```
 
-## 多环境打包
+## 📦️ 多环境打包
 
 ```bash
 # 构建测试环境
 yarn build:test
+
 # 构建生产环境
 yarn build:prod
 ```
@@ -105,11 +103,12 @@ or
 ```bash
 # 构建测试环境
 npm run build:test
+
 # 构建生产环境
 npm run build:prod
 ```
 
-## 代码格式检查
+## 🔧 代码格式检查
 
 ```bash
 yarn lint
@@ -119,13 +118,18 @@ or
 npm run lint
 ```
 
+## Reference
+
+- [vue-element-admin](https://panjiachen.gitee.io/vue-element-admin-site/zh/)
+- [vue3-composition-admin](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
+
 ## 站在巨人的肩膀上
 
 - [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 - [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
 
-## License
+## 📄 License
 
 [MIT](https://github.com/v3-projects/v3-admin/blob/master/LICENSE)
 
