@@ -78,4 +78,4 @@ npm run lint
 
 - [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 - [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
-- [vue3-composition-admin](https://github.com/d2-projects/d2-admin)
+- [d2-admin](https://github.com/d2-projects/d2-admin)
