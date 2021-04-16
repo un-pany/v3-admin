@@ -5,6 +5,7 @@ const ExampleRouter: Array<RouteRecordRaw> = [
   {
     path: '/:pathMatch(.*)*',
     component: Layout,
+    name: 'Error',
     redirect: '/404',
     meta: {
       hidden: true
@@ -13,9 +14,9 @@ const ExampleRouter: Array<RouteRecordRaw> = [
       {
         path: '401',
         component: () => import(/* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue'),
-        name: 'Page401',
+        name: '401',
         meta: {
-          title: 'page401',
+          title: '401',
           noCache: true,
           hidden: true
         }
@@ -23,9 +24,9 @@ const ExampleRouter: Array<RouteRecordRaw> = [
       {
         path: '404',
         component: () => import(/* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue'),
-        name: 'Page404',
+        name: '404',
         meta: {
-          title: 'page404',
+          title: '404',
           noCache: true,
           hidden: true
         }

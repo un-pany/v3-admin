@@ -5,6 +5,7 @@ const permissionRouter: Array<RouteRecordRaw> = [
   {
     path: '/permission',
     component: Layout,
+    name: 'Permission',
     redirect: '/permission/directive',
     meta: {
       title: 'permission',

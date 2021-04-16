@@ -7,12 +7,13 @@ const ThemeRouter: Array<RouteRecordRaw> = [
   {
     path: '/theme',
     component: Layout,
+    name: 'Theme',
     redirect: 'noredirect',
     children: [
       {
         path: 'index',
         component: () => import(/* webpackChunkName: "theme" */ '@/views/theme/Index.vue'),
-        name: 'Theme',
+        name: 'ThemeIndex',
         meta: {
           title: 'theme',
           icon: 'theme'

@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
+import { resetRouterWhiteList } from '@/config/white-list'
 
 // 导入常驻路由
 const constantFiles = require.context('./constantModules', true, /\.ts$/)
@@ -59,8 +60,19 @@ const router = createRouter({
 })
 
 export function resetRouter() {
-  const newRouter = router;
-  (router as any).matcher = (newRouter as any).matcher // 重置路由
+  // 重置路由
+  // 重置路由时，只可能重置带有 name 属性的路由，所以动态路由请务必加上 name 属性
+  try {
+    router.getRoutes().forEach((route) => {
+      const { name, path } = route
+      if (name && !resetRouterWhiteList.includes(path)) {
+        router.hasRoute(name) && router.removeRoute(name)
+      }
+    })
+  } catch (error) {
+    // 强制刷新浏览器，不过体验不是很好
+    window.location.reload()
+  }
 }
 
 export default router

@@ -92,9 +92,12 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
     setToken(token)
     await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
     store.dispatch(PermissionActionType.ACTION_SET_ROUTES, state.roles)
+    resetRouter()
     store.state.permission.dynamicRoutes.forEach((item: RouteRecordRaw) => {
       router.addRoute(item)
+      // console.log(item);
     })
+    // console.log(store.state.permission.dynamicRoutes);
   },
 
   [UserActionTypes.ACTION_LOGIN_OUT](

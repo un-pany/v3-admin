@@ -200,7 +200,6 @@ export default defineComponent({
     }
 
     const addTags = () => {
-      console.log(currentRoute)
       if (currentRoute.name) {
         store.dispatch(TagsActionTypes.ACTION_ADD_VIEW, currentRoute)
       }

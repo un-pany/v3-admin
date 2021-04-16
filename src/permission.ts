@@ -6,7 +6,7 @@ import { useStore } from './store'
 import { UserActionTypes } from './store/modules/user/action-types'
 import { PermissionActionType } from './store/modules/permission/action-types'
 import { ElMessage } from 'element-plus'
-import whiteList from './config/whitelist'
+import { whiteList } from './config/white-list'
 
 NProgress.configure({ showSpinner: false })
 
@@ -16,7 +16,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
   // 判断该用户是否登录
   if (useStore().state.user.token) {
     if (to.path === '/login') {
-      // 如果登录，并在 login 页面，则重定向到主页
+      // 如果登录，并准备进入 login 页面，则重定向到主页
       next({ path: '/' })
       NProgress.done()
     } else {
