@@ -14,7 +14,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
   NProgress.start()
   const store = useStore()
   // 判断该用户是否登录
-  if (useStore().state.user.token) {
+  if (store.state.user.token) {
     if (to.path === '/login') {
       // 如果登录，并准备进入 login 页面，则重定向到主页
       next({ path: '/' })

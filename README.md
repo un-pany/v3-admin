@@ -39,7 +39,7 @@
 ## 目录结构
 
 ```
-# vue3-admin
+# v3-admin
 ├─ .env.dev.build     # 开发环境 build
 ├─ .env.dev.serve     # 开发环境 serve
 ├─ .env.prod.build    # 生产环境 build
