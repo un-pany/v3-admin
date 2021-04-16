@@ -1,10 +1,10 @@
 <!-- 主视图 -->
 <template>
   <section class="app-main">
-    <router-view v-slot="{Component}">
+    <router-view v-slot="{Component}" :key="key">
       <transition name="fade-transform" mode="out-in">
         <keep-alive :include="cachedViews">
-          <component :is="Component" :key="key" />
+          <component :is="Component" />
         </keep-alive>
       </transition>
     </router-view>
