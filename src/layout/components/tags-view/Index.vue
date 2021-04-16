@@ -192,7 +192,7 @@ export default defineComponent({
     const initTags = () => {
       state.affixTags = filterAffixTags(routes.value)
       for (const tag of state.affixTags) {
-        // Must have tag name
+        // 必须含有 name 属性
         if (tag.name) {
           store.dispatch(TagsActionTypes.ACTION_ADD_VISITED_VIEW, tag as TagView)
         }
