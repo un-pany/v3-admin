@@ -108,7 +108,6 @@ export default defineComponent({
         return tag.meta && tag.meta.affix
       },
       refreshSelectedTag: (view: TagView) => {
-        store.dispatch(TagsActionTypes.ACTION_DEL_CACHED_VIEW, view)
         const { fullPath } = view
         nextTick(() => {
           router.replace({ path: '/redirect' + fullPath }).catch(err => {

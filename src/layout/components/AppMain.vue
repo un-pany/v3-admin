@@ -3,32 +3,24 @@
   <section class="app-main">
     <router-view v-slot="{Component}" :key="key">
       <transition name="fade-transform" mode="out-in">
-        <keep-alive :include="cachedViews">
-          <component :is="Component" />
-        </keep-alive>
+        <component :is="Component" />
       </transition>
     </router-view>
   </section>
 </template>
 
 <script lang="ts">
-import { useStore } from '@/store'
 import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'AppMain',
   setup() {
-    const store = useStore()
     const route = useRoute()
-    const cachedViews = computed(() => {
-      return store.state.tagViews.cachedViews
-    })
     const key = computed(() => {
       return route.path
     })
     return {
-      cachedViews,
       key
     }
   }
