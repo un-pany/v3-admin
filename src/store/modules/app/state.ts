@@ -1,4 +1,4 @@
-import { getSidebarStatus, getSize } from '@/utils/cookies'
+import { getSidebarStatus } from '@/utils/cookies'
 import { getLocale } from '@/locales'
 
 export enum DeviceType {
@@ -13,7 +13,6 @@ export interface AppState {
     withoutAnimation: boolean
   }
   language: string
-  size: string
 }
 
 export const state: AppState = {
@@ -22,6 +21,5 @@ export const state: AppState = {
     opened: getSidebarStatus() !== 'closed',
     withoutAnimation: false
   },
-  language: getLocale(),
-  size: getSize() || 'medium'
+  language: getLocale()
 }

@@ -15,13 +15,6 @@
       <template v-if="device !== 'mobile'">
         <!-- <error-log class="errLog-container right-menu-item hover-effect" /> -->
         <Screenfull class="right-menu-item hover-effect" />
-        <el-tooltip
-          :content="t('navbar.size')"
-          effect="dark"
-          placement="bottom"
-        >
-          <SizeSelect class="right-menu-item hover-effect" />
-        </el-tooltip>
         <LangSelect class="right-menu-item hover-effect" />
       </template>
       <el-dropdown
@@ -69,7 +62,6 @@ import BreadCrumb from '@/components/bread-crumb/Index.vue'
 import Hamburger from '@/components/hamburger/Index.vue'
 import Screenfull from '@/components/screenfull/Index.vue'
 import LangSelect from '@/components/lang-select/Index.vue'
-import SizeSelect from '@/components/size-select/Index.vue'
 
 import { computed, reactive, toRefs } from 'vue'
 import { useStore } from '@/store'
@@ -82,8 +74,7 @@ export default {
     BreadCrumb,
     Hamburger,
     Screenfull,
-    LangSelect,
-    SizeSelect
+    LangSelect
   },
   setup() {
     const store = useStore()

@@ -24,9 +24,9 @@ export default defineComponent({
     const cachedViews = computed(() => {
       return store.state.tagViews.cachedViews
     })
-    const key = () => {
+    const key = computed(() => {
       return route.path
-    }
+    })
     return {
       cachedViews,
       key

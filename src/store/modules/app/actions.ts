@@ -30,10 +30,6 @@ export interface Actions {
     { commit }: AugmentedActionContext,
     language: string
   ): void
-  [AppActionTypes.ACTION_SET_SIZE](
-    { commit }: AugmentedActionContext,
-    size: string
-  ): void
 }
 
 export const actions: ActionTree<AppState, RootState> & Actions = {
@@ -48,8 +44,5 @@ export const actions: ActionTree<AppState, RootState> & Actions = {
   },
   [AppActionTypes.ACTION_SET_LANGUAGE]({ commit }, language: string) {
     commit(AppMutationTypes.SET_LANGUAGE, language)
-  },
-  [AppActionTypes.ACTION_SET_SIZE]({ commit }, size: string) {
-    commit(AppMutationTypes.SET_SIZE, size)
   }
 }

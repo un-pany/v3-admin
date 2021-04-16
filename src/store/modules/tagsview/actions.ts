@@ -47,9 +47,6 @@ export interface Actions {
   [TagsActionTypes.ACTION_DEL_ALL_VIEWS](
     { commit }: NoAugmentedActionContext
   ): void
-  [TagsActionTypes.ACTION_DEL_ALL_CACHED_VIEWS](
-    { commit }: NoAugmentedActionContext,
-  ): void
   [TagsActionTypes.ACTION_UPDATE_VISITED_VIEW](
     { commit }: AugmentedActionContext,
     view: TagView
@@ -81,9 +78,6 @@ export const actions: ActionTree<TagsViewState, RootState> & Actions = {
   },
   [TagsActionTypes.ACTION_DEL_ALL_VIEWS]({ commit }) {
     commit(TagsMutationTypes.DEL_ALL_VISITED_VIEWS)
-    commit(TagsMutationTypes.DEL_ALL_CACHED_VIEWS)
-  },
-  [TagsActionTypes.ACTION_DEL_ALL_CACHED_VIEWS]({ commit }) {
     commit(TagsMutationTypes.DEL_ALL_CACHED_VIEWS)
   },
   [TagsActionTypes.ACTION_UPDATE_VISITED_VIEW]({ commit }, view: TagView) {
