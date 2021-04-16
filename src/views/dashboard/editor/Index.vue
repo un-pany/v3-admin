@@ -10,6 +10,7 @@
 import { computed, defineComponent } from 'vue'
 import { useStore } from '@/store'
 export default defineComponent({
+  name: 'Editor',
   components: {
   },
   setup() {

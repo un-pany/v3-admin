@@ -17,6 +17,7 @@ import { defineComponent, computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({
+  name: 'AppMain',
   setup() {
     const store = useStore()
     const route = useRoute()

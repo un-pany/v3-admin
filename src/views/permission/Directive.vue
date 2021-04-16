@@ -135,6 +135,7 @@ import { useI18n } from 'vue-i18n'
 import SwitchRoles from './components/SwitchRoles.vue'
 
 export default defineComponent({
+  name: 'DirectivePermission',
   components: {
     SwitchRoles
   },

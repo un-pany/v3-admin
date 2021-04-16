@@ -7,6 +7,7 @@
 
 <script lang='ts'>
 export default {
+  name: 'Admin',
   components: {},
   setup() {
     return {}

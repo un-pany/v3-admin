@@ -43,6 +43,7 @@ import { toggleClass } from '@/utils'
 import '@/assets/custom-theme/index.css' // the theme changed version element-ui css
 import { useI18n } from 'vue-i18n'
 export default defineComponent({
+  name: 'Theme',
   setup() {
     const { t } = useI18n()
     const dataMap = reactive({

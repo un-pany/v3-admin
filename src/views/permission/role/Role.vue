@@ -144,7 +144,7 @@ const defaultRole: Role = {
 }
 
 export default defineComponent({
-
+  name: 'RolePermission',
   setup() {
     const { ctx } = getCurrentInstance() as any
     const treeRef = ref<HTMLInputElement | null>(null)

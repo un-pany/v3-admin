@@ -8,6 +8,7 @@ import { computed, defineComponent, onBeforeMount, ref } from 'vue'
 import AdminDashboard from './admin/Index.vue'
 import EditorDashboard from './editor/Index.vue'
 export default defineComponent({
+  name: 'Dashboard',
   components: {
     AdminDashboard,
     EditorDashboard
