@@ -70,12 +70,10 @@ export default {
     },
     // 输入框放大缩小回调函数
     testfocus() {
-      const $refs: any = this.$refs
-      $refs.filter.$el.style.width = 200 + 'px'
+      (this.$refs as any).filter.$el.style.width = 200 + 'px'
     },
     testblur() {
-      const $refs: any = this.$refs
-      $refs.filter.$el.style.width = 170 + 'px'
+      (this.$refs as any).filter.$el.style.width = 170 + 'px'
     },
     // 筛选工作组信息, 去重
     // 两种类型，通过方法获取或者通过接口获取，默认通过方法获取
