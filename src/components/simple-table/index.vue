@@ -69,7 +69,10 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+interface AnyObject {
+    [key: string]: any
+}
 export default {
   name: 'BaseTable',
   props: {
@@ -167,98 +170,99 @@ export default {
   emits: ['operation', 'current-change', 'select', 'select-all', 'selection-change', 'expand-change', 'cell-mouse-enter', 'cell-mouse-leave', 'cell-click', 'cell-dblclick', 'row-click', 'row-contextmenu', 'row-dblclick', 'header-click', 'header-contextmenu'],
   data() {
     return {
-      getRowKeys(row) {
+      getRowKeys(row: AnyObject) {
         return row.id
       }
     }
   },
   methods: {
-    handleClick(info, index, row) {
+    
+    handleClick(info: string, index: number, row: AnyObject) {
       this.$emit('operation', info, index, row)
       // console.log(this.$slots)
     },
     /**
      * @description 行选中状态
      */
-    handleCurrentChange(currentRow, oldCurrentRow) {
+    handleCurrentChange(currentRow: AnyObject, oldCurrentRow: AnyObject) {
       this.$emit('current-change', currentRow, oldCurrentRow)
     },
     /**
      * @description 勾选数据时触发的事件
      */
-    handleSelect(selection, row) {
+    handleSelect(selection: AnyObject, row: AnyObject) {
       this.$emit('select', selection, row)
     },
     /**
      * @description 勾选全选时触发的事件
      */
-    handleSelectAll(selection) {
+    handleSelectAll(selection: AnyObject) {
       this.$emit('select-all', selection)
     },
     /**
      * @description 复选框选择项发生变化时触发的事件
      */
-    handleSelectionChange(selection) {
+    handleSelectionChange(selection: AnyObject) {
       this.$emit('selection-change', selection)
     },
     /**
      * @description 复选框选择项发生变化时触发的事件
      */
-    handleExpandChange(row) {
+    handleExpandChange(row: AnyObject) {
       this.$emit('expand-change', row)
     },
     /**
      * @description 单元格 hover 进入时触发的事件
      */
-    handleCellMouseEnter(row, column, cell, event) {
+    handleCellMouseEnter(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
       this.$emit('cell-mouse-enter', row, column, cell, event)
     },
     /**
      * @description 单元格 hover 退出时触发的事件
      */
-    handleCellMouseLeave(row, column, cell, event) {
+    handleCellMouseLeave(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
       this.$emit('cell-mouse-leave', row, column, cell, event)
     },
     /**
      * @description 单元格点击时触发的事件
      */
-    handleCellClick(row, column, cell, event) {
+    handleCellClick(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
       this.$emit('cell-click', row, column, cell, event)
     },
     /**
      * @description 单元格双击时触发的事件
      */
-    handleCellDblclick(row, column, cell, event) {
+    handleCellDblclick(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
       this.$emit('cell-dblclick', row, column, cell, event)
     },
     /**
      * @description 行点击时触发的事件
      */
-    handleRowClick(row, event, column) {
+    handleRowClick(row: AnyObject, event: AnyObject, column: AnyObject) {
       this.$emit('row-click', row, event, column)
     },
     /**
      * @description 行右键点击时触发的事件
      */
-    handleRowContextmenu(row, event) {
+    handleRowContextmenu(row: AnyObject, event: AnyObject) {
       this.$emit('row-contextmenu', row, event)
     },
     /**
      * @description 行双击时触发的事件
      */
-    handleRowDblclick(row, event) {
+    handleRowDblclick(row: AnyObject, event: AnyObject) {
       this.$emit('row-dblclick', row, event)
     },
     /**
      * @description 表头点击时触发的事件
      */
-    handleHeaderClick(column, event) {
+    handleHeaderClick(column: AnyObject, event: AnyObject) {
       this.$emit('header-click', column, event)
     },
     /**
      * @description 表头右键点击时触发的事件
      */
-    handleHeaderContextmenu(column, event) {
+    handleHeaderContextmenu(column: AnyObject, event: () => void) {
       this.$emit('header-contextmenu', column, event)
     }
   }

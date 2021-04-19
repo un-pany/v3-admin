@@ -31,7 +31,11 @@
   </el-card>
 </template>
 
-<script>
+<script lang="ts">
+interface AnyObject {
+    [key: string]: any
+}
+
 export default {
   props: {
     defaultListQuery: {
@@ -66,10 +70,12 @@ export default {
     },
     // 输入框放大缩小回调函数
     testfocus() {
-      this.$refs.filter.$el.style.width = 200 + 'px'
+      const $refs: any = this.$refs
+      $refs.filter.$el.style.width = 200 + 'px'
     },
     testblur() {
-      this.$refs.filter.$el.style.width = 170 + 'px'
+      const $refs: any = this.$refs
+      $refs.filter.$el.style.width = 170 + 'px'
     },
     // 筛选工作组信息, 去重
     // 两种类型，通过方法获取或者通过接口获取，默认通过方法获取
@@ -83,7 +89,8 @@ export default {
       let temple
       switch (this.type) {
         case 'function':
-          temple = this.data.reduce((total, cur) => {
+          temple = this.data.reduce<AnyObject[]>((total, _cur) => {
+            const cur = _cur as AnyObject
             for (const key in cur) {
               // 先判断属性是对象自身的，然后在判断属性值的类型，
               // 根据不同的类型进行不同的判断筛选
