@@ -1,16 +1,44 @@
 <!-- admin 权限主页 -->
 <template>
   <div class="dashboard-editor-container">
-    <filter-container />
+    <filter-container v-if="defer(2)" />
   </div>
 </template>
 
 <script lang='ts'>
+import { ref, onMounted } from 'vue'
 export default {
   name: 'Admin',
   components: {},
   setup() {
-    return {}
+    let displayPriority = ref<number>(0)
+    const count = 10
+
+    const runDisplayPriority = function () {
+      const step = () => {
+        requestAnimationFrame(() => {
+          displayPriority.value++
+          if (displayPriority.value < count) {
+            step()
+          }
+        })
+      }
+      step()
+    }
+
+    const defer = (priority: number): boolean => {
+      return displayPriority.value >= priority
+    }
+
+    onMounted(() => {
+      runDisplayPriority()
+    })
+
+
+    return {
+      displayPriority,
+      defer
+    }
   }
 }
 </script>

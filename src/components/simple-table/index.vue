@@ -168,102 +168,115 @@ export default {
     }
   },
   emits: ['operation', 'current-change', 'select', 'select-all', 'selection-change', 'expand-change', 'cell-mouse-enter', 'cell-mouse-leave', 'cell-click', 'cell-dblclick', 'row-click', 'row-contextmenu', 'row-dblclick', 'header-click', 'header-contextmenu'],
-  data() {
-    return {
-      getRowKeys(row: AnyObject) {
-        return row.id
-      }
+  setup(props: any, context: any) {
+    const getRowKeys = (row: AnyObject) => {
+      return row.id
     }
-  },
-  methods: {
-    
-    handleClick(info: string, index: number, row: AnyObject) {
-      this.$emit('operation', info, index, row)
-      // console.log(this.$slots)
-    },
+
+    function handleClick(info: string, index: number, row: AnyObject) {
+      context.emit('operation', info, index, row)
+    }
     /**
      * @description 行选中状态
      */
-    handleCurrentChange(currentRow: AnyObject, oldCurrentRow: AnyObject) {
-      this.$emit('current-change', currentRow, oldCurrentRow)
-    },
+    function handleCurrentChange(currentRow: AnyObject, oldCurrentRow: AnyObject) {
+      context.emit('current-change', currentRow, oldCurrentRow)
+    }
     /**
      * @description 勾选数据时触发的事件
      */
-    handleSelect(selection: AnyObject, row: AnyObject) {
-      this.$emit('select', selection, row)
-    },
+    function handleSelect(selection: AnyObject, row: AnyObject) {
+      context.emit('select', selection, row)
+    }
     /**
      * @description 勾选全选时触发的事件
      */
-    handleSelectAll(selection: AnyObject) {
-      this.$emit('select-all', selection)
-    },
+    function handleSelectAll(selection: AnyObject) {
+      context.emit('select-all', selection)
+    }
     /**
      * @description 复选框选择项发生变化时触发的事件
      */
-    handleSelectionChange(selection: AnyObject) {
-      this.$emit('selection-change', selection)
-    },
+    function handleSelectionChange(selection: AnyObject) {
+      context.emit('selection-change', selection)
+    }
     /**
      * @description 复选框选择项发生变化时触发的事件
      */
-    handleExpandChange(row: AnyObject) {
-      this.$emit('expand-change', row)
-    },
+    function handleExpandChange(row: AnyObject) {
+      context.emit('expand-change', row)
+    }
     /**
      * @description 单元格 hover 进入时触发的事件
      */
-    handleCellMouseEnter(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
-      this.$emit('cell-mouse-enter', row, column, cell, event)
-    },
+    function handleCellMouseEnter(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
+      context.emit('cell-mouse-enter', row, column, cell, event)
+    }
     /**
      * @description 单元格 hover 退出时触发的事件
      */
-    handleCellMouseLeave(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
-      this.$emit('cell-mouse-leave', row, column, cell, event)
-    },
+    function handleCellMouseLeave(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
+      context.emit('cell-mouse-leave', row, column, cell, event)
+    }
     /**
      * @description 单元格点击时触发的事件
      */
-    handleCellClick(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
-      this.$emit('cell-click', row, column, cell, event)
-    },
+    function handleCellClick(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
+      context.emit('cell-click', row, column, cell, event)
+    }
     /**
      * @description 单元格双击时触发的事件
      */
-    handleCellDblclick(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
-      this.$emit('cell-dblclick', row, column, cell, event)
-    },
+    function handleCellDblclick(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
+      context.emit('cell-dblclick', row, column, cell, event)
+    }
     /**
      * @description 行点击时触发的事件
      */
-    handleRowClick(row: AnyObject, event: AnyObject, column: AnyObject) {
-      this.$emit('row-click', row, event, column)
-    },
+    function handleRowClick(row: AnyObject, event: AnyObject, column: AnyObject) {
+      context.emit('row-click', row, event, column)
+    }
     /**
      * @description 行右键点击时触发的事件
      */
-    handleRowContextmenu(row: AnyObject, event: AnyObject) {
-      this.$emit('row-contextmenu', row, event)
-    },
+    function handleRowContextmenu(row: AnyObject, event: AnyObject) {
+      context.emit('row-contextmenu', row, event)
+    }
     /**
      * @description 行双击时触发的事件
      */
-    handleRowDblclick(row: AnyObject, event: AnyObject) {
-      this.$emit('row-dblclick', row, event)
-    },
+    function handleRowDblclick(row: AnyObject, event: AnyObject) {
+      context.emit('row-dblclick', row, event)
+    }
     /**
      * @description 表头点击时触发的事件
      */
-    handleHeaderClick(column: AnyObject, event: AnyObject) {
-      this.$emit('header-click', column, event)
-    },
+    function handleHeaderClick(column: AnyObject, event: AnyObject) {
+      context.emit('header-click', column, event)
+    }
     /**
      * @description 表头右键点击时触发的事件
      */
-    handleHeaderContextmenu(column: AnyObject, event: () => void) {
-      this.$emit('header-contextmenu', column, event)
+    function handleHeaderContextmenu(column: AnyObject, event: () => void) {
+      context.emit('header-contextmenu', column, event)
+    }
+    return {
+      getRowKeys,
+      handleClick,
+      handleCurrentChange,
+      handleSelect,
+      handleSelectAll,
+      handleSelectionChange,
+      handleExpandChange,
+      handleCellMouseEnter,
+      handleCellMouseLeave,
+      handleCellClick,
+      handleCellDblclick,
+      handleRowClick,
+      handleRowContextmenu,
+      handleRowDblclick,
+      handleHeaderClick,
+      handleHeaderContextmenu
     }
   }
 }

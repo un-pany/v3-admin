@@ -36,6 +36,7 @@ interface AnyObject {
     [key: string]: any
 }
 
+import { ref, reactive, getCurrentInstance } from 'vue'
 export default {
   props: {
     defaultListQuery: {
@@ -57,37 +58,31 @@ export default {
       default: '请输入搜索关键字'
     }
   },
-  data() {
-    return {
-      labelPosition: 'left',
-      listQuery: Object.assign({}, this.defaultListQuery)
-    }
-  },
   emits: ['filterSearch'],
-  methods: {
-    handleResetSearch() {
-      this.listQuery = { ...this.defaultListQuery }
-    },
-    // 输入框放大缩小回调函数
-    testfocus() {
-      (this.$refs as any).filter.$el.style.width = 200 + 'px'
-    },
-    testblur() {
-      (this.$refs as any).filter.$el.style.width = 170 + 'px'
-    },
-    // 筛选工作组信息, 去重
-    // 两种类型，通过方法获取或者通过接口获取，默认通过方法获取
-    handleSearchList() {
-      let { keyword } = this.listQuery
+  setup(props: any, context: any) {
+    const { ctx } = getCurrentInstance() as any
+    const labelPosition = ref('left')
+    var listQuery = reactive(Object.assign({}, props.defaultListQuery))
+    const handleResetSearch = () => {
+      listQuery = { ...props.defaultListQuery }
+    }
+    function testfocus() {
+      (ctx.$refs as any).filter.$el.style.width = 200 + 'px'
+    }
+    function testblur() {
+      (ctx.$refs as any).filter.$el.style.width = 170 + 'px'
+    }
+    function handleSearchList() {
+      let { keyword } = listQuery
       if (!keyword) {
-        this.$emit('filterSearch', '')
+        context.emit('filterSearch', '')
         return
       }
       keyword = Number(keyword) || keyword
       let temple
-      switch (this.type) {
+      switch (props.type) {
         case 'function':
-          temple = this.data.reduce<AnyObject[]>((total, _cur) => {
+          temple = props.data.reduce((total: AnyObject[], _cur: AnyObject) => {
             const cur = _cur as AnyObject
             for (const key in cur) {
               // 先判断属性是对象自身的，然后在判断属性值的类型，
@@ -103,14 +98,22 @@ export default {
             }
             return total
           }, [])
-          this.$emit('filterSearch', [...new Set(temple)])
+          context.emit('filterSearch', [...new Set(temple)])
           break
         case 'interface':
-          this.$emit('filterSearch', keyword)
+          context.emit('filterSearch', keyword)
           break
         default:
           break
       }
+    }
+    return {
+      labelPosition,
+      listQuery,
+      testfocus,
+      testblur,
+      handleResetSearch,
+      handleSearchList
     }
   }
 }
