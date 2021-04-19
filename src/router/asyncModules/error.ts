@@ -17,7 +17,6 @@ const ExampleRouter: Array<RouteRecordRaw> = [
         name: '401',
         meta: {
           title: '401',
-          noCache: true,
           hidden: true
         }
       },
@@ -27,7 +26,6 @@ const ExampleRouter: Array<RouteRecordRaw> = [
         name: '404',
         meta: {
           title: '404',
-          noCache: true,
           hidden: true
         }
       }

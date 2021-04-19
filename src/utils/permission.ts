@@ -1,3 +1,5 @@
+/* 全局权限判断函数 和 指令 v-permission 功能类似 */
+
 import { useStore } from '@/store'
 
 export const checkPermission = (value: string[]): boolean => {
