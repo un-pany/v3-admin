@@ -116,9 +116,11 @@ npm run lint
 
 ## 后续计划
 
-* [ ] vue warn
+* [ ] 解决开发环境 vue warn
 
-* [ ] 国际化 config 开关
+* [ ] 新增是否开启中英文切换的 config 开关
+
+* [ ] 新增是否开启 roles 字段进行角色权限控制 的 config 开关
 
 * [ ] mock server
 
