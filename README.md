@@ -40,12 +40,9 @@
 
 ```
 # v3-admin
-├─ .env.dev.build     # 开发环境 build
-├─ .env.dev.serve     # 开发环境 serve
-├─ .env.prod.build    # 生产环境 build
-├─ .env.prod.serve    # 生产环境 serve
-├─ .env.test.build    # 测试环境 build
-├─ .env.test.serve    # 测试环境 serve
+├─ .env.dev           # 开发环境
+├─ .env.prod          # 生产环境
+├─ .env.stage         # 预发布环境
 ├─ .eslintrc.js       # eslint
 ├─ public             # 静态资源
 │  ├─ favicon.ico     # favicon 图标
@@ -78,7 +75,7 @@
 yarn install
 
 # 启动服务
-yarn serve:dev
+yarn dev
 ```
 or
 ```bash
@@ -86,22 +83,22 @@ or
 npm install
 
 # 启动服务
-npm run serve:dev
+npm run dev
 ```
 
 ## 📦️ 多环境打包
 
 ```bash
-# 构建测试环境
-yarn build:test
+# 构建预发布环境
+yarn build:stage
 
 # 构建生产环境
 yarn build:prod
 ```
 or
 ```bash
-# 构建测试环境
-npm run build:test
+# 构建预发布环境
+npm run build:stage
 
 # 构建生产环境
 npm run build:prod
@@ -117,7 +114,7 @@ or
 npm run lint
 ```
 
-## 后续计划：
+## 后续计划
 
 * [ ] vue warn
 
@@ -125,7 +122,7 @@ npm run lint
 
 * [ ] mock server
 
-* [ ] 生成环境打包优化
+* [ ] 生产环境打包优化
 
 * [ ] 单元测试
 

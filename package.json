@@ -1,17 +1,13 @@
 {
   "name": "v3-admin",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
-    "serve:dev": "cross-env NODE_ENV=development dotenv -e .env.dev.serve vue-cli-service serve",
-    "build:dev": "cross-env NODE_ENV=production  dotenv -e .env.dev.build vue-cli-service build",
-    "serve:test": "cross-env NODE_ENV=development dotenv -e .env.test.serve vue-cli-service serve",
-    "build:test": "cross-env NODE_ENV=production  dotenv -e .env.test.build vue-cli-service build",
-    "serve:prod": "cross-env NODE_ENV=development dotenv -e .env.prod.serve vue-cli-service serve",
-    "build:prod": "cross-env NODE_ENV=production  dotenv -e .env.prod.build vue-cli-service build",
+    "dev": "cross-env dotenv -e .env.dev vue-cli-service serve",
+    "build:stage": "cross-env dotenv -e .env.stage vue-cli-service build",
+    "build:prod": "cross-env dotenv -e .env.prod vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "inspect": "vue-cli-service inspect",
-    "mock": "cd mock && ts-node-dev mock.ts"
+    "inspect": "vue-cli-service inspect"
   },
   "dependencies": {
     "axios": "^0.21.1",
