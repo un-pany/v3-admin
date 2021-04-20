@@ -5,8 +5,10 @@ import { RouteLocationNormalized } from 'vue-router'
 import { useStore } from './store'
 import { UserActionTypes } from './store/modules/user/action-types'
 import { PermissionActionType } from './store/modules/permission/action-types'
+import { UserMutationTypes } from './store/modules/user/mutation-types'
 import { ElMessage } from 'element-plus'
 import { whiteList } from './config/white-list'
+import rolesSettings from './config/roles'
 
 NProgress.configure({ showSpinner: false })
 
@@ -25,9 +27,16 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
         try {
           // 注意：角色必须是一个对象数组！ 例如: ['admin'] 或 ['developer', 'editor']
           await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
-          const roles = store.state.user.roles
-          // 根据角色生成可访问的 routes
-          store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
+          if (rolesSettings.openRoles) {
+            // 获取接口返回的 roles
+            const roles = store.state.user.roles
+            // 根据角色生成可访问的 routes
+            store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
+          } else {
+            // 没有开启角色功能，则启用默认角色
+            store.commit(UserMutationTypes.SET_ROLES, rolesSettings.defaultRoles)
+            store.dispatch(PermissionActionType.ACTION_SET_ROUTES, rolesSettings.defaultRoles)
+          }
           // 动态地添加可访问的 routes
           store.state.permission.dynamicRoutes.forEach((route) => {
             router.addRoute(route)
