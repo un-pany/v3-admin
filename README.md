@@ -16,7 +16,7 @@
 
 - 多环境
   - dev
-  - test
+  - stage
   - prod
   
 - 全局功能
@@ -34,6 +34,8 @@
   - 404
 
 - Dashboard
+  - admin
+  - editor
 ```
 
 ## 目录结构
