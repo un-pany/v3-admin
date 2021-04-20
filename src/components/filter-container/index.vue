@@ -32,11 +32,11 @@
 </template>
 
 <script lang="ts">
+import { ref, reactive, getCurrentInstance } from 'vue'
+
 interface AnyObject {
     [key: string]: any
 }
-
-import { ref, reactive, getCurrentInstance } from 'vue'
 export default {
   props: {
     defaultListQuery: {
@@ -62,7 +62,7 @@ export default {
   setup(props: any, context: any) {
     const { ctx } = getCurrentInstance() as any
     const labelPosition = ref('left')
-    var listQuery = reactive(Object.assign({}, props.defaultListQuery))
+    let listQuery = reactive(Object.assign({}, props.defaultListQuery))
     const handleResetSearch = () => {
       listQuery = { ...props.defaultListQuery }
     }

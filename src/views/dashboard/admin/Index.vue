@@ -11,10 +11,10 @@ export default {
   name: 'Admin',
   components: {},
   setup() {
-    let displayPriority = ref<number>(0)
+    const displayPriority = ref<number>(0)
     const count = 10
 
-    const runDisplayPriority = function () {
+    const runDisplayPriority = function() {
       const step = () => {
         requestAnimationFrame(() => {
           displayPriority.value++
@@ -33,7 +33,6 @@ export default {
     onMounted(() => {
       runDisplayPriority()
     })
-
 
     return {
       displayPriority,

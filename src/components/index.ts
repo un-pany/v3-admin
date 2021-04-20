@@ -1,3 +1,4 @@
+import { createApp } from 'vue'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 
@@ -10,7 +11,7 @@ const requireComponent = require.context(
   /\.vue$/
 )
 
-export default function(app: any) {
+export default function(app: ReturnType<typeof createApp>) {
   requireComponent.keys().forEach(fileName => {
     // 获取组件配置
     const componentConfig = requireComponent(fileName)
