@@ -29,7 +29,18 @@ module.exports = {
     overlay: {
       warnings: true,
       errors: true,
-    },
+    }
+    // proxy: {
+    //   '/api/': {
+    //     target: 'http://172.20.2.199:8090/api/',
+    //     ws: true,
+    //     pathRewrite: {
+    //       '^/api/': ''
+    //     },
+    //     changeOrigin: true,
+    //     secure: false
+    //   }
+    // }
   },
   pluginOptions: {
     'style-resources-loader': {
@@ -60,6 +71,8 @@ module.exports = {
     return configNew
   },
   chainWebpack: config => {
+    // 删除prefetch
+    config.plugins.delete('prefetch')
     // 开发环境 sourcemap 不包含列信息
     config.when(process.env.NODE_ENV === 'development',
       config => config.devtool('cheap-source-map')
