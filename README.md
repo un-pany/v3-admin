@@ -119,15 +119,15 @@ npm run lint
 
 ## 后续计划：
 
-* [] vue warn
+* [ ] vue warn
 
-* [] 国际化 config 开关
+* [ ] 国际化 config 开关
 
-* [] mock server
+* [ ] mock server
 
-* [] 生成环境打包优化
+* [ ] 生成环境打包优化
 
-* [] 单元测试
+* [ ] 单元测试
 
 ## Reference
 
