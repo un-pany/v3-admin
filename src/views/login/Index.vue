@@ -116,8 +116,6 @@ const validateCode = (rule: any, value: string, callback: Function) => {
 export default defineComponent({
   name: 'Login',
   setup() {
-    console.log(process.env.NODE_ENV)
-    console.log(process.env.VUE_APP_BASE_API)
     // hooks
     const router = useRouter()
     const store = useStore()

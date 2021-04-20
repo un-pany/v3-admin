@@ -15,7 +15,7 @@
       <template v-if="device !== 'mobile'">
         <!-- <error-log class="errLog-container right-menu-item hover-effect" /> -->
         <Screenfull class="right-menu-item hover-effect" />
-        <LangSelect class="right-menu-item hover-effect" />
+        <LangSelect class="right-menu-item hover-effect" v-if="langSelect" />
       </template>
       <el-dropdown
         class="avatar-container right-menu-item hover-effect"
@@ -90,6 +90,9 @@ export default {
     const avatar = computed(() => {
       return store.state.user.avatar
     })
+    const langSelect = computed(() => {
+      return store.state.settings.langSelect
+    })
     const state = reactive({
       toggleSideBar: () => {
         store.dispatch(AppActionTypes.ACTION_TOGGLE_SIDEBAR, false)
@@ -105,6 +108,7 @@ export default {
       sidebar,
       device,
       avatar,
+      langSelect,
       ...toRefs(state),
       t
     }
