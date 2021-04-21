@@ -26,13 +26,13 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import(/* webpackChunkName: "redirect" */ '@/views/redirect/Index.vue')
+        component: () => import(/* webpackChunkName: "redirect" */ '@/views/redirect/index.vue')
       }
     ]
   },
   {
     path: '/login',
-    component: () => import(/* webpackChunkName: "userManager" */'@/views/login/Index.vue')
+    component: () => import(/* webpackChunkName: "userManager" */'@/views/login/index.vue')
   },
   {
     path: '/',
@@ -41,7 +41,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'dashboard',
-        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/Index.vue'),
+        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
         name: 'Dashboard',
         meta: {
           title: 'dashboard',
@@ -58,7 +58,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'index',
-        component: () => import(/* webpackChunkName: "theme" */ '@/views/theme/Index.vue'),
+        component: () => import(/* webpackChunkName: "theme" */ '@/views/theme/index.vue'),
         name: 'Theme',
         meta: {
           title: 'theme',

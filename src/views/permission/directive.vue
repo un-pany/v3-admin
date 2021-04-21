@@ -132,7 +132,7 @@
 import { defineComponent, reactive, toRefs } from 'vue'
 import { checkPermission } from '@/utils/permission' // Use permission directly
 import { useI18n } from 'vue-i18n'
-import SwitchRoles from './components/SwitchRoles.vue'
+import SwitchRoles from './components/switch-roles.vue'
 
 export default defineComponent({
   name: 'DirectivePermission',

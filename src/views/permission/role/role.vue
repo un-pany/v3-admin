@@ -121,7 +121,7 @@ import { RouteRecordRaw } from 'vue-router'
 import $api from '@/apis'
 import { resolve } from 'path'
 import { useI18n } from 'vue-i18n'
-import editRole from './editRole'
+import editRole from './edit-role'
 import { cloneDeep } from 'lodash'
 interface Role {
   key: number
