@@ -60,7 +60,7 @@ import { TagView } from '@/store/modules/tagsview/state'
 import { computed, defineComponent, getCurrentInstance, nextTick, onBeforeMount, reactive, ref, toRefs, watch } from 'vue'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import ScrollPane from './ScrollPane.vue'
+import ScrollPane from './scroll-pane.vue'
 export default defineComponent({
   components: {
     ScrollPane

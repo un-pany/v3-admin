@@ -1,5 +1,5 @@
 import { RouteRecordRaw } from 'vue-router'
-import Layout from '@/layout/Index.vue'
+import Layout from '@/layout/index.vue'
 
 const permissionRouter: Array<RouteRecordRaw> = [
   {

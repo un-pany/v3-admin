@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Layout from '@/layout/Index.vue'
+import Layout from '@/layout/index.vue'
 
 // 导入常驻路由
 // const constantFiles = require.context('./constantModules', true, /\.ts$/)

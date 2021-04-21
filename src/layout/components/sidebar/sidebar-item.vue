@@ -52,7 +52,7 @@ import path from 'path'
 import { computed, defineComponent, PropType } from 'vue'
 import { RouteRecordRaw } from 'vue-router'
 import { isExternal } from '@/utils/validate'
-import SidebarItemLink from './SidebarItemLink.vue'
+import SidebarItemLink from './sidebar-item-link.vue'
 import { useI18n } from 'vue-i18n'
 export default defineComponent({
   props: {
