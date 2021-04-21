@@ -34,7 +34,7 @@ import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { AppMain, Navbar, Settings, TagsView, Sidebar } from './components'
-import RightPanel from '@/components/right-panel/Index.vue'
+import RightPanel from '@/components/right-panel/index.vue'
 import resize from './resize'
 export default defineComponent({
   name: 'Layout',

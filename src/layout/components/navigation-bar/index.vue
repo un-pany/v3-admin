@@ -58,10 +58,10 @@
 </template>
 
 <script>
-import BreadCrumb from '@/components/bread-crumb/Index.vue'
-import Hamburger from '@/components/hamburger/Index.vue'
-import Screenfull from '@/components/screenfull/Index.vue'
-import LangSelect from '@/components/lang-select/Index.vue'
+import BreadCrumb from '@/components/bread-crumb/index.vue'
+import Hamburger from '@/components/hamburger/index.vue'
+import Screenfull from '@/components/screenfull/index.vue'
+import LangSelect from '@/components/lang-select/index.vue'
 
 import { computed, reactive, toRefs } from 'vue'
 import { useStore } from '@/store'

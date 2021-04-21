@@ -53,7 +53,7 @@
 import { useStore } from '@/store'
 import { SettingsActionTypes } from '@/store/modules/settings/action-types'
 import { defineComponent, reactive, toRefs, watch } from 'vue'
-import ThemePicker from '@/components/theme-picker/Index.vue'
+import ThemePicker from '@/components/theme-picker/index.vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
