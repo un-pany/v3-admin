@@ -1,7 +1,7 @@
 <!-- editor 权限主页 -->
 
 <template>
-  <div class="dashboard-editor-container">
+  <div class="app-container">
     editor 权限可见：{{ name }}
   </div>
 </template>
@@ -27,9 +27,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-
-.dashboard-editor-container {
-  // background-color: #e3e3e3;
-  padding: 50px 60px 0px;
-}
 </style>
