@@ -130,6 +130,8 @@ npm run lint
 
 * [ ] 单元测试
 
+* [ ] 当设置 redirect: 'noRedirect' 的时候该路由在面包屑导航中不可被点击
+
 ## Reference
 
 - [vue-element-admin](https://panjiachen.gitee.io/vue-element-admin-site/zh/)
