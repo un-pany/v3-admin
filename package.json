@@ -19,10 +19,10 @@
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.0",
     "screenfull": "^5.0.2",
-    "vue": "^3.0.5",
+    "vue": "^3.0.11",
     "vue-class-component": "^8.0.0-0",
     "vue-i18n": "^9.0.0-beta.16",
-    "vue-router": "4.0",
+    "vue-router": "4.0.6",
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
     "@vue/cli-plugin-unit-jest": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/compiler-sfc": "^3.0.11",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
