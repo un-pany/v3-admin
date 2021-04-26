@@ -4,6 +4,7 @@ import { store as settings, SettingStore, SettingsState } from '@/store/modules/
 import { store as permission, PermissionStore, PermissionState } from '@/store/modules/permission'
 import { store as user, UserStore, UserState } from '@/store/modules/user'
 import { store as tagViews, TagsStore, TagsViewState } from '@/store/modules/tagsview'
+import loggerSettings from '@/config/logger'
 
 export interface RootState {
     app: AppState
@@ -18,8 +19,12 @@ export type Store = AppStore<Pick<RootState, 'app'>> & SettingStore<Pick<RootSta
 & TagsStore<Pick<RootState, 'tagViews'>>
 
 // 在开发环境中插入记录器 logger
-const debug = process.env.NODE_ENV !== 'production'
-const plugins = debug ? [createLogger({})] : []
+let debug
+let plugins
+if (loggerSettings.openLogger) {
+  debug = process.env.NODE_ENV !== 'production'
+  plugins = debug ? [createLogger({})] : []
+}
 
 export const store = createStore({
   plugins,
