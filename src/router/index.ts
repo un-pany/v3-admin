@@ -54,7 +54,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/theme',
     component: Layout,
-    redirect: 'noredirect',
+    redirect: 'noRedirect',
     children: [
       {
         path: 'index',

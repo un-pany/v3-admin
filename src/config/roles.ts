@@ -8,7 +8,7 @@ interface RolesSettings {
 }
 
 const rolesSettings: RolesSettings = {
-  openRoles: false,
+  openRoles: true,
   defaultRoles: ['admin']
 }
 

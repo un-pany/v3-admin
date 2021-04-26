@@ -10,7 +10,7 @@
         :key="item.path"
       >
         <span
-          v-if="item.redirect === 'noredirect' || index === breadcrumbs.length-1"
+          v-if="item.redirect === 'noRedirect' || index === breadcrumbs.length-1"
           class="no-redirect"
         >{{ t('route.' + item.meta.title) }}</span>
         <a

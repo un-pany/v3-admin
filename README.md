@@ -118,7 +118,9 @@ npm run lint
 
 ## 后续计划
 
-* [ ] 解决开发环境 vue warn
+* [x] 解决 vue warn
+
+* [ ] 解决动态路由产生的 vue router warn
 
 * [x] 新增是否显示中英文切换的 config 开关
 
@@ -130,7 +132,9 @@ npm run lint
 
 * [ ] 单元测试
 
-* [ ] 当设置 redirect: 'noRedirect' 的时候该路由在面包屑导航中不可被点击
+* [ ] router 模块自定义加载顺序
+
+* [x] 当设置 redirect: 'noRedirect' 的时候该路由在面包屑导航中不可被点击
 
 ## Reference
 
