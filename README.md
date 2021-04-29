@@ -51,7 +51,8 @@
 │  ├─ index.html      # html模板
 ├─ src                # 源码
 │  ├─ @types          # ts 声明
-│  ├─ apis            # 接口请求
+│  ├─ api-inject      # 接口（全局注入的方式）
+│  ├─ api-import      # 接口（import/export 的方式）
 │  ├─ assets          # 主题、字体、svg等静态资源
 │  ├─ components      # 全局公用组件
 │  ├─ config          # 全局配置

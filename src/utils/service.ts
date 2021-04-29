@@ -1,6 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { get } from 'lodash'
 import { useStore } from '@/store'
+import { ElMessage } from 'element-plus'
 
 // 存储每个请求的标识和取消的函数
 const pendingAjax = new Map()
@@ -115,6 +116,7 @@ function createService() {
         case 505: error.message = 'HTTP版本不受支持'; break
         default: break
       }
+      ElMessage.error(error.message)
       return Promise.reject(error)
     }
   )
@@ -130,11 +132,11 @@ export const service = createService()
  */
 function createRequestFunction() {
   return function(config: AxiosRequestConfig) {
-    const token = localStorage.getItem('token')
+    const token = useStore().state.user.token
     const configDefault = {
       headers: {
-        Authorization: token,
-        token: useStore().state.user.token, // mock 接口专用
+        // Authorization: 'Bearer ' + token,
+        token: token, // mock 接口专用，开发时可删除
         'Content-Type': get(config, 'headers.Content-Type', 'application/json')
       },
       timeout: 5000,

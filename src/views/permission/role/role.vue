@@ -118,7 +118,7 @@
 <script lang="ts">
 import { computed, defineComponent, onBeforeMount, reactive, toRefs, ref, nextTick, getCurrentInstance } from 'vue'
 import { RouteRecordRaw } from 'vue-router'
-import $api from '@/apis'
+import $api from '@/api-inject'
 import { resolve } from 'path'
 import { useI18n } from 'vue-i18n'
 import editRole from './edit-role'

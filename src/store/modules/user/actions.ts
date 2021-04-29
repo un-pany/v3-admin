@@ -10,7 +10,7 @@ import { removeToken, setToken } from '@/utils/cookies'
 import { PermissionActionType } from '../permission/action-types'
 import router, { resetRouter } from '@/router'
 import { RouteRecordRaw } from 'vue-router'
-import $api from '@/apis'
+import $api from '@/api-inject'
 
 type AugmentedActionContext = {
   commit<K extends keyof Mutations>(
