@@ -273,7 +273,7 @@ export default defineComponent({
 <style lang="scss">
 /* 修复input 背景不协调 和光标变色 */
 
-$bg:#283443;
+$bg:#fff;
 $light_gray:#666;
 $cursor: #666;
 
