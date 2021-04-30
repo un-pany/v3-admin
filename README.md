@@ -140,13 +140,13 @@ npm run lint
 ## Reference
 
 - [vue-element-admin](https://panjiachen.gitee.io/vue-element-admin-site/zh/)
-- [vue3-composition-admin](https://rcyj-fed.github.io/vue3-composition-admin-docs/)
 
 ## 站在巨人的肩膀上
 
 - [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 - [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
+- [vue-vben-admin](https://github.com/anncwb/vue-vben-admin)
 
 ## 📄 License
 

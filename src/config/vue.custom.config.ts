@@ -1,7 +1,7 @@
 /* vue.config 文件配置 */
 
 const vueDefaultConfig = {
-    publicPath: '/',
+    publicPath: './',
     outputDir: 'dist',
     assetsDir: 'static',
     lintOnSave: false,
@@ -10,11 +10,32 @@ const vueDefaultConfig = {
     title: 'v3-admin',
     titleSeparator: ' - ',
     titleReverse: false,
-    devPort: '9999',
     abbreviation: 'vt2at',
     providePlugin: {},
     build7z: false,
-    startMessage:'欢迎使用 v3-admin'
+    startMessage:'欢迎使用 v3-admin',
+    devServer: {
+        publicPath: '/',
+        hot: true,
+        port: '9999',
+        open: true,
+        noInfo: false,
+        overlay: {
+          warnings: true,
+          errors: true,
+        }
+        // proxy: {
+        //   '/api/': {
+        //     target: 'http://xxxxxx/api/',
+        //     ws: true,
+        //     pathRewrite: {
+        //       '^/api/': ''
+        //     },
+        //     changeOrigin: true,
+        //     secure: false
+        //   }
+        // }
+    }
 }
 
 module.exports = vueDefaultConfig

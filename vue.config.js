@@ -13,7 +13,7 @@ const  {
   lintOnSave,
   transpileDependencies,
   title,
-  devPort,
+  devServer,
 } = require('./src/config/vue.custom.config.ts')
 module.exports = {
   publicPath,
@@ -21,27 +21,7 @@ module.exports = {
   outputDir,
   lintOnSave,
   transpileDependencies,
-  devServer: {
-    hot: true,
-    port: devPort,
-    open: true,
-    noInfo: false,
-    overlay: {
-      warnings: true,
-      errors: true,
-    }
-    // proxy: {
-    //   '/api/': {
-    //     target: 'http://172.20.2.199:8090/api/',
-    //     ws: true,
-    //     pathRewrite: {
-    //       '^/api/': ''
-    //     },
-    //     changeOrigin: true,
-    //     secure: false
-    //   }
-    // }
-  },
+  devServer,
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
