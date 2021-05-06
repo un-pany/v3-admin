@@ -1,5 +1,9 @@
 <template>
   <div :class="{'has-logo': showLogo}">
+    <SidebarLogo
+      v-if="showLogo"
+      :collapse="isCollapse"
+    />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :collapse="!isCollapse"
@@ -7,7 +11,7 @@
         :default-active="activeMenu"
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
-        :active-text-color="menuActiveTextColor"
+        :active-text-color="variables.menuActiveText"
         mode="vertical"
       >
         <SidebarItem
@@ -19,10 +23,6 @@
         />
       </el-menu>
     </el-scrollbar>
-    <SidebarLogo
-      v-if="showLogo"
-      :collapse="isCollapse"
-    />
   </div>
 </template>
 
@@ -52,15 +52,16 @@ export default defineComponent({
       return store.state.settings.showSidebarLogo
     })
 
-    const menuActiveTextColor = computed(() => {
-      // console.log(store.state.settings.sidebarTextTheme)
+    // const menuActiveTextColor = computed(() => {
+    // console.log(store.state.settings.sidebarTextTheme)
 
-      if (store.state.settings.sidebarTextTheme) {
-        return store.state.settings.theme
-      } else {
-        return variables.menuActiveText
-      }
-    })
+    // if (store.state.settings.sidebarTextTheme) {
+    //   return store.state.settings.theme
+    // } else {
+    //   return variables.menuActiveText
+    // }
+    // return variables.menuActiveText
+    // })
 
     const activeMenu = computed(() => {
       const { meta, path } = route
@@ -80,7 +81,7 @@ export default defineComponent({
       sidebar,
       routes,
       showLogo,
-      menuActiveTextColor,
+      // menuActiveTextColor,
       variables,
       activeMenu,
       isCollapse
@@ -131,5 +132,17 @@ export default defineComponent({
   border: none;
   height: 100%;
   width: 100% !important;
+}
+
+::v-deep(.el-menu-item) {
+  font-size: 13px;
+  height: 65px;
+  line-height: 65px;
+  &:hover {
+    background-color: rgba(52,78,104,.5) !important;
+  }
+  &.is-active {
+    border-left: 4px solid #39cedd;
+  }
 }
 </style>

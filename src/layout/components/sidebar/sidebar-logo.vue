@@ -3,35 +3,30 @@
 <template>
   <div
     class="sidebar-logo-container"
-    :class="{'collapse': collapse}"
+    :class="{'collapse': !collapse}"
   >
-    <transition name="sidebarLogoFade">
-      <router-link
-        v-if="false"
-        key="collapse"
-        class="sidebar-logo-link"
-        to="/"
+    <router-link
+      v-if="!collapse"
+      key="collapse"
+      class="sidebar-logo-link"
+      to="/"
+    >
+      <img
+        src="@/assets/layout/logo.png"
+        class="sidebar-logo"
       >
-        <img
-          src="favicon.ico"
-          class="sidebar-logo"
-        >
-      </router-link>
-      <router-link
-        v-else
-        key="expand"
-        class="sidebar-logo-link"
-        to="/"
+    </router-link>
+    <router-link
+      v-else
+      key="expand"
+      class="sidebar-logo-link"
+      to="/"
+    >
+      <img
+        src="@/assets/layout/logo-text.png"
+        class="sidebar-logo"
       >
-        <img
-          src="favicon.ico"
-          class="sidebar-logo"
-        >
-        <h1 class="sidebar-title">
-          {{ title }}
-        </h1>
-      </router-link>
-    </transition>
+    </router-link>
   </div>
 </template>
 
@@ -46,7 +41,7 @@ export default defineComponent({
     }
   },
   setup() {
-    const title = 'V3 - Admin'
+    const title = '安全集成一体机'
     return {
       title
     }
@@ -67,9 +62,9 @@ export default defineComponent({
 .sidebar-logo-container {
   position: relative;
   width: 100%;
-  height: 50px;
-  line-height: 50px;
-  background: $menuBg;
+  height: 90px;
+  line-height: 90px;
+  background: #0c202b;
   text-align: center;
   overflow: hidden;
 
@@ -78,10 +73,9 @@ export default defineComponent({
     width: 100%;
 
     & .sidebar-logo {
-      width: 32px;
-      height: 32px;
+      width: 205px;
       vertical-align: middle;
-      margin-right: 0px;
+      margin-right: 12px;
     }
 
     & .sidebar-title {
@@ -90,7 +84,7 @@ export default defineComponent({
       color: #fff;
       font-weight: 600;
       line-height: 50px;
-      font-size: 14px;
+      font-size: 16px;
       font-family: Avenir, Helvetica Neue, Arial, Helvetica, sans-serif;
       vertical-align: middle;
     }
@@ -98,7 +92,10 @@ export default defineComponent({
 
   &.collapse {
     .sidebar-logo {
-      margin-right: 12px;
+      width: 32px;
+      height: 32px;
+      vertical-align: middle;
+      margin-right: 0;
     }
   }
 }
