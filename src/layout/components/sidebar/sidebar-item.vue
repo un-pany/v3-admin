@@ -139,6 +139,9 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+::v-deep(.el-submenu__title) {
+  font-size: 13px;
+}
 .el-submenu.is-active > .el-submenu__title {
   color: $subMenuActiveText !important;
 }
@@ -156,17 +159,13 @@ export default defineComponent({
   .el-menu-item{
     &>span{
       display: inline-block;
-      padding-left: 5px;
     }
   }
-  .el-submenu {
+  ::v-deep(.el-submenu) {
     overflow: hidden;
     & > .el-submenu__title {
       .el-submenu__icon-arrow {
         display: none;
-      }
-      & > span {
-             padding-left: 5px;
       }
     }
   }
@@ -204,7 +203,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 svg {
-  margin-right: 16px;
+  margin-right: 20px;
 }
 
 .simple-mode {

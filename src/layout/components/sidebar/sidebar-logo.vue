@@ -5,28 +5,30 @@
     class="sidebar-logo-container"
     :class="{'collapse': !collapse}"
   >
-    <router-link
-      v-if="!collapse"
-      key="collapse"
-      class="sidebar-logo-link"
-      to="/"
-    >
-      <img
-        src="@/assets/layout/logo.png"
-        class="sidebar-logo"
+    <transition name="sidebarLogoFade">
+      <router-link
+        v-if="!collapse"
+        key="collapse"
+        class="sidebar-logo-link"
+        to="/"
       >
-    </router-link>
-    <router-link
-      v-else
-      key="expand"
-      class="sidebar-logo-link"
-      to="/"
-    >
-      <img
-        src="@/assets/layout/logo-text.png"
-        class="sidebar-logo"
+        <img
+          src="@/assets/layout/logo.png"
+          class="sidebar-logo"
+        >
+      </router-link>
+      <router-link
+        v-else
+        key="expand"
+        class="sidebar-logo-link"
+        to="/"
       >
-    </router-link>
+        <img
+          src="@/assets/layout/logo-text.png"
+          class="sidebar-logo-text"
+        >
+      </router-link>
+    </transition>
   </div>
 </template>
 
@@ -50,11 +52,12 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.sidebarLogoFade-enter-active {
+.sidebarLogoFade-enter-active,
+.sidebarLogoFade-leave-active {
   transition: opacity 1.5s;
 }
 
-.sidebarLogoFade-enter,
+.sidebarLogoFade-enter-from,
 .sidebarLogoFade-leave-to {
   opacity: 0;
 }
@@ -68,14 +71,17 @@ export default defineComponent({
   text-align: center;
   overflow: hidden;
 
+  .sidebar-logo {
+    display: none;
+  }
+
   & .sidebar-logo-link {
     height: 100%;
     width: 100%;
 
-    & .sidebar-logo {
+    & .sidebar-logo-text {
       width: 205px;
       vertical-align: middle;
-      margin-right: 12px;
     }
 
     & .sidebar-title {
@@ -96,6 +102,10 @@ export default defineComponent({
       height: 32px;
       vertical-align: middle;
       margin-right: 0;
+      display: inline-block;
+    }
+    .sidebar-logo-text {
+      display: none;
     }
   }
 }
