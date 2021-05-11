@@ -1,5 +1,6 @@
 /* 配置文件 */
 const { resolve } = require('path')
+const webpack = require('webpack')
 const path = require('path')
 const WebpackBar = require('webpackbar')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
@@ -45,6 +46,10 @@ module.exports = {
         }),
         new WebpackBar({
           name:title
+        }),
+        new webpack.DefinePlugin({
+          __VUE_OPTIONS_API__: JSON.stringify(true),
+          __VUE_PROD_DEVTOOLS__: JSON.stringify(false)
         })
       ]
     }
@@ -89,6 +94,16 @@ module.exports = {
     config.plugin('svg-sprite')
       .use(require('svg-sprite-loader/plugin')), [{ pluginSprite: true }]
     config.module.rule('svg').exclude.add(dir)
+
+    config.plugin('define').tap(args => {
+      args[0] = {
+        ...args[0],
+        __INTLIFY_PROD_DEVTOOLS__: false,
+        __VUE_I18N_FULL_INSTALL__: true,
+        __VUE_I18N_LEGACY_API__: true
+      }
+      return args
+    })
 
     // 将运行代码单独生成文件
     if (process.env.NODE_ENV !== 'development') {
