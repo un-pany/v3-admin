@@ -2,7 +2,8 @@
   <div class="login-container">
     <div class="login-card">
       <div class="title">
-        <h3>V3 - Admin</h3>
+        <!-- <h3>V3 - Admin</h3> -->
+        <img src="@/assets/layout/logo-text.png">
       </div>
       <div class="content">
         <el-form ref="loginFormDom" :model="loginForm" :rules="loginRules" auto-complete="on" label-position="left">
@@ -219,7 +220,7 @@ export default defineComponent({
 .login-container {
   min-height: 100%;
   width: 100%;
-  background-color: rgb(84, 92, 100);
+  background-color: rgb(21, 45, 61);
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -236,6 +237,9 @@ export default defineComponent({
       align-items: center;
       color: #fff;
       font-size: 26px;
+      img {
+        height: 100%;
+      }
     }
     .content {
       background-color: #fff;

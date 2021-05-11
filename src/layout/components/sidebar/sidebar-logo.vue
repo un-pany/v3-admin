@@ -41,12 +41,6 @@ export default defineComponent({
       type: Boolean,
       default: true
     }
-  },
-  setup() {
-    const title = '安全集成一体机'
-    return {
-      title
-    }
   }
 })
 </script>
@@ -65,8 +59,8 @@ export default defineComponent({
 .sidebar-logo-container {
   position: relative;
   width: 100%;
-  height: 90px;
-  line-height: 90px;
+  height: 84px;
+  line-height: 84px;
   background: #0c202b;
   text-align: center;
   overflow: hidden;
