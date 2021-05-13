@@ -7,7 +7,7 @@ import { ElMessage } from 'element-plus'
 const pendingAjax = new Map()
 
 // 请求标志
-const duplicatedKeyFn = (config: AxiosRequestConfig) => `${config.method}${config.url}`
+const duplicatedKeyFn = (config: AxiosRequestConfig) => `${config.method}${config.url}${JSON.stringify(config.params)}${JSON.stringify(config.data)}`
 
 /**
  * 将请求添加到pendingAjax
