@@ -31,15 +31,6 @@ const permissionRouter: Array<RouteRecordRaw> = [
           title: 'directivePermission'
           // 如果未设置角色，则表示：该页面不需要权限
         }
-      },
-      {
-        path: 'role',
-        component: () => import(/* webpackChunkName: "permission-role" */ '@/views/permission/role/role.vue'),
-        name: 'RolePermission',
-        meta: {
-          title: 'rolePermission',
-          roles: ['admin']
-        }
       }
     ]
   }
