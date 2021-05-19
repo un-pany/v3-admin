@@ -1,8 +1,12 @@
 ## ⚡️ 简介
 
-> 一个中后台管理系统解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli 4.5
+> 一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli 4.5
 
-## 📚 功能
+## 📚 文档
+
+- [v3-admin 使用文档](https://juejin.cn/post/6963876125428678693/)
+
+## ⌛ 功能
 
 ```text
 - 用户管理
@@ -12,7 +16,6 @@
 - 权限验证
   - 页面权限
   - 指令权限
-  - 权限配置
 
 - 多环境
   - dev
@@ -137,16 +140,18 @@ npm run lint
 
 * [x] 当设置 redirect: 'noRedirect' 的时候该路由在面包屑导航中不可被点击
 
-## Reference
-
-- [vue-element-admin](https://panjiachen.gitee.io/vue-element-admin-site/zh/)
-
 ## 站在巨人的肩膀上
 
 - [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 - [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
 - [vue-vben-admin](https://github.com/anncwb/vue-vben-admin)
+
+## 交流（吹水）群
+
+无人问津的交流（吹水）群：1014374415
+
+![v3-admin.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19291ab4cbb24c8c9e743f1701609cb6~tplv-k3u1fbpfcp-watermark.image)
 
 ## 📄 License
 
