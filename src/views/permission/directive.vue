@@ -78,7 +78,6 @@
     >
       <aside>
         {{ t('permission.tips') }}
-        <br> e.g.
       </aside>
 
       <el-tabs
