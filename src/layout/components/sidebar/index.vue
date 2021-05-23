@@ -7,11 +7,11 @@
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :collapse="!isCollapse"
-        :unique-opened="false"
+        :unique-opened="true"
         :default-active="activeMenu"
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
-        :active-text-color="variables.menuActiveText"
+        :active-text-color="menuActiveTextColor"
         mode="vertical"
       >
         <SidebarItem
@@ -52,16 +52,14 @@ export default defineComponent({
       return store.state.settings.showSidebarLogo
     })
 
-    // const menuActiveTextColor = computed(() => {
-    // console.log(store.state.settings.sidebarTextTheme)
-
-    // if (store.state.settings.sidebarTextTheme) {
-    //   return store.state.settings.theme
-    // } else {
-    //   return variables.menuActiveText
-    // }
-    // return variables.menuActiveText
-    // })
+    const menuActiveTextColor = computed(() => {
+      if (store.state.settings.sidebarTextTheme) {
+        return store.state.settings.theme
+      } else {
+        return variables.menuActiveText
+      }
+      // return variables.menuActiveText
+    })
 
     const activeMenu = computed(() => {
       const { meta, path } = route
@@ -81,7 +79,7 @@ export default defineComponent({
       sidebar,
       routes,
       showLogo,
-      // menuActiveTextColor,
+      menuActiveTextColor,
       variables,
       activeMenu,
       isCollapse
@@ -135,14 +133,27 @@ export default defineComponent({
 }
 
 ::v-deep(.el-menu-item) {
-  font-size: 13px;
-  height: 65px;
-  line-height: 65px;
+  font-size: 13px !important;
+  height: 65px !important;
+  line-height: 65px !important;
   &:hover {
     background-color: rgba(52,78,104,.5) !important;
   }
   &.is-active {
-    border-left: 4px solid #39cedd;
+    border-left: 4px solid #39cedd !important;
   }
+}
+
+::v-deep(.el-submenu__title) {
+  height: 65px !important;
+  line-height: 65px !important;
+  &:hover {
+    background-color: rgba(52,78,104,.5) !important;
+  }
+}
+
+::v-deep(.el-submenu .el-menu-item) {
+  height: 60px !important;
+  line-height: 60px !important;
 }
 </style>

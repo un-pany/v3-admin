@@ -20,7 +20,7 @@ interface LayoutSettings {
     showTagsView: true,
     fixedHeader: false,
     showSidebarLogo: true,
-    sidebarTextTheme: true,
+    sidebarTextTheme: false,
     langSelect: true
   }
   

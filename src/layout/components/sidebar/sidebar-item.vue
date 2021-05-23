@@ -140,7 +140,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 ::v-deep(.el-submenu__title) {
-  font-size: 13px;
+  font-size: 13px !important;
 }
 .el-submenu.is-active > .el-submenu__title {
   color: $subMenuActiveText !important;
@@ -162,10 +162,10 @@ export default defineComponent({
     }
   }
   ::v-deep(.el-submenu) {
-    overflow: hidden;
+    overflow: hidden !important;
     & > .el-submenu__title {
       .el-submenu__icon-arrow {
-        display: none;
+        display: none !important;
       }
     }
   }
