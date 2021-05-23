@@ -6,6 +6,10 @@
 
 - [docs](https://juejin.cn/post/6963876125428678693/)
 
+## ⭐ 预览
+
+- [关闭梯子访问](https://v3-projects.github.io/v3-admin)
+
 ## ⌛ 功能
 
 ```text
@@ -122,9 +126,11 @@ npm run lint
 
 ## 后续计划
 
-* [x] 解决 vue warn
+* [ ] 解决 [Vue warn]: Avoid app logic that relies on enumerating keys on a component instance. The keys will be empty in production mode to avoid performance overhead.
 
-* [ ] 解决动态路由产生的 vue router warn
+* ~~[ ] 解决动态路由产生的 [Vue Router warn]: No match found for location with path "xxxx"~~（经检查是 vue-router 自身问题）
+
+* [ ] 解决动态路由产生的 [Vue warn]: Vue received a Component which was made a reactive object. This can lead to unnecessary performance overhead, and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`.
 
 * [x] 新增是否显示中英文切换的 config 开关
 
@@ -140,7 +146,7 @@ npm run lint
 
 * [x] 当设置 redirect: 'noRedirect' 的时候该路由在面包屑导航中不可被点击
 
-* [ ] 项目预览地址
+* [x] 项目预览地址
 
 ## 站在巨人的肩膀上
 
