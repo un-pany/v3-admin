@@ -7,7 +7,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const dayjs = require('dayjs')
 const time = dayjs().format('YYYY-M-D HH:mm:ss')
 process.env.VUE_APP_UPDATE_TIME = time
-const  {
+const {
   publicPath,
   assetsDir,
   outputDir,
@@ -33,7 +33,10 @@ module.exports = {
     }
   },
   configureWebpack: () => {
-    const configNew = {}
+    const configNew = {
+      // 可以在 index.html 中被访问，用来注入页面标题
+      name: title
+    }
     if (process.env.NODE_ENV === 'production') {
       configNew.plugins = [
         // gzip
@@ -45,7 +48,7 @@ module.exports = {
           deleteOriginalAssets: false
         }),
         new WebpackBar({
-          name:title
+          name: title
         }),
         new webpack.DefinePlugin({
           __VUE_OPTIONS_API__: JSON.stringify(true),
