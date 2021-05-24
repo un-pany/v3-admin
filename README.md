@@ -6,9 +6,9 @@
 
 - [docs](https://juejin.cn/post/6963876125428678693/)
 
-## ⭐ 预览
+## 预览
 
-- [关闭梯子访问](https://v3-projects.github.io/v3-admin)
+- [进入系统后先关闭梯子再登录](https://v3-projects.github.io/v3-admin)
 
 ## ⌛ 功能
 
@@ -128,7 +128,7 @@ npm run lint
 
 * [ ] 解决 [Vue warn]: Avoid app logic that relies on enumerating keys on a component instance. The keys will be empty in production mode to avoid performance overhead.
 
-* ~~[ ] 解决动态路由产生的 [Vue Router warn]: No match found for location with path "xxxx"~~（经检查是 vue-router 自身问题）
+* [ ] ~~解决动态路由产生的 [Vue Router warn]: No match found for location with path "xxxx"~~（经检查是 vue-router 自身问题）
 
 * [ ] 解决动态路由产生的 [Vue warn]: Vue received a Component which was made a reactive object. This can lead to unnecessary performance overhead, and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`.
 
