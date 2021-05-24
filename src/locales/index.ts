@@ -25,16 +25,16 @@ export const getLocale = () => {
   if (cookieLanguage) {
     return cookieLanguage
   }
-  const language = navigator.language.toLowerCase()
-  const locales = Object.keys(messages)
-  for (const locale of locales) {
-    if (language.indexOf(locale) > -1) {
-      return locale
-    }
-  }
+  // const language = navigator.language.toLowerCase()
+  // const locales = Object.keys(messages)
+  // for (const locale of locales) {
+  //   if (language.indexOf(locale) > -1) {
+  //     return locale
+  //   }
+  // }
 
-  // Default language is english
-  return 'zh'
+  // Default language is zh-cn
+  return 'zh-cn'
 }
 
 const i18n = createI18n({
