@@ -2,7 +2,7 @@
 <template>
   <div>
     <el-dropdown>
-      <svg-icon name="language" font-size="20px" :class="{'svg-color': isWhite}" />
+      <svg-icon name="language" font-size="20px" />
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item
@@ -31,12 +31,6 @@ type Language = {
 }
 
 export default defineComponent({
-  props: {
-    isWhite: {
-      type: Boolean,
-      default: false
-    }
-  },
   setup() {
     const store = useStore()
     const { locale } = useI18n()
@@ -65,7 +59,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.svg-color{
-  fill: white;
+.icon {
+  color: #5a5e66;
 }
 </style>
