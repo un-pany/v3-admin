@@ -18,7 +18,7 @@ jobs:
         run: yarn install && yarn build:prod
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@master
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           ACCESS_TOKEN: ${{ secrets.V3 }}
           BRANCH: gh-pages
