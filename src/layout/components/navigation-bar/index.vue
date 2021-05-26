@@ -36,6 +36,14 @@
             </router-link>
             <a
               target="_blank"
+              href="https://juejin.cn/post/6963876125428678693"
+            >
+              <el-dropdown-item>
+                {{ t("navbar.docs") }}
+              </el-dropdown-item>
+            </a>
+            <a
+              target="_blank"
               href="https://github.com/v3-projects/v3-admin"
             >
               <el-dropdown-item>

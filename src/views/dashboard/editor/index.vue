@@ -2,26 +2,17 @@
 
 <template>
   <div class="app-container">
-    editor 权限可见：{{ name }}
+    Editor
   </div>
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue'
-import { useStore } from '@/store'
+import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'Editor',
-  components: {
-  },
+  components: {},
   setup() {
-    const store = useStore()
-    const name = computed(() => {
-      return store.state.user.name
-    })
-
-    return {
-      name
-    }
+    return {}
   }
 })
 </script>

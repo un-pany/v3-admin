@@ -12,7 +12,8 @@ export default {
   navbar: {
     logOut: '退出登录',
     dashboard: '首页',
-    github: '项目地址'
+    github: '项目地址',
+    docs: '文档地址'
   },
   permission: {
     createRole: '新增角色',

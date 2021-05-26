@@ -12,7 +12,8 @@ export default {
   navbar: {
     logOut: 'Log Out',
     dashboard: 'Dashboard',
-    github: 'Github'
+    github: 'Github',
+    docs: 'Docs'
   },
   permission: {
     createRole: 'New Role',
