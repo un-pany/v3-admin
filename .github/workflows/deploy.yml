@@ -3,7 +3,7 @@ name: Build And Deploy v3-admin
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-deploy:
