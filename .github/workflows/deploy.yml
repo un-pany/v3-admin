@@ -20,6 +20,6 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@master
         with:
-          ACCESS_TOKEN: ${{ secrets.v3 }}
+          ACCESS_TOKEN: ${{ secrets.V3 }}
           BRANCH: gh-pages
           FOLDER: dist
