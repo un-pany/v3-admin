@@ -12,7 +12,7 @@
 ## 预览
 
 | 位置 | 账号 | 链接 | 注意 |
-| --- | --- |
+| --- | --- | --- | --- |
 | github-pages | admin或editor | [链接](https://v3-projects.github.io/v3-admin) | 进入系统可能需要梯子，进入后请关闭梯子再登录 |
 
 ## ⌛ 功能
