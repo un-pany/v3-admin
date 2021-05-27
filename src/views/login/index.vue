@@ -142,7 +142,7 @@ export default defineComponent({
     // data
     const src = ref<string>('')
     const loginForm = reactive<LoginForm>({
-      username: 'admin或editor',
+      username: 'admin', // admin 或 editor
       password: '123456',
       code: '1234',
       checkCode: ''
