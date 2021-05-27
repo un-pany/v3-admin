@@ -7,16 +7,16 @@ import { store as tagViews, TagsStore, TagsViewState } from '@/store/modules/tag
 import loggerSettings from '@/config/logger'
 
 export interface RootState {
-    app: AppState
-    settings: SettingsState
-    permission: PermissionState
-    user: UserState
-    tagViews: TagsViewState
+  app: AppState
+  settings: SettingsState
+  permission: PermissionState
+  user: UserState
+  tagViews: TagsViewState
 }
 
 export type Store = AppStore<Pick<RootState, 'app'>> & SettingStore<Pick<RootState, 'settings'>>
-& PermissionStore<Pick<RootState, 'permission'>> & UserStore<Pick<RootState, 'user'>>
-& TagsStore<Pick<RootState, 'tagViews'>>
+  & PermissionStore<Pick<RootState, 'permission'>> & UserStore<Pick<RootState, 'user'>>
+  & TagsStore<Pick<RootState, 'tagViews'>>
 
 // 在开发环境中插入记录器 logger
 let debug

@@ -1,24 +1,41 @@
 <template>
   <el-card class="filter-container" shadow="never">
     <div>
-      <el-form :inline="true" :model="listQuery" size="small" label-width="100px" :label-position="labelPosition">
+      <el-form
+        :inline="true"
+        :model="listQuery"
+        size="small"
+        label-width="100px"
+        :label-position="labelPosition"
+      >
         <el-form-item>
-          <el-input v-model="listQuery.keyword" ref="filter" @focus="testfocus" @blur="testblur" @keyup.enter="handleSearchList" class="input-width users-header--toolbar-input" :placeholder="placeholder" clearable />
+          <el-input
+            v-model="listQuery.keyword"
+            ref="filter"
+            @focus="testfocus"
+            @blur="testblur"
+            @keyup.enter="handleSearchList"
+            class="input-width users-header--toolbar-input"
+            :placeholder="placeholder"
+            clearable
+          />
         </el-form-item>
         <el-form-item>
           <div>
             <el-button
-              style="float:right"
+              style="float: right"
               type="primary"
               @click="handleSearchList()"
               icon="el-icon-search"
-              size="small">
+              size="small"
+            >
               搜索
             </el-button>
             <el-button
-              style="float:right;margin-right: 15px"
+              style="float: right; margin-right: 15px"
               @click="handleResetSearch()"
-              size="small">
+              size="small"
+            >
               重置
             </el-button>
           </div>
@@ -32,12 +49,13 @@
 </template>
 
 <script lang="ts">
-import { ref, reactive, getCurrentInstance } from 'vue'
+import { ref, reactive, getCurrentInstance, defineComponent } from 'vue'
 
 interface AnyObject {
-    [key: string]: any
+  [key: string]: any
 }
-export default {
+export default defineComponent({
+  name: 'FilterContainer',
   props: {
     defaultListQuery: {
       type: Object,
@@ -90,7 +108,10 @@ export default {
               const flag = Object.prototype.hasOwnProperty.call(cur, key)
               const type = typeof cur[key]
               if (flag) {
-                if ((cur[key] === keyword) || (type === 'string' && cur[key].includes(keyword))) {
+                if (
+                  cur[key] === keyword ||
+                  (type === 'string' && cur[key].includes(keyword))
+                ) {
                   total.push(cur)
                   break
                 }
@@ -116,12 +137,12 @@ export default {
       handleSearchList
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
 .users-header--toolbar-input {
   width: 170px;
-  transition: width .5s;
+  transition: width 0.5s;
 }
 </style>

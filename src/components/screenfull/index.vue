@@ -2,16 +2,10 @@
 
 <template>
   <div id="screenfull">
-    <div
-      v-if="isFullscreen"
-      @click="click"
-    >
+    <div v-if="isFullscreen" @click="click">
       <svg-icon name="exit-fullscreen" font-size="20px" />
     </div>
-    <div
-      @click="click"
-      v-else
-    >
+    <div @click="click" v-else>
       <svg-icon name="fullscreen" font-size="20px" />
     </div>
   </div>
@@ -19,11 +13,18 @@
 
 <script lang="ts">
 import screenfull from 'screenfull'
-import { defineComponent, onBeforeUnmount, onMounted, reactive, toRefs } from 'vue'
+import {
+  defineComponent,
+  onBeforeUnmount,
+  onMounted,
+  reactive,
+  toRefs
+} from 'vue'
 import { ElMessage } from 'element-plus'
 
 const sf = screenfull
 export default defineComponent({
+  name: 'Screenfull',
   setup() {
     const state = reactive({
       isFullscreen: false,
@@ -60,5 +61,4 @@ export default defineComponent({
     }
   }
 })
-
 </script>

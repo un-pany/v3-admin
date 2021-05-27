@@ -16,14 +16,14 @@ type AugmentedActionContext = {
 export interface Actions {
   [SettingsActionTypes.ACTION_CHANGE_SETTING](
     { commit }: AugmentedActionContext,
-    payload: {key: string, value: any}
+    payload: { key: string, value: any }
   ): void
 }
 
 export const actions: ActionTree<SettingsState, RootState> & Actions = {
   [SettingsActionTypes.ACTION_CHANGE_SETTING](
     { commit }: AugmentedActionContext,
-    payload: {key: string, value: any}
+    payload: { key: string, value: any }
   ) {
     commit(SettingsMutationTypes.CHANGE_SETTING, payload)
   }

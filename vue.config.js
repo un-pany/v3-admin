@@ -14,7 +14,7 @@ const {
   lintOnSave,
   transpileDependencies,
   title,
-  devServer,
+  devServer
 } = require('./src/config/vue.custom.config.ts')
 module.exports = {
   publicPath,
@@ -70,7 +70,7 @@ module.exports = {
       .set('@api', resolve('src/api'))
       .set('@', resolve('src'))
       .set('Assets', resolve('src/assets'))
-    
+
     // json, json5, yaml and yml files
     const jsonRule = config.module.rule('json')
     jsonRule.test(/\.(json5?|ya?ml)$/)

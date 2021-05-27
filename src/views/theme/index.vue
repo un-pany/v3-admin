@@ -52,9 +52,12 @@ export default defineComponent({
       radio: 3
     })
 
-    watch(() => dataMap.theme, () => {
-      toggleClass(document.body, 'custom-theme')
-    })
+    watch(
+      () => dataMap.theme,
+      () => {
+        toggleClass(document.body, 'custom-theme')
+      }
+    )
 
     return { t, ...toRefs(dataMap) }
   }

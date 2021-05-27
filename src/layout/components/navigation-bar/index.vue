@@ -7,13 +7,9 @@
       class="hamburger-container"
       @toggle-click="toggleSideBar"
     />
-    <BreadCrumb
-      id="breadcrumb-container"
-      class="breadcrumb-container"
-    />
+    <BreadCrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device !== 'mobile'">
-        <!-- <error-log class="errLog-container right-menu-item hover-effect" /> -->
         <Screenfull class="right-menu-item hover-effect" />
         <LangSelect class="right-menu-item hover-effect" v-if="langSelect" />
       </template>
@@ -23,7 +19,7 @@
       >
         <div class="avatar-wrapper">
           <img
-            :src="avatar + '?imageView2/1/w/80/h/80'"
+            :src="require('@/assets/layout/avatar.gif')"
             class="user-avatar"
           >
         </div>
@@ -31,7 +27,7 @@
           <el-dropdown-menu>
             <router-link to="/">
               <el-dropdown-item>
-                {{ t("navbar.dashboard") }}
+                {{ t('navbar.dashboard') }}
               </el-dropdown-item>
             </router-link>
             <a
@@ -39,23 +35,17 @@
               href="https://juejin.cn/post/6963876125428678693"
             >
               <el-dropdown-item>
-                {{ t("navbar.docs") }}
+                {{ t('navbar.docs') }}
               </el-dropdown-item>
             </a>
-            <a
-              target="_blank"
-              href="https://github.com/v3-projects/v3-admin"
-            >
+            <a target="_blank" href="https://github.com/v3-projects/v3-admin">
               <el-dropdown-item>
-                {{ t("navbar.github") }}
+                {{ t('navbar.github') }}
               </el-dropdown-item>
             </a>
-            <el-dropdown-item
-              divided
-              @click="logout"
-            >
-              <span style="display:block;">
-                {{ t("navbar.logOut") }}
+            <el-dropdown-item divided @click="logout">
+              <span style="display: block">
+                {{ t('navbar.logOut') }}
               </span>
             </el-dropdown-item>
           </el-dropdown-menu>
@@ -70,14 +60,14 @@ import BreadCrumb from '@/components/bread-crumb/index.vue'
 import Hamburger from '@/components/hamburger/index.vue'
 import Screenfull from '@/components/screenfull/index.vue'
 import LangSelect from '@/components/lang-select/index.vue'
-
-import { computed, reactive, toRefs } from 'vue'
+import { computed, reactive, toRefs, defineComponent } from 'vue'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { useI18n } from 'vue-i18n'
 import { UserActionTypes } from '@/store/modules/user/action-types'
 import { useRoute, useRouter } from 'vue-router'
-export default {
+export default defineComponent({
+  name: 'NavigationBar',
   components: {
     BreadCrumb,
     Hamburger,
@@ -95,9 +85,6 @@ export default {
     const device = computed(() => {
       return store.state.app.device.toString()
     })
-    const avatar = computed(() => {
-      return store.state.user.avatar
-    })
     const langSelect = computed(() => {
       return store.state.settings.langSelect
     })
@@ -107,7 +94,7 @@ export default {
       },
       logout: () => {
         useStore().dispatch(UserActionTypes.ACTION_LOGIN_OUT)
-        router.push(`/login?redirect=${route.fullPath}`).catch(err => {
+        router.push(`/login?redirect=${route.fullPath}`).catch((err) => {
           console.warn(err)
         })
       }
@@ -115,13 +102,12 @@ export default {
     return {
       sidebar,
       device,
-      avatar,
       langSelect,
       ...toRefs(state),
       t
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -148,11 +134,6 @@ export default {
 
   .breadcrumb-container {
     float: left;
-  }
-
-  .errLog-container {
-    display: inline-block;
-    vertical-align: top;
   }
 
   .right-menu {

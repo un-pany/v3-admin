@@ -8,7 +8,7 @@
           <el-dropdown-item
             v-for="item in languages"
             :key="item.value"
-            :disabled="language===item.value"
+            :disabled="language === item.value"
             @click="handleSetLanguage(item.value)"
           >
             <span>{{ item.name }}</span>
@@ -26,17 +26,21 @@ import { AppActionTypes } from '@/store/modules/app/action-types'
 import { useI18n } from 'vue-i18n'
 import { ElMessage } from 'element-plus'
 type Language = {
-    name: string
-    value: string
-}
+  name: string
+  value: string
+};
 
 export default defineComponent({
+  name: 'LangSelect',
   setup() {
     const store = useStore()
     const { locale } = useI18n()
 
     const state = reactive({
-      languages: [{ name: 'en', value: 'en' }, { name: '中文', value: 'zh-cn' }] as Array<Language>,
+      languages: [
+        { name: 'en', value: 'en' },
+        { name: '中文', value: 'zh-cn' }
+      ] as Array<Language>,
       handleSetLanguage: (lang: string) => {
         locale.value = lang
         store.dispatch(AppActionTypes.ACTION_SET_LANGUAGE, lang)
@@ -55,7 +59,6 @@ export default defineComponent({
     }
   }
 })
-
 </script>
 
 <style lang="scss" scoped>

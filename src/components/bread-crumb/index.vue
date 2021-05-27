@@ -1,22 +1,18 @@
 <!-- 面包屑组件 -->
 <template>
-  <el-breadcrumb
-    class="app-breadcrumb"
-    separator-class="el-icon-arrow-right"
-  >
+  <el-breadcrumb class="app-breadcrumb" separator-class="el-icon-arrow-right">
     <transition-group name="breadcrumb">
-      <el-breadcrumb-item
-        v-for="(item, index) in breadcrumbs"
-        :key="item.path"
-      >
+      <el-breadcrumb-item v-for="(item, index) in breadcrumbs" :key="item.path">
         <span
-          v-if="item.redirect === 'noRedirect' || index === breadcrumbs.length-1"
+          v-if="
+            item.redirect === 'noRedirect' || index === breadcrumbs.length - 1
+          "
           class="no-redirect"
-        >{{ t('route.' + item.meta.title) }}</span>
-        <a
-          v-else
-          @click.prevent="handleLink(item)"
-        >{{ t('route.' + item.meta.title) }}</a>
+        >{{ t('route.' + item.meta.title) }}</span
+        >
+        <a v-else @click.prevent="handleLink(item)">{{
+          t('route.' + item.meta.title)
+        }}</a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -29,6 +25,7 @@ import { compile } from 'path-to-regexp'
 import { useI18n } from 'vue-i18n'
 import router from '@/router'
 export default defineComponent({
+  name: 'BreadCrumb',
   setup() {
     const currentRoute = useRoute()
     const pathCompile = (path: string) => {
@@ -41,10 +38,14 @@ export default defineComponent({
     const state = reactive({
       breadcrumbs: [] as Array<RouteLocationMatched>,
       getBreadcrumb: () => {
-        let matched = currentRoute.matched.filter((item) => item.meta && item.meta.title)
+        let matched = currentRoute.matched.filter(
+          (item) => item.meta && item.meta.title
+        )
         const frist = matched[0]
         if (!state.isDashboard(frist)) {
-          matched = [{ path: '/dashboard', meta: { title: 'dashboard' } } as any].concat(matched)
+          matched = [
+            { path: '/dashboard', meta: { title: 'dashboard' } } as any
+          ].concat(matched)
         }
         state.breadcrumbs = matched.filter((item) => {
           return item.meta && item.meta.title && item.meta.breadcrumb !== false
@@ -55,7 +56,10 @@ export default defineComponent({
         if (!name) {
           return false
         }
-        return name.toString().trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
+        return (
+          name.toString().trim().toLocaleLowerCase() ===
+          'Dashboard'.toLocaleLowerCase()
+        )
       },
       handleLink(item: any) {
         const { redirect, path } = item
@@ -71,12 +75,15 @@ export default defineComponent({
       }
     })
 
-    watch(() => currentRoute.path, (path) => {
-      if (path.startsWith('/redirect/')) {
-        return
+    watch(
+      () => currentRoute.path,
+      (path) => {
+        if (path.startsWith('/redirect/')) {
+          return
+        }
+        state.getBreadcrumb()
       }
-      state.getBreadcrumb()
-    })
+    )
 
     onBeforeMount(() => {
       state.getBreadcrumb()
@@ -87,9 +94,7 @@ export default defineComponent({
       ...toRefs(state)
     }
   }
-
 })
-
 </script>
 
 <style lang="scss" scoped>

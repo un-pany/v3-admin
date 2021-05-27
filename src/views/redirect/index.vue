@@ -13,9 +13,11 @@ export default defineComponent({
   setup() {
     const { params, query } = useRoute()
     const { path } = params
-    useRouter().replace({ path: '/' + path, query }).catch((err) => {
-      console.warn(err)
-    })
+    useRouter()
+      .replace({ path: '/' + path, query })
+      .catch((err) => {
+        console.warn(err)
+      })
     return {}
   }
 })

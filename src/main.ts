@@ -18,7 +18,7 @@ loadComponents(app)
 
 // 自定义指令
 Object.keys(directives).forEach(key => {
-  app.directive(key, (directives as { [key: string ]: Directive })[key])
+  app.directive(key, (directives as { [key: string]: Directive })[key])
 })
 
 app.use(store).use(router).mount('#app')

@@ -1,5 +1,4 @@
 /* 根据大小变化重新布局 */
-// 参考 Bootstrap 的响应式设计
 
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'

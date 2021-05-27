@@ -1,7 +1,7 @@
 <!-- 切换角色控件 -->
 <template>
   <div>
-    <div style="margin-bottom:15px;">
+    <div style="margin-bottom: 15px">
       {{ t('permission.roles') }}： {{ roles }}
     </div>
     {{ t('permission.switchRoles') }}：
@@ -17,6 +17,7 @@ import { UserActionTypes } from '@/store/modules/user/action-types'
 import { computed, defineComponent, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 export default defineComponent({
+  name: 'SwitchRoles',
   setup() {
     const { t } = useI18n()
     const store = useStore()

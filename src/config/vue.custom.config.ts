@@ -13,7 +13,7 @@ const vueDefaultConfig = {
   abbreviation: 'vt2at',
   providePlugin: {},
   build7z: false,
-  startMessage:'欢迎使用 v3-admin',
+  startMessage: '欢迎使用 v3-admin',
   devServer: {
     publicPath: '/',
     hot: true,
@@ -39,4 +39,3 @@ const vueDefaultConfig = {
 }
 
 module.exports = vueDefaultConfig
-  

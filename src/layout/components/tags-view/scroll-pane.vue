@@ -10,8 +10,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref, toRefs, computed, onMounted, onBeforeUnmount, getCurrentInstance } from 'vue'
+import {
+  defineComponent,
+  reactive,
+  ref,
+  toRefs,
+  computed,
+  onMounted,
+  onBeforeUnmount,
+  getCurrentInstance
+} from 'vue'
 export default defineComponent({
+  name: 'ScrollPane',
   emits: ['scroll'],
   setup(_, context) {
     const scrollContainerRef = ref(null)
@@ -24,7 +34,8 @@ export default defineComponent({
     const state = reactive({
       handleScroll: (e: WheelEvent) => {
         const eventDelta = (e as any).wheelDelta || -e.deltaY * 40
-        scrollWrapper.value.scrollLeft = scrollWrapper.value.scrollLeft + eventDelta / 4
+        scrollWrapper.value.scrollLeft =
+          scrollWrapper.value.scrollLeft + eventDelta / 4
       },
       moveToCurrentTag: (currentTag: HTMLElement) => {
         const container = (scrollContainerRef.value as any).$el as HTMLElement
@@ -42,19 +53,25 @@ export default defineComponent({
         if (fristTag === currentTag) {
           scrollWrapper.value.scrollLeft = 0
         } else if (lastTag === currentTag) {
-          scrollWrapper.value.scrollLeft = scrollWrapper.value.scrollWidth - containerWidth
+          scrollWrapper.value.scrollLeft =
+            scrollWrapper.value.scrollWidth - containerWidth
         } else {
           // find preTag and nextTag
-          const currentIndex = tagList.findIndex(item => item === currentTag)
+          const currentIndex = tagList.findIndex((item) => item === currentTag)
           const prevTag = tagList[currentIndex - 1]
           const nextTag = tagList[currentIndex + 1]
           // the tag's offsetLeft after of nextTag
-          const afterNextTagOffsetLeft = nextTag.$el.offsetLeft + nextTag.$el.offsetWidth + tagSpacing
+          const afterNextTagOffsetLeft =
+            nextTag.$el.offsetLeft + nextTag.$el.offsetWidth + tagSpacing
           // the tag's offsetLeft before of prevTag
           const beforePrevTagOffsetLeft = prevTag.$el.offsetLeft - tagSpacing
 
-          if (afterNextTagOffsetLeft > scrollWrapper.value.scrollLeft + containerWidth) {
-            scrollWrapper.value.scrollLeft = afterNextTagOffsetLeft - containerWidth
+          if (
+            afterNextTagOffsetLeft >
+            scrollWrapper.value.scrollLeft + containerWidth
+          ) {
+            scrollWrapper.value.scrollLeft =
+              afterNextTagOffsetLeft - containerWidth
           } else if (beforePrevTagOffsetLeft < scrollWrapper.value.scrollLeft) {
             scrollWrapper.value.scrollLeft = beforePrevTagOffsetLeft
           }
@@ -79,12 +96,10 @@ export default defineComponent({
       ...toRefs(state)
     }
   }
-
 })
 </script>
 
 <style lang="scss" scoped>
-
 .scroll-container {
   .el-scrollbar__bar {
     bottom: 0px;

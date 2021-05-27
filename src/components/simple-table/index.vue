@@ -1,44 +1,72 @@
 <template>
   <div>
-    <el-table :data="tableData" style="width: 100%" v-bind="options" v-loading="loading"
-              :element-loading-text="loadingOptions.text"
-              :element-loading-spinner="loadingOptions.spinner"
-              :element-loading-background="loadingOptions.background"
-              :row-key="getRowKeys"
-              @current-change="handleCurrentChange"
-              @select="handleSelect"
-              @select-all="handleSelectAll"
-              @selection-change="handleSelectionChange"
-              @expand-change="handleExpandChange"
-              @cell-mouse-enter="handleCellMouseEnter"
-              @cell-mouse-leave="handleCellMouseLeave"
-              @cell-click="handleCellClick"
-              @cell-dblclick="handleCellDblclick"
-              @row-click="handleRowClick"
-              @row-contextmenu="handleRowContextmenu"
-              @row-dblclick="handleRowDblclick"
-              @header-click="handleHeaderClick"
-              @header-contextmenu="handleHeaderContextmenu">
+    <el-table
+      :data="tableData"
+      style="width: 100%"
+      v-bind="options"
+      v-loading="loading"
+      :element-loading-text="loadingOptions.text"
+      :element-loading-spinner="loadingOptions.spinner"
+      :element-loading-background="loadingOptions.background"
+      :row-key="getRowKeys"
+      @current-change="handleCurrentChange"
+      @select="handleSelect"
+      @select-all="handleSelectAll"
+      @selection-change="handleSelectionChange"
+      @expand-change="handleExpandChange"
+      @cell-mouse-enter="handleCellMouseEnter"
+      @cell-mouse-leave="handleCellMouseLeave"
+      @cell-click="handleCellClick"
+      @cell-dblclick="handleCellDblclick"
+      @row-click="handleRowClick"
+      @row-contextmenu="handleRowContextmenu"
+      @row-dblclick="handleRowDblclick"
+      @header-click="handleHeaderClick"
+      @header-contextmenu="handleHeaderContextmenu"
+    >
       <template v-for="item in tableHeader">
         <slot name="front-slot" />
-        <el-table-column v-if="item.type==='index'" :key="item.prop" align="center" type="index" width="50" />
-        <el-table-column v-else-if="item.type==='select'" :key="item.prop" align="center" type="selection" width="55" />
-        <el-table-column v-else-if="item.type==='expand'" :key="item.prop" align="center" type="expand">
+        <el-table-column
+          v-if="item.type === 'index'"
+          :key="item.prop"
+          align="center"
+          type="index"
+          width="50"
+        />
+        <el-table-column
+          v-else-if="item.type === 'select'"
+          :key="item.prop"
+          align="center"
+          type="selection"
+          width="55"
+        />
+        <el-table-column
+          v-else-if="item.type === 'expand'"
+          :key="item.prop"
+          align="center"
+          type="expand"
+        >
           <template #default="scope">
             <div>
               <slot :name="item.slotName" :scope="scope" />
             </div>
           </template>
         </el-table-column>
-        <el-table-column v-else-if="item.checked === undefined || item.checked" :key="item.prop" v-bind="item">
+        <el-table-column
+          v-else-if="item.checked === undefined || item.checked"
+          :key="item.prop"
+          v-bind="item"
+        >
           <template #default="scope">
             <div v-if="!item.hidden">
               <el-row v-if="item.type === 'operate'">
-                <el-button size="mini"
-                           type="text"
-                           v-for="operate in item.operates"
-                           :key="operate.name"
-                           @click="handleClick(operate, scope.$index, scope.row)">
+                <el-button
+                  size="mini"
+                  type="text"
+                  v-for="operate in item.operates"
+                  :key="operate.name"
+                  @click="handleClick(operate, scope.$index, scope.row)"
+                >
                   {{ operate.name }}
                 </el-button>
               </el-row>
@@ -61,20 +89,24 @@
       </template>
       <slot />
     </el-table>
-    <div v-if="pagination!==null">
-      <el-pagination v-bind="pagination"
-                     @size-change="pagination.handleSizeChange"
-                     @current-change="pagination.handleCurrentChange" />
+    <div v-if="pagination !== null">
+      <el-pagination
+        v-bind="pagination"
+        @size-change="pagination.handleSizeChange"
+        @current-change="pagination.handleCurrentChange"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
+import { defineComponent } from 'vue'
+
 interface AnyObject {
-    [key: string]: any
+  [key: string]: any
 }
-export default {
-  name: 'BaseTable',
+export default defineComponent({
+  name: 'SimpleTable',
   props: {
     /**
      * @description 表格数据
@@ -167,7 +199,23 @@ export default {
       required: false
     }
   },
-  emits: ['operation', 'current-change', 'select', 'select-all', 'selection-change', 'expand-change', 'cell-mouse-enter', 'cell-mouse-leave', 'cell-click', 'cell-dblclick', 'row-click', 'row-contextmenu', 'row-dblclick', 'header-click', 'header-contextmenu'],
+  emits: [
+    'operation',
+    'current-change',
+    'select',
+    'select-all',
+    'selection-change',
+    'expand-change',
+    'cell-mouse-enter',
+    'cell-mouse-leave',
+    'cell-click',
+    'cell-dblclick',
+    'row-click',
+    'row-contextmenu',
+    'row-dblclick',
+    'header-click',
+    'header-contextmenu'
+  ],
   setup(props: any, context: any) {
     const getRowKeys = (row: AnyObject) => {
       return row.id
@@ -179,7 +227,10 @@ export default {
     /**
      * @description 行选中状态
      */
-    function handleCurrentChange(currentRow: AnyObject, oldCurrentRow: AnyObject) {
+    function handleCurrentChange(
+      currentRow: AnyObject,
+      oldCurrentRow: AnyObject
+    ) {
       context.emit('current-change', currentRow, oldCurrentRow)
     }
     /**
@@ -209,31 +260,55 @@ export default {
     /**
      * @description 单元格 hover 进入时触发的事件
      */
-    function handleCellMouseEnter(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
+    function handleCellMouseEnter(
+      row: AnyObject,
+      column: AnyObject,
+      cell: AnyObject,
+      event: () => void
+    ) {
       context.emit('cell-mouse-enter', row, column, cell, event)
     }
     /**
      * @description 单元格 hover 退出时触发的事件
      */
-    function handleCellMouseLeave(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
+    function handleCellMouseLeave(
+      row: AnyObject,
+      column: AnyObject,
+      cell: AnyObject,
+      event: () => void
+    ) {
       context.emit('cell-mouse-leave', row, column, cell, event)
     }
     /**
      * @description 单元格点击时触发的事件
      */
-    function handleCellClick(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
+    function handleCellClick(
+      row: AnyObject,
+      column: AnyObject,
+      cell: AnyObject,
+      event: () => void
+    ) {
       context.emit('cell-click', row, column, cell, event)
     }
     /**
      * @description 单元格双击时触发的事件
      */
-    function handleCellDblclick(row: AnyObject, column: AnyObject, cell: AnyObject, event: () => void) {
+    function handleCellDblclick(
+      row: AnyObject,
+      column: AnyObject,
+      cell: AnyObject,
+      event: () => void
+    ) {
       context.emit('cell-dblclick', row, column, cell, event)
     }
     /**
      * @description 行点击时触发的事件
      */
-    function handleRowClick(row: AnyObject, event: AnyObject, column: AnyObject) {
+    function handleRowClick(
+      row: AnyObject,
+      event: AnyObject,
+      column: AnyObject
+    ) {
       context.emit('row-click', row, event, column)
     }
     /**
@@ -279,7 +354,7 @@ export default {
       handleHeaderContextmenu
     }
   }
-}
+})
 </script>
 
 <style lang="scss">

@@ -8,10 +8,10 @@ import { asyncRoutes } from '@/router'
 import { RouteRecordRaw } from 'vue-router'
 
 type AugmentedActionContext = {
-    commit<K extends keyof Mutations>(
-      key: K,
-      payload: Parameters<Mutations[K]>[1],
-    ): ReturnType<Mutations[K]>
+  commit<K extends keyof Mutations>(
+    key: K,
+    payload: Parameters<Mutations[K]>[1],
+  ): ReturnType<Mutations[K]>
 } & Omit<ActionContext<PermissionState, RootState>, 'commit'>
 
 const hasPermission = (roles: string[], route: RouteRecordRaw) => {
@@ -41,9 +41,9 @@ export const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[]) => 
 }
 
 export interface Actions {
-    [PermissionActionType.ACTION_SET_ROUTES](
-      { commit }: AugmentedActionContext
-      , roles: string[]): void
+  [PermissionActionType.ACTION_SET_ROUTES](
+    { commit }: AugmentedActionContext
+    , roles: string[]): void
 }
 
 export const actions: ActionTree<PermissionState, RootState> & Actions = {

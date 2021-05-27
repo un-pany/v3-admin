@@ -1,22 +1,16 @@
 <!-- 布局入口 -->
 
 <template>
-  <div
-    :class="classObj"
-    class="app-wrapper"
-  >
+  <div :class="classObj" class="app-wrapper">
     <div
       v-if="classObj.mobile && sidebar.opened"
       class="drawer-bg"
       @click="handleClickOutside"
     />
     <Sidebar class="sidebar-container" />
-    <div
-      :class="{hasTagsView: showTagsView}"
-      class="main-container"
-    >
+    <div :class="{hasTagsView: showTagsView}" class="main-container">
       <div :class="{'fixed-header': fixedHeader}">
-        <Navbar />
+        <NavigationBar />
         <TagsView v-if="showTagsView" />
       </div>
       <AppMain />
@@ -29,18 +23,26 @@
 
 <script lang="ts">
 import { DeviceType } from '@/store/modules/app/state'
-import { computed, defineComponent, onBeforeMount, onBeforeUnmount, onMounted, reactive, toRefs } from 'vue'
+import {
+  computed,
+  defineComponent,
+  onBeforeMount,
+  onBeforeUnmount,
+  onMounted,
+  reactive,
+  toRefs
+} from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
-import { AppMain, Navbar, Settings, TagsView, Sidebar } from './components'
+import { AppMain, NavigationBar, Settings, TagsView, Sidebar } from './components'
 import RightPanel from '@/components/right-panel/index.vue'
 import resize from './resize'
 export default defineComponent({
   name: 'Layout',
   components: {
     AppMain,
-    Navbar,
+    NavigationBar,
     RightPanel,
     Settings,
     Sidebar,
@@ -49,7 +51,14 @@ export default defineComponent({
   setup() {
     const { t } = useI18n()
     const store = useStore()
-    const { sidebar, device, addEventListenerOnResize, resizeMounted, removeEventListenerResize, watchRouter } = resize()
+    const {
+      sidebar,
+      device,
+      addEventListenerOnResize,
+      resizeMounted,
+      removeEventListenerResize,
+      watchRouter
+    } = resize()
     const state = reactive({
       handleClickOutside: () => {
         store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
@@ -120,7 +129,7 @@ export default defineComponent({
 
 .main-container {
   min-height: 100%;
-  transition: margin-left .28s;
+  transition: margin-left 0.28s;
   margin-left: $sideBarWidth;
   position: relative;
 }
@@ -157,7 +166,7 @@ export default defineComponent({
   }
 
   .fixed-header {
-    width: calc(100% - 54px)
+    width: calc(100% - 54px);
   }
 }
 
@@ -168,7 +177,7 @@ export default defineComponent({
   }
 
   .sidebar-container {
-    transition: transform .28s;
+    transition: transform 0.28s;
     width: $sideBarWidth !important;
   }
 

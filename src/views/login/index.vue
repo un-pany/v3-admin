@@ -6,7 +6,13 @@
         <img src="@/assets/layout/logo-text.png">
       </div>
       <div class="content">
-        <el-form ref="loginFormDom" :model="loginForm" :rules="loginRules" auto-complete="on" label-position="left">
+        <el-form
+          ref="loginFormDom"
+          :model="loginForm"
+          :rules="loginRules"
+          auto-complete="on"
+          label-position="left"
+        >
           <el-form-item prop="username">
             <span class="svg-container">
               <svg-icon name="user" />
@@ -36,7 +42,9 @@
               auto-complete="off"
             />
             <span class="show-pwd" @click="showPwd">
-              <svg-icon :name="passwordType === 'password' ? 'eye' : 'eye-open'" />
+              <svg-icon
+                :name="passwordType === 'password' ? 'eye' : 'eye-open'"
+              />
             </span>
           </el-form-item>
           <el-form-item prop="code">
@@ -53,10 +61,24 @@
               auto-complete="off"
             />
             <span class="show-code">
-              <img style="width: 100px; height: 52px;background: #f4def6;border-radius: 4px;" :src="src" alt="验证码" @click="createCode">
+              <img
+                style="
+                  width: 100px;
+                  height: 52px;
+                  background: #f4def6;
+                  border-radius: 4px;
+                "
+                :src="src"
+                alt="验证码"
+                @click="createCode"
+              >
             </span>
           </el-form-item>
-          <el-button :loading="loading" type="primary" @click.prevent="handleLogin">
+          <el-button
+            :loading="loading"
+            type="primary"
+            @click.prevent="handleLogin"
+          >
             登录
           </el-button>
         </el-form>
@@ -126,8 +148,12 @@ export default defineComponent({
       checkCode: ''
     })
     const loginRules = reactive<LoginRules>({
-      username: [{ required: true, trigger: 'blur', validator: validateUsername }],
-      password: [{ required: true, trigger: 'blur', validator: validatePassword }],
+      username: [
+        { required: true, trigger: 'blur', validator: validateUsername }
+      ],
+      password: [
+        { required: true, trigger: 'blur', validator: validatePassword }
+      ],
       code: [{ required: true, trigger: 'blur', validator: validateCode }]
     })
     const loading = ref<boolean>(false)
@@ -174,11 +200,13 @@ export default defineComponent({
             password: loginForm.password
           })
           loading.value = false
-          router.push({
-            path: '/'
-          }).catch(err => {
-            console.warn(err)
-          })
+          router
+            .push({
+              path: '/'
+            })
+            .catch((err) => {
+              console.warn(err)
+            })
         } else {
           return false
         }
@@ -191,7 +219,44 @@ export default defineComponent({
       loginForm.code = ''
       const codeLength = 12
       // 随机数
-      const random: Array<number | string> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+      const random: Array<number | string> = [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        'A',
+        'B',
+        'C',
+        'D',
+        'E',
+        'F',
+        'G',
+        'H',
+        'I',
+        'J',
+        'K',
+        'L',
+        'M',
+        'N',
+        'O',
+        'P',
+        'Q',
+        'R',
+        'S',
+        'T',
+        'U',
+        'V',
+        'W',
+        'X',
+        'Y',
+        'Z'
+      ]
       for (let i = 0; i < codeLength; i++) {
         const index = Math.floor(Math.random() * 36)
         code += random[index]
@@ -276,9 +341,8 @@ export default defineComponent({
 
 <style lang="scss">
 /* 修复input 背景不协调 和光标变色 */
-
-$bg:#fff;
-$light_gray:#666;
+$bg: #fff;
+$light_gray: #666;
 $cursor: #666;
 
 @supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
@@ -286,7 +350,6 @@ $cursor: #666;
     color: $cursor;
   }
 }
-
 /* reset element-ui css */
 .login-container {
   .el-input {

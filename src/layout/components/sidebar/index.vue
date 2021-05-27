@@ -1,9 +1,6 @@
 <template>
   <div :class="{'has-logo': showLogo}">
-    <SidebarLogo
-      v-if="showLogo"
-      :collapse="isCollapse"
-    />
+    <SidebarLogo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :collapse="!isCollapse"
@@ -35,6 +32,7 @@ import { useStore } from '@/store'
 import { useRoute } from 'vue-router'
 
 export default defineComponent({
+  name: 'Sidebar',
   components: {
     SidebarItem,
     SidebarLogo
@@ -92,7 +90,8 @@ export default defineComponent({
 .sidebar-container {
   // reset element-ui css
   .horizontal-collapse-transition {
-    transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+    transition: 0s width ease-in-out, 0s padding-left ease-in-out,
+      0s padding-right ease-in-out;
   }
 
   .scrollbar-wrapper {
@@ -100,7 +99,7 @@ export default defineComponent({
   }
 
   .el-scrollbar__view {
-    height: 100%
+    height: 100%;
   }
 
   .el-scrollbar__bar {
@@ -117,7 +116,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .el-scrollbar {
-  height: 100%
+  height: 100%;
 }
 
 .has-logo {
@@ -137,7 +136,7 @@ export default defineComponent({
   height: 65px !important;
   line-height: 65px !important;
   &:hover {
-    background-color: rgba(52,78,104,.5) !important;
+    background-color: rgba(52, 78, 104, 0.5) !important;
   }
   &.is-active {
     border-left: 4px solid #39cedd !important;
@@ -148,7 +147,7 @@ export default defineComponent({
   height: 65px !important;
   line-height: 65px !important;
   &:hover {
-    background-color: rgba(52,78,104,.5) !important;
+    background-color: rgba(52, 78, 104, 0.5) !important;
   }
 }
 

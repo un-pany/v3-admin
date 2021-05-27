@@ -1,16 +1,8 @@
 <template>
-  <a
-    v-if="isExternal(to)"
-    :href="to"
-    target="_blank"
-    rel="noopener"
-  >
+  <a v-if="isExternal(to)" :href="to" target="_blank" rel="noopener">
     <slot />
   </a>
-  <div
-    v-else
-    @click="push"
-  >
+  <div v-else @click="push">
     <slot />
   </div>
 </template>
@@ -20,6 +12,7 @@ import { defineComponent } from 'vue'
 import { isExternal } from '@/utils/validate'
 import { useRouter } from 'vue-router'
 export default defineComponent({
+  name: 'SidebarItemLink',
   props: {
     to: {
       type: String,
