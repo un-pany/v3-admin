@@ -48,7 +48,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
           // 删除 token，并重定向到登录页面
           store.dispatch(UserActionTypes.ACTION_RESET_TOKEN, undefined)
           ElMessage.error(err || 'Has Error')
-          next(`/login?redirect=${to.path}`)
+          next('/login')
           NProgress.done()
         }
       } else {
@@ -62,7 +62,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
       next()
     } else {
       // 其他没有访问权限的页面将被重定向到登录页面
-      next(`/login?redirect=${to.path}`)
+      next('/login')
       NProgress.done()
     }
   }
