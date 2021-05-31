@@ -65,7 +65,7 @@ import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { useI18n } from 'vue-i18n'
 import { UserActionTypes } from '@/store/modules/user/action-types'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 export default defineComponent({
   name: 'NavigationBar',
   components: {
@@ -76,7 +76,6 @@ export default defineComponent({
   },
   setup() {
     const store = useStore()
-    const route = useRoute()
     const router = useRouter()
     const { t } = useI18n()
     const sidebar = computed(() => {
