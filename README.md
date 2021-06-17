@@ -48,6 +48,8 @@
 - Dashboard
   - admin
   - editor
+
+- 自动部署
 ```
 
 ## 目录结构
@@ -79,6 +81,7 @@
 │  ├─ styles          # 全局样式
 │  ├─ utils           # 全局公共方法
 │  └─ views           # 所有页面
+├─ deploy             # 自动部署
 ├─ tsconfig.json      # ts 编译配置
 └─ vue.config.js      # vue-cli 配置
 ```
@@ -127,6 +130,16 @@ yarn lint
 or
 ```bash
 npm run lint
+```
+
+## ✈️ 自动部署
+
+```bash
+yarn deploy
+```
+or
+```bash
+npm run deploy
 ```
 
 ## 后续计划
