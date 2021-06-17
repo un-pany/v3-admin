@@ -8,7 +8,8 @@
     "build:stage": "cross-env dotenv -e .env.stage vue-cli-service build",
     "build:prod": "cross-env dotenv -e .env.prod vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "inspect": "vue-cli-service inspect"
+    "inspect": "vue-cli-service inspect",
+    "deploy": "node ./deploy"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -54,6 +55,7 @@
     "lint-staged": "^9.5.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
+    "scp2": "^0.5.0",
     "style-loader": "^2.0.0",
     "style-resources-loader": "^1.4.1",
     "svg-sprite-loader": "^6.0.5",
