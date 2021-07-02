@@ -3,7 +3,7 @@
 import { useStore } from '@/store'
 
 export const checkPermission = (value: string[]): boolean => {
-  if (value && value.length > 0) {
+  if (value && value instanceof Array && value.length > 0) {
     const roles = useStore().state.user.roles
     const permissionRoles = value
     return roles.some(role => {
