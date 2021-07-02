@@ -9,10 +9,10 @@
         class="sidebar-logo-link"
         to="/"
       >
-        <img src="@/assets/layout/logo.png" class="sidebar-logo">
+        <img src="@/assets/layout/logo.png" class="sidebar-logo" alt="">
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img src="@/assets/layout/logo-text.png" class="sidebar-logo-text">
+        <img src="@/assets/layout/logo-text.png" class="sidebar-logo-text" alt="">
       </router-link>
     </transition>
   </div>

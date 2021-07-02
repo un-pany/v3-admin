@@ -21,7 +21,7 @@
           <img
             :src="require('@/assets/layout/avatar.gif')"
             class="user-avatar"
-          >
+            alt="">
         </div>
         <template #dropdown>
           <el-dropdown-menu>

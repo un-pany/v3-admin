@@ -139,7 +139,7 @@ export default defineComponent({
   width: $sideBarWidth !important;
   height: 100%;
   position: fixed;
-  font-size: 0px;
+  font-size: 0;
   top: 0;
   bottom: 0;
   left: 0;
@@ -173,7 +173,7 @@ export default defineComponent({
 /* for mobile response 适配移动端 */
 .mobile {
   .main-container {
-    margin-left: 0px;
+    margin-left: 0;
   }
 
   .sidebar-container {

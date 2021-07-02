@@ -88,21 +88,13 @@ export default defineComponent({
   },
   setup(props) {
     const alwaysShowRootMenu = computed(() => {
-      if (props.item.meta && props.item.meta.alwaysShow) {
-        return true
-      } else {
-        return false
-      }
+      return !!(props.item.meta && props.item.meta.alwaysShow)
     })
 
     const showingChildNumber = computed(() => {
       if (props.item.children) {
         const showingChildren = props.item.children.filter((item) => {
-          if (item.meta && item.meta.hidden) {
-            return false
-          } else {
-            return true
-          }
+          return !(item.meta && item.meta.hidden)
         })
         return showingChildren.length
       }
@@ -121,7 +113,7 @@ export default defineComponent({
         }
       }
       // If there is no children, return itself with path removed,
-      // because this.basePath already conatins item's path information
+      // because this.basePath already contains item's path information
       return { ...props.item, path: '' }
     })
 
@@ -195,7 +187,7 @@ export default defineComponent({
       overflow: hidden;
 
       & > .el-submenu__title {
-        padding: 0px !important;
+        padding: 0 !important;
 
         .el-submenu__icon-arrow {
           display: none;
@@ -217,7 +209,7 @@ svg {
 
 .simple-mode {
   svg {
-    margin-left: 0px;
+    margin-left: 0;
   }
 }
 </style>

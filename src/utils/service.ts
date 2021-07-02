@@ -128,7 +128,6 @@ export const service = createService()
 
 /**
  * @description 创建请求方法
- * @param {Object} service axios 实例
  */
 function createRequestFunction() {
   return function(config: AxiosRequestConfig) {
