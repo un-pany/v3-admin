@@ -95,14 +95,6 @@ yarn install
 # 启动服务
 yarn dev
 ```
-or
-```bash
-# 安装依赖
-npm install
-
-# 启动服务
-npm run dev
-```
 
 ## 📦️ 多环境打包
 
@@ -113,33 +105,17 @@ yarn build:stage
 # 构建生产环境
 yarn build:prod
 ```
-or
-```bash
-# 构建预发布环境
-npm run build:stage
-
-# 构建生产环境
-npm run build:prod
-```
 
 ## 🔧 代码格式检查
 
 ```bash
 yarn lint
 ```
-or
-```bash
-npm run lint
-```
 
 ## ✈️ 自动部署
 
 ```bash
 yarn deploy
-```
-or
-```bash
-npm run deploy
 ```
 
 ## 后续计划
