@@ -1,6 +1,6 @@
 {
   "name": "v3-admin",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "homepage": "https://v3-projects.github.io/v3-admin",
   "scripts": {
@@ -21,10 +21,10 @@
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.0",
     "screenfull": "^5.0.2",
-    "vue": "^3.0.11",
+    "vue": "^3.1.4",
     "vue-i18n": "^9.1.6",
-    "vue-router": "^4.0.6",
-    "vuex": "^4.0.0"
+    "vue-router": "^4.0.10",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@types/js-cookie": "^2.2.6",
