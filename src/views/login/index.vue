@@ -12,6 +12,7 @@
           :rules="loginRules"
           auto-complete="on"
           label-position="left"
+          @keyup.enter="handleLogin"
         >
           <el-form-item prop="username">
             <span class="svg-container">
@@ -107,9 +108,9 @@ interface LoginRules {
   code: Array<any>
 }
 
-interface InterfaceObject {
-  [key: string]: any
-}
+// interface InterfaceObject {
+//   [key: string]: any
+// }
 
 const validateUsername = (rule: any, value: string, callback: Function) => {
   if (!value.length) {
