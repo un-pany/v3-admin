@@ -51,7 +51,7 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
         commit(UserMutationTypes.SET_TOKEN, res.data.accessToken)
       }
     }).catch((err: any) => {
-      console.log(err)
+      console.warn(err)
     })
   },
 
@@ -95,15 +95,12 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
     resetRouter()
     store.state.permission.dynamicRoutes.forEach((item: RouteRecordRaw) => {
       router.addRoute(item)
-      // console.log(item);
     })
-    // console.log(store.state.permission.dynamicRoutes);
   },
 
   [UserActionTypes.ACTION_LOGIN_OUT](
     { commit }: AugmentedActionContext
   ) {
-    // console.log(commit)
     removeToken()
     commit(UserMutationTypes.SET_TOKEN, '')
     commit(UserMutationTypes.SET_ROLES, [])

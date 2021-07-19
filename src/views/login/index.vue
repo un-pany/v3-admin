@@ -189,7 +189,7 @@ export default defineComponent({
       //       loading.value = false
       //     })
       //   } else {
-      //     console.log('错误提交！')
+      //     console.warn('错误提交！')
       //     return false
       //   }
       // })
@@ -215,6 +215,7 @@ export default defineComponent({
     }
     // 创建验证码
     const createCode: () => void = () => {
+      debugger
       // 先清空验证码的输入
       let code = ''
       loginForm.code = ''

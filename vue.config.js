@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const path = require('path')
 const WebpackBar = require('webpackbar')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const dayjs = require('dayjs')
 const time = dayjs().format('YYYY-M-D HH:mm:ss')
 process.env.VUE_APP_UPDATE_TIME = time
@@ -54,7 +55,23 @@ module.exports = {
           __VUE_OPTIONS_API__: JSON.stringify(true),
           __VUE_PROD_DEVTOOLS__: JSON.stringify(false)
         })
-      ]
+      ],
+      // 生产环境清除 console.log
+      configNew.optimization = {
+        minimizer: [
+          new TerserPlugin({
+            terserOptions: {
+              mangle: true,
+              compress: {
+                warnings: false,
+                drop_console: false,
+                drop_debugger: false,
+                pure_funcs: ['console.log'] // 清除 console.log
+              }
+            }
+          })
+        ]
+      }
     }
     return configNew
   },

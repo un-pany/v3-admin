@@ -131,7 +131,7 @@ export default defineComponent({
           state.selectedTag.fullPath !== undefined
         ) {
           router.push(state.selectedTag.fullPath).catch((err) => {
-            console.log(err)
+            console.warn(err)
           })
         }
         store.dispatch(
