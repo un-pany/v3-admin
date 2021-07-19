@@ -215,7 +215,6 @@ export default defineComponent({
     }
     // 创建验证码
     const createCode: () => void = () => {
-      debugger
       // 先清空验证码的输入
       let code = ''
       loginForm.code = ''
