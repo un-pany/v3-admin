@@ -26,6 +26,8 @@ module.exports = {
         }
       }],
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    'prefer-regex-literals': 'off',
     'space-before-function-paren': ['error', 'never'],
     'vue/array-bracket-spacing': 'error',
     'vue/arrow-spacing': 'error',
@@ -50,7 +52,7 @@ module.exports = {
     ],
     'vue/attribute-hyphenation': 'off',
     'vue/custom-event-name-casing': 'off'
-  },
+  }
   // overrides: [
   //   {
   //     files: [
