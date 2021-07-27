@@ -3,16 +3,11 @@ import { get } from 'lodash'
 import { useStore } from '@/store'
 import { ElMessage } from 'element-plus'
 
-// 存储每个请求的标识和取消的函数
+// 存储每个请求的标识和对应的取消函数
 const pendingAjax = new Map()
-
 // 请求标志
 const duplicatedKeyFn = (config: AxiosRequestConfig) => `${config.method}${config.url}${JSON.stringify(config.params)}${JSON.stringify(config.data)}`
-
-/**
- * 将请求添加到pendingAjax
- * @param {Object} config
- */
+// 将请求添加到pendingAjax
 function addPendingAjax(config: AxiosRequestConfig) {
   const duplicatedKey = JSON.stringify({
     duplicatedKey: duplicatedKeyFn(config),
@@ -25,17 +20,12 @@ function addPendingAjax(config: AxiosRequestConfig) {
     }
   })
 }
-
-/**
-   * 从pendingAjax中删除请求
-   * @param {Object} config
-   */
+// 从pendingAjax中删除请求
 function removePendingAjax(config: AxiosRequestConfig) {
   const duplicatedKey = JSON.stringify({
     duplicatedKey: duplicatedKeyFn(config),
     type: 'DUPLICATED_REQUEST'
   })
-
   // 如果pendingAjax中存在当前请求, 取消当前请求并将其删除
   if (duplicatedKey && pendingAjax.has(duplicatedKey)) {
     const cancel = pendingAjax.get(duplicatedKey)
@@ -44,9 +34,7 @@ function removePendingAjax(config: AxiosRequestConfig) {
   }
 }
 
-/**
- * @description 创建请求实例
- */
+// 创建请求实例
 function createService() {
   // 创建一个 axios 实例
   const service = axios.create()
@@ -125,9 +113,7 @@ function createService() {
 // 用于网络请求的实例和请求方法
 export const service = createService()
 
-/**
- * @description 创建请求方法
- */
+// 创建请求方法
 function createRequestFunction() {
   return function(config: AxiosRequestConfig) {
     const token = useStore().state.user.token
