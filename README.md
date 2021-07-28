@@ -34,7 +34,7 @@
 - 全局功能
   - svg
   - 国际化多语言
-  - 多种动态换肤
+  - 换肤
   - 动态侧边栏（支持多级路由嵌套）
   - 动态面包屑
   - 快捷导航(标签页)
@@ -133,28 +133,6 @@ yarn deploy
 - `ci` 持续集成
 - `types` 类型定义文件更改
 - `wip` 开发中
-
-## 后续计划
-
-* [ ] 解决 [Vue warn]: Avoid app logic that relies on enumerating keys on a component instance. The keys will be empty in production mode to avoid performance overhead.
-
-* [ ] ~~解决动态路由产生的 [Vue Router warn]: No match found for location with path "xxxx"~~（经检查是 vue-router 自身问题）
-
-* [ ] 解决动态路由产生的 [Vue warn]: Vue received a Component which was made a reactive object. This can lead to unnecessary performance overhead, and should be avoided by marking the component with `markRaw` or using `shallowRef` instead of `ref`.
-
-* [x] 新增是否显示中英文切换的 config 开关
-
-* [x] 新增是否开启 roles 字段进行角色权限控制 的 config 开关
-
-* [ ] mock server
-
-* [ ] 生产环境打包深度优化
-
-* [ ] router 模块自定义加载顺序
-
-* [x] 当设置 redirect: 'noRedirect' 的时候该路由在面包屑导航中不可被点击
-
-* [x] 项目预览地址
 
 ## 站在巨人的肩膀上
 

@@ -5,33 +5,17 @@
       <h3 class="drawer-title">
         {{ t('settings.title') }}
       </h3>
-
-      <div class="drawer-item">
-        <span>{{ t('settings.theme') }}</span>
-        <ThemePicker
-          style="float: right; height: 26px; margin: -3px 8px 0 0"
-          @change="themeChange"
-        />
-      </div>
-
       <div class="drawer-item">
         <span>{{ t('settings.showTagsView') }}</span>
         <el-switch v-model="showTagsView" class="drawer-switch" />
       </div>
-
       <div class="drawer-item">
         <span>{{ t('settings.showSidebarLogo') }}</span>
         <el-switch v-model="showSidebarLogo" class="drawer-switch" />
       </div>
-
       <div class="drawer-item">
         <span>{{ t('settings.fixedHeader') }}</span>
         <el-switch v-model="fixedHeader" class="drawer-switch" />
-      </div>
-
-      <div class="drawer-item">
-        <span>{{ t('settings.sidebarTextTheme') }}</span>
-        <el-switch v-model="sidebarTextTheme" class="drawer-switch" />
       </div>
     </div>
   </div>
@@ -41,28 +25,17 @@
 import { useStore } from '@/store'
 import { SettingsActionTypes } from '@/store/modules/settings/action-types'
 import { defineComponent, reactive, toRefs, watch } from 'vue'
-import ThemePicker from '@/components/theme-picker/index.vue'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'Settings',
-  components: {
-    ThemePicker
-  },
   setup() {
     const store = useStore()
     const { t } = useI18n()
     const state = reactive({
       fixedHeader: store.state.settings.fixedHeader,
       showTagsView: store.state.settings.showTagsView,
-      showSidebarLogo: store.state.settings.showSidebarLogo,
-      sidebarTextTheme: store.state.settings.sidebarTextTheme,
-      themeChange: (value: string) => {
-        store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
-          key: 'theme',
-          value
-        })
-      }
+      showSidebarLogo: store.state.settings.showSidebarLogo
     })
 
     watch(
@@ -90,16 +63,6 @@ export default defineComponent({
       (value) => {
         store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
           key: 'showSidebarLogo',
-          value
-        })
-      }
-    )
-
-    watch(
-      () => state.sidebarTextTheme,
-      (value) => {
-        store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
-          key: 'sidebarTextTheme',
           value
         })
       }

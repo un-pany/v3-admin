@@ -8,7 +8,7 @@
         :default-active="activeMenu"
         :background-color="variables.menuBg"
         :text-color="variables.menuText"
-        :active-text-color="menuActiveTextColor"
+        :active-text-color="variables.menuActiveText"
         mode="vertical"
       >
         <SidebarItem
@@ -50,15 +50,6 @@ export default defineComponent({
       return store.state.settings.showSidebarLogo
     })
 
-    const menuActiveTextColor = computed(() => {
-      if (store.state.settings.sidebarTextTheme) {
-        return store.state.settings.theme
-      } else {
-        return variables.menuActiveText
-      }
-      // return variables.menuActiveText
-    })
-
     const activeMenu = computed(() => {
       const { meta, path } = route
       if (meta !== null || meta !== undefined) {
@@ -77,7 +68,6 @@ export default defineComponent({
       sidebar,
       routes,
       showLogo,
-      menuActiveTextColor,
       variables,
       activeMenu,
       isCollapse

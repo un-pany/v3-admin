@@ -7,10 +7,8 @@ interface LayoutSettings {
   showTagsView: boolean
   // 控制 siderbar logo 显示
   showSidebarLogo: boolean
-  // 如果为真，将修复 header component
+  // 如果为真，将固定 header
   fixedHeader: boolean
-  // 如果为真，将根据 theme 更改 sidebar 的 active text color
-  sidebarTextTheme: boolean
   // 控制 中英文切换 显示
   langSelect: boolean
 }
@@ -20,7 +18,6 @@ const layoutSettings: LayoutSettings = {
   showTagsView: true,
   fixedHeader: false,
   showSidebarLogo: true,
-  sidebarTextTheme: false,
   langSelect: true
 }
 

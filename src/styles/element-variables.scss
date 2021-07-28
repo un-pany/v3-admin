@@ -1,6 +1,4 @@
-/* Element Variables */
-
-// Override Element UI variables
+/* Element SCSS 变量 */
 $--color-primary: #1890ff;
 $--color-success: #13ce66;
 $--color-warning: #ffba00;
@@ -12,14 +10,10 @@ $--border-color-light: #dfe4ed;
 $--border-color-lighter: #e6ebf5;
 $--table-border: 1px solid#dfe6ec;
 
-// Icon font path, required
+// 改变 icon 字体路径变量，必需
 $--font-path: '~element-plus/lib/theme-chalk/fonts';
-
-// Apply overrided variables in Element UI
 @import "~element-plus/packages/theme-chalk/src/index";
 
-// The :export directive is the magic sauce for webpack
-// https://mattferderer.com/use-sass-variables-in-typescript-and-javascript
 :export {
   theme: $--color-primary;
 }

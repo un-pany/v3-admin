@@ -3,7 +3,7 @@
 <template>
   <div
     class="handle-button"
-    :style="{top: buttonTop + 'px', 'background-color': theme}"
+    :style="{top: buttonTop + 'px', 'background-color': '#1890ff'}"
     @click="show = true"
   >
     <i class="el-icon-setting" />
@@ -14,8 +14,7 @@
 </template>
 
 <script lang="ts">
-import { useStore } from '@/store'
-import { computed, defineComponent, ref } from 'vue'
+import { defineComponent, ref } from 'vue'
 export default defineComponent({
   name: 'RightPanel',
   props: {
@@ -26,13 +25,8 @@ export default defineComponent({
   },
   setup() {
     const show = ref(false)
-    const store = useStore()
-    const theme = computed(() => {
-      return store.state.settings.theme
-    })
     return {
-      show,
-      theme
+      show
     }
   }
 })
@@ -52,7 +46,6 @@ export default defineComponent({
   pointer-events: auto;
   color: #fff;
   line-height: 48px;
-
   i {
     font-size: 24px;
     line-height: 48px;

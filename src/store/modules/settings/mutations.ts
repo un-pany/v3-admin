@@ -11,9 +11,6 @@ export const mutations: MutationTree<SettingsState> & Mutations = {
   [SettingsMutationTypes.CHANGE_SETTING](state: SettingsState, payload: { key: string, value: any }) {
     const { key, value } = payload
     switch (key) {
-      case 'theme':
-        state.theme = value
-        break
       case 'fixedHeader':
         state.fixedHeader = value
         break
@@ -25,9 +22,6 @@ export const mutations: MutationTree<SettingsState> & Mutations = {
         break
       case 'showTagsView':
         state.showTagsView = value
-        break
-      case 'sidebarTextTheme':
-        state.sidebarTextTheme = value
         break
       default:
         break

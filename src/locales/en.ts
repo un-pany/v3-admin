@@ -26,8 +26,7 @@ export default {
     cancel: 'Cancel'
   },
   theme: {
-    change: 'Change Theme',
-    loading: 'Theme change loading...'
+    change: 'Change Theme'
   },
   tagsView: {
     refresh: 'Refresh',
@@ -37,10 +36,8 @@ export default {
   },
   settings: {
     title: 'Page style setting',
-    theme: 'Theme Color',
     showTagsView: 'Open Tags-View',
     showSidebarLogo: 'Sidebar Logo',
-    fixedHeader: 'Fixed Header',
-    sidebarTextTheme: 'Sidebar Text Theme'
+    fixedHeader: 'Fixed Header'
   }
 }
