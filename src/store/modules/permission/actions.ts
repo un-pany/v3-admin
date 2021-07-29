@@ -1,4 +1,4 @@
-import { ActionTree, ActionContext } from 'vuex'
+import { ActionContext, ActionTree } from 'vuex'
 import { RootState } from '@/store'
 import { PermissionState } from './state'
 import { Mutations } from './mutations'

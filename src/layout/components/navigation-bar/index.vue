@@ -10,6 +10,7 @@
     <BreadCrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device !== 'mobile'">
+        <ThemeSwitch class="right-menu-item hover-effect" />
         <Screenfull class="right-menu-item hover-effect" />
         <LangSelect class="right-menu-item hover-effect" v-if="langSelect" />
       </template>
@@ -58,6 +59,7 @@
 <script>
 import BreadCrumb from '@/components/bread-crumb/index.vue'
 import Hamburger from '@/components/hamburger/index.vue'
+import ThemeSwitch from '@/components/theme-switch/index.vue'
 import Screenfull from '@/components/screenfull/index.vue'
 import LangSelect from '@/components/lang-select/index.vue'
 import { computed, reactive, toRefs, defineComponent } from 'vue'
@@ -71,6 +73,7 @@ export default defineComponent({
   components: {
     BreadCrumb,
     Hamburger,
+    ThemeSwitch,
     Screenfull,
     LangSelect
   },
@@ -114,7 +117,6 @@ export default defineComponent({
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
   .hamburger-container {

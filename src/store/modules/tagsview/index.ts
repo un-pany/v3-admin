@@ -1,16 +1,11 @@
-import {
-  Store as VuexStore,
-  CommitOptions,
-  DispatchOptions,
-  Module
-} from 'vuex'
+import { CommitOptions, DispatchOptions, Module, Store as VuexStore } from 'vuex'
 
 // TODO: How to surpass cyclical dependency linting errors cleanly?
 import { RootState } from '@/store'
+import type { TagsViewState } from './state'
 import { state } from './state'
 import { mutations, Mutations } from './mutations'
 import { actions, Actions } from './actions'
-import type { TagsViewState } from './state'
 
 export { TagsViewState }
 

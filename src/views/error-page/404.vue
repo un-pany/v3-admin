@@ -21,6 +21,7 @@
 import { defineComponent, reactive, toRefs } from 'vue'
 import errGif from '@/assets/401-images/401.gif'
 import { useRoute, useRouter } from 'vue-router'
+
 export default defineComponent({
   name: '404',
   setup() {

@@ -1,19 +1,14 @@
 // setting moudle
 
-import {
-  Store as VuexStore,
-  CommitOptions,
-  DispatchOptions,
-  Module
-} from 'vuex'
+import { CommitOptions, DispatchOptions, Module, Store as VuexStore } from 'vuex'
 
 // TODO: How to surpass cyclical dependency linting errors cleanly?
 // TODO：如何清晰地克服周期性依赖项错误？
 import { RootState } from '@/store'
+import type { UserState } from './state'
 import { state } from './state'
 import { mutations, Mutations } from './mutations'
 import { actions, Actions } from './actions'
-import type { UserState } from './state'
 
 export { UserState }
 

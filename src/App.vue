@@ -10,4 +10,6 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
+// 注册主题
+@import '~@/styles/theme/register.scss';
 </style>

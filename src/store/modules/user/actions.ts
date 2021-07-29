@@ -1,6 +1,6 @@
 // app actions
 
-import { ActionTree, ActionContext } from 'vuex'
+import { ActionContext, ActionTree } from 'vuex'
 import { RootState, useStore } from '@/store'
 import { state, UserState } from './state'
 import { Mutations } from './mutations'

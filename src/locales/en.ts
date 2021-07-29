@@ -26,7 +26,8 @@ export default {
     cancel: 'Cancel'
   },
   theme: {
-    change: 'Change Theme'
+    normal: 'Normal',
+    dark: 'Dark'
   },
   tagsView: {
     refresh: 'Refresh',

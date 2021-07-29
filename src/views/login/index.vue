@@ -89,7 +89,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, reactive, ref, nextTick } from 'vue'
+import { defineComponent, nextTick, reactive, ref } from 'vue'
 // import { setCookie } from '@/utils/cookies'
 import { useStore } from '@/store'
 import { UserActionTypes } from '@/store/modules/user/action-types'

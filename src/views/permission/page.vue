@@ -10,6 +10,7 @@
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import SwitchRoles from './components/switch-roles.vue'
+
 export default defineComponent({
   name: 'PagePermission',
   components: {

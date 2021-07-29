@@ -1,4 +1,4 @@
-import { RouteLocationNormalized, _RouteLocationBase } from 'vue-router'
+import { _RouteLocationBase, RouteLocationNormalized } from 'vue-router'
 
 export interface TagView extends Partial<RouteLocationNormalized> {
   title?: string

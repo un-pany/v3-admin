@@ -26,7 +26,8 @@ export default {
     cancel: '取消'
   },
   theme: {
-    change: '换肤'
+    normal: '普通',
+    dark: '黑暗'
   },
   tagsView: {
     refresh: '刷新',

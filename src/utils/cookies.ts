@@ -14,3 +14,6 @@ export const setToken = (token: string) => Cookies.set(Keys.tokenKey, token)
 export const removeToken = () => Cookies.remove(Keys.tokenKey)
 
 export const setCookie = (key: string, value: string) => Cookies.set(key, value)
+
+export const getActiveTheme = () => Cookies.get(Keys.activeThemeName)
+export const setActiveTheme = (themeName: string) => { Cookies.set(Keys.activeThemeName, themeName) }

@@ -7,6 +7,7 @@ import { useStore } from '@/store'
 import { computed, defineComponent, onBeforeMount, ref } from 'vue'
 import AdminDashboard from './admin/index.vue'
 import EditorDashboard from './editor/index.vue'
+
 export default defineComponent({
   name: 'Dashboard',
   components: {

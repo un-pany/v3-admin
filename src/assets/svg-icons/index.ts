@@ -1,6 +1,5 @@
-
 import { createApp } from 'vue'
-import SvgIcon from '@/components/svg-icon/index.vue'// svg component
+import SvgIcon from '@/components/svg-icon/index.vue' // svg component
 
 const requireAll = function(requireContext: any) {
   return requireContext.keys().map(requireContext)

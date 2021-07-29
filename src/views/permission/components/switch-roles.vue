@@ -16,6 +16,7 @@ import { useStore } from '@/store'
 import { UserActionTypes } from '@/store/modules/user/action-types'
 import { computed, defineComponent, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+
 export default defineComponent({
   name: 'SwitchRoles',
   setup() {

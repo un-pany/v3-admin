@@ -1,4 +1,4 @@
-import { ActionTree, ActionContext } from 'vuex'
+import { ActionContext, ActionTree } from 'vuex'
 
 // eslint-disable-next-line import/no-cycle
 import { RootState } from '@/store'
@@ -6,6 +6,7 @@ import { SettingsState } from './state'
 import { Mutations } from './mutations'
 import { SettingsMutationTypes } from './mutation-types'
 import { SettingsActionTypes } from './action-types'
+
 type AugmentedActionContext = {
   commit<K extends keyof Mutations>(
     key: K,

@@ -1,8 +1,8 @@
 import { createStore } from 'vuex'
-import { store as app, AppStore, AppState } from '@/store/modules/app'
-import { store as settings, SettingStore, SettingsState } from '@/store/modules/settings'
-import { store as permission, PermissionStore, PermissionState } from '@/store/modules/permission'
-import { store as user, UserStore, UserState } from '@/store/modules/user'
+import { AppState, AppStore, store as app } from '@/store/modules/app'
+import { SettingsState, SettingStore, store as settings } from '@/store/modules/settings'
+import { PermissionState, PermissionStore, store as permission } from '@/store/modules/permission'
+import { store as user, UserState, UserStore } from '@/store/modules/user'
 import { store as tagViews, TagsStore, TagsViewState } from '@/store/modules/tagsview'
 
 export interface RootState {

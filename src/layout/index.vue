@@ -23,21 +23,14 @@
 
 <script lang="ts">
 import { DeviceType } from '@/store/modules/app/state'
-import {
-  computed,
-  defineComponent,
-  onBeforeMount,
-  onBeforeUnmount,
-  onMounted,
-  reactive,
-  toRefs
-} from 'vue'
+import { computed, defineComponent, onBeforeMount, onBeforeUnmount, onMounted, reactive, toRefs } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
-import { AppMain, NavigationBar, Settings, TagsView, Sidebar } from './components'
+import { AppMain, NavigationBar, Settings, Sidebar, TagsView } from './components'
 import RightPanel from '@/components/right-panel/index.vue'
 import resize from './resize'
+
 export default defineComponent({
   name: 'Layout',
   components: {
