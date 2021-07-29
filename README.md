@@ -27,17 +27,17 @@
   - 指令权限
 
 - 多环境
-  - dev
-  - stage
-  - prod
+  - development
+  - test
+  - production
   
 - 全局功能
   - svg
-  - 国际化多语言
-  - 换肤
-  - 动态侧边栏（支持多级路由嵌套）
+  - 国际化
+  - 多主题切换
+  - 动态侧边栏
   - 动态面包屑
-  - 快捷导航(标签页)
+  - 标签页快捷导航
   - Screenfull 全屏
   - 自适应收缩侧边栏
 
@@ -56,32 +56,35 @@
 
 ```
 # v3-admin
-├─ .env.dev           # 开发环境
-├─ .env.prod          # 生产环境
-├─ .env.stage         # 预发布环境
-├─ .eslintrc.js       # eslint
-├─ public             # 静态资源
-│  ├─ favicon.ico     # favicon 图标
-│  ├─ index.html      # html模板
-├─ src                # 源码
+├─ .env.development   # 开发环境
+├─ .env.production    # 生产环境
+├─ .env.test          # 测试环境
+├─ .eslintrc.js       # eslint 规则
+├─ deploy             # 自动部署
+├─ public
+│  ├─ favicon.ico
+│  ├─ index.html
+├─ src
 │  ├─ @types          # ts 声明
-│  ├─ api-inject      # 接口（全局注入的方式）
-│  ├─ api-import      # 接口（import/export 的方式）
-│  ├─ assets          # 主题、字体、svg等静态资源
-│  ├─ components      # 全局公用组件
+│  ├─ api             # api 接口
+│  ├─ assets          # 静态资源
+│  ├─ components      # 全局组件
 │  ├─ config          # 全局配置
 │  ├─ constant        # 常量/枚举
 │  ├─ directives      # 全局指令
-│  ├─ layout          # 全局 layout
+│  ├─ layout          # 布局
 │  ├─ locales         # 国际化
 │  ├─ model           # 全局 model
 │  ├─ plugins         # 插件
 │  ├─ router          # 路由
-│  ├─ store           # 全局 store 管理
+│  ├─ store           # vuex store
 │  ├─ styles          # 全局样式
 │  ├─ utils           # 全局公共方法
 │  └─ views           # 所有页面
-├─ deploy             # 自动部署
+│  ├─ App.vue         # 入口页面
+│  ├─ main.ts         # 入口文件
+│  ├─ permission.ts   # 权限管理
+│  └─ shims.d.ts      # 模块注入
 ├─ tsconfig.json      # ts 编译配置
 └─ vue.config.js      # vue-cli 配置
 ```

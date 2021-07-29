@@ -10,7 +10,7 @@ import { removeToken, setToken } from '@/utils/cookies'
 import { PermissionActionType } from '../permission/action-types'
 import router, { resetRouter } from '@/router'
 import { RouteRecordRaw } from 'vue-router'
-import $api from '@/api-inject'
+import { accountLogin, userInfoRequest } from '@/api/login'
 
 type AugmentedActionContext = {
   commit<K extends keyof Mutations>(
@@ -45,7 +45,7 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
   ) {
     let { username, password } = userInfo
     username = username.trim()
-    await $api.accountLogin({ username, password }).then(async(res: any) => {
+    await accountLogin({ username, password }).then(async(res: any) => {
       if (res?.code === 0 && res.data.accessToken) {
         setToken(res.data.accessToken)
         commit(UserMutationTypes.SET_TOKEN, res.data.accessToken)
@@ -68,7 +68,7 @@ export const actions: ActionTree<UserState, RootState> & Actions = {
     if (state.token === '') {
       throw Error('token is undefined!')
     }
-    await $api.userInfoRequest().then((res: any) => {
+    await userInfoRequest().then((res: any) => {
       if (res?.code === 0) {
         commit(UserMutationTypes.SET_ROLES, res.data.roles)
         commit(UserMutationTypes.SET_NAME, res.data.name)

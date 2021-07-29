@@ -90,7 +90,6 @@
 
 <script lang='ts'>
 import { defineComponent, nextTick, reactive, ref } from 'vue'
-// import { setCookie } from '@/utils/cookies'
 import { useStore } from '@/store'
 import { UserActionTypes } from '@/store/modules/user/action-types'
 import { useRouter } from 'vue-router'
@@ -107,10 +106,6 @@ interface LoginRules {
   password: Array<any>
   code: Array<any>
 }
-
-// interface InterfaceObject {
-//   [key: string]: any
-// }
 
 const validateUsername = (rule: any, value: string, callback: Function) => {
   if (!value.length) {
@@ -173,26 +168,7 @@ export default defineComponent({
         passwordDom.value.focus()
       })
     }
-    // const $api: InterfaceObject | undefined = inject('$api')
     const handleLogin: () => void | boolean = () => {
-      // loginFormDom.value.validate(async(valid: boolean) => {
-      //   if (valid) {
-      //     loading.value = true;
-      //     ($api as InterfaceObject).accountLogin({
-      //       username: loginForm.username,
-      //       password: loginForm.password
-      //     }).then((res: any) => {
-      //       const { data } = res
-      //       setCookie('token', `${data.tokenHaed} ${data.token}`)
-      //       setCookie('expiresTime', '1618454940987')
-      //       router.push({ path: '/' })
-      //       loading.value = false
-      //     })
-      //   } else {
-      //     console.warn('错误提交！')
-      //     return false
-      //   }
-      // })
       loginFormDom.value.validate(async(valid: boolean) => {
         if (valid) {
           loading.value = true

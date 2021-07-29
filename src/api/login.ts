@@ -1,11 +1,3 @@
-/**
-* api-import
-* 实现：采用 import/export 的方式
-* 优点：拥有 TypeScript 类型提示
-* 缺点：使用时需要 "import { accountLogin } from '@/api-import/login'" 来导入指定的api
-* @see：暂无
-*/
-
 import { request } from '@/utils/service'
 
 interface UserRequestData {
