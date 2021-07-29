@@ -50,22 +50,6 @@ export const constantRoutes: Array<RouteRecordRaw> = [
         }
       }
     ]
-  },
-  {
-    path: '/theme',
-    component: Layout,
-    redirect: 'noRedirect',
-    children: [
-      {
-        path: 'index',
-        component: () => import(/* webpackChunkName: "theme" */ '@/views/theme/index.vue'),
-        name: 'Theme',
-        meta: {
-          title: 'theme',
-          icon: 'theme'
-        }
-      }
-    ]
   }
 ]
 
