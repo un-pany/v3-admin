@@ -26,7 +26,7 @@ export default {
     cancel: '取消'
   },
   theme: {
-    normal: '普通',
+    normal: '默认',
     dark: '黑暗'
   },
   tagsView: {

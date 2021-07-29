@@ -1,7 +1,7 @@
 <!-- 语言选择 -->
 <template>
   <div>
-    <el-dropdown>
+    <el-dropdown trigger="click">
       <svg-icon name="language" font-size="20px" />
       <template #dropdown>
         <el-dropdown-menu>
@@ -24,7 +24,6 @@ import { useStore } from '@/store'
 import { computed, defineComponent, reactive, toRefs } from 'vue'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { useI18n } from 'vue-i18n'
-import { ElMessage } from 'element-plus'
 type Language = {
   name: string
   value: string
@@ -44,10 +43,6 @@ export default defineComponent({
       handleSetLanguage: (lang: string) => {
         locale.value = lang
         store.dispatch(AppActionTypes.ACTION_SET_LANGUAGE, lang)
-        ElMessage({
-          message: 'Switch Language Success',
-          type: 'success'
-        })
       }
     })
     const language = computed(() => {

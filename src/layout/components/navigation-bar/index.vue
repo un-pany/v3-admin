@@ -10,8 +10,8 @@
     <BreadCrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device !== 'mobile'">
-        <ThemeSwitch class="right-menu-item hover-effect" />
         <Screenfull class="right-menu-item hover-effect" />
+        <ThemeSwitch class="right-menu-item hover-effect" />
         <LangSelect class="right-menu-item hover-effect" v-if="langSelect" />
       </template>
       <el-dropdown
@@ -117,6 +117,7 @@ export default defineComponent({
   height: 50px;
   overflow: hidden;
   position: relative;
+  background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
   .hamburger-container {

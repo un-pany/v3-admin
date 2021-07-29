@@ -1,7 +1,7 @@
 import { MutationTree } from 'vuex'
 import { SettingsState } from './state'
 import { SettingsMutationTypes } from './mutation-types'
-import { setActiveTheme } from '@/utils/cookies'
+import { setActiveThemeName } from '@/utils/cookies'
 
 export type Mutations<S = SettingsState> = {
   [SettingsMutationTypes.CHANGE_SETTING](state: S, payload: { key: string, value: any }): void
@@ -24,9 +24,12 @@ export const mutations: MutationTree<SettingsState> & Mutations = {
         state.showTagsView = value
         break
       case 'activeThemeName':
-        state.activeThemeName = state.themeList.find(e => e.name === value) ? value : state.themeList[0].name
+        // 检查这个主题在主题列表里是否存在
+        state.activeThemeName = state.themeList.find(themeName => themeName === value) ? value : state.themeList[0]
+        // 应用到 dom
         document.body.className = `theme-${state.activeThemeName}`
-        setActiveTheme(state.activeThemeName)
+        // 持久化
+        setActiveThemeName(state.activeThemeName)
         break
       default:
         break

@@ -5,12 +5,12 @@
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item
-            v-for="item in themeList"
-            :key="item.name"
-            :disabled="activeThemeName === item.name"
-            @click="handleSetLanguage(item.name)"
+            v-for="(themeName, index) in themeList"
+            :key="index"
+            :disabled="activeThemeName === themeName"
+            @click="handleSetLanguage(themeName)"
           >
-            <span>{{ t(`theme.${item.name}`) }}</span>
+            <span>{{ t(`theme.${themeName}`) }}</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -21,7 +21,6 @@
 <script lang="ts">
 import { useStore } from '@/store'
 import { computed, defineComponent } from 'vue'
-import { ElMessage } from 'element-plus'
 import { SettingsActionTypes } from '@/store/modules/settings/action-types'
 import { useI18n } from 'vue-i18n'
 
@@ -40,10 +39,6 @@ export default defineComponent({
       store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
         key: 'activeThemeName',
         value: name
-      })
-      ElMessage({
-        message: '切换主题成功',
-        type: 'success'
       })
     }
     return {
