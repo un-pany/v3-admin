@@ -1,36 +1,33 @@
 // 每个主题特有的设置
 .theme-#{$theme-name} {
+
+  // .......................................................vue 根元素节点以内的 dom
   .app-wrapper {
     background-color: $theme-bg-color;
     color: $font-color;
-
     // 侧边栏
     .sidebar-container {
       .sidebar-logo-container {
-        background-color: lighten($theme-bg-color, 4%) !important;
+        background-color: lighten($theme-bg-color, 2%) !important;
       }
-
       .el-menu {
-        background-color: lighten($theme-bg-color, 6%) !important;
-
+        background-color: lighten($theme-bg-color, 4%) !important;
         &-item {
-          background-color: lighten($theme-bg-color, 6%) !important;
-
+          background-color: lighten($theme-bg-color, 4%) !important;
           &.is-active {
-            background-color: lighten($theme-bg-color, 10%) !important;
+            background-color: lighten($theme-bg-color, 8%) !important;
             color: $active-font-color !important;
           }
         }
       }
-
       .el-submenu__title {
-        background-color: lighten($theme-bg-color, 6%) !important;
+        background-color: lighten($theme-bg-color, 4%) !important;
       }
     }
 
     // 顶部导航栏
     .navbar {
-      background-color: lighten($theme-bg-color, 6%);
+      background-color: $theme-bg-color;
 
       .el-breadcrumb__inner a {
         color: $font-color;
@@ -51,12 +48,10 @@
     .tags-view-container {
       background-color: $theme-bg-color !important;
       border-bottom: 1px solid lighten($theme-bg-color, 10%) !important;
-
       .tags-view-item {
         background-color: $theme-bg-color !important;
         color: $active-font-color !important;
         border: 1px solid lighten($theme-bg-color, 10%) !important;
-
         &.active {
           background-color: lighten($theme-bg-color, 30%) !important;
           color: $active-font-color !important;
@@ -65,12 +60,31 @@
       }
     }
 
-    // 右侧 drawer
+    // 右侧设置面板
+    .handle-button {
+      background-color: lighten($theme-bg-color, 30%) !important;
+    }
     .el-drawer.rtl {
       background-color: $theme-bg-color;
-
       .drawer-title, .drawer-item {
         color: $font-color;
+      }
+    }
+  }
+
+
+  // .......................................................vue 根元素节点之外的 dom
+  // 侧边栏的 item 的 popper 
+  .el-popper {
+    border: none !important;
+    .el-menu {
+      background-color: lighten($theme-bg-color, 4%) !important;
+      .el-menu-item {
+        background-color: lighten($theme-bg-color, 4%) !important;
+        &.is-active {
+          background-color: lighten($theme-bg-color, 8%) !important;
+          color: $active-font-color !important;
+        }
       }
     }
   }

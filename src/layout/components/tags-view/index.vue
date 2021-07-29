@@ -332,9 +332,9 @@ export default defineComponent({
       }
 
       &.active {
-        background-color: #42b983;
+        background-color: $activeTagBg;
         color: #fff;
-        border-color: #42b983;
+        border-color: $activeTagBg;
 
         &::before {
           content: '';

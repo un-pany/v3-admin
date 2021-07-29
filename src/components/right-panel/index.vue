@@ -3,7 +3,7 @@
 <template>
   <div
     class="handle-button"
-    :style="{top: buttonTop + 'px', 'background-color': '#1890ff'}"
+    :style="{top: buttonTop + 'px', 'background-color': variables.menuBg}"
     @click="show = true"
   >
     <i class="el-icon-setting" />
@@ -15,6 +15,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import variables from '@/styles/_variables.scss'
+
 export default defineComponent({
   name: 'RightPanel',
   props: {
@@ -26,7 +28,8 @@ export default defineComponent({
   setup() {
     const show = ref(false)
     return {
-      show
+      show,
+      variables
     }
   }
 })

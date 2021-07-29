@@ -9,6 +9,9 @@ $menuBg:#152d3d;
 $menuText:rgb(167, 177, 194);
 $menuActiveText:#ffffff;
 
+// tags-view 组件
+$activeTagBg: #42b983;
+
 :export {
   menuBg: $menuBg;
   menuText: $menuText;
