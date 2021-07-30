@@ -2,6 +2,7 @@
 .theme-#{$theme-name} {
 
   // .......................................................vue 根元素节点以内的 dom
+  // layout
   .app-wrapper {
     background-color: $theme-bg-color;
     color: $font-color;
@@ -14,10 +15,11 @@
         background-color: lighten($theme-bg-color, 4%) !important;
         &-item {
           background-color: lighten($theme-bg-color, 4%) !important;
-          &.is-active {
+          &.is-active, &:hover {
             background-color: lighten($theme-bg-color, 8%) !important;
             color: $active-font-color !important;
           }
+           
         }
       }
       .el-submenu__title {
@@ -28,15 +30,17 @@
     // 顶部导航栏
     .navbar {
       background-color: $theme-bg-color;
-
-      .el-breadcrumb__inner a {
-        color: $font-color;
-
-        &:hover {
-          color: $hover-color;
+      .el-breadcrumb__inner {
+        a {
+          color: $font-color;
+          &:hover {
+            color: $hover-color;
+          }
+        }
+        .no-redirect {
+          color: $font-color;
         }
       }
-
       .right-menu {
         .icon {
           color: $font-color;
@@ -50,19 +54,19 @@
       border-bottom: 1px solid lighten($theme-bg-color, 10%) !important;
       .tags-view-item {
         background-color: $theme-bg-color !important;
-        color: $active-font-color !important;
-        border: 1px solid lighten($theme-bg-color, 10%) !important;
+        color: $font-color !important;
+        border: 1px solid $border-color !important;
         &.active {
-          background-color: lighten($theme-bg-color, 30%) !important;
+          background-color: $active-theme-bg-color !important;
           color: $active-font-color !important;
-          border-color: lighten($theme-bg-color, 30%) !important;
+          border-color: $border-color !important;
         }
       }
     }
 
     // 右侧设置面板
     .handle-button {
-      background-color: lighten($theme-bg-color, 30%) !important;
+      background-color: lighten($theme-bg-color, 20%) !important;
     }
     .el-drawer.rtl {
       background-color: $theme-bg-color;
