@@ -59,7 +59,7 @@
 ├─ .env.development   # 开发环境
 ├─ .env.production    # 生产环境
 ├─ .env.test          # 测试环境
-├─ .eslintrc.js       # eslint 规则
+├─ .eslintrc.js       # eslint
 ├─ deploy             # 自动部署
 ├─ public
 │  ├─ favicon.ico
