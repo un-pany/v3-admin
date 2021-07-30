@@ -7,7 +7,7 @@
       <div>
         <span v-permission="['admin']" class="permission-alert">
           Only
-          <el-tag class="permission-tag" size="small">admin</el-tag> can see
+          <el-tag size="small">admin</el-tag> can see
           this
         </span>
         <el-tag
@@ -22,7 +22,7 @@
       <div>
         <span v-permission="['editor']" class="permission-alert">
           Only
-          <el-tag class="permission-tag" size="small">editor</el-tag> can see
+          <el-tag size="small">editor</el-tag> can see
           this
         </span>
         <el-tag
@@ -37,8 +37,8 @@
       <div>
         <span v-permission="['admin', 'editor']" class="permission-alert">
           Both
-          <el-tag class="permission-tag" size="small">admin</el-tag> and
-          <el-tag class="permission-tag" size="small">editor</el-tag> can see
+          <el-tag size="small">admin</el-tag> and
+          <el-tag size="small">editor</el-tag> can see
           this
         </span>
         <el-tag
@@ -52,11 +52,11 @@
     </div>
 
     <div :key="'checkPermission' + key" style="margin-top: 60px">
-      <aside>
+      <el-tag type="info">
         {{ t('permission.tips') }}
-      </aside>
+      </el-tag>
 
-      <el-tabs type="border-card" style="width: 550px">
+      <el-tabs type="border-card" style="width: 550px; margin-top: 60px">
         <el-tab-pane v-if="checkPermission(['admin'])" label="Admin">
           Admin can see this
           <el-tag class="permission-sourceCode" type="info">
@@ -127,9 +127,5 @@ export default defineComponent({
 
 .permission-sourceCode {
   margin-left: 15px;
-}
-
-.permission-tag {
-  background-color: #ecf5ff;
 }
 </style>

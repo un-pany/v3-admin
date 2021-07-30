@@ -41,29 +41,3 @@ a:hover {
 div:focus {
   outline: none;
 }
-
-label {
-  font-weight: 700;
-}
-
-aside {
-  background: #eef1f6;
-  color: #2c3e50;
-  padding: 8px 24px;
-  margin-bottom: 20px;
-  border-radius: 2px;
-  display: block;
-  line-height: 32px;
-  font-size: 16px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  a {
-    color: #337ab7;
-    cursor: pointer;
-
-    &:hover {
-      color: rgb(32, 160, 255);
-    }
-  }
-}

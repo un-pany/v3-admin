@@ -1,8 +1,10 @@
 // 每个主题特有的设置
 .theme-#{$theme-name} {
 
-  // .......................................................vue 根元素节点以内的 dom
-  // layout
+  /* 
+  * Layout
+  */
+
   .app-wrapper {
     background-color: $theme-bg-color;
     color: $font-color;
@@ -62,6 +64,14 @@
           border-color: $border-color !important;
         }
       }
+      .contextmenu { // 右键菜单
+        background-color: lighten($theme-bg-color, 8%);
+        color: $font-color;
+        li:hover {
+          background-color: lighten($theme-bg-color, 16%);
+          color: $active-font-color;
+        }
+      }
     }
 
     // 右侧设置面板
@@ -76,8 +86,22 @@
     }
   }
 
+  /* 
+  * app-main 主要写 view 页面的黑暗样式
+  */
 
-  // .......................................................vue 根元素节点之外的 dom
+  .app-main {
+    // 指令权限页面 /permission/directive
+    .permission-alert {
+      background-color: lighten($theme-bg-color, 8%);
+    }
+  }
+
+
+  /* 
+  * Element UI
+  */
+
   // 侧边栏的 item 的 popper 
   .el-popper {
     border: none !important;
@@ -92,4 +116,68 @@
       }
     }
   }
+
+  // 下拉菜单
+  .el-dropdown__popper .el-dropdown__list {
+    background-color: lighten($theme-bg-color, 8%);
+    .el-dropdown-menu {
+      background-color: lighten($theme-bg-color, 8%);
+      .el-dropdown-menu__item {
+        color: $font-color;
+        &.is-disabled{
+          color: #aaa;
+        }
+        &:not(.is-disabled):hover {
+          background-color: lighten($theme-bg-color, 16%);
+          color: $active-font-color;
+        }
+      }
+      .el-dropdown-menu__item--divided:before {
+        background-color: lighten($theme-bg-color, 8%);
+      }
+    }
+  }
+  .el-popper__arrow::before { // 下拉菜单顶部三角区域
+    background-color: lighten($theme-bg-color, 8%) !important;
+    border: lighten($theme-bg-color, 8%) !important;
+  }
+
+  // 单选框按钮样式
+  .el-radio-button__inner {
+    background-color: lighten($theme-bg-color, 8%);
+    color: $active-font-color;
+    border: 1px solid $border-color;
+  }
+  .el-radio-button:first-child .el-radio-button__inner {
+    border-left: none;
+  }
+
+  // el-tag
+  .el-tag {
+    background-color: lighten($theme-bg-color, 8%);
+    border-color: $border-color;
+    color: $active-font-color;
+    &.el-tag--info {
+      background-color: lighten($theme-bg-color, 8%);
+      border-color: $border-color;
+      color: $active-font-color;
+    }
+  }
+
+  // Tabs 标签页
+  .el-tabs--border-card {
+    background: lighten($theme-bg-color, 8%);
+    border: 1px solid $border-color;
+    .el-tabs__header {
+      background-color: lighten($theme-bg-color, 8%);
+      border-bottom: 1px solid $border-color;
+      .el-tabs__item.is-active {
+        background-color: lighten($theme-bg-color, 8%);
+        border-right-color: $border-color;
+        border-left-color: $border-color;
+    }
+    }
+  }
+
+
 }
