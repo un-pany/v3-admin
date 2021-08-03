@@ -106,6 +106,7 @@ export default defineComponent({
 .app-wrapper {
   @include clearfix;
   position: relative;
+  width: 100%;
 }
 
 .drawer-bg {
