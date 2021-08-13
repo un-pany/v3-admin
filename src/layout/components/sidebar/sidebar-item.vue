@@ -143,20 +143,8 @@ export default defineComponent({
 ::v-deep(.el-submenu__title) {
   font-size: 13px !important;
 }
-.el-submenu.is-active > .el-submenu__title {
-  color: $subMenuActiveText !important;
-}
 
 .full-mode {
-  .nest-menu .el-submenu > .el-submenu__title,
-  .el-submenu .el-menu-item {
-    min-width: $sideBarWidth !important;
-    background-color: $subMenuBg !important;
-
-    &:hover {
-      background-color: $subMenuHover !important;
-    }
-  }
   .el-menu-item {
     & > span {
       display: inline-block;
