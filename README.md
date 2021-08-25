@@ -71,6 +71,7 @@
 │  ├─ config          # 全局配置
 │  ├─ constant        # 常量/枚举
 │  ├─ directives      # 全局指令
+│  ├─ icons           # svg icon
 │  ├─ layout          # 布局
 │  ├─ locales         # 国际化
 │  ├─ model           # 全局 model

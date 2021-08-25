@@ -26,9 +26,9 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
       // 检查用户是否已获得其权限角色
       if (store.state.user.roles.length === 0) {
         try {
-          // 注意：角色必须是一个对象数组！ 例如: ['admin'] 或 ['developer', 'editor']
-          await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
           if (rolesSettings.openRoles) {
+            // 注意：角色必须是一个数组！ 例如: ['admin'] 或 ['developer', 'editor']
+            await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
             // 获取接口返回的 roles
             const roles = store.state.user.roles
             // 根据角色生成可访问的 routes
