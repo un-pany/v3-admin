@@ -100,7 +100,7 @@ module.exports = {
     config.resolve.alias
       .set('vue-i18n', 'vue-i18n/dist/vue-i18n.cjs.js')
     // svg
-    const dir = path.resolve(__dirname, 'src/assets/svg-icons/icons')
+    const dir = path.resolve(__dirname, 'src/icons/svg')
     config.module
       .rule('svg-sprite')
       .test(/\.svg$/)

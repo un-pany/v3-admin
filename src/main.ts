@@ -7,7 +7,7 @@ import '@/styles/index.scss'
 import 'normalize.css'
 import * as directives from '@/directives'
 import '@/permission'
-import loadSvg from '@/assets/svg-icons'
+import loadSvg from '@/icons'
 
 const app = createApp(App)
 // 加载所有插件
