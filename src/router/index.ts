@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Layout from '@/layout/index.vue'
+import { Layout } from '@/constant/router'
 
 // 导入常驻路由
 // const constantFiles = require.context('./constantModules', true, /\.ts$/)
@@ -32,7 +32,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   },
   {
     path: '/login',
-    component: () => import(/* webpackChunkName: "userManager" */'@/views/login/index.vue')
+    component: () => import(/* webpackChunkName: "userManager" */ '@/views/login/index.vue')
   },
   {
     path: '/',
