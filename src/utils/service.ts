@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import { get } from 'lodash'
-import { useStore } from '@/store'
 import { ElMessage } from 'element-plus'
+import { getToken } from '@/utils/cookies'
 
 // 存储每个请求的标识和对应的取消函数
 const pendingAjax = new Map()
@@ -116,11 +116,10 @@ export const service = createService()
 // 创建请求方法
 function createRequestFunction() {
   return function(config: AxiosRequestConfig) {
-    const token = useStore().state.user.token
     const configDefault = {
       headers: {
         // Authorization: 'Bearer ' + token,
-        token: token, // mock 接口专用，开发时可删除
+        token: getToken(), // mock 接口专用，开发时可删除
         'Content-Type': get(config, 'headers.Content-Type', 'application/json')
       },
       timeout: 5000,

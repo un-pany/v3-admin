@@ -9,6 +9,7 @@ import { UserMutationTypes } from './store/modules/user/mutation-types'
 import { ElMessage } from 'element-plus'
 import { whiteList } from './config/white-list'
 import rolesSettings from './config/roles'
+import { getToken } from '@/utils/cookies'
 
 NProgress.configure({ showSpinner: false })
 
@@ -16,7 +17,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
   NProgress.start()
   const store = useStore()
   // 判断该用户是否登录
-  if (store.state.user.token) {
+  if (getToken()) {
     if (to.path === '/login') {
       // 如果登录，并准备进入 login 页面，则重定向到主页
       next({ path: '/' })
