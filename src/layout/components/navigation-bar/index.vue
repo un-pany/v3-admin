@@ -57,8 +57,8 @@
 </template>
 
 <script>
-import BreadCrumb from '@/components/bread-crumb/index.vue'
-import Hamburger from '@/components/hamburger/index.vue'
+import BreadCrumb from '../bread-crumb/index.vue'
+import Hamburger from '../hamburger/index.vue'
 import ThemeSwitch from '@/components/theme-switch/index.vue'
 import Screenfull from '@/components/screenfull/index.vue'
 import LangSelect from '@/components/lang-select/index.vue'

@@ -27,8 +27,7 @@ import { computed, defineComponent, onBeforeMount, onBeforeUnmount, onMounted, r
 import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
-import { AppMain, NavigationBar, Settings, Sidebar, TagsView } from './components'
-import RightPanel from '@/components/right-panel/index.vue'
+import { AppMain, NavigationBar, Settings, Sidebar, TagsView, RightPanel } from './components'
 import resize from './resize'
 
 export default defineComponent({

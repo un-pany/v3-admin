@@ -28,7 +28,7 @@ export default defineComponent({
     const scrollWrapper = computed(() => {
       return (scrollContainerRef.value as any).$refs.wrap as HTMLElement
     })
-    const { ctx } = getCurrentInstance() as any
+    const { proxy } = getCurrentInstance() as any
     const tagSpacing = 4
 
     const state = reactive({
@@ -40,7 +40,7 @@ export default defineComponent({
       moveToCurrentTag: (currentTag: HTMLElement) => {
         const container = (scrollContainerRef.value as any).$el as HTMLElement
         const containerWidth = container.offsetWidth
-        const tagList = ctx.$parent.$refs.tag as any[]
+        const tagList = proxy.$parent.$refs.tag as any[]
         let fristTag = null
         let lastTag = null
 

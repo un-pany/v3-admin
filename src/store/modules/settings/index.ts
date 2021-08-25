@@ -1,6 +1,4 @@
 import { CommitOptions, DispatchOptions, Module, Store as VuexStore } from 'vuex'
-
-// TODO: How to surpass cyclical dependency linting errors cleanly?
 import { RootState } from '@/store'
 import type { SettingsState } from './state'
 import { state } from './state'
@@ -27,7 +25,4 @@ export const store: Module<SettingsState, RootState> = {
   state,
   mutations,
   actions
-  // TODO: With namespaced option turned on, having problem how to use dispatch with action types...
-  // But without it, a bigger store might have clashes in namings
-  // namespaced: true,
 }
