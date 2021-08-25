@@ -262,7 +262,8 @@ export default defineComponent({
 .login-container {
   min-height: 100%;
   width: 100%;
-  background-color: rgb(21, 45, 61);
+  background: url('../../assets/login/bg.png')
+    center/cover no-repeat;
   overflow: hidden;
   display: flex;
   justify-content: center;
