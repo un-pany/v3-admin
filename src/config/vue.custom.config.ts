@@ -4,16 +4,9 @@ const vueDefaultConfig = {
   publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
-  lintOnSave: false,
-  transpileDependencies: ['vue-echarts', 'resize-detector'],
-  // webpack 配置的项目名称
-  title: 'v3-admin',
-  titleSeparator: ' - ',
-  titleReverse: false,
-  abbreviation: 'vt2at',
-  providePlugin: {},
-  build7z: false,
-  startMessage: '欢迎使用 v3-admin',
+  lintOnSave: false, // 是否开启 eslint 自动校验
+  productionSourceMap: false, // 不输出 map 文件，以加速生产环境构建
+  title: 'v3-admin', // webpack 配置的项目名称
   devServer: {
     publicPath: '/',
     hot: true,

@@ -1,28 +1,25 @@
 /* 配置文件 */
-const { resolve } = require('path')
-const webpack = require('webpack')
 const path = require('path')
 const WebpackBar = require('webpackbar')
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const dayjs = require('dayjs')
-const time = dayjs().format('YYYY-M-D HH:mm:ss')
-process.env.VUE_APP_UPDATE_TIME = time
+
 const {
   publicPath,
   assetsDir,
   outputDir,
   lintOnSave,
-  transpileDependencies,
+  productionSourceMap,
   title,
   devServer
 } = require('./src/config/vue.custom.config.ts')
+
 module.exports = {
   publicPath,
-  assetsDir,
   outputDir,
+  assetsDir,
   lintOnSave,
-  transpileDependencies,
+  productionSourceMap,
   devServer,
   pluginOptions: {
     'style-resources-loader': {
@@ -34,12 +31,14 @@ module.exports = {
     }
   },
   configureWebpack: () => {
-    const configNew = {
-      // 可以在 index.html 中被访问，用来注入页面标题
-      name: title
+    const config = {
+      name: title // 可以在 index.html 中被访问，用来注入页面标题
     }
     if (process.env.NODE_ENV === 'production') {
-      configNew.plugins = [
+      config.plugins = [
+        new WebpackBar({
+          name: title
+        }),
         // gzip
         new CompressionWebpackPlugin({
           filename: '[path].gz[query]',
@@ -47,17 +46,10 @@ module.exports = {
           threshold: 10240,
           minRatio: 0.8,
           deleteOriginalAssets: false
-        }),
-        new WebpackBar({
-          name: title
-        }),
-        new webpack.DefinePlugin({
-          __VUE_OPTIONS_API__: JSON.stringify(true),
-          __VUE_PROD_DEVTOOLS__: JSON.stringify(false)
         })
       ],
       // 生产环境清除 console.log
-      configNew.optimization = {
+      config.optimization = {
         minimizer: [
           new TerserPlugin({
             terserOptions: {
@@ -73,10 +65,10 @@ module.exports = {
         ]
       }
     }
-    return configNew
+    return config
   },
   chainWebpack: config => {
-    // 删除prefetch
+    // 当有很多页面时，它会导致太多毫无意义的请求
     config.plugins.delete('prefetch')
     // 开发环境 sourcemap 不包含列信息
     config.when(process.env.NODE_ENV === 'development',
@@ -84,21 +76,7 @@ module.exports = {
     )
     // 重新设置 alias
     config.resolve.alias
-      .set('@api', resolve('src/api'))
-      .set('@', resolve('src'))
-      .set('Assets', resolve('src/assets'))
-
-    // json, json5, yaml and yml files
-    const jsonRule = config.module.rule('json')
-    jsonRule.test(/\.(json5?|ya?ml)$/)
-      .use('@intlify/vue-i18n-loader')
-      .include
-      .add(path.resolve(__dirname, 'src/lang'))
-      .end()
-  },
-  chainWebpack: config => {
-    config.resolve.alias
-      .set('vue-i18n', 'vue-i18n/dist/vue-i18n.cjs.js')
+      .set('vue-i18n', 'vue-i18n/dist/vue-i18n.cjs.js') // 解决警告 You are running the esm-bundler build of vue-i18n.
     // svg
     const dir = path.resolve(__dirname, 'src/icons/svg')
     config.module
@@ -114,22 +92,9 @@ module.exports = {
     config.plugin('svg-sprite')
       .use(require('svg-sprite-loader/plugin')), [{ pluginSprite: true }]
     config.module.rule('svg').exclude.add(dir)
-
-    config.plugin('define').tap(args => {
-      args[0] = {
-        ...args[0],
-        __INTLIFY_PROD_DEVTOOLS__: false,
-        __VUE_I18N_FULL_INSTALL__: true,
-        __VUE_I18N_LEGACY_API__: true
-      }
-      return args
-    })
-
     // 将运行代码单独生成文件
     if (process.env.NODE_ENV !== 'development') {
       config.optimization.runtimeChunk('single')
     }
-  },
-  // 不输出 map 文件
-  productionSourceMap: false
+  }
 }

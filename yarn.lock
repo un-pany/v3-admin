@@ -980,61 +980,43 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@intlify/core-base@9.1.7":
-  version "9.1.7"
-  resolved "https://registry.nlark.com/@intlify/core-base/download/@intlify/core-base-9.1.7.tgz#a454a492683690bc3d0abab82605ab5a23645bd0"
-  integrity sha1-pFSkkmg2kLw9Crq4JgWrWiNkW9A=
+"@intlify/core-base@9.2.0-beta.3":
+  version "9.2.0-beta.3"
+  resolved "https://registry.nlark.com/@intlify/core-base/download/@intlify/core-base-9.2.0-beta.3.tgz#a8e2d4334133aaa2fd7bf21a8e4939083925fafc"
+  integrity sha1-qOLUM0EzqqL9e/Iajkk5CDkl+vw=
   dependencies:
-    "@intlify/devtools-if" "9.1.7"
-    "@intlify/message-compiler" "9.1.7"
-    "@intlify/message-resolver" "9.1.7"
-    "@intlify/runtime" "9.1.7"
-    "@intlify/shared" "9.1.7"
-    "@intlify/vue-devtools" "9.1.7"
+    "@intlify/devtools-if" "9.2.0-beta.3"
+    "@intlify/message-compiler" "9.2.0-beta.3"
+    "@intlify/shared" "9.2.0-beta.3"
+    "@intlify/vue-devtools" "9.2.0-beta.3"
 
-"@intlify/devtools-if@9.1.7":
-  version "9.1.7"
-  resolved "https://registry.nlark.com/@intlify/devtools-if/download/@intlify/devtools-if-9.1.7.tgz#a5df0f33e06c3ead3e53b7f4d4b10a2d52309361"
-  integrity sha1-pd8PM+BsPq0+U7f01LEKLVIwk2E=
+"@intlify/devtools-if@9.2.0-beta.3":
+  version "9.2.0-beta.3"
+  resolved "https://registry.nlark.com/@intlify/devtools-if/download/@intlify/devtools-if-9.2.0-beta.3.tgz#bbc66c249f20281b4eaea95c8e7f56255a1bb8c1"
+  integrity sha1-u8ZsJJ8gKBtOrqlcjn9WJVobuME=
   dependencies:
-    "@intlify/shared" "9.1.7"
+    "@intlify/shared" "9.2.0-beta.3"
 
-"@intlify/message-compiler@9.1.7":
-  version "9.1.7"
-  resolved "https://registry.nlark.com/@intlify/message-compiler/download/@intlify/message-compiler-9.1.7.tgz#4663fcc2a190f3cc6970e12565c8d6f22beeb719"
-  integrity sha1-RmP8wqGQ88xpcOElZcjW8ivutxk=
+"@intlify/message-compiler@9.2.0-beta.3":
+  version "9.2.0-beta.3"
+  resolved "https://registry.nlark.com/@intlify/message-compiler/download/@intlify/message-compiler-9.2.0-beta.3.tgz#01c430997d259e32fa3e836ba8bbe69708781e14"
+  integrity sha1-AcQwmX0lnjL6PoNrqLvmlwh4HhQ=
   dependencies:
-    "@intlify/message-resolver" "9.1.7"
-    "@intlify/shared" "9.1.7"
+    "@intlify/shared" "9.2.0-beta.3"
     source-map "0.6.1"
 
-"@intlify/message-resolver@9.1.7":
-  version "9.1.7"
-  resolved "https://registry.nlark.com/@intlify/message-resolver/download/@intlify/message-resolver-9.1.7.tgz#a95d13866c8de85784358039c8845668152e4162"
-  integrity sha1-qV0ThmyN6FeENYA5yIRWaBUuQWI=
+"@intlify/shared@9.2.0-beta.3":
+  version "9.2.0-beta.3"
+  resolved "https://registry.nlark.com/@intlify/shared/download/@intlify/shared-9.2.0-beta.3.tgz#0de91533a0483db601e1931408213b1d49f36b07"
+  integrity sha1-DekVM6BIPbYB4ZMUCCE7HUnzawc=
 
-"@intlify/runtime@9.1.7":
-  version "9.1.7"
-  resolved "https://registry.nlark.com/@intlify/runtime/download/@intlify/runtime-9.1.7.tgz#67e0d6b2fd85a5b0b301a151c2f436f93154c3c6"
-  integrity sha1-Z+DWsv2FpbCzAaFRwvQ2+TFUw8Y=
+"@intlify/vue-devtools@9.2.0-beta.3":
+  version "9.2.0-beta.3"
+  resolved "https://registry.nlark.com/@intlify/vue-devtools/download/@intlify/vue-devtools-9.2.0-beta.3.tgz#eb5351a23381ec256640a6408fd08b14284ff2e9"
+  integrity sha1-61NRojOB7CVmQKZAj9CLFChP8uk=
   dependencies:
-    "@intlify/message-compiler" "9.1.7"
-    "@intlify/message-resolver" "9.1.7"
-    "@intlify/shared" "9.1.7"
-
-"@intlify/shared@9.1.7":
-  version "9.1.7"
-  resolved "https://registry.nlark.com/@intlify/shared/download/@intlify/shared-9.1.7.tgz#e7d8bc90cb59dc17dd7b4c85a73db16fcb7891fc"
-  integrity sha1-59i8kMtZ3Bfde0yFpz2xb8t4kfw=
-
-"@intlify/vue-devtools@9.1.7":
-  version "9.1.7"
-  resolved "https://registry.nlark.com/@intlify/vue-devtools/download/@intlify/vue-devtools-9.1.7.tgz#b08d39bb5f21ba9b1954eab9466e9408129425a7"
-  integrity sha1-sI05u18hupsZVOq5Rm6UCBKUJac=
-  dependencies:
-    "@intlify/message-resolver" "9.1.7"
-    "@intlify/runtime" "9.1.7"
-    "@intlify/shared" "9.1.7"
+    "@intlify/core-base" "9.2.0-beta.3"
+    "@intlify/shared" "9.2.0-beta.3"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -1709,9 +1691,9 @@
   optionalDependencies:
     prettier "^1.18.2"
 
-"@vue/devtools-api@^6.0.0-beta.11", "@vue/devtools-api@^6.0.0-beta.14", "@vue/devtools-api@^6.0.0-beta.7":
+"@vue/devtools-api@^6.0.0-beta.11", "@vue/devtools-api@^6.0.0-beta.13", "@vue/devtools-api@^6.0.0-beta.14":
   version "6.0.0-beta.15"
-  resolved "https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.15.tgz?cache=0&sync_timestamp=1624900514906&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vue%2Fdevtools-api%2Fdownload%2F%40vue%2Fdevtools-api-6.0.0-beta.15.tgz#ad7cb384e062f165bcf9c83732125bffbc2ad83d"
+  resolved "https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.15.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40vue%2Fdevtools-api%2Fdownload%2F%40vue%2Fdevtools-api-6.0.0-beta.15.tgz#ad7cb384e062f165bcf9c83732125bffbc2ad83d"
   integrity sha1-rXyzhOBi8WW8+cg3MhJb/7wq2D0=
 
 "@vue/eslint-config-standard@^6.0.0":
@@ -9870,15 +9852,15 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.nlark.com/vue-hot-reload-api/download/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha1-UylVzB6yCKPZkLOp+acFdGV+CPI=
 
-vue-i18n@^9.1.6:
-  version "9.1.7"
-  resolved "https://registry.nlark.com/vue-i18n/download/vue-i18n-9.1.7.tgz?cache=0&sync_timestamp=1626454715341&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-i18n%2Fdownload%2Fvue-i18n-9.1.7.tgz#6f28dd2135197066508e2e65ab204a019750d773"
-  integrity sha1-byjdITUZcGZQji5lqyBKAZdQ13M=
+vue-i18n@^9.2.0-beta.3:
+  version "9.2.0-beta.3"
+  resolved "https://registry.nlark.com/vue-i18n/download/vue-i18n-9.2.0-beta.3.tgz?cache=0&sync_timestamp=1629739267368&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fvue-i18n%2Fdownload%2Fvue-i18n-9.2.0-beta.3.tgz#f3c716a45be061d6c8af57bdb27d0830c3589012"
+  integrity sha1-88cWpFvgYdbIr1e9sn0IMMNYkBI=
   dependencies:
-    "@intlify/core-base" "9.1.7"
-    "@intlify/shared" "9.1.7"
-    "@intlify/vue-devtools" "9.1.7"
-    "@vue/devtools-api" "^6.0.0-beta.7"
+    "@intlify/core-base" "9.2.0-beta.3"
+    "@intlify/shared" "9.2.0-beta.3"
+    "@intlify/vue-devtools" "9.2.0-beta.3"
+    "@vue/devtools-api" "^6.0.0-beta.13"
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   version "16.3.3"
