@@ -1,6 +1,6 @@
 {
   "name": "v3-admin",
-  "version": "1.6.0",
+  "version": "1.6.4",
   "private": true,
   "homepage": "https://v3-projects.github.io/v3-admin",
   "scripts": {

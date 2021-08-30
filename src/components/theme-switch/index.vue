@@ -8,7 +8,7 @@
             v-for="(themeName, index) in themeList"
             :key="index"
             :disabled="activeThemeName === themeName"
-            @click="handleSetLanguage(themeName)"
+            @click="handleSetTheme(themeName)"
           >
             <span>{{ t(`theme.${themeName}`) }}</span>
           </el-dropdown-item>
@@ -21,7 +21,7 @@
 <script lang="ts">
 import { useStore } from '@/store'
 import { computed, defineComponent } from 'vue'
-import { SettingsActionTypes } from '@/store/modules/settings/action-types'
+import { AppMutationTypes } from '@/store/modules/app/mutation-types'
 import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
@@ -30,22 +30,19 @@ export default defineComponent({
     const { t } = useI18n()
     const store = useStore()
     const themeList = computed(() => {
-      return store.state.settings.themeList
+      return store.state.app.themeList
     })
     const activeThemeName = computed(() => {
-      return store.state.settings.activeThemeName
+      return store.state.app.activeThemeName
     })
-    const handleSetLanguage = (name: string) => {
-      store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
-        key: 'activeThemeName',
-        value: name
-      })
+    const handleSetTheme = (name: string) => {
+      store.commit(AppMutationTypes.SET_THEME, name)
     }
     return {
       t,
       themeList,
       activeThemeName,
-      handleSetLanguage
+      handleSetTheme
     }
   }
 })

@@ -1,7 +1,7 @@
 class Keys {
-  static sidebarStatusKey = 'v3-admin-sidebarStatusKey'
-  static languageKey = 'v3-admin-languageKey'
-  static tokenKey = 'v3-admin-access-token'
+  static sidebarStatus = 'v3-admin-sidebar-status-key'
+  static language = 'v3-admin-language-key'
+  static token = 'v3-admin-token-key'
   static activeThemeName = 'v3-admin-active-theme-name'
 }
 

@@ -4,4 +4,5 @@ export enum AppMutationTypes {
   TOGGLE_DEVICE = 'TOGGLE_DEVICE',
   SET_LANGUAGE = 'SET_LANGUAGE',
   SET_SIZE = 'SET_SIZE',
+  SET_THEME = 'SET_THEME'
 }

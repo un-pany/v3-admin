@@ -1,6 +1,4 @@
 import layoutSettings from '@/config/layout'
-import themeList from '@/config/theme'
-import { getActiveThemeName } from '@/utils/cookies'
 
 export interface SettingsState {
   fixedHeader: boolean
@@ -10,8 +8,7 @@ export interface SettingsState {
   showLangSelect: boolean
   showThemeSwitch: boolean
   showScreenfull: boolean
-  themeList: string[]
-  activeThemeName: string
+
 }
 
 export const state: SettingsState = {
@@ -21,9 +18,5 @@ export const state: SettingsState = {
   showSidebarLogo: layoutSettings.showSidebarLogo,
   showLangSelect: layoutSettings.showLangSelect,
   showThemeSwitch: layoutSettings.showThemeSwitch,
-  showScreenfull: layoutSettings.showScreenfull,
-  themeList: themeList, // 主题列表
-  activeThemeName: getActiveThemeName() || 'normal' // 正在应用的主题的名字
+  showScreenfull: layoutSettings.showScreenfull
 }
-
-document.body.className = `theme-${state.activeThemeName}` // 初始化
