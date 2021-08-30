@@ -7,7 +7,9 @@ export interface SettingsState {
   showSettings: boolean
   showTagsView: boolean
   showSidebarLogo: boolean
-  langSelect: boolean
+  showLangSelect: boolean
+  showThemeSwitch: boolean
+  showScreenfull: boolean
   themeList: string[]
   activeThemeName: string
 }
@@ -17,7 +19,9 @@ export const state: SettingsState = {
   showSettings: layoutSettings.showSettings,
   showTagsView: layoutSettings.showTagsView,
   showSidebarLogo: layoutSettings.showSidebarLogo,
-  langSelect: layoutSettings.langSelect,
+  showLangSelect: layoutSettings.showLangSelect,
+  showThemeSwitch: layoutSettings.showThemeSwitch,
+  showScreenfull: layoutSettings.showScreenfull,
   themeList: themeList, // 主题列表
   activeThemeName: getActiveThemeName() || 'normal' // 正在应用的主题的名字
 }

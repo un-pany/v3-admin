@@ -39,6 +39,9 @@ export default {
     title: '系统布局配置',
     showTagsView: '显示 Tags-View',
     showSidebarLogo: '显示侧边栏 Logo',
-    fixedHeader: '固定 Header'
+    fixedHeader: '固定 Header',
+    showLangSelect: '国际化',
+    showThemeSwitch: '换肤按钮',
+    showScreenfull: '全屏按钮'
   }
 }

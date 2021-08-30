@@ -8,7 +8,7 @@
   >
     <i class="el-icon-setting" />
   </div>
-  <el-drawer title="设置" v-model="show" size="300px" destroy-on-close>
+  <el-drawer v-model="show" size="300px" :with-header="false">
     <slot />
   </el-drawer>
 </template>

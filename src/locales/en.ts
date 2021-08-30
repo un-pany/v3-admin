@@ -39,6 +39,9 @@ export default {
     title: 'Page style setting',
     showTagsView: 'Open Tags-View',
     showSidebarLogo: 'Sidebar Logo',
-    fixedHeader: 'Fixed Header'
+    fixedHeader: 'Fixed Header',
+    showLangSelect: 'Lang Select',
+    showThemeSwitch: 'Theme Switch',
+    showScreenfull: 'Screenfull'
   }
 }

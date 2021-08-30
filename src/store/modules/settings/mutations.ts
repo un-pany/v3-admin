@@ -23,6 +23,15 @@ export const mutations: MutationTree<SettingsState> & Mutations = {
       case 'showTagsView':
         state.showTagsView = value
         break
+      case 'showLangSelect':
+        state.showLangSelect = value
+        break
+      case 'showThemeSwitch':
+        state.showThemeSwitch = value
+        break
+      case 'showScreenfull':
+        state.showScreenfull = value
+        break
       case 'activeThemeName':
         // 检查这个主题在主题列表里是否存在
         state.activeThemeName = state.themeList.find(themeName => themeName === value) ? value : state.themeList[0]

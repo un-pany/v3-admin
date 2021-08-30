@@ -10,7 +10,11 @@ interface LayoutSettings {
   // 如果为真，将固定 header
   fixedHeader: boolean
   // 控制 中英文切换 显示
-  langSelect: boolean
+  showLangSelect: boolean
+  // 控制 换肤按钮 显示
+  showThemeSwitch: boolean
+  // 控制 全屏按钮 显示
+  showScreenfull: boolean
 }
 
 const layoutSettings: LayoutSettings = {
@@ -18,7 +22,9 @@ const layoutSettings: LayoutSettings = {
   showTagsView: true,
   fixedHeader: false,
   showSidebarLogo: true,
-  langSelect: true
+  showLangSelect: true,
+  showThemeSwitch: true,
+  showScreenfull: true
 }
 
 export default layoutSettings

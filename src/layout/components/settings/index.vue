@@ -17,6 +17,18 @@
         <span>{{ t('settings.fixedHeader') }}</span>
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
+      <div class="drawer-item">
+        <span>{{ t('settings.showLangSelect') }}</span>
+        <el-switch v-model="showLangSelect" class="drawer-switch" />
+      </div>
+      <div class="drawer-item">
+        <span>{{ t('settings.showThemeSwitch') }}</span>
+        <el-switch v-model="showThemeSwitch" class="drawer-switch" />
+      </div>
+      <div class="drawer-item">
+        <span>{{ t('settings.showScreenfull') }}</span>
+        <el-switch v-model="showScreenfull" class="drawer-switch" />
+      </div>
     </div>
   </div>
 </template>
@@ -35,7 +47,10 @@ export default defineComponent({
     const state = reactive({
       fixedHeader: store.state.settings.fixedHeader,
       showTagsView: store.state.settings.showTagsView,
-      showSidebarLogo: store.state.settings.showSidebarLogo
+      showSidebarLogo: store.state.settings.showSidebarLogo,
+      showLangSelect: store.state.settings.showLangSelect,
+      showThemeSwitch: store.state.settings.showThemeSwitch,
+      showScreenfull: store.state.settings.showScreenfull
     })
 
     watch(
@@ -59,10 +74,40 @@ export default defineComponent({
     )
 
     watch(
+      () => state.showLangSelect,
+      (value) => {
+        store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
+          key: 'showLangSelect',
+          value
+        })
+      }
+    )
+
+    watch(
       () => state.showSidebarLogo,
       (value) => {
         store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
           key: 'showSidebarLogo',
+          value
+        })
+      }
+    )
+
+    watch(
+      () => state.showThemeSwitch,
+      (value) => {
+        store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
+          key: 'showThemeSwitch',
+          value
+        })
+      }
+    )
+
+    watch(
+      () => state.showScreenfull,
+      (value) => {
+        store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
+          key: 'showScreenfull',
           value
         })
       }

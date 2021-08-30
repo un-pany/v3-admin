@@ -10,9 +10,9 @@
     <BreadCrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
       <template v-if="device !== 'mobile'">
-        <Screenfull class="right-menu-item hover-effect" />
-        <ThemeSwitch class="right-menu-item hover-effect" />
-        <LangSelect class="right-menu-item hover-effect" v-if="langSelect" />
+        <Screenfull class="right-menu-item hover-effect" v-if="showScreenfull" />
+        <ThemeSwitch class="right-menu-item hover-effect" v-if="showThemeSwitch" />
+        <LangSelect class="right-menu-item hover-effect" v-if="showLangSelect" />
       </template>
       <el-dropdown
         class="avatar-container right-menu-item hover-effect"
@@ -87,8 +87,14 @@ export default defineComponent({
     const device = computed(() => {
       return store.state.app.device.toString()
     })
-    const langSelect = computed(() => {
-      return store.state.settings.langSelect
+    const showLangSelect = computed(() => {
+      return store.state.settings.showLangSelect
+    })
+    const showThemeSwitch = computed(() => {
+      return store.state.settings.showThemeSwitch
+    })
+    const showScreenfull = computed(() => {
+      return store.state.settings.showScreenfull
     })
     const state = reactive({
       toggleSideBar: () => {
@@ -104,7 +110,9 @@ export default defineComponent({
     return {
       sidebar,
       device,
-      langSelect,
+      showLangSelect,
+      showThemeSwitch,
+      showScreenfull,
       ...toRefs(state),
       t
     }
