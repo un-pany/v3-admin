@@ -118,7 +118,7 @@ function createRequestFunction() {
   return function(config: AxiosRequestConfig) {
     const configDefault = {
       headers: {
-        // Authorization: 'Bearer ' + token,
+        // Authorization: 'Bearer ' + getToken(),
         token: getToken(), // mock 接口专用，开发时可删除
         'Content-Type': get(config, 'headers.Content-Type', 'application/json')
       },
