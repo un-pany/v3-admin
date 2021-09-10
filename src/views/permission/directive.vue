@@ -53,7 +53,7 @@
 
     <div :key="'checkPermission' + key" style="margin-top: 60px">
       <el-tag type="info">
-        {{ t('permission.tips') }}
+        在某些情况下，不适合使用 v-permission。例如：Element-UI 的 el-tab 或 el-table-column 以及其它动态渲染 dom 的场景。你只能通过手动设置 v-if 来实现。
       </el-tag>
 
       <el-tabs type="border-card" style="width: 550px; margin-top: 60px">
@@ -87,8 +87,7 @@
 
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from 'vue'
-import { checkPermission } from '@/utils/permission' // Use permission directly
-import { useI18n } from 'vue-i18n'
+import { checkPermission } from '@/utils/permission' // 权限判断函数
 import SwitchRoles from './components/switch-roles.vue'
 
 export default defineComponent({
@@ -97,7 +96,6 @@ export default defineComponent({
     SwitchRoles
   },
   setup() {
-    const { t } = useI18n()
     const state = reactive({
       key: 1,
       checkPermission: checkPermission,
@@ -107,7 +105,6 @@ export default defineComponent({
     })
 
     return {
-      t,
       ...toRefs(state)
     }
   }

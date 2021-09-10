@@ -74,9 +74,6 @@ module.exports = {
     config.when(process.env.NODE_ENV === 'development',
       config => config.devtool('cheap-source-map')
     )
-    // 重新设置 alias
-    config.resolve.alias
-      .set('vue-i18n', 'vue-i18n/dist/vue-i18n.cjs.js') // 解决警告 You are running the esm-bundler build of vue-i18n.
     // svg
     const dir = path.resolve(__dirname, 'src/icons/svg')
     config.module

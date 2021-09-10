@@ -3,30 +3,26 @@
   <div class="drawer-container">
     <div>
       <h3 class="drawer-title">
-        {{ t('settings.title') }}
+        系统布局配置
       </h3>
       <div class="drawer-item">
-        <span>{{ t('settings.showTagsView') }}</span>
+        <span>显示 Tags-View</span>
         <el-switch v-model="showTagsView" class="drawer-switch" />
       </div>
       <div class="drawer-item">
-        <span>{{ t('settings.showSidebarLogo') }}</span>
+        <span>显示侧边栏 Logo</span>
         <el-switch v-model="showSidebarLogo" class="drawer-switch" />
       </div>
       <div class="drawer-item">
-        <span>{{ t('settings.fixedHeader') }}</span>
+        <span>固定 Header</span>
         <el-switch v-model="fixedHeader" class="drawer-switch" />
       </div>
       <div class="drawer-item">
-        <span>{{ t('settings.showLangSelect') }}</span>
-        <el-switch v-model="showLangSelect" class="drawer-switch" />
-      </div>
-      <div class="drawer-item">
-        <span>{{ t('settings.showThemeSwitch') }}</span>
+        <span>显示换肤按钮</span>
         <el-switch v-model="showThemeSwitch" class="drawer-switch" />
       </div>
       <div class="drawer-item">
-        <span>{{ t('settings.showScreenfull') }}</span>
+        <span>显示全屏按钮</span>
         <el-switch v-model="showScreenfull" class="drawer-switch" />
       </div>
     </div>
@@ -37,18 +33,15 @@
 import { useStore } from '@/store'
 import { SettingsActionTypes } from '@/store/modules/settings/action-types'
 import { defineComponent, reactive, toRefs, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'Settings',
   setup() {
     const store = useStore()
-    const { t } = useI18n()
     const state = reactive({
       fixedHeader: store.state.settings.fixedHeader,
       showTagsView: store.state.settings.showTagsView,
       showSidebarLogo: store.state.settings.showSidebarLogo,
-      showLangSelect: store.state.settings.showLangSelect,
       showThemeSwitch: store.state.settings.showThemeSwitch,
       showScreenfull: store.state.settings.showScreenfull
     })
@@ -68,16 +61,6 @@ export default defineComponent({
       (value) => {
         store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
           key: 'showTagsView',
-          value
-        })
-      }
-    )
-
-    watch(
-      () => state.showLangSelect,
-      (value) => {
-        store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
-          key: 'showLangSelect',
           value
         })
       }
@@ -114,7 +97,6 @@ export default defineComponent({
     )
 
     return {
-      t,
       ...toRefs(state)
     }
   }

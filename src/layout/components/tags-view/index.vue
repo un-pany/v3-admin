@@ -16,7 +16,7 @@
         @click.middle="!isAffix(tag) ? closeSelectedTag(tag) : ''"
         @contextmenu.prevent="openMenu(tag, $event)"
       >
-        {{ t('route.' + tag.meta.title) }}
+        {{ tag.meta.title }}
         <span
           v-if="!isAffix(tag)"
           class="el-icon-close"
@@ -30,16 +30,16 @@
       class="contextmenu"
     >
       <li @click="refreshSelectedTag(selectedTag)">
-        {{ t('tagsView.refresh') }}
+        刷新
       </li>
       <li v-if="!isAffix(selectedTag)" @click="closeSelectedTag(selectedTag)">
-        {{ t('tagsView.close') }}
+        关闭
       </li>
       <li @click="closeOthersTags">
-        {{ t('tagsView.closeOthers') }}
+        关闭其它
       </li>
       <li @click="closeAllTags(selectedTag)">
-        {{ t('tagsView.closeAll') }}
+        关闭所有
       </li>
     </ul>
   </div>
@@ -62,7 +62,6 @@ import {
   watch
 } from 'vue'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
 import ScrollPane from './scroll-pane.vue'
 export default defineComponent({
   name: 'TagsView',
@@ -74,7 +73,6 @@ export default defineComponent({
     const router = useRouter()
     const instance = getCurrentInstance()
     const currentRoute = useRoute()
-    const { t } = useI18n()
     const scrollPaneRef = ref(null)
     const { proxy } = instance as any
 
@@ -266,7 +264,6 @@ export default defineComponent({
       visitedViews,
       routes,
       scrollPaneRef,
-      t,
       ...toRefs(state)
     }
   }

@@ -1,13 +1,12 @@
 import { MutationTree } from 'vuex'
 import { AppState, DeviceType } from './state'
 import { AppMutationTypes } from './mutation-types'
-import { setLanguage, setSidebarStatus, setActiveThemeName } from '@/utils/cookies'
+import { setSidebarStatus, setActiveThemeName } from '@/utils/cookies'
 
 export type Mutations<S = AppState> = {
   [AppMutationTypes.TOGGLE_SIDEBAR](state: S, withoutAnimation: boolean): void
   [AppMutationTypes.CLOSE_SIDEBAR](state: S, withoutAnimation: boolean): void
   [AppMutationTypes.TOGGLE_DEVICE](state: S, device: DeviceType): void
-  [AppMutationTypes.SET_LANGUAGE](state: S, language: string): void
   [AppMutationTypes.SET_THEME](state: S, activeThemeName: string): void
 }
 
@@ -30,11 +29,6 @@ export const mutations: MutationTree<AppState> & Mutations = {
 
   [AppMutationTypes.TOGGLE_DEVICE](state: AppState, device: DeviceType) {
     state.device = device
-  },
-
-  [AppMutationTypes.SET_LANGUAGE](state: AppState, language: string) {
-    state.language = language
-    setLanguage(state.language)
   },
 
   [AppMutationTypes.SET_THEME](state: AppState, activeThemeName: string) {

@@ -45,7 +45,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
           // 确保添加路由已完成
           // 设置 replace: true, 因此导航将不会留下历史记录
           next({ ...to, replace: true })
-        } catch (err) {
+        } catch (err: any) {
           // 删除 token，并重定向到登录页面
           store.dispatch(UserActionTypes.ACTION_RESET_TOKEN, undefined)
           ElMessage.error(err || 'Has Error')

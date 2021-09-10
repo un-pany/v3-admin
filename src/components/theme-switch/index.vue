@@ -10,7 +10,7 @@
             :disabled="activeThemeName === themeName"
             @click="handleSetTheme(themeName)"
           >
-            <span>{{ t(`theme.${themeName}`) }}</span>
+            <span>{{ themeName }}</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -22,12 +22,10 @@
 import { useStore } from '@/store'
 import { computed, defineComponent } from 'vue'
 import { AppMutationTypes } from '@/store/modules/app/mutation-types'
-import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'ThemeList',
   setup() {
-    const { t } = useI18n()
     const store = useStore()
     const themeList = computed(() => {
       return store.state.app.themeList
@@ -39,7 +37,6 @@ export default defineComponent({
       store.commit(AppMutationTypes.SET_THEME, name)
     }
     return {
-      t,
       themeList,
       activeThemeName,
       handleSetTheme

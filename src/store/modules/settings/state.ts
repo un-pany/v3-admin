@@ -5,7 +5,6 @@ export interface SettingsState {
   showSettings: boolean
   showTagsView: boolean
   showSidebarLogo: boolean
-  showLangSelect: boolean
   showThemeSwitch: boolean
   showScreenfull: boolean
 
@@ -16,7 +15,6 @@ export const state: SettingsState = {
   showSettings: layoutSettings.showSettings,
   showTagsView: layoutSettings.showTagsView,
   showSidebarLogo: layoutSettings.showSidebarLogo,
-  showLangSelect: layoutSettings.showLangSelect,
   showThemeSwitch: layoutSettings.showThemeSwitch,
   showScreenfull: layoutSettings.showScreenfull
 }

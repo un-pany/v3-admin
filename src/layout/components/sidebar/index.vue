@@ -133,7 +133,7 @@ export default defineComponent({
   }
 }
 
-::v-deep(.el-submenu__title) {
+::v-deep(.el-sub-menu__title) {
   height: 65px !important;
   line-height: 65px !important;
   &:hover {
@@ -141,7 +141,7 @@ export default defineComponent({
   }
 }
 
-::v-deep(.el-submenu .el-menu-item) {
+::v-deep(.el-sub-menu .el-menu-item) {
   height: 60px !important;
   line-height: 60px !important;
 }

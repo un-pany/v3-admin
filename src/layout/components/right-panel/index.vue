@@ -6,7 +6,9 @@
     :style="{top: buttonTop + 'px', 'background-color': variables.menuBg}"
     @click="show = true"
   >
-    <i class="el-icon-setting" />
+    <el-icon :size="24">
+      <Setting />
+    </el-icon>
   </div>
   <el-drawer v-model="show" size="300px" :with-header="false">
     <slot />
@@ -16,6 +18,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import variables from '@/styles/_variables.scss'
+import { Setting } from '@element-plus/icons'
 
 export default defineComponent({
   name: 'RightPanel',
@@ -24,6 +27,9 @@ export default defineComponent({
       type: Number,
       default: 250
     }
+  },
+  components: {
+    Setting
   },
   setup() {
     const show = ref(false)
@@ -48,10 +54,8 @@ export default defineComponent({
   cursor: pointer;
   pointer-events: auto;
   color: #fff;
-  line-height: 48px;
-  i {
-    font-size: 24px;
-    line-height: 48px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

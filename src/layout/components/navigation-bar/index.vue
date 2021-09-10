@@ -12,7 +12,6 @@
       <template v-if="device !== 'mobile'">
         <Screenfull class="right-menu-item hover-effect" v-if="showScreenfull" />
         <ThemeSwitch class="right-menu-item hover-effect" v-if="showThemeSwitch" />
-        <LangSelect class="right-menu-item hover-effect" v-if="showLangSelect" />
       </template>
       <el-dropdown
         class="avatar-container right-menu-item hover-effect"
@@ -28,7 +27,7 @@
           <el-dropdown-menu>
             <router-link to="/">
               <el-dropdown-item>
-                {{ t('navbar.dashboard') }}
+                首页
               </el-dropdown-item>
             </router-link>
             <a
@@ -36,17 +35,17 @@
               href="https://juejin.cn/post/6963876125428678693"
             >
               <el-dropdown-item>
-                {{ t('navbar.docs') }}
+                文档
               </el-dropdown-item>
             </a>
             <a target="_blank" href="https://github.com/v3-projects/v3-admin">
               <el-dropdown-item>
-                {{ t('navbar.github') }}
+                Github
               </el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="logout">
               <span style="display: block">
-                {{ t('navbar.logOut') }}
+                退出登录
               </span>
             </el-dropdown-item>
           </el-dropdown-menu>
@@ -61,11 +60,9 @@ import BreadCrumb from '../bread-crumb/index.vue'
 import Hamburger from '../hamburger/index.vue'
 import ThemeSwitch from '@/components/theme-switch/index.vue'
 import Screenfull from '@/components/screenfull/index.vue'
-import LangSelect from '@/components/lang-select/index.vue'
 import { computed, reactive, toRefs, defineComponent } from 'vue'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
-import { useI18n } from 'vue-i18n'
 import { UserActionTypes } from '@/store/modules/user/action-types'
 import { useRouter } from 'vue-router'
 export default defineComponent({
@@ -74,21 +71,16 @@ export default defineComponent({
     BreadCrumb,
     Hamburger,
     ThemeSwitch,
-    Screenfull,
-    LangSelect
+    Screenfull
   },
   setup() {
     const store = useStore()
     const router = useRouter()
-    const { t } = useI18n()
     const sidebar = computed(() => {
       return store.state.app.sidebar
     })
     const device = computed(() => {
       return store.state.app.device.toString()
-    })
-    const showLangSelect = computed(() => {
-      return store.state.settings.showLangSelect
     })
     const showThemeSwitch = computed(() => {
       return store.state.settings.showThemeSwitch
@@ -110,11 +102,9 @@ export default defineComponent({
     return {
       sidebar,
       device,
-      showLangSelect,
       showThemeSwitch,
       showScreenfull,
-      ...toRefs(state),
-      t
+      ...toRefs(state)
     }
   }
 })

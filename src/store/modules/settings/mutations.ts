@@ -22,9 +22,6 @@ export const mutations: MutationTree<SettingsState> & Mutations = {
       case 'showTagsView':
         state.showTagsView = value
         break
-      case 'showLangSelect':
-        state.showLangSelect = value
-        break
       case 'showThemeSwitch':
         state.showThemeSwitch = value
         break

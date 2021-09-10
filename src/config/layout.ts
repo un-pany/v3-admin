@@ -9,8 +9,6 @@ interface LayoutSettings {
   showSidebarLogo: boolean
   // 如果为真，将固定 header
   fixedHeader: boolean
-  // 控制 中英文切换 显示
-  showLangSelect: boolean
   // 控制 换肤按钮 显示
   showThemeSwitch: boolean
   // 控制 全屏按钮 显示
@@ -22,7 +20,6 @@ const layoutSettings: LayoutSettings = {
   showTagsView: true,
   fixedHeader: false,
   showSidebarLogo: true,
-  showLangSelect: true,
   showThemeSwitch: true,
   showScreenfull: true
 }

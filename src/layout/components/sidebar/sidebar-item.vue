@@ -25,12 +25,12 @@
             font-size="17px"
           />
           <span v-if="theOnlyOneChild.meta.title">{{
-            t('route.' + theOnlyOneChild.meta.title)
+            theOnlyOneChild.meta.title
           }}</span>
         </el-menu-item>
       </SidebarItemLink>
     </template>
-    <el-submenu v-else :index="resolvePath(item.path)" popper-append-to-body>
+    <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template #title>
         <svg-icon
           v-if="item.meta && item.meta.icon"
@@ -38,7 +38,7 @@
           font-size="16px"
         />
         <span v-if="item.meta && item.meta.title">{{
-          t('route.' + item.meta.title)
+          item.meta.title
         }}</span>
       </template>
       <template v-if="item.children">
@@ -52,7 +52,7 @@
           class="nest-menu"
         />
       </template>
-    </el-submenu>
+    </el-sub-menu>
   </div>
 </template>
 
@@ -62,7 +62,6 @@ import { computed, defineComponent, PropType } from 'vue'
 import { RouteRecordRaw } from 'vue-router'
 import { isExternal } from '@/utils/validate'
 import SidebarItemLink from './sidebar-item-link.vue'
-import { useI18n } from 'vue-i18n'
 export default defineComponent({
   name: 'SidebarItem',
   props: {
@@ -126,10 +125,8 @@ export default defineComponent({
       }
       return path.resolve(props.basePath, routePath)
     }
-    const { t } = useI18n()
 
     return {
-      t,
       alwaysShowRootMenu,
       showingChildNumber,
       theOnlyOneChild,
@@ -140,7 +137,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.el-submenu__title) {
+::v-deep(.el-sub-menu__title) {
   font-size: 13px !important;
 }
 
@@ -150,10 +147,10 @@ export default defineComponent({
       display: inline-block;
     }
   }
-  ::v-deep(.el-submenu) {
+  ::v-deep(.el-sub-menu) {
     overflow: hidden !important;
-    & > .el-submenu__title {
-      .el-submenu__icon-arrow {
+    & > .el-sub-menu__title {
+      .el-sub-menu__icon-arrow {
         display: none !important;
       }
     }
@@ -171,13 +168,13 @@ export default defineComponent({
       }
     }
 
-    .el-submenu {
+    .el-sub-menu {
       overflow: hidden;
 
-      & > .el-submenu__title {
+      & > .el-sub-menu__title {
         padding: 0 !important;
 
-        .el-submenu__icon-arrow {
+        .el-sub-menu__icon-arrow {
           display: none;
         }
 

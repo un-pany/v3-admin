@@ -2,9 +2,9 @@
 <template>
   <div>
     <div style="margin-bottom: 15px">
-      {{ t('permission.roles') }}： {{ roles }}
+      你的权限： {{ roles }}
     </div>
-    {{ t('permission.switchRoles') }}：
+    <p>切换权限：</p>
     <el-radio-group v-model="currentRole">
       <el-radio-button label="editor" />
       <el-radio-button label="admin" />
@@ -15,20 +15,19 @@
 import { useStore } from '@/store'
 import { UserActionTypes } from '@/store/modules/user/action-types'
 import { computed, defineComponent, ref, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
 
 export default defineComponent({
   name: 'SwitchRoles',
-  setup() {
-    const { t } = useI18n()
+  emits: ['change'],
+  setup(props, { emit }) {
     const store = useStore()
     const roles = computed(() => store.state.user.roles)
     const currentRole = ref(roles.value[0])
-    watch(currentRole, (value) => {
-      store.dispatch(UserActionTypes.ACTION_CHANGE_ROLES, value)
+    watch(currentRole, async(value) => {
+      await store.dispatch(UserActionTypes.ACTION_CHANGE_ROLES, value)
+      emit('change')
     })
     return {
-      t,
       roles,
       currentRole
     }
