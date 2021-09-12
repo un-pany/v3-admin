@@ -55,7 +55,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import BreadCrumb from '../bread-crumb/index.vue'
 import Hamburger from '../hamburger/index.vue'
 import ThemeSwitch from '@/components/theme-switch/index.vue'
@@ -93,7 +93,7 @@ export default defineComponent({
         store.dispatch(AppActionTypes.ACTION_TOGGLE_SIDEBAR, false)
       },
       logout: () => {
-        useStore().dispatch(UserActionTypes.ACTION_LOGIN_OUT)
+        store.dispatch(UserActionTypes.ACTION_LOGIN_OUT, undefined)
         router.push('/login').catch((err) => {
           console.warn(err)
         })

@@ -1,8 +1,8 @@
-// @import './_variables.scss'; // Already imported in style-resources-loader
-// @import './_mixins.scss'; // Already imported in style-resources-loader
-@import './_transition.scss';
-@import './_svgicon.scss';
-@import '~@/styles/theme/register.scss'; // 注册主题
+// @import './variables.scss'; // 已采用插件 style-resources-loader 导入
+// @import './mixins.scss'; // 已采用插件 style-resources-loader 导入
+@import './transition.scss';
+@import './svgicon.scss';
+@import './theme/register.scss'; // 注册主题
 
 /* Global scss */
 

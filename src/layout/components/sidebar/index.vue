@@ -27,7 +27,7 @@
 import { computed, defineComponent } from 'vue'
 import SidebarItem from './sidebar-item.vue'
 import SidebarLogo from './sidebar-logo.vue'
-import variables from '@/styles/_variables.scss'
+import variables from '@/styles/variables.scss'
 import { useStore } from '@/store'
 import { useRoute } from 'vue-router'
 
