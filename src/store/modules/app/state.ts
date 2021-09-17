@@ -12,7 +12,7 @@ export interface AppState {
     opened: boolean
     withoutAnimation: boolean
   }
-  themeList: string[]
+  themeList: { title: string, name: string }[]
   activeThemeName: string
 }
 

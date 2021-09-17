@@ -5,12 +5,12 @@
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item
-            v-for="(themeName, index) in themeList"
+            v-for="(theme, index) in themeList"
             :key="index"
-            :disabled="activeThemeName === themeName"
-            @click="handleSetTheme(themeName)"
+            :disabled="activeThemeName === theme.name"
+            @click="handleSetTheme(theme.name)"
           >
-            <span>{{ themeName }}</span>
+            <span>{{ theme.title }}</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </template>

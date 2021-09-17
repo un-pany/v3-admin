@@ -33,7 +33,7 @@ export const mutations: MutationTree<AppState> & Mutations = {
 
   [AppMutationTypes.SET_THEME](state: AppState, activeThemeName: string) {
     // 检查这个主题在主题列表里是否存在
-    state.activeThemeName = state.themeList.find(themeName => themeName === activeThemeName) ? activeThemeName : state.themeList[0]
+    state.activeThemeName = state.themeList.find(theme => theme.name === activeThemeName) ? activeThemeName : state.themeList[0].name
     // 应用到 dom
     document.body.className = `theme-${state.activeThemeName}`
     // 持久化
