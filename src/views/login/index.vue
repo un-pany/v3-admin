@@ -43,9 +43,7 @@
               auto-complete="off"
             />
             <span class="show-pwd" @click="showPwd">
-              <svg-icon
-                :name="passwordType === 'password' ? 'eye' : 'eye-open'"
-              />
+              <svg-icon :name="passwordType === 'password' ? 'eye' : 'eye-open'" />
             </span>
           </el-form-item>
           <el-form-item prop="code">
@@ -62,24 +60,10 @@
               auto-complete="off"
             />
             <span class="show-code">
-              <img
-                style="
-                  width: 100px;
-                  height: 52px;
-                  background: #f4def6;
-                  border-radius: 4px;
-                "
-                :src="src"
-                alt="验证码"
-                @click="createCode"
-              >
+              <img :src="src" alt="验证码" @click="createCode">
             </span>
           </el-form-item>
-          <el-button
-            :loading="loading"
-            type="primary"
-            @click.prevent="handleLogin"
-          >
+          <el-button :loading="loading" type="primary" @click.prevent="handleLogin">
             登录
           </el-button>
         </el-form>
@@ -89,7 +73,7 @@
 </template>
 
 <script lang='ts'>
-import { defineComponent, nextTick, reactive, ref } from 'vue'
+import { defineComponent, reactive, ref } from 'vue'
 import { useStore } from '@/store'
 import { UserActionTypes } from '@/store/modules/user/action-types'
 import { useRouter } from 'vue-router'
@@ -102,31 +86,9 @@ interface LoginForm {
 }
 
 interface LoginRules {
-  username: Array<any>
-  password: Array<any>
-  code: Array<any>
-}
-
-const validateUsername = (rule: any, value: string, callback: Function) => {
-  if (!value.length) {
-    callback(new Error('请输入用户名'))
-  } else {
-    callback()
-  }
-}
-const validatePassword = (rule: any, value: string, callback: Function) => {
-  if (value.length < 6) {
-    callback(new Error('密码不能少于6位'))
-  } else {
-    callback()
-  }
-}
-const validateCode = (rule: any, value: string, callback: Function) => {
-  if (value.length === 0) {
-    callback(new Error('请输入验证码'))
-  } else {
-    callback()
-  }
+  username: any[]
+  password: any[]
+  code: any[]
 }
 
 export default defineComponent({
@@ -135,6 +97,9 @@ export default defineComponent({
     // hooks
     const router = useRouter()
     const store = useStore()
+    // dom
+    const loginFormDom = ref<any>()
+    const passwordDom = ref<any>()
     // data
     const src = ref<string>('')
     const loginForm = reactive<LoginForm>({
@@ -145,18 +110,18 @@ export default defineComponent({
     })
     const loginRules = reactive<LoginRules>({
       username: [
-        { required: true, trigger: 'blur', validator: validateUsername }
+        { required: true, message: '请输入用户名', trigger: 'blur' }
       ],
       password: [
-        { required: true, trigger: 'blur', validator: validatePassword }
+        { required: true, message: '请输入密码', trigger: 'blur' },
+        { min: 6, max: 18, message: '长度在 6 到 18 个字符', trigger: 'blur' }
       ],
-      code: [{ required: true, trigger: 'blur', validator: validateCode }]
+      code: [
+        { required: true, message: '请输入验证码', trigger: 'blur' }
+      ]
     })
     const loading = ref<boolean>(false)
     const passwordType = ref<string>('password')
-    // dom
-    const loginFormDom = ref<any>()
-    const passwordDom = ref<any>()
     // 方法
     const showPwd: () => void = () => {
       if (passwordType.value === 'password') {
@@ -164,9 +129,6 @@ export default defineComponent({
       } else {
         passwordType.value = 'password'
       }
-      nextTick(() => {
-        passwordDom.value.focus()
-      })
     }
     const handleLogin: () => void | boolean = () => {
       loginFormDom.value.validate(async(valid: boolean) => {
@@ -177,13 +139,9 @@ export default defineComponent({
             password: loginForm.password
           })
           loading.value = false
-          router
-            .push({
-              path: '/'
-            })
-            .catch((err) => {
-              console.warn(err)
-            })
+          router.push({ path: '/' }).catch((err) => {
+            console.warn(err)
+          })
         } else {
           return false
         }
@@ -196,50 +154,13 @@ export default defineComponent({
       loginForm.code = ''
       const codeLength = 12
       // 随机数
-      const random: Array<number | string> = [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        'A',
-        'B',
-        'C',
-        'D',
-        'E',
-        'F',
-        'G',
-        'H',
-        'I',
-        'J',
-        'K',
-        'L',
-        'M',
-        'N',
-        'O',
-        'P',
-        'Q',
-        'R',
-        'S',
-        'T',
-        'U',
-        'V',
-        'W',
-        'X',
-        'Y',
-        'Z'
-      ]
+      const random: Array<number | string> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
       for (let i = 0; i < codeLength; i++) {
         const index = Math.floor(Math.random() * 36)
         code += random[index]
       }
-      loginForm.checkCode = `${code}`
-      src.value = `/api/v1/login/authcode?token=${code}`
+      loginForm.checkCode = code
+      src.value = `/api/v1/login/authcode?token=${code}` // 实际开放中，可替换成自己的地址
     }
 
     return {
@@ -258,12 +179,11 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .login-container {
   min-height: 100%;
   width: 100%;
-  background: url('../../assets/login/bg.png')
-    center/cover no-repeat;
+  background: url("../../assets/login/bg.png") center/cover no-repeat;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -311,6 +231,12 @@ export default defineComponent({
         color: #889aa4;
         cursor: pointer;
         user-select: none;
+        img {
+          width: 100px;
+          height: 52px;
+          background: #f4def6;
+          border-radius: 4px;
+        }
       }
     }
   }
@@ -328,7 +254,7 @@ $cursor: #666;
     color: $cursor;
   }
 }
-/* reset element-ui css */
+/* 重置当前页面的 element-plus css，注意，虽然没有加 scoped 标识，但是被该页面的 login-container 类名包裹，所以不会影响其他页面 */
 .login-container {
   .el-input {
     display: inline-block;

@@ -13,40 +13,23 @@
         <Screenfull class="right-menu-item hover-effect" v-if="showScreenfull" />
         <ThemeSwitch class="right-menu-item hover-effect" v-if="showThemeSwitch" />
       </template>
-      <el-dropdown
-        class="avatar-container right-menu-item hover-effect"
-        trigger="click"
-      >
+      <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <img
-            :src="require('@/assets/layout/avatar.gif')"
-            class="user-avatar"
-            alt="">
+          <img src="@/assets/layout/avatar.gif" class="user-avatar" alt>
         </div>
         <template #dropdown>
           <el-dropdown-menu>
             <router-link to="/">
-              <el-dropdown-item>
-                首页
-              </el-dropdown-item>
+              <el-dropdown-item>首页</el-dropdown-item>
             </router-link>
-            <a
-              target="_blank"
-              href="https://juejin.cn/post/6963876125428678693"
-            >
-              <el-dropdown-item>
-                文档
-              </el-dropdown-item>
+            <a target="_blank" href="https://juejin.cn/post/6963876125428678693">
+              <el-dropdown-item>文档</el-dropdown-item>
             </a>
             <a target="_blank" href="https://github.com/v3-projects/v3-admin">
-              <el-dropdown-item>
-                Github
-              </el-dropdown-item>
+              <el-dropdown-item>Github</el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="logout">
-              <span style="display: block">
-                退出登录
-              </span>
+              <span style="display: block">退出登录</span>
             </el-dropdown-item>
           </el-dropdown-menu>
         </template>
@@ -119,7 +102,7 @@ export default defineComponent({
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
   .hamburger-container {
-    line-height: 46px;
+    line-height: 50px;
     height: 100%;
     float: left;
     padding: 0 15px;

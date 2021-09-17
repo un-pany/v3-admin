@@ -42,6 +42,10 @@ export default defineComponent({
 <style lang="scss" scoped>
 .icon {
   vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  overflow: hidden;
 }
 
 .is-active {

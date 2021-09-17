@@ -46,7 +46,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.icon {
-  color: #5a5e66;
-}
 </style>

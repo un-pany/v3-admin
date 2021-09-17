@@ -1,5 +1,5 @@
 <template>
-  <svg class="icon" aria-hidden="true">
+  <svg class="svg-icon" aria-hidden="true">
     <use :xlink:href="`#${name}`" />
   </svg>
 </template>
@@ -16,8 +16,8 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss">
-.icon {
+<style lang="scss" scoped>
+.svg-icon {
   width: 1em;
   height: 1em;
   fill: currentColor;
