@@ -72,8 +72,8 @@
   </div>
 </template>
 
-<script lang='ts'>
-import { defineComponent, reactive, ref } from 'vue'
+<script lang='ts' setup>
+import { reactive, ref } from 'vue'
 import { useStore } from '@/store'
 import { UserActionTypes } from '@/store/modules/user/action-types'
 import { useRouter } from 'vue-router'
@@ -91,92 +91,75 @@ interface LoginRules {
   code: any[]
 }
 
-export default defineComponent({
-  name: 'Login',
-  setup() {
-    // hooks
-    const router = useRouter()
-    const store = useStore()
-    // dom
-    const loginFormDom = ref<any>()
-    const passwordDom = ref<any>()
-    // data
-    const src = ref<string>('')
-    const loginForm = reactive<LoginForm>({
-      username: 'admin', // admin 或 editor
-      password: '123456',
-      code: '1234',
-      checkCode: ''
-    })
-    const loginRules = reactive<LoginRules>({
-      username: [
-        { required: true, message: '请输入用户名', trigger: 'blur' }
-      ],
-      password: [
-        { required: true, message: '请输入密码', trigger: 'blur' },
-        { min: 6, max: 18, message: '长度在 6 到 18 个字符', trigger: 'blur' }
-      ],
-      code: [
-        { required: true, message: '请输入验证码', trigger: 'blur' }
-      ]
-    })
-    const loading = ref<boolean>(false)
-    const passwordType = ref<string>('password')
-    // 方法
-    const showPwd: () => void = () => {
-      if (passwordType.value === 'password') {
-        passwordType.value = ''
-      } else {
-        passwordType.value = 'password'
-      }
-    }
-    const handleLogin: () => void | boolean = () => {
-      loginFormDom.value.validate(async(valid: boolean) => {
-        if (valid) {
-          loading.value = true
-          await store.dispatch(UserActionTypes.ACTION_LOGIN, {
-            username: loginForm.username,
-            password: loginForm.password
-          })
-          loading.value = false
-          router.push({ path: '/' }).catch((err) => {
-            console.warn(err)
-          })
-        } else {
-          return false
-        }
-      })
-    }
-    // 创建验证码
-    const createCode: () => void = () => {
-      // 先清空验证码的输入
-      let code = ''
-      loginForm.code = ''
-      const codeLength = 12
-      // 随机数
-      const random: Array<number | string> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-      for (let i = 0; i < codeLength; i++) {
-        const index = Math.floor(Math.random() * 36)
-        code += random[index]
-      }
-      loginForm.checkCode = code
-      src.value = `/api/v1/login/authcode?token=${code}` // 实际开放中，可替换成自己的地址
-    }
-
-    return {
-      loginFormDom,
-      passwordDom,
-      src,
-      loginForm,
-      loginRules,
-      loading,
-      passwordType,
-      showPwd,
-      handleLogin,
-      createCode
-    }
-  }
+// hooks
+const router = useRouter()
+const store = useStore()
+// dom
+const loginFormDom = ref<any>()
+const passwordDom = ref<any>()
+// data
+const src = ref<string>('')
+const loginForm = reactive<LoginForm>({
+  username: 'admin', // admin 或 editor
+  password: '123456',
+  code: '1234',
+  checkCode: ''
 })
+const loginRules = reactive<LoginRules>({
+  username: [
+    { required: true, message: '请输入用户名', trigger: 'blur' }
+  ],
+  password: [
+    { required: true, message: '请输入密码', trigger: 'blur' },
+    { min: 6, max: 18, message: '长度在 6 到 18 个字符', trigger: 'blur' }
+  ],
+  code: [
+    { required: true, message: '请输入验证码', trigger: 'blur' }
+  ]
+})
+const loading = ref<boolean>(false)
+const passwordType = ref<string>('password')
+// 方法
+const showPwd: () => void = () => {
+  if (passwordType.value === 'password') {
+    passwordType.value = ''
+  } else {
+    passwordType.value = 'password'
+  }
+}
+const handleLogin: () => void | boolean = () => {
+  loginFormDom.value.validate(async(valid: boolean) => {
+    if (valid) {
+      loading.value = true
+      await store.dispatch(UserActionTypes.ACTION_LOGIN, {
+        username: loginForm.username,
+        password: loginForm.password
+      })
+      loading.value = false
+      router.push({ path: '/' }).catch((err) => {
+        console.warn(err)
+      })
+    } else {
+      return false
+    }
+  })
+}
+// 创建验证码
+const createCode: () => void = () => {
+  // 先清空验证码的输入
+  let code = ''
+  loginForm.code = ''
+  const codeLength = 12
+  // 随机数
+  const random: Array<number | string> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+  for (let i = 0; i < codeLength; i++) {
+    const index = Math.floor(Math.random() * 36)
+    code += random[index]
+  }
+  loginForm.checkCode = code
+  src.value = `/api/v1/login/authcode?token=${code}` // 实际开放中，可替换成自己的地址
+}
+
 </script>
 
 <style lang="scss" scoped>
