@@ -17,26 +17,21 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name: 'Hamburger',
-  props: {
-    isActive: {
-      type: Boolean,
-      default: false
-    }
-  },
-  emits: ['toggle-click'],
-  setup(_, context) {
-    const toggleClick = () => {
-      context.emit('toggle-click')
-    }
-    return {
-      toggleClick
-    }
+<script lang="ts" setup>
+import { defineProps, defineEmits } from 'vue'
+
+defineProps({
+  isActive: {
+    type: Boolean,
+    default: false
   }
 })
+
+const emit = defineEmits(['toggle-click'])
+
+const toggleClick = () => {
+  emit('toggle-click')
+}
 </script>
 
 <style lang="scss" scoped>

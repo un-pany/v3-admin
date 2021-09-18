@@ -9,7 +9,4 @@ import { ElConfigProvider } from 'element-plus'
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 
 const locale = zhCn // Element UI 默认中文
-
 </script>
-<style lang="scss" scoped>
-</style>

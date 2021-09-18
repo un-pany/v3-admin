@@ -1,14 +1,6 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import { Layout } from '@/constant/router'
 
-// 导入常驻路由
-// const constantFiles = require.context('./constantModules', true, /\.ts$/)
-// let constantModules: Array<RouteRecordRaw> = []
-// constantFiles.keys().forEach((key) => {
-//   if (key === './index.ts') return
-//   constantModules = constantModules.concat(constantFiles(key).default)
-// })
-
 // 导入动态路由
 const asyncFiles = require.context('./asyncModules', true, /\.ts$/)
 let asyncModules: Array<RouteRecordRaw> = []
@@ -17,7 +9,7 @@ asyncFiles.keys().forEach((key) => {
   asyncModules = asyncModules.concat(asyncFiles(key).default)
 })
 
-// 路由表
+// 常驻路由
 export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/redirect',

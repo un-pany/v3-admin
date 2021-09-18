@@ -12,10 +12,10 @@
         mode="vertical"
       >
         <SidebarItem
-          v-for="route in routes"
-          :key="route.path"
-          :item="route"
-          :base-path="route.path"
+          v-for="routeItem in routes"
+          :key="routeItem.path"
+          :item="routeItem"
+          :base-path="routeItem.path"
           :is-collapse="isCollapse"
         />
       </el-menu>
@@ -23,55 +23,38 @@
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from 'vue'
+<script lang="ts" setup>
+import { computed } from 'vue'
 import SidebarItem from './sidebar-item.vue'
 import SidebarLogo from './sidebar-logo.vue'
 import variables from '@/styles/variables.scss'
 import { useStore } from '@/store'
 import { useRoute } from 'vue-router'
 
-export default defineComponent({
-  name: 'Sidebar',
-  components: {
-    SidebarItem,
-    SidebarLogo
-  },
-  setup() {
-    const store = useStore()
-    const route = useRoute()
-    const sidebar = computed(() => {
-      return store.state.app.sidebar
-    })
-    const routes = computed(() => {
-      return store.state.permission.routes
-    })
-    const showLogo = computed(() => {
-      return store.state.settings.showSidebarLogo
-    })
+const store = useStore()
+const route = useRoute()
+const sidebar = computed(() => {
+  return store.state.app.sidebar
+})
+const routes = computed(() => {
+  return store.state.permission.routes
+})
+const showLogo = computed(() => {
+  return store.state.settings.showSidebarLogo
+})
 
-    const activeMenu = computed(() => {
-      const { meta, path } = route
-      if (meta !== null || meta !== undefined) {
-        if (meta.activeMenu) {
-          return meta.activeMenu
-        }
-      }
-      return path
-    })
-
-    const isCollapse = computed(() => {
-      return sidebar.value.opened
-    })
-
-    return {
-      routes,
-      showLogo,
-      variables,
-      activeMenu,
-      isCollapse
+const activeMenu = computed(() => {
+  const { meta, path } = route
+  if (meta !== null || meta !== undefined) {
+    if (meta.activeMenu) {
+      return meta.activeMenu
     }
   }
+  return path
+})
+
+const isCollapse = computed(() => {
+  return sidebar.value.opened
 })
 </script>
 

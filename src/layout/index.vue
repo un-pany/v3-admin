@@ -5,7 +5,7 @@
     <div
       v-if="classObj.mobile && sidebar.opened"
       class="drawer-bg"
-      @click="handleClickOutside"
+      @click="state.handleClickOutside"
     />
     <Sidebar class="sidebar-container" />
     <div :class="{hasTagsView: showTagsView}" class="main-container">
@@ -21,80 +21,52 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { DeviceType } from '@/store/modules/app/state'
-import { computed, defineComponent, onBeforeMount, onBeforeUnmount, onMounted, reactive, toRefs } from 'vue'
+import { computed, onBeforeMount, onBeforeUnmount, onMounted, reactive } from 'vue'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { AppMain, NavigationBar, Settings, Sidebar, TagsView, RightPanel } from './components'
 import resize from './resize'
 
-export default defineComponent({
-  name: 'Layout',
-  components: {
-    AppMain,
-    NavigationBar,
-    RightPanel,
-    Settings,
-    Sidebar,
-    TagsView
-  },
-  setup() {
-    const store = useStore()
-    const {
-      sidebar,
-      device,
-      addEventListenerOnResize,
-      resizeMounted,
-      removeEventListenerResize,
-      watchRouter
-    } = resize()
-    const state = reactive({
-      handleClickOutside: () => {
-        store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
-      }
-    })
-
-    const classObj = computed(() => {
-      return {
-        hideSidebar: !sidebar.value.opened,
-        openSidebar: sidebar.value.opened,
-        withoutAnimation: sidebar.value.withoutAnimation,
-        mobile: device.value === DeviceType.Mobile
-      }
-    })
-
-    const showSettings = computed(() => {
-      return store.state.settings.showSettings
-    })
-    const showTagsView = computed(() => {
-      return store.state.settings.showTagsView
-    })
-    const fixedHeader = computed(() => {
-      return store.state.settings.fixedHeader
-    })
-
-    watchRouter()
-    onBeforeMount(() => {
-      addEventListenerOnResize()
-    })
-
-    onMounted(() => {
-      resizeMounted()
-    })
-
-    onBeforeUnmount(() => {
-      removeEventListenerResize()
-    })
-    return {
-      classObj,
-      sidebar,
-      showSettings,
-      showTagsView,
-      fixedHeader,
-      ...toRefs(state)
-    }
+const store = useStore()
+const { sidebar, device, addEventListenerOnResize, resizeMounted, removeEventListenerResize, watchRouter } = resize()
+const state = reactive({
+  handleClickOutside: () => {
+    store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
   }
+})
+
+const classObj = computed(() => {
+  return {
+    hideSidebar: !sidebar.value.opened,
+    openSidebar: sidebar.value.opened,
+    withoutAnimation: sidebar.value.withoutAnimation,
+    mobile: device.value === DeviceType.Mobile
+  }
+})
+
+const showSettings = computed(() => {
+  return store.state.settings.showSettings
+})
+const showTagsView = computed(() => {
+  return store.state.settings.showTagsView
+})
+const fixedHeader = computed(() => {
+  return store.state.settings.fixedHeader
+})
+
+watchRouter()
+onBeforeMount(() => {
+  addEventListenerOnResize()
+})
+
+onMounted(() => {
+  resizeMounted()
+})
+
+onBeforeUnmount(() => {
+  removeEventListenerResize()
 })
 </script>
 

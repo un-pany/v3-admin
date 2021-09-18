@@ -5,7 +5,7 @@
       id="hamburger-container"
       :is-active="sidebar.opened"
       class="hamburger-container"
-      @toggle-click="toggleSideBar"
+      @toggle-click="state.toggleSideBar"
     />
     <BreadCrumb id="breadcrumb-container" class="breadcrumb-container" />
     <div class="right-menu">
@@ -28,7 +28,7 @@
             <a target="_blank" href="https://github.com/v3-projects/v3-admin">
               <el-dropdown-item>Github</el-dropdown-item>
             </a>
-            <el-dropdown-item divided @click="logout">
+            <el-dropdown-item divided @click="state.logout">
               <span style="display: block">退出登录</span>
             </el-dropdown-item>
           </el-dropdown-menu>
@@ -38,57 +38,40 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import BreadCrumb from '../bread-crumb/index.vue'
 import Hamburger from '../hamburger/index.vue'
 import ThemeSwitch from '@/components/theme-switch/index.vue'
 import Screenfull from '@/components/screenfull/index.vue'
-import { computed, reactive, toRefs, defineComponent } from 'vue'
+import { computed, reactive } from 'vue'
 import { useStore } from '@/store'
 import { AppActionTypes } from '@/store/modules/app/action-types'
 import { UserActionTypes } from '@/store/modules/user/action-types'
 import { useRouter } from 'vue-router'
-export default defineComponent({
-  name: 'NavigationBar',
-  components: {
-    BreadCrumb,
-    Hamburger,
-    ThemeSwitch,
-    Screenfull
+
+const store = useStore()
+const router = useRouter()
+const sidebar = computed(() => {
+  return store.state.app.sidebar
+})
+const device = computed(() => {
+  return store.state.app.device.toString()
+})
+const showThemeSwitch = computed(() => {
+  return store.state.settings.showThemeSwitch
+})
+const showScreenfull = computed(() => {
+  return store.state.settings.showScreenfull
+})
+const state = reactive({
+  toggleSideBar: () => {
+    store.dispatch(AppActionTypes.ACTION_TOGGLE_SIDEBAR, false)
   },
-  setup() {
-    const store = useStore()
-    const router = useRouter()
-    const sidebar = computed(() => {
-      return store.state.app.sidebar
+  logout: () => {
+    store.dispatch(UserActionTypes.ACTION_LOGIN_OUT, undefined)
+    router.push('/login').catch((err) => {
+      console.warn(err)
     })
-    const device = computed(() => {
-      return store.state.app.device.toString()
-    })
-    const showThemeSwitch = computed(() => {
-      return store.state.settings.showThemeSwitch
-    })
-    const showScreenfull = computed(() => {
-      return store.state.settings.showScreenfull
-    })
-    const state = reactive({
-      toggleSideBar: () => {
-        store.dispatch(AppActionTypes.ACTION_TOGGLE_SIDEBAR, false)
-      },
-      logout: () => {
-        store.dispatch(UserActionTypes.ACTION_LOGIN_OUT, undefined)
-        router.push('/login').catch((err) => {
-          console.warn(err)
-        })
-      }
-    })
-    return {
-      sidebar,
-      device,
-      showThemeSwitch,
-      showScreenfull,
-      ...toRefs(state)
-    }
   }
 })
 </script>

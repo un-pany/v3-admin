@@ -18,31 +18,22 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { useStore } from '@/store'
-import { computed, defineComponent } from 'vue'
+import { computed } from 'vue'
 import { AppMutationTypes } from '@/store/modules/app/mutation-types'
 
-export default defineComponent({
-  name: 'ThemeList',
-  setup() {
-    const store = useStore()
-    const themeList = computed(() => {
-      return store.state.app.themeList
-    })
-    const activeThemeName = computed(() => {
-      return store.state.app.activeThemeName
-    })
-    const handleSetTheme = (name: string) => {
-      store.commit(AppMutationTypes.SET_THEME, name)
-    }
-    return {
-      themeList,
-      activeThemeName,
-      handleSetTheme
-    }
-  }
+const store = useStore()
+const themeList = computed(() => {
+  return store.state.app.themeList
 })
+const activeThemeName = computed(() => {
+  return store.state.app.activeThemeName
+})
+const handleSetTheme = (name: string) => {
+  store.commit(AppMutationTypes.SET_THEME, name)
+}
+
 </script>
 
 <style lang="scss" scoped>

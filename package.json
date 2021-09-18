@@ -1,6 +1,6 @@
 {
   "name": "v3-admin",
-  "version": "1.9.4",
+  "version": "2.0.0",
   "private": true,
   "homepage": "https://v3-projects.github.io/v3-admin",
   "scripts": {
@@ -13,14 +13,14 @@
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
     "axios": "^0.21.1",
-    "element-plus": "^1.1.0-beta.9",
+    "element-plus": "^1.1.0-beta.12",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.0",
     "screenfull": "^5.0.2",
-    "vue": "^3.2.11",
+    "vue": "^3.2.12",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2"
   },

@@ -50,7 +50,7 @@ function createService() {
       return Promise.reject(error)
     }
   )
-  // 响应拦截
+  // 响应拦截（可根据具体业务作出相应的调整）
   service.interceptors.response.use(
     response => {
       removePendingAjax(response.config)

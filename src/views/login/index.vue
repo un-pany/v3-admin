@@ -159,7 +159,6 @@ const createCode: () => void = () => {
   loginForm.checkCode = code
   src.value = `/api/v1/login/authcode?token=${code}` // 实际开放中，可替换成自己的地址
 }
-
 </script>
 
 <style lang="scss" scoped>

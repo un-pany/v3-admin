@@ -7,29 +7,22 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+import { defineProps } from 'vue'
 import { isExternal } from '@/utils/validate'
 import { useRouter } from 'vue-router'
-export default defineComponent({
-  name: 'SidebarItemLink',
-  props: {
-    to: {
-      type: String,
-      required: true
-    }
-  },
-  setup(props) {
-    const router = useRouter()
-    const push = () => {
-      router.push(props.to).catch((err) => {
-        console.warn(err)
-      })
-    }
-    return {
-      push,
-      isExternal
-    }
+
+const props = defineProps({
+  to: {
+    type: String,
+    required: true
   }
 })
+
+const router = useRouter()
+const push = () => {
+  router.push(props.to).catch((err) => {
+    console.warn(err)
+  })
+}
 </script>

@@ -15,30 +15,19 @@
   </el-drawer>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
+<script lang="ts" setup>
+import { defineProps, ref } from 'vue'
 import variables from '@/styles/variables.scss'
 import { Setting } from '@element-plus/icons'
 
-export default defineComponent({
-  name: 'RightPanel',
-  props: {
-    buttonTop: {
-      type: Number,
-      default: 250
-    }
-  },
-  components: {
-    Setting
-  },
-  setup() {
-    const show = ref(false)
-    return {
-      show,
-      variables
-    }
+defineProps({
+  buttonTop: {
+    type: Number,
+    default: 250
   }
 })
+
+const show = ref(false)
 </script>
 
 <style lang="scss" scoped>

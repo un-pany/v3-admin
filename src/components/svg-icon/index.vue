@@ -4,17 +4,16 @@
   </svg>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  name: 'SvgIcon',
-  props: {
-    name: {
-      type: String,
-      required: true
-    }
+<script lang="ts" setup>
+import { defineProps } from 'vue'
+
+defineProps({
+  name: {
+    type: String,
+    required: true
   }
 })
+
 </script>
 <style lang="scss" scoped>
 .svg-icon {
