@@ -1,10 +1,10 @@
 > Upgrading the plugin vetur to **volar** will better support vue3.2
 
-## ⚡️ Introduction
+# ⚡️ Introduction
 
 A basic solution for middle and background management system, based on vue3, typescript, element plus and Vue cli 4.5
 
-## 📚 Documentation
+## Documentation
 
 [简体中文(掘金)](https://juejin.cn/post/6963876125428678693) | English
 
@@ -14,7 +14,7 @@ A basic solution for middle and background management system, based on vue3, typ
 | ------------ | ----------------------- | ---------------------------------------------- | -------------------------------------------------- |
 | github-pages | **admin** or **editor** | [link](https://v3-projects.github.io/v3-admin) | ~~访问该域名可能需要梯子，进入后请关闭梯子再登录~~ |
 
-## ⌛ Features
+## Features
 
 ```text
 - User management
@@ -49,3 +49,97 @@ A basic solution for middle and background management system, based on vue3, typ
 
 - Auto deployment
 ```
+
+## directory
+
+```
+# v3-admin
+├─ .env.development   # development environment
+├─ .env.production    # production environment
+├─ .env.test          # test environment
+├─ .eslintrc.js       # eslint
+├─ deploy             # auto deployment
+├─ public
+│  ├─ favicon.ico
+│  ├─ index.html
+├─ src
+│  ├─ @types          # ts declaration
+│  ├─ api             # api interface
+│  ├─ assets          # static resources
+│  ├─ components      # global components
+│  ├─ config          # global config
+│  ├─ constant        # constant/
+enumeration
+│  ├─ directives      # global directives
+│  ├─ icons           # svg icon
+│  ├─ layout          # layout
+│  ├─ locales         # internationalization
+│  ├─ model           # global model
+│  ├─ plugins         # plugins
+│  ├─ router          # router
+│  ├─ store           # vuex store
+│  ├─ styles          # global styles
+│  ├─ utils           # utils
+│  └─ views           # pages
+│  ├─ App.vue         # entry page
+│  ├─ main.ts         # entry file
+│  ├─ permission.ts   # manage permission
+│  └─ shims.d.ts      # module injection
+├─ tsconfig.json      # ts Compile config
+└─ vue.config.js      # vue-cli config
+```
+
+## Getting started
+
+```bash
+# clone the project
+git clone https://github.com/v3-projects/v3-admin
+
+# enter the project directory
+cd v3-admin
+
+# install dependency
+yarn
+
+# develop
+yarn dev
+```
+
+## Multi-environment build
+
+```bash
+# build test environment
+yarn build:test
+
+# build production environment
+yarn build:prod
+```
+
+## Code format check
+
+```bash
+yarn lint
+```
+
+## Auto deployment
+
+```bash
+yarn deploy
+```
+
+# 📚 Essentials
+
+todo
+
+# ✈️ Advanced
+
+todo
+
+# ❓ Common problem
+
+todo
+
+# ☕ Other
+
+todo
+
