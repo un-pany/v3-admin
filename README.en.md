@@ -129,17 +129,67 @@ yarn deploy
 
 # 📚 Essentials
 
-todo
+## Router
+
+### Config items
+
+### Dynamic routes
+
+## Sidebar and breadcrumb
+
+### Sidebar
+
+### Sidebar external links
+
+### Breadcrumb
+
+## Permission
+
+### Role permission control
+
+### Cancel the role feature
+
+### Directive permissions
+
+## Send HTTP request
+
+###  Common management API
+
+### Encapsulated service.ts
+
+## Multi-environment
+
+### Build
+
+### Variables
 
 # ✈️ Advanced
 
-todo
+## ESLint
+
+## Git Hooks
+
+## Cross origin
+
+### Reverse proxy
+
+### CORS
+
+## SVG
+
+## Add new theme（Take dark theme as an example）
+
+## Auto deployment
 
 # ❓ Common problem
 
-todo
+## All errors
+
+## Dependency error
+
+## When the routing mode is switched to browserhistory, a blank page appears after refreshing
 
 # ☕ Other
 
-todo
+## Reference
 
