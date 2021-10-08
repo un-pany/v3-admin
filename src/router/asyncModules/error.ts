@@ -1,7 +1,7 @@
 import { RouteRecordRaw } from 'vue-router'
 import { Layout } from '@/constant/router'
 
-const ExampleRouter: Array<RouteRecordRaw> = [
+const errorRouter: Array<RouteRecordRaw> = [
   {
     path: '/:pathMatch(.*)*',
     component: Layout,
@@ -33,4 +33,4 @@ const ExampleRouter: Array<RouteRecordRaw> = [
   }
 ]
 
-export default ExampleRouter
+export default errorRouter

@@ -1,6 +1,6 @@
 {
   "name": "v3-admin",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "private": true,
   "homepage": "https://v3-projects.github.io/v3-admin",
   "scripts": {
@@ -13,6 +13,7 @@
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
     "axios": "^0.21.1",
+    "dayjs": "^1.10.7",
     "element-plus": "^1.1.0-beta.12",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.21",
