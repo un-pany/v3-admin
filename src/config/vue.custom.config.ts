@@ -16,12 +16,12 @@ const vueDefaultConfig = {
       warnings: false,
       errors: true
     }
-    // proxy: {
-    //   '/api/': {
-    //     target: 'http://xxxxxx/api/',
+    // proxy: { // 反向代理
+    //   '/mock-api/': {
+    //     target: 'https://vue-typescript-admin-mock-server-armour.vercel.app/mock-api',
     //     ws: true,
     //     pathRewrite: {
-    //       '^/api/': ''
+    //       '^/mock-api/': ''
     //     },
     //     changeOrigin: true,
     //     secure: false

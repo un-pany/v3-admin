@@ -6,13 +6,13 @@
 
 ## 📚 文档
 
-[简体中文(掘金)](https://juejin.cn/post/6963876125428678693) | [English](./README.en.md)
+[简体中文](https://juejin.cn/post/6963876125428678693) | [English](./README.en.md)
 
 ## 预览
 
-| 位置 | 账号 | 链接 | 注意 |
-| --- | --- | --- | --- |
-| github-pages | admin或editor | [链接](https://v3-projects.github.io/v3-admin) | 访问该域名可能需要梯子，进入后请关闭梯子再登录 |
+| 位置 | 账号 | 链接 |
+| --- | --- | --- |
+| github-pages | admin或editor | [链接](https://v3-projects.github.io/v3-admin) |
 
 ## ⌛ 功能
 

@@ -44,7 +44,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
         } catch (err: any) {
           // 删除 token，并重定向到登录页面
           store.dispatch('user/resetToken')
-          ElMessage.error(err || 'Has Error')
+          ElMessage.error(err.message || 'Has Error')
           next('/login')
           NProgress.done()
         }

@@ -34,6 +34,8 @@ function removePendingAjax(config: AxiosRequestConfig) {
   }
 }
 
+/* ........................................................此分割线上方的代码，如果不需要，可自行删除 */
+
 // 创建请求实例
 function createService() {
   // 创建一个 axios 实例
@@ -61,12 +63,16 @@ function createService() {
       // 根据 code 进行判断
       if (code === undefined) {
         // 如果没有 code 代表这不是项目后端开发的接口
-        return dataAxios
+        ElMessage.error('非本系统的接口')
+        return Promise.reject(new Error('非本系统的接口'))
       } else {
         // 有 code 代表这是一个后端接口 可以进行进一步的判断
         switch (code) {
           case 0:
             // [ 示例 ] code === 0 代表没有错误
+            return dataAxios
+          case 20000:
+            // [ 示例 ] code === 20000 代表没有错误, 根据自己的需求进行修改
             return dataAxios
           default:
             // 不是正确的 code
@@ -120,7 +126,7 @@ function createRequestFunction() {
     const configDefault = {
       headers: {
         // Authorization: 'Bearer ' + getToken(),
-        token: getToken(), // mock 接口专用，开发时可删除
+        'X-Access-Token': getToken(), // mock 接口专用，开发时可自行修改
         'Content-Type': get(config, 'headers.Content-Type', 'application/json')
       },
       timeout: 5000,

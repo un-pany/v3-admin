@@ -51,9 +51,9 @@ const actions = {
   getInfo({ commit }: any) {
     return new Promise((resolve, reject) => {
       userInfoRequest().then((res: any) => {
-        commit('SET_NAME', res.data.name)
-        commit('SET_AVATAR', res.data.avatar)
-        commit('SET_ROLES', res.data.roles)
+        commit('SET_NAME', res.data.user.name)
+        commit('SET_AVATAR', res.data.user.avatar)
+        commit('SET_ROLES', res.data.user.roles)
         resolve(res)
       }).catch(error => {
         reject(error)
