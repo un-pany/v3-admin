@@ -1,12 +1,12 @@
 import { request } from '@/utils/service'
 
-interface UserRequestData {
+interface IUserRequestData {
   username: string
   password: string
 }
 
 // 登录以后返回 token
-export function accountLogin(data: UserRequestData) {
+export function accountLogin(data: IUserRequestData) {
   return request({
     url: 'user/login',
     method: 'post',

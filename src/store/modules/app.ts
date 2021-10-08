@@ -6,7 +6,7 @@ export enum DeviceType {
   Desktop,
 }
 
-export interface AppState {
+export interface IAppState {
   device: DeviceType
   sidebar: {
     opened: boolean
@@ -16,7 +16,7 @@ export interface AppState {
   activeThemeName: string
 }
 
-const state: AppState = {
+const state: IAppState = {
   device: DeviceType.Desktop,
   sidebar: {
     opened: getSidebarStatus() !== 'closed',
@@ -29,7 +29,7 @@ const state: AppState = {
 document.body.className = `theme-${state.activeThemeName}` // 初始化
 
 const mutations = {
-  TOGGLE_SIDEBAR: (state: AppState, withoutAnimation: boolean) => {
+  TOGGLE_SIDEBAR: (state: IAppState, withoutAnimation: boolean) => {
     state.sidebar.opened = !state.sidebar.opened
     state.sidebar.withoutAnimation = withoutAnimation
     if (state.sidebar.opened) {
@@ -38,15 +38,15 @@ const mutations = {
       setSidebarStatus('closed')
     }
   },
-  CLOSE_SIDEBAR: (state: AppState, withoutAnimation: boolean) => {
+  CLOSE_SIDEBAR: (state: IAppState, withoutAnimation: boolean) => {
     state.sidebar.opened = false
     state.sidebar.withoutAnimation = withoutAnimation
     setSidebarStatus('closed')
   },
-  TOGGLE_DEVICE: (state: AppState, device: DeviceType) => {
+  TOGGLE_DEVICE: (state: IAppState, device: DeviceType) => {
     state.device = device
   },
-  SET_THEME: (state: AppState, activeThemeName: string) => {
+  SET_THEME: (state: IAppState, activeThemeName: string) => {
     // 检查这个主题在主题列表里是否存在
     state.activeThemeName = state.themeList.find(theme => theme.name === activeThemeName) ? activeThemeName : state.themeList[0].name
     // 应用到 dom

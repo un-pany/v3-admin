@@ -3,14 +3,14 @@ import router, { resetRouter } from '@/router'
 import { accountLogin, userInfoRequest } from '@/api/login'
 import { RouteRecordRaw } from 'vue-router'
 
-export interface UserState {
+export interface IUserState {
   token: string
   name: string
   avatar: string
   roles: string[]
 }
 
-const state: UserState = {
+const state: IUserState = {
   token: getToken() || '',
   name: '',
   avatar: '',
@@ -18,16 +18,16 @@ const state: UserState = {
 }
 
 const mutations = {
-  SET_TOKEN: (state: UserState, token: string) => {
+  SET_TOKEN: (state: IUserState, token: string) => {
     state.token = token
   },
-  SET_NAME: (state: UserState, name: string) => {
+  SET_NAME: (state: IUserState, name: string) => {
     state.name = name
   },
-  SET_AVATAR: (state: UserState, avatar: string) => {
+  SET_AVATAR: (state: IUserState, avatar: string) => {
     state.avatar = avatar
   },
-  SET_ROLES: (state: UserState, roles: string[]) => {
+  SET_ROLES: (state: IUserState, roles: string[]) => {
     state.roles = roles
   }
 }

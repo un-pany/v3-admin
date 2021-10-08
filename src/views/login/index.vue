@@ -7,9 +7,9 @@
       </div>
       <div class="content">
         <el-form
-          ref="loginFormDom"
-          :model="loginForm"
-          :rules="loginRules"
+          ref="IloginFormDom"
+          :model="IloginForm"
+          :rules="IloginRules"
           auto-complete="on"
           label-position="left"
           @keyup.enter="handleLogin"
@@ -20,7 +20,7 @@
             </span>
             <el-input
               ref="userNameDom"
-              v-model="loginForm.username"
+              v-model="IloginForm.username"
               placeholder="用户名"
               name="username"
               type="text"
@@ -35,7 +35,7 @@
             <el-input
               :key="passwordType"
               ref="passwordDom"
-              v-model="loginForm.password"
+              v-model="IloginForm.password"
               :type="passwordType"
               placeholder="密码"
               name="password"
@@ -52,7 +52,7 @@
             </span>
             <el-input
               ref="codeDom"
-              v-model="loginForm.code"
+              v-model="IloginForm.code"
               placeholder="验证码"
               name="code"
               type="text"
@@ -77,14 +77,14 @@ import { reactive, ref } from 'vue'
 import { store } from '@/store'
 import { useRouter } from 'vue-router'
 
-interface LoginForm {
+interface ILoginForm {
   username: string
   password: string
   code: string
   checkCode: string
 }
 
-interface LoginRules {
+interface ILoginRules {
   username: any[]
   password: any[]
   code: any[]
@@ -93,17 +93,17 @@ interface LoginRules {
 // hooks
 const router = useRouter()
 // dom
-const loginFormDom = ref<any>()
+const IloginFormDom = ref<any>()
 const passwordDom = ref<any>()
 // data
 const src = ref<string>('')
-const loginForm = reactive<LoginForm>({
+const IloginForm = reactive<ILoginForm>({
   username: 'admin', // admin 或 editor
   password: '123456',
   code: '1234',
   checkCode: ''
 })
-const loginRules = reactive<LoginRules>({
+const IloginRules = reactive<ILoginRules>({
   username: [
     { required: true, message: '请输入用户名', trigger: 'blur' }
   ],
@@ -126,12 +126,12 @@ const showPwd: () => void = () => {
   }
 }
 const handleLogin: () => void | boolean = () => {
-  loginFormDom.value.validate(async(valid: boolean) => {
+  IloginFormDom.value.validate(async(valid: boolean) => {
     if (valid) {
       loading.value = true
       store.dispatch('user/login', {
-        username: loginForm.username,
-        password: loginForm.password
+        username: IloginForm.username,
+        password: IloginForm.password
       }).then(() => {
         loading.value = false
         router.push({ path: '/' }).catch((err) => {
@@ -150,7 +150,7 @@ const handleLogin: () => void | boolean = () => {
 const createCode: () => void = () => {
   // 先清空验证码的输入
   let code = ''
-  loginForm.code = ''
+  IloginForm.code = ''
   const codeLength = 12
   // 随机数
   const random: Array<number | string> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -158,7 +158,7 @@ const createCode: () => void = () => {
     const index = Math.floor(Math.random() * 36)
     code += random[index]
   }
-  loginForm.checkCode = code
+  IloginForm.checkCode = code
   src.value = `/api/v1/login/authcode?token=${code}` // 实际开放中，可替换成自己的地址，模板只是提供一个参考
 }
 // createCode()

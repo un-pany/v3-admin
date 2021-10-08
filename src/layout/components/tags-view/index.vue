@@ -47,7 +47,7 @@
 <script lang="ts" setup>
 import path from 'path'
 import { store } from '@/store'
-import { TagView } from '@/store/modules/tags-view'
+import { ITagView } from '@/store/modules/tags-view'
 import { computed, getCurrentInstance, nextTick, onBeforeMount, reactive, ref, watch } from 'vue'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import ScrollPane from './scroll-pane.vue'
@@ -58,7 +58,7 @@ const currentRoute = useRoute()
 const scrollPaneRef = ref(null)
 const { proxy } = instance as any
 
-const toLastView = (visitedViews: TagView[], view: TagView) => {
+const toLastView = (visitedViews: ITagView[], view: ITagView) => {
   const latestView = visitedViews.slice(-1)[0]
   if (latestView !== undefined && latestView.fullPath !== undefined) {
     router.push(latestView.fullPath).catch((err) => {
@@ -83,15 +83,15 @@ const state = reactive({
   visible: false,
   top: 0,
   left: 0,
-  selectedTag: {} as TagView,
-  affixTags: [] as TagView[],
-  isActive: (route: TagView) => {
+  selectedTag: {} as ITagView,
+  affixTags: [] as ITagView[],
+  isActive: (route: ITagView) => {
     return route.path === currentRoute.path
   },
-  isAffix: (tag: TagView) => {
+  isAffix: (tag: ITagView) => {
     return tag.meta && tag.meta.affix
   },
-  refreshSelectedTag: (view: TagView) => {
+  refreshSelectedTag: (view: ITagView) => {
     const { fullPath } = view
     nextTick(() => {
       router.replace({ path: '/redirect' + fullPath }).catch((err) => {
@@ -99,7 +99,7 @@ const state = reactive({
       })
     })
   },
-  closeSelectedTag: (view: TagView) => {
+  closeSelectedTag: (view: ITagView) => {
     store.commit('tagsView/DEL_VISITED_VIEW', view)
     if (state.isActive(view)) {
       toLastView(store.state.tagsView.visitedViews, view)
@@ -116,17 +116,17 @@ const state = reactive({
     }
     store.commit(
       'tagsView/DEL_OTHERS_VISITED_VIEWS',
-      state.selectedTag as TagView
+      state.selectedTag as ITagView
     )
   },
-  closeAllTags: (view: TagView) => {
+  closeAllTags: (view: ITagView) => {
     store.commit('tagsView/DEL_ALL_VISITED_VIEWS')
     if (state.affixTags.some((tag) => tag.path === currentRoute.path)) {
       return
     }
     toLastView(store.state.tagsView.visitedViews, view)
   },
-  openMenu: (tag: TagView, e: MouseEvent) => {
+  openMenu: (tag: ITagView, e: MouseEvent) => {
     const menuMinWidth = 105
     const offsetLeft = proxy.$el.getBoundingClientRect().left // container margin left
     const offsetWidth = proxy.$el.offsetWidth // container width
@@ -155,7 +155,7 @@ const visitedViews = computed(() => {
 const routes = computed(() => store.state.permission.routes)
 
 const filterAffixTags = (routes: RouteRecordRaw[], basePath = '/') => {
-  let tags: TagView[] = []
+  let tags: ITagView[] = []
 
   routes.forEach((route) => {
     if (route.meta && route.meta.affix) {
@@ -185,7 +185,7 @@ const initTags = () => {
     if (tag.name) {
       store.commit(
         'tagsView/ADD_VISITED_VIEW',
-        tag as TagView
+        tag as ITagView
       )
     }
   }
@@ -204,10 +204,10 @@ const moveToCurrentTag = () => {
     return
   }
   for (const tag of tags) {
-    if ((tag.to as TagView).path === currentRoute.path) {
+    if ((tag.to as ITagView).path === currentRoute.path) {
       (scrollPaneRef.value as any).moveToCurrentTag(tag)
       // When query is different then update
-      if ((tag.to as TagView).fullPath !== currentRoute.fullPath) {
+      if ((tag.to as ITagView).fullPath !== currentRoute.fullPath) {
         store.commit(
           'tags-view/UPDATE_VISITED_VIEW',
           currentRoute

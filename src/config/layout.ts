@@ -1,6 +1,6 @@
 /* 布局配置 */
 
-interface LayoutSettings {
+interface ILayoutSettings {
   // 控制 settings panel 显示
   showSettings: boolean
   // 控制 tagsview 显示
@@ -15,7 +15,7 @@ interface LayoutSettings {
   showScreenfull: boolean
 }
 
-const layoutSettings: LayoutSettings = {
+const layoutSettings: ILayoutSettings = {
   showSettings: true,
   showTagsView: true,
   fixedHeader: false,

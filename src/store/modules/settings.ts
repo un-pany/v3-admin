@@ -1,6 +1,6 @@
 import layoutSettings from '@/config/layout'
 
-export interface SettingsState {
+export interface ISettingsState {
   fixedHeader: boolean
   showSettings: boolean
   showTagsView: boolean
@@ -9,7 +9,7 @@ export interface SettingsState {
   showScreenfull: boolean
 }
 
-const state: SettingsState = {
+const state: ISettingsState = {
   fixedHeader: layoutSettings.fixedHeader,
   showSettings: layoutSettings.showSettings,
   showTagsView: layoutSettings.showTagsView,
@@ -19,7 +19,7 @@ const state: SettingsState = {
 }
 
 const mutations = {
-  CHANGE_SETTING: (state: SettingsState, payload: { key: string, value: any }) => {
+  CHANGE_SETTING: (state: ISettingsState, payload: { key: string, value: any }) => {
     const { key, value } = payload
     switch (key) {
       case 'fixedHeader':

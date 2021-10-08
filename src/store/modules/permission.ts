@@ -1,7 +1,7 @@
 import { RouteRecordRaw } from 'vue-router'
 import { constantRoutes, asyncRoutes } from '@/router'
 
-export interface PermissionState {
+export interface IPermissionState {
   routes: RouteRecordRaw[]
   dynamicRoutes: RouteRecordRaw[]
 }
@@ -34,13 +34,13 @@ const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[]) => {
   return res
 }
 
-const state: PermissionState = {
+const state: IPermissionState = {
   routes: [],
   dynamicRoutes: []
 }
 
 const mutations = {
-  SET_ROUTES: (state: PermissionState, routes: RouteRecordRaw[]) => {
+  SET_ROUTES: (state: IPermissionState, routes: RouteRecordRaw[]) => {
     state.routes = constantRoutes.concat(routes)
     state.dynamicRoutes = routes
   }
