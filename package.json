@@ -20,7 +20,7 @@
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.0",
     "screenfull": "^5.0.2",
-    "vue": "^3.2.12",
+    "vue": "^3.2.19",
     "vue-router": "^4.0.11",
     "vuex": "^4.0.2"
   },
@@ -37,7 +37,7 @@
     "@vue/cli-plugin-typescript": "^4.5.13",
     "@vue/cli-plugin-vuex": "^4.5.13",
     "@vue/cli-service": "^4.5.13",
-    "@vue/compiler-sfc": "^3.0.11",
+    "@vue/compiler-sfc": "^3.2.19",
     "@vue/eslint-config-standard": "^6.0.0",
     "@vue/eslint-config-typescript": "^7.0.0",
     "babel-loader": "^8.2.2",
