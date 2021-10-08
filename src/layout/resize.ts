@@ -1,11 +1,10 @@
 /* 根据大小变化重新布局 */
 
-import { useStore } from '@/store'
-import { AppActionTypes } from '@/store/modules/app/action-types'
-import { DeviceType } from '@/store/modules/app/state'
+import { store } from '@/store'
+import { DeviceType } from '@/store/modules/app'
 import { computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
-const store = useStore()
+
 const WIDTH = 992 // 参考 Bootstrap 的响应式设计
 
 export default function() {
@@ -20,7 +19,7 @@ export default function() {
   const currentRoute = useRoute()
   const watchRouter = watch(() => currentRoute.name, () => {
     if (store.state.app.device === DeviceType.Mobile && store.state.app.sidebar.opened) {
-      store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
+      store.commit('app/CLOSE_SIDEBAR', false)
     }
   })
 
@@ -31,16 +30,16 @@ export default function() {
 
   const resizeMounted = () => {
     if (isMobile()) {
-      store.dispatch(AppActionTypes.ACTION_TOGGLE_DEVICE, DeviceType.Mobile)
-      store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, true)
+      store.commit('app/TOGGLE_DEVICE', DeviceType.Mobile)
+      store.commit('app/CLOSE_SIDEBAR', true)
     }
   }
 
   const resizeHandler = () => {
     if (!document.hidden) {
-      store.dispatch(AppActionTypes.ACTION_TOGGLE_DEVICE, isMobile() ? DeviceType.Mobile : DeviceType.Desktop)
+      store.commit('app/TOGGLE_DEVICE', isMobile() ? DeviceType.Mobile : DeviceType.Desktop)
       if (isMobile()) {
-        store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, true)
+        store.commit('app/CLOSE_SIDEBAR', true)
       }
     }
   }

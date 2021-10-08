@@ -1,11 +1,11 @@
 /* 权限指令 */
-import { useStore } from '@/store'
+import { store } from '@/store'
 import { Directive } from 'vue'
 
 export const permission: Directive = {
   mounted(el, binding) {
     const { value } = binding
-    const roles = useStore().state.user.roles
+    const roles = store.state.user.roles
     if (value && value instanceof Array && value.length > 0) {
       const permissionRoles = value
       const hasPermission = roles.some((role: any) => {

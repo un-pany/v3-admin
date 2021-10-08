@@ -19,11 +19,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useStore } from '@/store'
+import { store } from '@/store'
 import { computed } from 'vue'
-import { AppMutationTypes } from '@/store/modules/app/mutation-types'
 
-const store = useStore()
 const themeList = computed(() => {
   return store.state.app.themeList
 })
@@ -31,7 +29,7 @@ const activeThemeName = computed(() => {
   return store.state.app.activeThemeName
 })
 const handleSetTheme = (name: string) => {
-  store.commit(AppMutationTypes.SET_THEME, name)
+  store.commit('app/SET_THEME', name)
 }
 
 </script>

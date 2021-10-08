@@ -70,7 +70,8 @@ function createService() {
             return dataAxios
           default:
             // 不是正确的 code
-            break
+            ElMessage.error(dataAxios.msg || 'Error')
+            return Promise.reject(new Error('Error'))
         }
       }
     },

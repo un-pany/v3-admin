@@ -2,10 +2,7 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import router from '@/router'
 import { RouteLocationNormalized } from 'vue-router'
-import { useStore } from './store'
-import { UserActionTypes } from './store/modules/user/action-types'
-import { PermissionActionType } from './store/modules/permission/action-types'
-import { UserMutationTypes } from './store/modules/user/mutation-types'
+import { store } from '@/store'
 import { ElMessage } from 'element-plus'
 import { whiteList } from './config/white-list'
 import rolesSettings from './config/roles'
@@ -15,7 +12,6 @@ NProgress.configure({ showSpinner: false })
 
 router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
   NProgress.start()
-  const store = useStore()
   // 判断该用户是否登录
   if (getToken()) {
     if (to.path === '/login') {
@@ -28,15 +24,15 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
         try {
           if (rolesSettings.openRoles) {
             // 注意：角色必须是一个数组！ 例如: ['admin'] 或 ['developer', 'editor']
-            await store.dispatch(UserActionTypes.ACTION_GET_USER_INFO, undefined)
+            await store.dispatch('user/getInfo')
             // 获取接口返回的 roles
             const roles = store.state.user.roles
             // 根据角色生成可访问的 routes
-            store.dispatch(PermissionActionType.ACTION_SET_ROUTES, roles)
+            store.dispatch('permission/setRoutes', roles)
           } else {
             // 没有开启角色功能，则启用默认角色
-            store.commit(UserMutationTypes.SET_ROLES, rolesSettings.defaultRoles)
-            store.dispatch(PermissionActionType.ACTION_SET_ROUTES, rolesSettings.defaultRoles)
+            store.commit('user/SET_ROLES', rolesSettings.defaultRoles)
+            store.dispatch('permission/setRoutes', rolesSettings.defaultRoles)
           }
           // 动态地添加可访问的 routes
           store.state.permission.dynamicRoutes.forEach((route) => {
@@ -47,7 +43,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
           next({ ...to, replace: true })
         } catch (err: any) {
           // 删除 token，并重定向到登录页面
-          store.dispatch(UserActionTypes.ACTION_RESET_TOKEN, undefined)
+          store.dispatch('user/resetToken')
           ElMessage.error(err || 'Has Error')
           next('/login')
           NProgress.done()

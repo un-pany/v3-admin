@@ -74,8 +74,7 @@
 
 <script lang='ts' setup>
 import { reactive, ref } from 'vue'
-import { useStore } from '@/store'
-import { UserActionTypes } from '@/store/modules/user/action-types'
+import { store } from '@/store'
 import { useRouter } from 'vue-router'
 
 interface LoginForm {
@@ -93,7 +92,6 @@ interface LoginRules {
 
 // hooks
 const router = useRouter()
-const store = useStore()
 // dom
 const loginFormDom = ref<any>()
 const passwordDom = ref<any>()
@@ -131,13 +129,17 @@ const handleLogin: () => void | boolean = () => {
   loginFormDom.value.validate(async(valid: boolean) => {
     if (valid) {
       loading.value = true
-      await store.dispatch(UserActionTypes.ACTION_LOGIN, {
+      store.dispatch('user/login', {
         username: loginForm.username,
         password: loginForm.password
-      })
-      loading.value = false
-      router.push({ path: '/' }).catch((err) => {
-        console.warn(err)
+      }).then(() => {
+        loading.value = false
+        router.push({ path: '/' }).catch((err) => {
+          console.warn(err)
+        })
+      }).catch(() => {
+        loading.value = false
+        createCode()
       })
     } else {
       return false
@@ -157,8 +159,9 @@ const createCode: () => void = () => {
     code += random[index]
   }
   loginForm.checkCode = code
-  src.value = `/api/v1/login/authcode?token=${code}` // 实际开放中，可替换成自己的地址
+  src.value = `/api/v1/login/authcode?token=${code}` // 实际开放中，可替换成自己的地址，模板只是提供一个参考
 }
+// createCode()
 </script>
 
 <style lang="scss" scoped>

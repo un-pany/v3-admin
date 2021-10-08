@@ -30,11 +30,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useStore } from '@/store'
-import { SettingsActionTypes } from '@/store/modules/settings/action-types'
+import { store } from '@/store'
 import { reactive, watch } from 'vue'
 
-const store = useStore()
 const state = reactive({
   fixedHeader: store.state.settings.fixedHeader,
   showTagsView: store.state.settings.showTagsView,
@@ -46,7 +44,7 @@ const state = reactive({
 watch(
   () => state.fixedHeader,
   (value) => {
-    store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
+    store.commit('settings/CHANGE_SETTING', {
       key: 'fixedHeader',
       value
     })
@@ -56,7 +54,7 @@ watch(
 watch(
   () => state.showTagsView,
   (value) => {
-    store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
+    store.commit('settings/CHANGE_SETTING', {
       key: 'showTagsView',
       value
     })
@@ -66,7 +64,7 @@ watch(
 watch(
   () => state.showSidebarLogo,
   (value) => {
-    store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
+    store.commit('settings/CHANGE_SETTING', {
       key: 'showSidebarLogo',
       value
     })
@@ -76,7 +74,7 @@ watch(
 watch(
   () => state.showThemeSwitch,
   (value) => {
-    store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
+    store.commit('settings/CHANGE_SETTING', {
       key: 'showThemeSwitch',
       value
     })
@@ -86,7 +84,7 @@ watch(
 watch(
   () => state.showScreenfull,
   (value) => {
-    store.dispatch(SettingsActionTypes.ACTION_CHANGE_SETTING, {
+    store.commit('settings/CHANGE_SETTING', {
       key: 'showScreenfull',
       value
     })

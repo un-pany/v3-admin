@@ -28,10 +28,9 @@ import { computed } from 'vue'
 import SidebarItem from './sidebar-item.vue'
 import SidebarLogo from './sidebar-logo.vue'
 import variables from '@/styles/variables.scss'
-import { useStore } from '@/store'
+import { store } from '@/store'
 import { useRoute } from 'vue-router'
 
-const store = useStore()
 const route = useRoute()
 const sidebar = computed(() => {
   return store.state.app.sidebar

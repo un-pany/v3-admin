@@ -15,7 +15,7 @@
       </template>
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
         <div class="avatar-wrapper">
-          <img src="@/assets/layout/avatar.gif" class="user-avatar" alt>
+          <img src="@/assets/layout/avatar.gif" class="user-avatar">
         </div>
         <template #dropdown>
           <el-dropdown-menu>
@@ -44,12 +44,9 @@ import Hamburger from '../hamburger/index.vue'
 import ThemeSwitch from '@/components/theme-switch/index.vue'
 import Screenfull from '@/components/screenfull/index.vue'
 import { computed, reactive } from 'vue'
-import { useStore } from '@/store'
-import { AppActionTypes } from '@/store/modules/app/action-types'
-import { UserActionTypes } from '@/store/modules/user/action-types'
+import { store } from '@/store'
 import { useRouter } from 'vue-router'
 
-const store = useStore()
 const router = useRouter()
 const sidebar = computed(() => {
   return store.state.app.sidebar
@@ -65,10 +62,10 @@ const showScreenfull = computed(() => {
 })
 const state = reactive({
   toggleSideBar: () => {
-    store.dispatch(AppActionTypes.ACTION_TOGGLE_SIDEBAR, false)
+    store.commit('app/TOGGLE_SIDEBAR', false)
   },
   logout: () => {
-    store.dispatch(UserActionTypes.ACTION_LOGIN_OUT, undefined)
+    store.dispatch('user/logout')
     router.push('/login').catch((err) => {
       console.warn(err)
     })

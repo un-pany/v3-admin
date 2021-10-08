@@ -12,16 +12,14 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useStore } from '@/store'
-import { UserActionTypes } from '@/store/modules/user/action-types'
+import { store } from '@/store'
 import { computed, ref, watch, defineEmits } from 'vue'
 
 const emit = defineEmits(['change'])
-const store = useStore()
 const roles = computed(() => store.state.user.roles)
 const currentRole = ref(roles.value[0])
 watch(currentRole, async(value) => {
-  await store.dispatch(UserActionTypes.ACTION_CHANGE_ROLES, value)
+  await store.dispatch('user/changeRoles', value)
   emit('change')
 })
 </script>

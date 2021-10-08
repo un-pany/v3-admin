@@ -22,18 +22,16 @@
 </template>
 
 <script lang="ts" setup>
-import { DeviceType } from '@/store/modules/app/state'
+import { DeviceType } from '@/store/modules/app'
 import { computed, onBeforeMount, onBeforeUnmount, onMounted, reactive } from 'vue'
-import { useStore } from '@/store'
-import { AppActionTypes } from '@/store/modules/app/action-types'
+import { store } from '@/store'
 import { AppMain, NavigationBar, Settings, Sidebar, TagsView, RightPanel } from './components'
 import resize from './resize'
 
-const store = useStore()
 const { sidebar, device, addEventListenerOnResize, resizeMounted, removeEventListenerResize, watchRouter } = resize()
 const state = reactive({
   handleClickOutside: () => {
-    store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
+    store.commit('app/CLOSE_SIDEBAR', false)
   }
 })
 

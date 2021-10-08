@@ -46,14 +46,12 @@
 
 <script lang="ts" setup>
 import path from 'path'
-import { useStore } from '@/store'
-import { TagsActionTypes } from '@/store/modules/tagsview/action-types'
-import { TagView } from '@/store/modules/tagsview/state'
+import { store } from '@/store'
+import { TagView } from '@/store/modules/tags-view'
 import { computed, getCurrentInstance, nextTick, onBeforeMount, reactive, ref, watch } from 'vue'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import ScrollPane from './scroll-pane.vue'
 
-const store = useStore()
 const router = useRouter()
 const instance = getCurrentInstance()
 const currentRoute = useRoute()
@@ -102,9 +100,9 @@ const state = reactive({
     })
   },
   closeSelectedTag: (view: TagView) => {
-    store.dispatch(TagsActionTypes.ACTION_DEL_VIEW, view)
+    store.commit('tagsView/DEL_VISITED_VIEW', view)
     if (state.isActive(view)) {
-      toLastView(store.state.tagViews.visitedViews, view)
+      toLastView(store.state.tagsView.visitedViews, view)
     }
   },
   closeOthersTags: () => {
@@ -116,17 +114,17 @@ const state = reactive({
         console.warn(err)
       })
     }
-    store.dispatch(
-      TagsActionTypes.ACTION_DEL_OTHER_VIEW,
+    store.commit(
+      'tagsView/DEL_OTHERS_VISITED_VIEWS',
       state.selectedTag as TagView
     )
   },
   closeAllTags: (view: TagView) => {
-    store.dispatch(TagsActionTypes.ACTION_DEL_ALL_VIEWS, undefined)
+    store.commit('tagsView/DEL_ALL_VISITED_VIEWS')
     if (state.affixTags.some((tag) => tag.path === currentRoute.path)) {
       return
     }
-    toLastView(store.state.tagViews.visitedViews, view)
+    toLastView(store.state.tagsView.visitedViews, view)
   },
   openMenu: (tag: TagView, e: MouseEvent) => {
     const menuMinWidth = 105
@@ -152,7 +150,7 @@ const state = reactive({
 })
 
 const visitedViews = computed(() => {
-  return store.state.tagViews.visitedViews
+  return store.state.tagsView.visitedViews
 })
 const routes = computed(() => store.state.permission.routes)
 
@@ -185,8 +183,8 @@ const initTags = () => {
   for (const tag of state.affixTags) {
     // 必须含有 name 属性
     if (tag.name) {
-      store.dispatch(
-        TagsActionTypes.ACTION_ADD_VISITED_VIEW,
+      store.commit(
+        'tagsView/ADD_VISITED_VIEW',
         tag as TagView
       )
     }
@@ -195,7 +193,7 @@ const initTags = () => {
 
 const addTags = () => {
   if (currentRoute.name) {
-    store.dispatch(TagsActionTypes.ACTION_ADD_VIEW, currentRoute)
+    store.commit('tagsView/ADD_VISITED_VIEW', currentRoute)
   }
   return false
 }
@@ -210,8 +208,8 @@ const moveToCurrentTag = () => {
       (scrollPaneRef.value as any).moveToCurrentTag(tag)
       // When query is different then update
       if ((tag.to as TagView).fullPath !== currentRoute.fullPath) {
-        store.dispatch(
-          TagsActionTypes.ACTION_UPDATE_VISITED_VIEW,
+        store.commit(
+          'tags-view/UPDATE_VISITED_VIEW',
           currentRoute
         )
       }
