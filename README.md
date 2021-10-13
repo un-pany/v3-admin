@@ -12,7 +12,7 @@
 
 | 位置 | 账号 | 链接 |
 | --- | --- | --- |
-| github-pages | admin或editor | [链接](https://v3-projects.github.io/v3-admin) |
+| github-pages | admin或editor | [链接](https://unpany.github.io/v3-admin) |
 
 ## ⌛ 功能
 
