@@ -12,7 +12,7 @@
 
 | 位置 | 账号 | 链接 |
 | --- | --- | --- |
-| github-pages | admin或editor | [链接](https://unpany.github.io/v3-admin) |
+| github-pages | admin或editor | [链接](https://un-pany.github.io/v3-admin) |
 
 ## ⌛ 功能
 
@@ -153,6 +153,6 @@ QQ群：1014374415
 
 ## 📄 License
 
-[MIT](https://github.com/v3-projects/v3-admin/blob/master/LICENSE)
+[MIT](https://github.com/un-pany/v3-admin/blob/master/LICENSE)
 
-Copyright (c) 2021 V3 Projects
+Copyright (c) 2021 pany

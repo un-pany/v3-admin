@@ -10,9 +10,9 @@ A basic solution for middle and background management system, based on vue3, typ
 
 ## preview
 
-| position     | account                 | link                                           | warning                                            |
-| ------------ | ----------------------- | ---------------------------------------------- | -------------------------------------------------- |
-| github-pages | **admin** or **editor** | [link](https://v3-projects.github.io/v3-admin) | ~~访问该域名可能需要梯子，进入后请关闭梯子再登录~~ |
+| position     | account                 | link                                           |
+| ------------ | ----------------------- | ---------------------------------------------- |
+| github-pages | **admin** or **editor** | [link](https://un-pany.github.io/v3-admin) |
 
 ## Features
 
@@ -93,7 +93,7 @@ enumeration
 
 ```bash
 # clone the project
-git clone https://github.com/v3-projects/v3-admin
+git clone https://github.com/un-pany/v3-admin
 
 # enter the project directory
 cd v3-admin
