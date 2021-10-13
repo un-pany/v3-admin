@@ -141,12 +141,13 @@ yarn deploy
 
 - [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
 - [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
-- [d2-admin](https://github.com/d2-projects/d2-admin)
 - [vue-vben-admin](https://github.com/anncwb/vue-vben-admin)
+- [d2-admin](https://github.com/d2-projects/d2-admin)
+- [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
 
 ## 交流（吹水）群
 
-无人问津的交流（吹水）群：1014374415
+QQ群：1014374415
 
 ![v3-admin.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19291ab4cbb24c8c9e743f1701609cb6~tplv-k3u1fbpfcp-watermark.image)
 

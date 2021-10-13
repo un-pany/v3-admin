@@ -14,8 +14,7 @@ function addPendingAjax(config: AxiosRequestConfig) {
     type: 'DUPLICATED_REQUEST'
   })
   config.cancelToken = config.cancelToken || new axios.CancelToken((cancel) => {
-    // 如果pendingAjax中不存在当前请求，添加进去
-    if (duplicatedKey && !pendingAjax.has(duplicatedKey)) {
+    if (duplicatedKey && !pendingAjax.has(duplicatedKey)) { // 如果pendingAjax中不存在当前请求，添加进去
       pendingAjax.set(duplicatedKey, cancel)
     }
   })
@@ -26,29 +25,25 @@ function removePendingAjax(config: AxiosRequestConfig) {
     duplicatedKey: duplicatedKeyFn(config),
     type: 'DUPLICATED_REQUEST'
   })
-  // 如果pendingAjax中存在当前请求, 取消当前请求并将其删除
-  if (duplicatedKey && pendingAjax.has(duplicatedKey)) {
+  if (duplicatedKey && pendingAjax.has(duplicatedKey)) { // 如果pendingAjax中存在当前请求, 取消当前请求并将其删除
     const cancel = pendingAjax.get(duplicatedKey)
     cancel(duplicatedKey)
     pendingAjax.delete(duplicatedKey)
   }
 }
 
-/* ........................................................此分割线上方的代码，如果不需要，可自行删除 */
+/* ........................此分割线上方的代码，如果不需要，可自行删除........................ */
 
 // 创建请求实例
 function createService() {
-  // 创建一个 axios 实例
-  const service = axios.create()
-  // 请求拦截
-  service.interceptors.request.use(
+  const service = axios.create() // 创建一个 axios 实例
+  service.interceptors.request.use( // 请求拦截
     config => {
       removePendingAjax(config) // have bug，时序问题
       addPendingAjax(config)
       return config
     },
-    error => {
-      // 发送失败
+    error => { // 发送失败
       return Promise.reject(error)
     }
   )
@@ -56,27 +51,19 @@ function createService() {
   service.interceptors.response.use(
     response => {
       removePendingAjax(response.config)
-      // dataAxios 是 axios 返回数据中的 data
-      const dataAxios = response.data
-      // 这个状态码是和后端约定的
-      const { code } = dataAxios
-      // 根据 code 进行判断
-      if (code === undefined) {
-        // 如果没有 code 代表这不是项目后端开发的接口
+      const apiData = response.data as any // apiData 是 api 返回的数据中
+      const code = apiData.code // 这个 code 是和后端约定的
+      if (code === undefined) { // 如果没有 code, 代表这不是项目后端开发的 api
         ElMessage.error('非本系统的接口')
         return Promise.reject(new Error('非本系统的接口'))
       } else {
-        // 有 code 代表这是一个后端接口 可以进行进一步的判断
         switch (code) {
           case 0:
-            // [ 示例 ] code === 0 代表没有错误
-            return dataAxios
+            return apiData // code === 0 代表没有错误
           case 20000:
-            // [ 示例 ] code === 20000 代表没有错误, 根据自己的需求进行修改
-            return dataAxios
+            return apiData // code === 20000 代表没有错误
           default:
-            // 不是正确的 code
-            ElMessage.error(dataAxios.msg || 'Error')
+            ElMessage.error(apiData.msg || 'Error') // 不是正确的 code
             return Promise.reject(new Error('Error'))
         }
       }
@@ -100,7 +87,7 @@ function createService() {
         case 400: error.message = '请求错误'; break
         case 401: error.message = '未授权，请登录'; break
         case 403: error.message = '拒绝访问'; break
-        case 404: error.message = `请求地址出错: ${error.response.config.url}`; break
+        case 404: error.message = '请求地址出错'; break
         case 408: error.message = '请求超时'; break
         case 500: error.message = '服务器内部错误'; break
         case 501: error.message = '服务未实现'; break
