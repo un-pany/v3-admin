@@ -14,7 +14,7 @@
     "@element-plus/icons": "^0.0.11",
     "axios": "^0.23.0",
     "dayjs": "^1.10.7",
-    "element-plus": "^1.1.0-beta.20",
+    "element-plus": "^1.1.0-beta.22",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
