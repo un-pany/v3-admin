@@ -211,7 +211,7 @@ When logging in, compare the routing table by obtaining the permissions (roles) 
 
 ### Role permission control
 
-The control codes are all in `@/permission.ts`, which can be modified according to specific business:
+The control codes are all in `@/router/permission.ts`, which can be modified according to specific business:
 
 ```typescript
 import NProgress from 'nprogress'
@@ -506,3 +506,18 @@ Google can solve 99% of error reports.
 
 Change the value of `publicPath` in the ` @/config/vue.custom.config.ts` file from `./` to`/`
 
+# ☕ other
+
+## Standing on the shoulders of giants
+
+- [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+- [vue3-composition-admin](https://github.com/rcyj-FED/vue3-composition-admin)
+- [vue-vben-admin](https://github.com/anncwb/vue-vben-admin)
+- [d2-admin](https://github.com/d2-projects/d2-admin)
+- [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
+
+# 📄 License
+
+[MIT](https://github.com/un-pany/v3-admin/blob/master/LICENSE)
+
+Copyright (c) 2021 pany
