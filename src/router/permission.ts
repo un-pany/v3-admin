@@ -4,8 +4,8 @@ import router from '@/router'
 import { RouteLocationNormalized } from 'vue-router'
 import { store } from '@/store'
 import { ElMessage } from 'element-plus'
-import { whiteList } from './config/white-list'
-import rolesSettings from './config/roles'
+import { whiteList } from '@/config/white-list'
+import rolesSettings from '@/config/roles'
 import { getToken } from '@/utils/cookies'
 
 NProgress.configure({ showSpinner: false })

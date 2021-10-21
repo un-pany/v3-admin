@@ -1,13 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import { Layout } from '@/constant/router'
-
-// 导入动态路由
-const asyncFiles = require.context('./asyncModules', true, /\.ts$/)
-let asyncModules: Array<RouteRecordRaw> = []
-asyncFiles.keys().forEach((key) => {
-  if (key === './index.ts') return
-  asyncModules = asyncModules.concat(asyncFiles(key).default)
-})
+import Layout from '@/layout/index.vue'
 
 // 常驻路由
 export const constantRoutes: Array<RouteRecordRaw> = [
@@ -24,7 +16,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   },
   {
     path: '/login',
-    component: () => import(/* webpackChunkName: "userManager" */ '@/views/login/index.vue')
+    component: () => import(/* webpackChunkName: "login" */ '@/views/login/index.vue')
   },
   {
     path: '/',
@@ -45,9 +37,70 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   }
 ]
 
+// 动态路由
 export const asyncRoutes: Array<RouteRecordRaw> = [
-  ...asyncModules
+  {
+    path: '/permission',
+    component: Layout,
+    name: 'Permission',
+    redirect: '/permission/page',
+    meta: {
+      title: '权限测试页',
+      icon: 'lock',
+      roles: ['admin', 'editor'], // 可以在根路由中设置角色
+      alwaysShow: true // 将始终显示根菜单
+    },
+    children: [
+      {
+        path: 'page',
+        component: () => import(/* webpackChunkName: "permission-page" */ '@/views/permission/page.vue'),
+        name: 'PagePermission',
+        meta: {
+          title: '页面权限',
+          roles: ['admin'] // 或者在子导航中设置角色
+        }
+      },
+      {
+        path: 'directive',
+        component: () => import(/* webpackChunkName: "permission-directive" */ '@/views/permission/directive.vue'),
+        name: 'DirectivePermission',
+        meta: {
+          title: '指令权限' // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
+        }
+      }
+    ]
+  },
+  { // 必须将 'Error' 路由放在最后 Must put the 'Error' route at the end
+    path: '/:pathMatch(.*)*',
+    component: Layout,
+    name: 'Error',
+    redirect: '/404',
+    meta: {
+      hidden: true
+    },
+    children: [
+      {
+        path: '401',
+        component: () => import(/* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue'),
+        name: '401',
+        meta: {
+          title: '401',
+          hidden: true
+        }
+      },
+      {
+        path: '404',
+        component: () => import(/* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue'),
+        name: '404',
+        meta: {
+          title: '404',
+          hidden: true
+        }
+      }
+    ]
+  }
 ]
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes: constantRoutes

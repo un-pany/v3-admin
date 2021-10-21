@@ -13,10 +13,13 @@
         <template #dropdown>
           <el-dropdown-menu>
             <a target="_blank" href="https://juejin.cn/post/6963876125428678693">
-              <el-dropdown-item>文档</el-dropdown-item>
+              <el-dropdown-item>中文文档</el-dropdown-item>
+            </a>
+            <a target="_blank" href="https://github.com/un-pany/v3-admin/blob/master/README.en.md">
+              <el-dropdown-item>English Docs</el-dropdown-item>
             </a>
             <a target="_blank" href="https://github.com/un-pany/v3-admin">
-              <el-dropdown-item>Github</el-dropdown-item>
+              <el-dropdown-item>GitHub</el-dropdown-item>
             </a>
             <el-dropdown-item divided @click="state.logout">
               <span style="display: block">退出登录</span>

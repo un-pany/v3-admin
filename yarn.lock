@@ -3855,10 +3855,10 @@ electron-to-chromium@^1.3.830:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.835.tgz#98fa4402ab7bc6afbe4953a8ca9b63cb3a6bf08b"
   integrity sha512-rHQszGg2KLMqOWPNTpwCnlp7Kb85haJa8j089DJCreZueykoSN/in+EMlay3SSDMNKR4VGPvfskxofHV18xVJg==
 
-element-plus@^1.1.0-beta.22:
-  version "1.1.0-beta.22"
-  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-1.1.0-beta.22.tgz#489cdd418975f710a730279cdf8bd61dc29b1688"
-  integrity sha512-s3eAgSCUdq/eHKCqFx4S8drTtk0xPlDx8F9dxfMaWM6Bs/+vB6zy+3ksNDvdvssA9uyhyzbAZyJShgJhCw4TDQ==
+element-plus@^1.1.0-beta.24:
+  version "1.1.0-beta.24"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-1.1.0-beta.24.tgz#858b05932ebc0be15419d3974d15be2a4f4b696c"
+  integrity sha512-dmo61e/D6mwJVacMhxOMSPb5sZPt/FPsuQQfsOs1kJWkhGDmTlny/sZvgIQr1z0zh3pjlJadGAlNS+0nySPMmw==
   dependencies:
     "@element-plus/icons" "^0.0.11"
     "@popperjs/core" "^2.10.2"

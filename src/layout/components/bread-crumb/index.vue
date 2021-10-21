@@ -4,15 +4,14 @@
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in state.breadcrumbs" :key="item.path">
         <span
-          v-if="
-            item.redirect === 'noRedirect' || index === state.breadcrumbs.length - 1
-          "
+          v-if="item.redirect === 'noRedirect' || index === state.breadcrumbs.length - 1"
           class="no-redirect"
-        >{{ item.meta.title }}</span
-        >
-        <a v-else @click.prevent="state.handleLink(item)">{{
-          item.meta.title
-        }}</a>
+        >{{ item.meta.title }}</span>
+        <a v-else @click.prevent="state.handleLink(item)">
+          {{
+            item.meta.title
+          }}
+        </a>
       </el-breadcrumb-item>
     </transition-group>
   </el-breadcrumb>
@@ -20,11 +19,11 @@
 
 <script lang="ts" setup>
 import { onBeforeMount, reactive, watch } from 'vue'
-import { useRoute, RouteLocationMatched } from 'vue-router'
+import { useRoute, useRouter, RouteLocationMatched } from 'vue-router'
 import { compile } from 'path-to-regexp'
-import router from '@/router'
 
 const currentRoute = useRoute()
+const router = useRouter()
 const pathCompile = (path: string) => {
   const { params } = currentRoute
   const toPath = compile(path)
@@ -40,7 +39,7 @@ const state = reactive({
     const frist = matched[0]
     if (!state.isDashboard(frist)) {
       matched = [
-            { path: '/dashboard', meta: { title: '首页' } } as any
+        { path: '/dashboard', meta: { title: '首页' } } as any
       ].concat(matched)
     }
     state.breadcrumbs = matched.filter((item) => {
@@ -53,8 +52,7 @@ const state = reactive({
       return false
     }
     return (
-      name.toString().trim().toLocaleLowerCase() ===
-          'Dashboard'.toLocaleLowerCase()
+      name.toString().trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
     )
   },
   handleLink(item: any) {

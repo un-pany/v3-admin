@@ -6,7 +6,7 @@ import { loadAllPlugins } from './plugins'
 import '@/styles/index.scss'
 import 'normalize.css'
 import * as directives from '@/directives'
-import '@/permission'
+import '@/router/permission'
 import loadSvg from '@/icons'
 
 const app = createApp(App)
