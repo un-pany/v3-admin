@@ -2,11 +2,11 @@
 
 ## ⚡️ 简介
 
-一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli 4.5
+一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli
 
 ## 📚 文档
 
-[简体中文](https://juejin.cn/post/6963876125428678693) | [English](./README.en.md)
+[简体中文](https://juejin.cn/post/6963876125428678693) | [English Docs](./README.en.md)
 
 ## 预览
 
@@ -91,8 +91,14 @@
 ## 🚀 开发
 
 ```bash
+# 克隆项目
+git clone https://github.com/un-pany/v3-admin.git
+
+# 进入项目目录
+cd v3-admin
+
 # 安装依赖
-yarn install
+yarn
 
 # 启动服务
 yarn dev
