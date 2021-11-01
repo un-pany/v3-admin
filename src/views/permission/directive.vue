@@ -94,7 +94,6 @@ import SwitchRoles from './components/switch-roles.vue'
 
 const state = reactive({
   key: 1,
-  checkPermission: checkPermission,
   handleRolesChange: () => {
     state.key++
   }

@@ -33,27 +33,12 @@ const pathCompile = (path: string) => {
 const state = reactive({
   breadcrumbs: [] as Array<RouteLocationMatched>,
   getBreadcrumb: () => {
-    let matched = currentRoute.matched.filter(
+    const matched = currentRoute.matched.filter(
       (item) => item.meta && item.meta.title
     )
-    const frist = matched[0]
-    if (!state.isDashboard(frist)) {
-      matched = [
-        { path: '/dashboard', meta: { title: '首页' } } as any
-      ].concat(matched)
-    }
     state.breadcrumbs = matched.filter((item) => {
       return item.meta && item.meta.title && item.meta.breadcrumb !== false
     })
-  },
-  isDashboard(route: RouteLocationMatched) {
-    const name = route && route.name
-    if (!name) {
-      return false
-    }
-    return (
-      name.toString().trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
-    )
   },
   handleLink(item: any) {
     const { redirect, path } = item
