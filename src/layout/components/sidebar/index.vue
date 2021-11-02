@@ -112,6 +112,10 @@ const isCollapse = computed(() => {
   &.is-active {
     border-left: 4px solid #39cedd !important;
   }
+  display: block;
+  * {
+    vertical-align: middle;
+  }
 }
 
 ::v-deep(.el-sub-menu__title) {
@@ -119,6 +123,10 @@ const isCollapse = computed(() => {
   line-height: 65px !important;
   &:hover {
     background-color: rgba(52, 78, 104, 0.5) !important;
+  }
+  display: block;
+  * {
+    vertical-align: middle;
   }
 }
 
