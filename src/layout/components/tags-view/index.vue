@@ -13,11 +13,9 @@
         @contextmenu.prevent="state.openMenu(tag, $event)"
       >
         {{ tag.meta?.title }}
-        <span
-          v-if="!state.isAffix(tag)"
-          class="el-icon-close"
-          @click.prevent.stop="state.closeSelectedTag(tag)"
-        />
+        <el-icon :size="12" v-if="!state.isAffix(tag)" @click.prevent.stop="state.closeSelectedTag(tag)">
+          <Close />
+        </el-icon>
       </router-link>
     </ScrollPane>
     <ul
@@ -51,6 +49,7 @@ import { ITagView } from '@/store/modules/tags-view'
 import { computed, getCurrentInstance, nextTick, onBeforeMount, reactive, ref, watch } from 'vue'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import ScrollPane from './scroll-pane.vue'
+import { Close } from '@element-plus/icons'
 
 const router = useRouter()
 const instance = getCurrentInstance()
@@ -244,33 +243,6 @@ onBeforeMount(() => {
 </script>
 
 <style lang="scss" scoped>
-// Reset element css of el-icon-close
-.tags-view-wrapper {
-  .tags-view-item {
-    .el-icon-close {
-      width: 16px;
-      height: 16px;
-      vertical-align: 2px;
-      border-radius: 50%;
-      text-align: center;
-      transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      transform-origin: 100% 50%;
-
-      &:before {
-        transform: scale(0.6);
-        display: inline-block;
-        vertical-align: -3px;
-      }
-
-      &:hover {
-        background-color: #b4bccc;
-        color: #fff;
-      }
-    }
-  }
-}
-</style>
-<style lang="scss" scoped>
 .tags-view-container {
   height: 34px;
   width: 100%;
@@ -315,6 +287,16 @@ onBeforeMount(() => {
           border-radius: 50%;
           position: relative;
           margin-right: 2px;
+        }
+      }
+
+      .el-icon {
+        margin: 0 2px;
+        vertical-align: middle;
+        border-radius: 50%;
+        &:hover {
+          background-color: #00000030;
+          color: #fff;
         }
       }
     }
