@@ -1,40 +1,25 @@
 <!-- 侧边栏item -->
 
 <template>
-  <div
-    v-if="!item.meta || !item.meta.hidden"
-    :class="[
-      isCollapse ? 'simple-mode' : 'full-mode',
-      {'first-level': isFirstLevel}
-    ]"
-  >
+  <div v-if="!item.meta || !item.meta.hidden" :class="{'simple-mode': isCollapse, 'first-level': isFirstLevel}">
     <template v-if="!alwaysShowRootMenu && theOnlyOneChild && !theOnlyOneChild.children">
       <SidebarItemLink v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
-        <el-menu-item
-          :index="resolvePath(theOnlyOneChild.path)"
-          :class="{'submenu-title-noDropdown': isFirstLevel}"
-        >
+        <el-menu-item :index="resolvePath(theOnlyOneChild.path)">
           <svg-icon
             v-if="theOnlyOneChild.meta.icon"
             :name="theOnlyOneChild.meta.icon"
             font-size="17px"
           />
-          <span v-if="theOnlyOneChild.meta.title">
-            {{
-              theOnlyOneChild.meta.title
-            }}
-          </span>
+          <template v-if="theOnlyOneChild.meta.title" #title>
+            {{ theOnlyOneChild.meta.title }}
+          </template>
         </el-menu-item>
       </SidebarItemLink>
     </template>
     <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template #title>
         <svg-icon v-if="item.meta && item.meta.icon" :name="item.meta.icon" font-size="16px" />
-        <span v-if="item.meta && item.meta.title">
-          {{
-            item.meta.title
-          }}
-        </span>
+        <span v-if="item.meta && item.meta.title">{{ item.meta.title }}</span>
       </template>
       <template v-if="item.children">
         <sidebar-item
@@ -44,7 +29,6 @@
           :is-collapse="isCollapse"
           :is-first-level="false"
           :base-path="resolvePath(child.path)"
-          class="nest-menu"
         />
       </template>
     </el-sub-menu>
@@ -69,7 +53,7 @@ const props = defineProps({
   },
   isFirstLevel: {
     type: Boolean,
-    required: false
+    default: true
   },
   basePath: {
     type: String,
@@ -118,64 +102,17 @@ const resolvePath = (routePath: string) => {
 </script>
 
 <style lang="scss" scoped>
-::v-deep(.el-sub-menu__title) {
-  font-size: 13px !important;
-}
-
-.full-mode {
-  .el-menu-item {
-    & > span {
-      display: inline-block;
-    }
-  }
-  ::v-deep(.el-sub-menu) {
-    overflow: hidden !important;
-    & > .el-sub-menu__title {
-      .el-sub-menu__icon-arrow {
-        display: none !important;
-      }
-    }
-  }
-}
-
-.simple-mode {
-  &.first-level {
-    .submenu-title-noDropdown {
-      padding: 0 !important;
-      position: relative;
-
-      .el-tooltip {
-        padding: 0 !important;
-      }
-    }
-
-    .el-sub-menu {
-      overflow: hidden;
-
-      & > .el-sub-menu__title {
-        padding: 0 !important;
-
-        .el-sub-menu__icon-arrow {
-          display: none;
-        }
-
-        & > span {
-          visibility: hidden;
-        }
-      }
-    }
-  }
-}
-</style>
-
-<style lang="scss" scoped>
-svg {
+.svg-icon {
   margin-right: 20px;
 }
 
 .simple-mode {
-  svg {
-    margin-left: 0;
+  &.first-level {
+    ::v-deep(.el-sub-menu) {
+      .el-sub-menu__icon-arrow {
+        display: none;
+      }
+    }
   }
 }
 </style>

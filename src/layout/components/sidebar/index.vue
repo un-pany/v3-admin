@@ -3,7 +3,7 @@
     <SidebarLogo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
-        :collapse="!isCollapse"
+        :collapse="isCollapse"
         :unique-opened="true"
         :default-active="activeMenu"
         :background-color="variables.menuBg"
@@ -53,7 +53,7 @@ const activeMenu = computed(() => {
 })
 
 const isCollapse = computed(() => {
-  return sidebar.value.opened
+  return !sidebar.value.opened
 })
 </script>
 
@@ -103,14 +103,21 @@ const isCollapse = computed(() => {
 }
 
 ::v-deep(.el-menu-item) {
-  font-size: 13px !important;
-  height: 65px !important;
-  line-height: 65px !important;
+  height: 65px;
+  line-height: 65px;
   &:hover {
-    background-color: rgba(52, 78, 104, 0.5) !important;
+    background-color: rgba(52, 78, 104, 0.5);
   }
   &.is-active {
-    border-left: 4px solid #39cedd !important;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background-color: #39cedd;
+    }
   }
   display: block;
   * {
@@ -119,10 +126,10 @@ const isCollapse = computed(() => {
 }
 
 ::v-deep(.el-sub-menu__title) {
-  height: 65px !important;
-  line-height: 65px !important;
+  height: 65px;
+  line-height: 65px;
   &:hover {
-    background-color: rgba(52, 78, 104, 0.5) !important;
+    background-color: rgba(52, 78, 104, 0.5);
   }
   display: block;
   * {

@@ -1,6 +1,6 @@
 <!-- 面包屑组件 -->
 <template>
-  <el-breadcrumb class="app-breadcrumb" separator-class="el-icon-arrow-right">
+  <el-breadcrumb class="app-breadcrumb">
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="(item, index) in state.breadcrumbs" :key="item.path">
         <span

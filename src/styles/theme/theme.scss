@@ -15,13 +15,12 @@
       }
       .el-menu {
         background-color: lighten($theme-bg-color, 4%) !important;
-        &-item {
+        .el-menu-item {
           background-color: lighten($theme-bg-color, 4%) !important;
           &.is-active, &:hover {
             background-color: lighten($theme-bg-color, 8%) !important;
             color: $active-font-color !important;
           }
-           
         }
       }
       .el-sub-menu__title {
@@ -109,10 +108,13 @@
       background-color: lighten($theme-bg-color, 4%) !important;
       .el-menu-item {
         background-color: lighten($theme-bg-color, 4%) !important;
-        &.is-active {
+        &.is-active, &:hover {
           background-color: lighten($theme-bg-color, 8%) !important;
           color: $active-font-color !important;
         }
+      }
+      .el-sub-menu__title {
+        background-color: lighten($theme-bg-color, 4%) !important;
       }
     }
   }
