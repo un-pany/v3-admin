@@ -40,13 +40,13 @@ module.exports = {
           name: title
         }),
         // gzip
-        new CompressionWebpackPlugin({
-          filename: '[path].gz[query]',
-          test: new RegExp('\\.(' + ['js', 'css'].join('|') + ')$'),
-          threshold: 10240,
-          minRatio: 0.8,
-          deleteOriginalAssets: false
-        })
+        // new CompressionWebpackPlugin({
+        //   filename: '[path][base].gz',
+        //   test: /\.(js|css)?$/i,
+        //   threshold: 10240,
+        //   minRatio: 0.8,
+        //   deleteOriginalAssets: true
+        // })
       ],
       // 生产环境清除 console.log
       config.optimization = {
@@ -59,6 +59,9 @@ module.exports = {
                 drop_console: false,
                 drop_debugger: false,
                 pure_funcs: ['console.log'] // 清除 console.log
+              },
+              output: {
+                comments: false // 删除注释
               }
             }
           })
