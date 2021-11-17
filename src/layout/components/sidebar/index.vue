@@ -106,7 +106,7 @@ const isCollapse = computed(() => {
   height: 65px;
   line-height: 65px;
   &:hover {
-    background-color: rgba(52, 78, 104, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
   }
   &.is-active {
     &::before {
@@ -129,7 +129,7 @@ const isCollapse = computed(() => {
   height: 65px;
   line-height: 65px;
   &:hover {
-    background-color: rgba(52, 78, 104, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
   }
   display: block;
   * {
