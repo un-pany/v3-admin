@@ -6,15 +6,14 @@
 
 <script lang="ts" setup>
 import { defineProps } from 'vue'
-
 defineProps({
   name: {
     type: String,
     required: true
   }
 })
-
 </script>
+
 <style lang="scss" scoped>
 .svg-icon {
   width: 1em;

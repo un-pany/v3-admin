@@ -1,8 +1,9 @@
 <!-- 切换角色控件 -->
+
 <template>
   <div>
     <div style="margin-bottom: 15px">
-      你的权限： {{ roles }}
+      你的权限：{{ roles }}
     </div>
     <p>切换权限：</p>
     <el-radio-group v-model="currentRole">
@@ -11,6 +12,7 @@
     </el-radio-group>
   </div>
 </template>
+
 <script lang="ts" setup>
 import { store } from '@/store'
 import { computed, ref, watch, defineEmits } from 'vue'

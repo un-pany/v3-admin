@@ -82,7 +82,6 @@
 │  └─ views           # 所有页面
 │  ├─ App.vue         # 入口页面
 │  ├─ main.ts         # 入口文件
-│  ├─ permission.ts   # 权限管理
 │  └─ shims.d.ts      # 模块注入
 ├─ tsconfig.json      # ts 编译配置
 └─ vue.config.js      # vue-cli 配置

@@ -83,19 +83,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
-.scroll-container {
-  .el-scrollbar__bar {
-    bottom: 0px;
-  }
-
-  .el-scrollbar__wrap {
-    height: 49px;
-  }
-}
-</style>
-
-<style lang="scss" scoped>
-.scroll-container {
+.scroll-container { // 超出窗口长度时，显示滚动条
   white-space: nowrap;
   position: relative;
   overflow: hidden;

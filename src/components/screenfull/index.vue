@@ -1,5 +1,3 @@
-<!-- 全屏按钮 -->
-
 <template>
   <div @click="state.click">
     <svg-icon :name="state.isFullscreen ? 'exit-fullscreen' : 'fullscreen'" font-size="20px" />

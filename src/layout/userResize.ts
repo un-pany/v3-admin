@@ -17,6 +17,7 @@ export default function() {
   })
 
   const currentRoute = useRoute()
+
   const watchRouter = watch(() => currentRoute.name, () => {
     if (store.state.app.device === DeviceType.Mobile && store.state.app.sidebar.opened) {
       store.commit('app/CLOSE_SIDEBAR', false)
@@ -43,6 +44,7 @@ export default function() {
       }
     }
   }
+
   const addEventListenerOnResize = () => {
     window.addEventListener('resize', resizeHandler)
   }

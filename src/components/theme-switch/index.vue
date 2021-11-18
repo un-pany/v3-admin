@@ -1,21 +1,19 @@
 <template>
-  <div>
-    <el-dropdown trigger="click">
-      <svg-icon name="theme" font-size="20px" />
-      <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item
-            v-for="(theme, index) in themeList"
-            :key="index"
-            :disabled="activeThemeName === theme.name"
-            @click="handleSetTheme(theme.name)"
-          >
-            <span>{{ theme.title }}</span>
-          </el-dropdown-item>
-        </el-dropdown-menu>
-      </template>
-    </el-dropdown>
-  </div>
+  <el-dropdown trigger="click">
+    <svg-icon name="theme" font-size="20px" />
+    <template #dropdown>
+      <el-dropdown-menu>
+        <el-dropdown-item
+          v-for="(theme, index) in themeList"
+          :key="index"
+          :disabled="activeThemeName === theme.name"
+          @click="handleSetTheme(theme.name)"
+        >
+          <span>{{ theme.title }}</span>
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
+  </el-dropdown>
 </template>
 
 <script lang="ts" setup>
@@ -33,6 +31,3 @@ const handleSetTheme = (name: string) => {
 }
 
 </script>
-
-<style lang="scss" scoped>
-</style>

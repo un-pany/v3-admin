@@ -1,4 +1,5 @@
 <!-- 导航栏 -->
+
 <template>
   <div class="navbar">
     <Hamburger :is-active="sidebar.opened" class="hamburger" @toggle-click="state.toggleSideBar" />

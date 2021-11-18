@@ -1,4 +1,5 @@
 /* 权限指令 */
+
 import { store } from '@/store'
 import { Directive } from 'vue'
 

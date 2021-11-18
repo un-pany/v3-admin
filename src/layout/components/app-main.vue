@@ -1,4 +1,5 @@
 <!-- 主视图 -->
+
 <template>
   <section class="app-main">
     <router-view v-slot="{Component}">
@@ -40,7 +41,6 @@ const key = computed(() => {
     /* 84 = navbar + tags-view = 50 + 34 */
     min-height: calc(100vh - 84px);
   }
-
   .fixed-header + .app-main {
     padding-top: 84px;
   }

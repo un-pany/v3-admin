@@ -41,7 +41,6 @@ const routes = computed(() => {
 const showLogo = computed(() => {
   return store.state.settings.showSidebarLogo
 })
-
 const activeMenu = computed(() => {
   const { meta, path } = route
   if (meta !== null || meta !== undefined) {
@@ -51,7 +50,6 @@ const activeMenu = computed(() => {
   }
   return path
 })
-
 const isCollapse = computed(() => {
   return !sidebar.value.opened
 })

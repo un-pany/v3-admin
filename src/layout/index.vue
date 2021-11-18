@@ -26,9 +26,10 @@ import { DeviceType } from '@/store/modules/app'
 import { computed, onBeforeMount, onBeforeUnmount, onMounted, reactive } from 'vue'
 import { store } from '@/store'
 import { AppMain, NavigationBar, Settings, Sidebar, TagsView, RightPanel } from './components'
-import resize from './resize'
+import userResize from './userResize'
 
-const { sidebar, device, addEventListenerOnResize, resizeMounted, removeEventListenerResize, watchRouter } = resize()
+const { sidebar, device, addEventListenerOnResize, resizeMounted, removeEventListenerResize, watchRouter } = userResize()
+
 const state = reactive({
   handleClickOutside: () => {
     store.commit('app/CLOSE_SIDEBAR', false)
@@ -58,11 +59,9 @@ watchRouter()
 onBeforeMount(() => {
   addEventListenerOnResize()
 })
-
 onMounted(() => {
   resizeMounted()
 })
-
 onBeforeUnmount(() => {
   removeEventListenerResize()
 })

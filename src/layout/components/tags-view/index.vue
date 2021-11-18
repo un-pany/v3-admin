@@ -13,7 +13,11 @@
         @contextmenu.prevent="state.openMenu(tag, $event)"
       >
         {{ tag.meta?.title }}
-        <el-icon :size="12" v-if="!state.isAffix(tag)" @click.prevent.stop="state.closeSelectedTag(tag)">
+        <el-icon
+          :size="12"
+          v-if="!state.isAffix(tag)"
+          @click.prevent.stop="state.closeSelectedTag(tag)"
+        >
           <Close />
         </el-icon>
       </router-link>

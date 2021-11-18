@@ -69,7 +69,6 @@ A basic solution for middle and background management system, based on vue3, typ
 │  ├─ components      # global components
 │  ├─ config          # global config
 │  ├─ constant        # constant
-enumeration
 │  ├─ directives      # global directives
 │  ├─ icons           # svg icon
 │  ├─ layout          # layout
