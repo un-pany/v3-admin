@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
+    "@mitojs/browser": "^3.0.0",
+    "@mitojs/vue": "^3.0.0",
     "axios": "^0.23.0",
     "dayjs": "^1.10.7",
     "element-plus": "^1.2.0-beta.3",

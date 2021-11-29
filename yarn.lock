@@ -998,6 +998,57 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@mitojs/browser@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@mitojs/browser/-/browser-3.0.0.tgz#4a81ef65bdfa8bf64a1e016287dd334e1c918c86"
+  integrity sha512-ZAwZvv2di4Vo/QAQuQNf5k/D/msx8syOrjShW5TTg9mvlu4VLhrFaEn4h47Ezb7yPX5eaHz4xid1TszwkTZ9Yw==
+  dependencies:
+    "@mitojs/core" "3.0.0"
+    "@mitojs/shared" "3.0.0"
+    "@mitojs/types" "3.0.0"
+    "@mitojs/utils" "3.0.0"
+
+"@mitojs/core@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@mitojs/core/-/core-3.0.0.tgz#7388173995cbb40330f053266411cf487e086a54"
+  integrity sha512-WroWz0q9BaLj5XCqzZ7Z6pN31VeyHS/rWvqSe3ecvMpBVAXWGFdjD2g8UY22NtfJnohQ0fv6BkDXj54QMZqC0w==
+  dependencies:
+    "@mitojs/shared" "3.0.0"
+    "@mitojs/types" "3.0.0"
+    "@mitojs/utils" "3.0.0"
+
+"@mitojs/shared@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@mitojs/shared/-/shared-3.0.0.tgz#a66c88be9d2a0b48058e2c941115fbc974952d18"
+  integrity sha512-XDHF8tlkGJTGO1pqdZNv1ZDNS8YJNueijs4yt9UNi0u4zA9DR2uWK9vggRuJr1IssoayQY42Q+5lTS+729/1EA==
+
+"@mitojs/types@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@mitojs/types/-/types-3.0.0.tgz#1f1288340361575279b4d4157e8a1239d7aa2dd4"
+  integrity sha512-btlXMEXYUGAYbu+g25xARBj9LXa6LPXo02b9DHpOUV9+a0FZd72SHk/GmfEyrumnYzsaRCTEk2qe6T6AKN7vEA==
+  dependencies:
+    "@mitojs/core" "3.0.0"
+    "@mitojs/shared" "3.0.0"
+    "@mitojs/utils" "3.0.0"
+    "@types/wechat-miniprogram" "^3.1.0"
+
+"@mitojs/utils@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@mitojs/utils/-/utils-3.0.0.tgz#65d40573b2f4f67f72bb2f55905528330d11a399"
+  integrity sha512-8JZ5S05ooObDPXe57ys0N/2JGyDWj/aXoRpMEhHKFb8YF4Dg4zm8qJgts1OGcl6izroTDU1BfW5CJ4/paJ9/iA==
+  dependencies:
+    "@mitojs/shared" "3.0.0"
+    "@mitojs/types" "3.0.0"
+
+"@mitojs/vue@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@mitojs/vue/-/vue-3.0.0.tgz#7cf5a24eb51177468a2da9ae559b755fcf4108c0"
+  integrity sha512-aPTmPG6wadvKDQ4envSLrCzQT56oNLAzHFxx1RG9yskD9qEg95R3nK1SnOYEpABZ/xaO2OyUCaYzexduh6DPjg==
+  dependencies:
+    "@mitojs/shared" "3.0.0"
+    "@mitojs/types" "3.0.0"
+    "@mitojs/utils" "3.0.0"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1256,6 +1307,11 @@
     "@types/webpack-sources" "*"
     anymatch "^3.0.0"
     source-map "^0.6.0"
+
+"@types/wechat-miniprogram@^3.1.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@types/wechat-miniprogram/-/wechat-miniprogram-3.4.0.tgz#d743d5b3c17bd531c2c178ea1fe9d92a0b23bcd0"
+  integrity sha512-7d7KDwoV42/ANx/0C8C4ctBv1q9XnXYD4Fz0C+3ii0Tm+HRIwwDcinv8S88Ut/Y80czlI0shGpTgLFe0GbrXWQ==
 
 "@typescript-eslint/eslint-plugin@^4.33.0":
   version "4.33.0"

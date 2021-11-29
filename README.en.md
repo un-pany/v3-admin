@@ -38,6 +38,7 @@ A basic solution for middle and background management system, based on vue3, typ
   - Tags-view (Tab page Support right-click operation)
   - Screenfull
   - Responsive Sidebar
+  - monitor（based on mitojs）
 
 - Error Page
   - 401
