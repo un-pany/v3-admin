@@ -68,7 +68,7 @@ const onClickCodeError = () => {
 
 const onClickGoodRequest = () => {
   const xhr = new XMLHttpRequest()
-  xhr.open('get', '/api/v1/good/request')
+  xhr.open('get', 'https://dict-mobile.iciba.com/interface/index.php?c=word&m=getsuggest&word=hello')
   xhr.setRequestHeader('content-type', 'application/json')
   xhr.send()
   xhr.onreadystatechange = function() {
@@ -91,8 +91,8 @@ const onClickBadRequest = () => {
   }
 }
 
-const onClickGoodFetch = async() => {
-  fetch('/api/v1/good/fetch', {
+const onClickGoodFetch = () => {
+  fetch('https://dict-mobile.iciba.com/interface/index.php?c=word&m=getsuggest&word=hello', {
     method: 'GET'
   }).then(
     () => {
