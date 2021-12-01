@@ -1,4 +1,6 @@
-> 将插件 Vetur 升级为 Volar 将更好的支持 Vue3.2
+> 温馨提示：Element-Plus 正在快速更新中，需谨慎升级版本！
+
+> 将插件 Vetur 替换为 Volar 将更好的支持 Vue3.2+
 
 ## ⚡️ 简介
 
@@ -161,4 +163,4 @@ QQ群：1014374415
 
 [MIT](https://github.com/un-pany/v3-admin/blob/master/LICENSE)
 
-Copyright (c) 2021 pany
+Copyright (c) 2021 UNPany

@@ -520,4 +520,4 @@ Change the value of `publicPath` in the ` @/config/vue.custom.config.ts` file fr
 
 [MIT](https://github.com/un-pany/v3-admin/blob/master/LICENSE)
 
-Copyright (c) 2021 pany
+Copyright (c) 2021 UNPany
