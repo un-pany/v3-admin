@@ -1,6 +1,6 @@
 <template>
-  <div id="tags-view-container" class="tags-view-container">
-    <ScrollPane ref="scrollPaneRef" class="tags-view-wrapper" @scroll="state.handleScroll">
+  <div class="tags-view-container">
+    <ScrollPane class="tags-view-wrapper">
       <router-link
         v-for="tag in visitedViews"
         ref="tag"
@@ -50,7 +50,7 @@
 import path from 'path'
 import { store } from '@/store'
 import { ITagView } from '@/store/modules/tags-view'
-import { computed, getCurrentInstance, nextTick, onBeforeMount, reactive, ref, watch } from 'vue'
+import { computed, getCurrentInstance, nextTick, onBeforeMount, reactive, watch } from 'vue'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import ScrollPane from './scroll-pane.vue'
 import { Close } from '@element-plus/icons'
@@ -58,7 +58,6 @@ import { Close } from '@element-plus/icons'
 const router = useRouter()
 const instance = getCurrentInstance()
 const currentRoute = useRoute()
-const scrollPaneRef = ref(null)
 const { proxy } = instance as any
 
 const toLastView = (visitedViews: ITagView[], view: ITagView) => {
@@ -146,9 +145,6 @@ const state = reactive({
   },
   closeMenu: () => {
     state.visible = false
-  },
-  handleScroll: () => {
-    state.closeMenu()
   }
 })
 
@@ -208,7 +204,6 @@ const moveToCurrentTag = () => {
   }
   for (const tag of tags) {
     if ((tag.to as ITagView).path === currentRoute.path) {
-      (scrollPaneRef.value as any).moveToCurrentTag(tag)
       // When query is different then update
       if ((tag.to as ITagView).fullPath !== currentRoute.fullPath) {
         store.commit(
