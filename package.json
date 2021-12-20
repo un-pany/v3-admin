@@ -10,10 +10,10 @@
     "deploy": "node ./deploy"
   },
   "dependencies": {
-    "@element-plus/icons": "^0.0.11",
-    "@mitojs/browser": "^3.0.0",
-    "@mitojs/vue": "^3.0.0",
-    "axios": "^0.23.0",
+    "@element-plus/icons-vue": "^0.2.4",
+    "@mitojs/browser": "^3.0.1",
+    "@mitojs/vue": "^3.0.1",
+    "axios": "^0.24.0",
     "dayjs": "^1.10.7",
     "element-plus": "^1.2.0-beta.6",
     "js-cookie": "^3.0.1",

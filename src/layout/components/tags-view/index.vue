@@ -53,7 +53,7 @@ import { ITagView } from '@/store/modules/tags-view'
 import { computed, getCurrentInstance, nextTick, onBeforeMount, reactive, watch } from 'vue'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import ScrollPane from './scroll-pane.vue'
-import { Close } from '@element-plus/icons'
+import { Close } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const instance = getCurrentInstance()

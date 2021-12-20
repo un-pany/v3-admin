@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 import { defineProps, ref } from 'vue'
 import variables from '@/styles/variables.scss'
-import { Setting } from '@element-plus/icons'
+import { Setting } from '@element-plus/icons-vue'
 
 defineProps({
   buttonTop: {

@@ -923,15 +923,10 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
-"@element-plus/icons-vue@^0.2.2":
+"@element-plus/icons-vue@^0.2.2", "@element-plus/icons-vue@^0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@element-plus/icons-vue/-/icons-vue-0.2.4.tgz#dadcf72f0cea53dc83b7b7db80e1418716d7b02c"
   integrity sha512-RsJNyL58rwxtsjeMy34o8txkL6UlME1stWsUlRpTac6UE9Bx9gdJvnDXbIKhOJqBLX17fBjmposdrn6VTqim2w==
-
-"@element-plus/icons@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/@element-plus/icons/-/icons-0.0.11.tgz#9b187c002774548b911850d17fa5fc2f9a515f57"
-  integrity sha512-iKQXSxXu131Ai+I9Ymtcof9WId7kaXvB1+WRfAfpQCW7UiAMYgdNDqb/u0hgTo2Yq3MwC4MWJnNuTBEpG8r7+A==
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
@@ -1008,56 +1003,56 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
-"@mitojs/browser@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@mitojs/browser/-/browser-3.0.0.tgz#4a81ef65bdfa8bf64a1e016287dd334e1c918c86"
-  integrity sha512-ZAwZvv2di4Vo/QAQuQNf5k/D/msx8syOrjShW5TTg9mvlu4VLhrFaEn4h47Ezb7yPX5eaHz4xid1TszwkTZ9Yw==
+"@mitojs/browser@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@mitojs/browser/-/browser-3.0.1.tgz#3d97593adad787f7f30f8cdc3982e3b02b257751"
+  integrity sha512-NLk0fnfGmucjiDqWAZp77jmC9dD5sBPJ2R6tJ5GfElTyArWxK0MGepUTOl34YpVjEnrmpqmBn1pmfZVRIlQR1Q==
   dependencies:
-    "@mitojs/core" "3.0.0"
-    "@mitojs/shared" "3.0.0"
-    "@mitojs/types" "3.0.0"
-    "@mitojs/utils" "3.0.0"
+    "@mitojs/core" "3.0.1"
+    "@mitojs/shared" "3.0.1"
+    "@mitojs/types" "3.0.1"
+    "@mitojs/utils" "3.0.1"
 
-"@mitojs/core@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@mitojs/core/-/core-3.0.0.tgz#7388173995cbb40330f053266411cf487e086a54"
-  integrity sha512-WroWz0q9BaLj5XCqzZ7Z6pN31VeyHS/rWvqSe3ecvMpBVAXWGFdjD2g8UY22NtfJnohQ0fv6BkDXj54QMZqC0w==
+"@mitojs/core@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@mitojs/core/-/core-3.0.1.tgz#39c29c7d774253b95fb17bdcd3907d58e1d06e0b"
+  integrity sha512-eUJYaQ4+Z7lbnUZ+wbwoHTu5LASPoUp8g0Slv0djfJEQ/nWWDZ0ftwVtWt+7019Y2zBXkyybdsPqUZAdBEmKEA==
   dependencies:
-    "@mitojs/shared" "3.0.0"
-    "@mitojs/types" "3.0.0"
-    "@mitojs/utils" "3.0.0"
+    "@mitojs/shared" "3.0.1"
+    "@mitojs/types" "3.0.1"
+    "@mitojs/utils" "3.0.1"
 
-"@mitojs/shared@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@mitojs/shared/-/shared-3.0.0.tgz#a66c88be9d2a0b48058e2c941115fbc974952d18"
-  integrity sha512-XDHF8tlkGJTGO1pqdZNv1ZDNS8YJNueijs4yt9UNi0u4zA9DR2uWK9vggRuJr1IssoayQY42Q+5lTS+729/1EA==
+"@mitojs/shared@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@mitojs/shared/-/shared-3.0.1.tgz#823ffae23ab4b769d714cf0475e8f84d5056be26"
+  integrity sha512-WPZ0QPTnNroiRDoFfPf4tfJpqkl4LMf/Nv1Q10+NNfCJd82nraIT+uPEvU4B6L6WRdpoQUoLZ9ImwSC1h+/yKw==
 
-"@mitojs/types@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@mitojs/types/-/types-3.0.0.tgz#1f1288340361575279b4d4157e8a1239d7aa2dd4"
-  integrity sha512-btlXMEXYUGAYbu+g25xARBj9LXa6LPXo02b9DHpOUV9+a0FZd72SHk/GmfEyrumnYzsaRCTEk2qe6T6AKN7vEA==
+"@mitojs/types@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@mitojs/types/-/types-3.0.1.tgz#93f8a598f710c57d3618f049853d3cb2d0e0668f"
+  integrity sha512-2qvMdmSqnkuQI3NohaF60nYPWzh+A4lzNMC65O+Jftoo3q8Kk0NC7mBSQUQp2wyLlcL1kUgObo614Chs/2Zg6g==
   dependencies:
-    "@mitojs/core" "3.0.0"
-    "@mitojs/shared" "3.0.0"
-    "@mitojs/utils" "3.0.0"
+    "@mitojs/core" "3.0.1"
+    "@mitojs/shared" "3.0.1"
+    "@mitojs/utils" "3.0.1"
     "@types/wechat-miniprogram" "^3.1.0"
 
-"@mitojs/utils@3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@mitojs/utils/-/utils-3.0.0.tgz#65d40573b2f4f67f72bb2f55905528330d11a399"
-  integrity sha512-8JZ5S05ooObDPXe57ys0N/2JGyDWj/aXoRpMEhHKFb8YF4Dg4zm8qJgts1OGcl6izroTDU1BfW5CJ4/paJ9/iA==
+"@mitojs/utils@3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@mitojs/utils/-/utils-3.0.1.tgz#74e25d5b472f2ea71950546449fa9a026094cdc5"
+  integrity sha512-HpIJnhuv+AwMegK6LO/F9NtNiLMARqFw04e4bO1Jryqb9IOCFxKg5ZzQ3tEP9kj7ax797XL46zZjRbkbV3hKcQ==
   dependencies:
-    "@mitojs/shared" "3.0.0"
-    "@mitojs/types" "3.0.0"
+    "@mitojs/shared" "3.0.1"
+    "@mitojs/types" "3.0.1"
 
-"@mitojs/vue@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@mitojs/vue/-/vue-3.0.0.tgz#7cf5a24eb51177468a2da9ae559b755fcf4108c0"
-  integrity sha512-aPTmPG6wadvKDQ4envSLrCzQT56oNLAzHFxx1RG9yskD9qEg95R3nK1SnOYEpABZ/xaO2OyUCaYzexduh6DPjg==
+"@mitojs/vue@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@mitojs/vue/-/vue-3.0.1.tgz#619963c26016d9c825a4b09d1ebfce5802de1880"
+  integrity sha512-dcETu30B14mjH4ubT86hGf4M4P/7mZLs9p8ha60fzbc8HKCz0B+hohDOLGIU+QyMqzPOBwdNLJMlIW3xnJb6kA==
   dependencies:
-    "@mitojs/shared" "3.0.0"
-    "@mitojs/types" "3.0.0"
-    "@mitojs/utils" "3.0.0"
+    "@mitojs/shared" "3.0.1"
+    "@mitojs/types" "3.0.1"
+    "@mitojs/utils" "3.0.1"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -2310,10 +2305,10 @@ aws4@^1.8.0:
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.11.0.tgz#d61f46d83b2519250e2784daf5b09479a8b41c59"
   integrity sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA==
 
-axios@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.23.0.tgz#b0fa5d0948a8d1d75e3d5635238b6c4625b05149"
-  integrity sha512-NmvAE4i0YAv5cKq8zlDoPd1VLKAqX5oLuZKs8xkJa4qi6RGn0uhCYFjWtHHC9EM/MwOwYWOs53W+V0aqEXq1sg==
+axios@^0.24.0:
+  version "0.24.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.24.0.tgz#804e6fa1e4b9c5288501dd9dff56a7a0940d20d6"
+  integrity sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA==
   dependencies:
     follow-redirects "^1.14.4"
 
