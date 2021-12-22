@@ -22,6 +22,7 @@
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.0",
     "screenfull": "^5.1.0",
+    "terser-webpack-plugin": "^4.2.3",
     "vue": "^3.2.26",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
