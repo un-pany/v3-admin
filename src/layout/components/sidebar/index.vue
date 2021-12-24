@@ -90,7 +90,8 @@ const isCollapse = computed(() => {
 
 .has-logo {
   .el-scrollbar {
-    height: calc(100% - 50px);
+    // 84px 是 logo 区域的 height
+    height: calc(100% - 84px);
   }
 }
 
@@ -108,7 +109,7 @@ const isCollapse = computed(() => {
   }
   &.is-active {
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
