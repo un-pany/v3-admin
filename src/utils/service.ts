@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios'
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import { get } from 'lodash'
 import { ElMessage } from 'element-plus'
 import { getToken } from '@/utils/cookies'
@@ -7,25 +7,25 @@ import { getToken } from '@/utils/cookies'
 const pendingAjax = new Map()
 // 请求标志
 const duplicatedKeyFn = (config: AxiosRequestConfig) => `${config.method}${config.url}${JSON.stringify(config.params)}${JSON.stringify(config.data)}`
-// 将请求添加到pendingAjax
+// 将请求添加到 pendingAjax
 function addPendingAjax(config: AxiosRequestConfig) {
   const duplicatedKey = JSON.stringify({
     duplicatedKey: duplicatedKeyFn(config),
     type: 'DUPLICATED_REQUEST'
   })
   config.cancelToken = config.cancelToken || new axios.CancelToken((cancel) => {
-    if (duplicatedKey && !pendingAjax.has(duplicatedKey)) { // 如果pendingAjax中不存在当前请求，添加进去
+    if (duplicatedKey && !pendingAjax.has(duplicatedKey)) { // 如果 pendingAjax 中不存在当前请求，添加进去
       pendingAjax.set(duplicatedKey, cancel)
     }
   })
 }
-// 从pendingAjax中删除请求
+// 从 pendingAjax 中删除请求
 function removePendingAjax(config: AxiosRequestConfig) {
   const duplicatedKey = JSON.stringify({
     duplicatedKey: duplicatedKeyFn(config),
     type: 'DUPLICATED_REQUEST'
   })
-  if (duplicatedKey && pendingAjax.has(duplicatedKey)) { // 如果pendingAjax中存在当前请求, 取消当前请求并将其删除
+  if (duplicatedKey && pendingAjax.has(duplicatedKey)) { // 如果 pendingAjax 中存在当前请求, 取消当前请求并将其删除
     const cancel = pendingAjax.get(duplicatedKey)
     cancel(duplicatedKey)
     pendingAjax.delete(duplicatedKey)
@@ -104,11 +104,8 @@ function createService() {
   return service
 }
 
-// 用于网络请求的实例和请求方法
-export const service = createService()
-
 // 创建请求方法
-function createRequestFunction() {
+function createRequestFunction(service: AxiosInstance) {
   return function(config: AxiosRequestConfig) {
     const configDefault = {
       headers: {
@@ -124,5 +121,7 @@ function createRequestFunction() {
   }
 }
 
-// 用于网络请求的实例和请求方法
-export const request = createRequestFunction()
+// 用于网络请求的实例
+export const service = createService()
+// 用于网络请求的方法
+export const request = createRequestFunction(service)
