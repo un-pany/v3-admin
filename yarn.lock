@@ -923,7 +923,12 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
-"@element-plus/icons-vue@^0.2.2", "@element-plus/icons-vue@^0.2.4":
+"@ctrl/tinycolor@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@ctrl/tinycolor/-/tinycolor-3.4.0.tgz#c3c5ae543c897caa9c2a68630bed355be5f9990f"
+  integrity sha512-JZButFdZ1+/xAfpguQHoabIXkcqRRKpMrWKBkpEZZyxfY9C1DpADFB8PEqGSTeFr135SaTRfKqGKx5xSCLI7ZQ==
+
+"@element-plus/icons-vue@^0.2.4":
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/@element-plus/icons-vue/-/icons-vue-0.2.4.tgz#dadcf72f0cea53dc83b7b7db80e1418716d7b02c"
   integrity sha512-RsJNyL58rwxtsjeMy34o8txkL6UlME1stWsUlRpTac6UE9Bx9gdJvnDXbIKhOJqBLX17fBjmposdrn6VTqim2w==
@@ -1788,18 +1793,18 @@
   resolved "https://registry.yarnpkg.com/@vue/web-component-wrapper/-/web-component-wrapper-1.3.0.tgz#b6b40a7625429d2bd7c2281ddba601ed05dc7f1a"
   integrity sha512-Iu8Tbg3f+emIIMmI2ycSI8QcEuAUgPTgHwesDU1eKMLE4YC/c/sFbGc70QgMq31ijRftV0R7vCm9co6rldCeOA==
 
-"@vueuse/core@^7.0.0":
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-7.4.0.tgz#dca848b9b2209d94142f2ec0baad4ee00455262c"
-  integrity sha512-CgYouxjXOE63gMn3l9cOsgzPTEAk3yoncsSmJUxXAi/to25rCPVWB/39jXTPhWZboR43EDDMWoEhHaSoMzaldg==
+"@vueuse/core@^7.3.0":
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/core/-/core-7.5.1.tgz#3038a0ca6e16f6885d2457778260712180422526"
+  integrity sha512-GczfdTWqH483zkUHdDYiLm0Tn51OtsQXYc+eBKKIeolh0mgn682KbSYmkrjNytaF7qGc74YxMDAYjkPBW6V2Pg==
   dependencies:
-    "@vueuse/shared" "7.4.0"
+    "@vueuse/shared" "7.5.1"
     vue-demi "*"
 
-"@vueuse/shared@7.4.0":
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-7.4.0.tgz#8f0767c4f7b89112c1b34accec44a6c8625ce085"
-  integrity sha512-x5Jn6jUB8gS1mGnVCoNWFEpAoDkm2QwtacZTUgKMn0Ow8tlUBKIfGVOt4vn9qZB10froED/ARHEj79WKLXRieA==
+"@vueuse/shared@7.5.1":
+  version "7.5.1"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-7.5.1.tgz#d88a8d8a4799c30e7dd4f965808e78b3793c3da6"
+  integrity sha512-zMQEuYJyTmr5Hj2rYgSbb4H/cSI8mdaa9dUuw20j6rPV+xLV11y7vCyIkxo31uODDr0p77FMlProKzNDiK9rAA==
   dependencies:
     vue-demi "*"
 
@@ -3922,14 +3927,15 @@ electron-to-chromium@^1.3.896:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.6.tgz#7bf0c03001bcdbd0fc57a45c6b23bc6432246ade"
   integrity sha512-YDZAXP0P8USm0YoyIXWijxFT3tJHbt3WwY7CTQiK3+Ad6Ai/b9N4GqfDR107jfGilAfxl7Gkhb+h0KPoKXAgqw==
 
-element-plus@^1.2.0-beta.6:
-  version "1.2.0-beta.6"
-  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-1.2.0-beta.6.tgz#9fa01a06950eb0380f0454cb75aefaaf5b81b043"
-  integrity sha512-8EdSIR/5/FHcSB8w1diAh+gJMHgxIvxuZoayY99k6taAR1QyEFHuPTgFccZLopJ1+iP4UEsZFz49l57qS08Utw==
+element-plus@1.3.0-beta.1:
+  version "1.3.0-beta.1"
+  resolved "https://registry.yarnpkg.com/element-plus/-/element-plus-1.3.0-beta.1.tgz#4df67fcedb0c13d14c9f54eea7b739109f5df49f"
+  integrity sha512-q3vMaKElPpuSTeIF7kuDmMOE+N1YVCCIG3fshXpz6qgjnxPbgZumVM0qGfhr8DTu9JxRbBoDok49dqtX/BWn3w==
   dependencies:
-    "@element-plus/icons-vue" "^0.2.2"
+    "@ctrl/tinycolor" "^3.4.0"
+    "@element-plus/icons-vue" "^0.2.4"
     "@popperjs/core" "^2.10.2"
-    "@vueuse/core" "^7.0.0"
+    "@vueuse/core" "^7.3.0"
     async-validator "^4.0.7"
     dayjs "^1.10.7"
     lodash "^4.17.21"

@@ -7,7 +7,7 @@
       <div>
         <span v-permission="['admin']" class="permission-alert">
           Only
-          <el-tag size="small">admin</el-tag>can see
+          <el-tag>admin</el-tag>can see
           this
         </span>
         <el-tag
@@ -22,7 +22,7 @@
       <div>
         <span v-permission="['editor']" class="permission-alert">
           Only
-          <el-tag size="small">editor</el-tag>can see
+          <el-tag>editor</el-tag>can see
           this
         </span>
         <el-tag
@@ -37,8 +37,8 @@
       <div>
         <span v-permission="['admin', 'editor']" class="permission-alert">
           Both
-          <el-tag size="small">admin</el-tag>and
-          <el-tag size="small">editor</el-tag>can see
+          <el-tag>admin</el-tag>and
+          <el-tag>editor</el-tag>can see
           this
         </span>
         <el-tag
