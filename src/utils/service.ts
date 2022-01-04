@@ -3,85 +3,44 @@ import { get } from 'lodash'
 import { ElMessage } from 'element-plus'
 import { getToken } from '@/utils/cookies'
 
-// 存储每个请求的标识和对应的取消函数
-const pendingAjax = new Map()
-// 请求标志
-const duplicatedKeyFn = (config: AxiosRequestConfig) => `${config.method}${config.url}${JSON.stringify(config.params)}${JSON.stringify(config.data)}`
-// 将请求添加到 pendingAjax
-function addPendingAjax(config: AxiosRequestConfig) {
-  const duplicatedKey = JSON.stringify({
-    duplicatedKey: duplicatedKeyFn(config),
-    type: 'DUPLICATED_REQUEST'
-  })
-  config.cancelToken = config.cancelToken || new axios.CancelToken((cancel) => {
-    if (duplicatedKey && !pendingAjax.has(duplicatedKey)) { // 如果 pendingAjax 中不存在当前请求，添加进去
-      pendingAjax.set(duplicatedKey, cancel)
-    }
-  })
-}
-// 从 pendingAjax 中删除请求
-function removePendingAjax(config: AxiosRequestConfig) {
-  const duplicatedKey = JSON.stringify({
-    duplicatedKey: duplicatedKeyFn(config),
-    type: 'DUPLICATED_REQUEST'
-  })
-  if (duplicatedKey && pendingAjax.has(duplicatedKey)) { // 如果 pendingAjax 中存在当前请求, 取消当前请求并将其删除
-    const cancel = pendingAjax.get(duplicatedKey)
-    cancel(duplicatedKey)
-    pendingAjax.delete(duplicatedKey)
-  }
-}
-
-/* ........................此分割线上方的代码，如果不需要，可自行删除........................ */
-
 // 创建请求实例
 function createService() {
-  const service = axios.create() // 创建一个 axios 实例
-  service.interceptors.request.use( // 请求拦截
-    config => {
-      removePendingAjax(config) // have bug，时序问题
-      addPendingAjax(config)
-      return config
-    },
-    error => { // 发送失败
-      return Promise.reject(error)
-    }
+  // 创建一个 axios 实例
+  const service = axios.create()
+  // 请求拦截
+  service.interceptors.request.use(
+    config => config,
+    // 发送失败
+    error => Promise.reject(error)
   )
   // 响应拦截（可根据具体业务作出相应的调整）
   service.interceptors.response.use(
     response => {
-      removePendingAjax(response.config)
-      const apiData = response.data as any // apiData 是 api 返回的数据中
-      const code = apiData.code // 这个 code 是和后端约定的
-      if (code === undefined) { // 如果没有 code, 代表这不是项目后端开发的 api
+      // apiData 是 api 返回的数据
+      const apiData = response.data as any
+      // 这个 code 是和后端约定的业务 code
+      const code = apiData.code
+      // 如果没有 code, 代表这不是项目后端开发的 api
+      if (code === undefined) {
         ElMessage.error('非本系统的接口')
         return Promise.reject(new Error('非本系统的接口'))
       } else {
         switch (code) {
           case 0:
-            return apiData // code === 0 代表没有错误
+            // code === 0 代表没有错误
+            return apiData
           case 20000:
-            return apiData // code === 20000 代表没有错误
+            // code === 20000 代表没有错误
+            return apiData
           default:
-            ElMessage.error(apiData.msg || 'Error') // 不是正确的 code
+            // 不是正确的 code
+            ElMessage.error(apiData.msg || 'Error')
             return Promise.reject(new Error('Error'))
         }
       }
     },
     error => {
-      const config = error.config || {}
-      removePendingAjax(config)
-      // 类型是否为重复请求
-      // 取消请求会报错，但不应该返回给用户
-      let isDuplicatedType
-      try {
-        const errorType = (JSON.parse(error.message) || {}).type
-        isDuplicatedType = errorType === 'DUPLICATED_REQUEST'
-      } catch (error) {
-        isDuplicatedType = false
-      }
-      if (isDuplicatedType) return
-
+      // status 是 HTTP 状态码
       const status = get(error, 'response.status')
       switch (status) {
         case 400: error.message = '请求错误'; break
@@ -110,7 +69,8 @@ function createRequestFunction(service: AxiosInstance) {
     const configDefault = {
       headers: {
         // Authorization: 'Bearer ' + getToken(),
-        'X-Access-Token': getToken(), // mock 接口专用，开发时可自行修改
+        // mock 接口专用，开发时可自行修改
+        'X-Access-Token': getToken(),
         'Content-Type': get(config, 'headers.Content-Type', 'application/json')
       },
       timeout: 5000,
