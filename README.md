@@ -6,6 +6,8 @@
 
 一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli
 
+- 桌面端: [v3-admin-electron](https://github.com/un-pany/v3-admin-electron)
+
 ## 📚 文档
 
 [简体中文](https://juejin.cn/post/6963876125428678693) | [English Docs](./README.en.md)
