@@ -1,5 +1,5 @@
 <template>
-  <el-dropdown trigger="click">
+  <el-dropdown trigger="click" @command="handleSetTheme">
     <svg-icon name="theme" font-size="20px" />
     <template #dropdown>
       <el-dropdown-menu>
@@ -7,7 +7,7 @@
           v-for="(theme, index) in themeList"
           :key="index"
           :disabled="activeThemeName === theme.name"
-          @click="handleSetTheme(theme.name)"
+          :command="theme.name"
         >
           <span>{{ theme.title }}</span>
         </el-dropdown-item>
