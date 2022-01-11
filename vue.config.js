@@ -1,7 +1,6 @@
 /* 配置文件 */
 const path = require('path')
 const WebpackBar = require('webpackbar')
-const CompressionWebpackPlugin = require('compression-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 const {
@@ -38,15 +37,7 @@ module.exports = {
       config.plugins = [
         new WebpackBar({
           name: title
-        }),
-        // gzip
-        // new CompressionWebpackPlugin({
-        //   filename: '[path][base].gz',
-        //   test: /\.(js|css)?$/i,
-        //   threshold: 10240,
-        //   minRatio: 0.8,
-        //   deleteOriginalAssets: true
-        // })
+        })
       ],
       // 生产环境清除 console.log
       config.optimization = {
