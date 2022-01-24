@@ -20,6 +20,7 @@ module.exports = {
   lintOnSave,
   productionSourceMap,
   devServer,
+  transpileDependencies: ['element-plus'], // 解决 "element-plus": "1.3.0-beta.7" 可选链语法报错
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
