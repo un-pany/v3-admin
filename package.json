@@ -1,6 +1,6 @@
 {
   "name": "v3-admin",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "homepage": "https://github.com/un-pany/v3-admin",
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -15,7 +15,7 @@
     "@mitojs/vue": "^3.0.1",
     "axios": "^0.24.0",
     "dayjs": "^1.10.7",
-    "element-plus": "^2.0.1",
+    "element-plus": "^2.0.2",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
@@ -23,7 +23,7 @@
     "path-to-regexp": "^6.2.0",
     "screenfull": "^5.2.0",
     "terser-webpack-plugin": "^4.2.3",
-    "vue": "^3.2.30",
+    "vue": "^3.2.31",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
   },
@@ -39,7 +39,6 @@
     "@vue/cli-plugin-typescript": "^4.5.15",
     "@vue/cli-plugin-vuex": "^4.5.15",
     "@vue/cli-service": "^4.5.15",
-    "@vue/compiler-sfc": "^3.2.30",
     "@vue/eslint-config-standard": "^6.1.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "babel-loader": "^8.2.3",
