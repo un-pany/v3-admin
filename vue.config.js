@@ -3,42 +3,51 @@ const path = require('path')
 const WebpackBar = require('webpackbar')
 const TerserPlugin = require('terser-webpack-plugin')
 
-const {
-  publicPath,
-  assetsDir,
-  outputDir,
-  lintOnSave,
-  productionSourceMap,
-  title,
-  devServer
-} = require('./src/config/vue.custom.config.ts')
-
 module.exports = {
-  publicPath,
-  outputDir,
-  assetsDir,
-  lintOnSave,
-  productionSourceMap,
-  devServer,
-  pluginOptions: {
-    'style-resources-loader': {
-      preProcessor: 'scss',
-      patterns: [
-        path.resolve(__dirname, 'src/styles/variables.scss'),
-        path.resolve(__dirname, 'src/styles/mixins.scss'),
-      ]
+  publicPath: './',
+  outputDir: 'dist',
+  assetsDir: 'static',
+  lintOnSave: true, // 是否开启 eslint 自动校验
+  productionSourceMap: false, // 不输出 map 文件，以加速生产环境构建
+  devServer: {
+    devMiddleware: {
+      publicPath: '/',
+    },
+    hot: true,
+    port: '9999',
+    client: {
+      overlay: {
+        warnings: false,
+        errors: true
+      }
     }
+    // proxy: { // 反向代理
+    //   '/mock-api/': {
+    //     target: 'https://vue-typescript-admin-mock-server-armour.vercel.app/mock-api',
+    //     ws: true,
+    //     pathRewrite: {
+    //       '^/mock-api/': ''
+    //     },
+    //     changeOrigin: true,
+    //     secure: false
+    //   }
+    // }
   },
   configureWebpack: () => {
     const config = {
-      name: title // 可以在 index.html 中被访问，用来注入页面标题
-    }
+      name: 'v3-admin', // webpack 配置的项目名称, 可以在 index.html 中被访问，用来注入页面标题
+      resolve: {
+        fallback: {
+          path: require.resolve('path-browserify')
+        }
+      }
+    };
     if (process.env.NODE_ENV === 'production') {
       config.plugins = [
         new WebpackBar({
-          name: title
+          name: 'v3-admin' // webpack 配置的项目名称
         })
-      ],
+      ]
       // 生产环境清除 console.log
       config.optimization = {
         minimizer: [
@@ -77,8 +86,8 @@ module.exports = {
       .add(dir)
       .end()
       .use('svg-sprite-loader')
-      .loader('svg-sprite-loader').
-      options({ extract: false })
+      .loader('svg-sprite-loader')
+      .options({ extract: false })
       .end()
     config.plugin('svg-sprite')
       .use(require('svg-sprite-loader/plugin')), [{ pluginSprite: true }]

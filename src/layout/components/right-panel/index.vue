@@ -3,7 +3,7 @@
 <template>
   <div
     class="handle-button"
-    :style="{top: buttonTop + 'px', backgroundColor: variables.menuBg}"
+    :style="{top: buttonTop + 'px'}"
     @click="show = true"
   >
     <el-icon :size="24">
@@ -17,7 +17,6 @@
 
 <script lang="ts" setup>
 import { defineProps, ref } from 'vue'
-import variables from '@/styles/variables.scss'
 import { Setting } from '@element-plus/icons-vue'
 
 defineProps({
@@ -34,6 +33,7 @@ const show = ref(false)
 .handle-button {
   width: 48px;
   height: 48px;
+  background-color: #152d3d;
   position: absolute;
   right: 0px;
   text-align: center;

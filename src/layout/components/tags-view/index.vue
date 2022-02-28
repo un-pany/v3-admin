@@ -273,9 +273,9 @@ onBeforeMount(() => {
       }
 
       &.active {
-        background-color: $activeTagBg;
+        background-color: #42b983;
         color: #fff;
-        border-color: $activeTagBg;
+        border-color: #42b983;
 
         &::before {
           content: "";

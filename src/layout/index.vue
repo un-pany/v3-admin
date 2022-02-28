@@ -68,6 +68,9 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
+@import "@/styles/mixins.scss";
+$sideBarWidth: 240px;
+
 .app-wrapper {
   @include clearfix;
   position: relative;

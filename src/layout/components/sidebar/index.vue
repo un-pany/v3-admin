@@ -6,9 +6,9 @@
         :collapse="isCollapse"
         :unique-opened="true"
         :default-active="activeMenu"
-        :background-color="variables.menuBg"
-        :text-color="variables.menuText"
-        :active-text-color="variables.menuActiveText"
+        background-color="#152d3d"
+        text-color="rgb(167, 177, 194)"
+        active-text-color="#fff"
         mode="vertical"
       >
         <SidebarItem
@@ -27,7 +27,6 @@
 import { computed } from 'vue'
 import SidebarItem from './sidebar-item.vue'
 import SidebarLogo from './sidebar-logo.vue'
-import variables from '@/styles/variables.scss'
 import { store } from '@/store'
 import { useRoute } from 'vue-router'
 
