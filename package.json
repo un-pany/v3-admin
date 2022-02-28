@@ -1,6 +1,6 @@
 {
   "name": "v3-admin",
-  "version": "3.0.0-rc.2",
+  "version": "3.0.0",
   "homepage": "https://github.com/un-pany/v3-admin",
   "scripts": {
     "dev": "vue-cli-service serve",
