@@ -17,7 +17,6 @@
       "node",
       "webpack-env",
       "element-plus/global", // Element-Plus 的 Volar 支持
-      // "jest"
     ],
     "paths": {
       "@/*": [
@@ -34,9 +33,7 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
-    // "tests/**/*.ts",
-    // "tests/**/*.tsx"
+    "src/**/*.vue"
   ],
   "exclude": [
     "node_modules"

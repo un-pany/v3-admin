@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 const Layout = () => import('@/layout/index.vue')
 
-// 常驻路由
+/** 常驻路由 */
 export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/redirect',
@@ -53,7 +53,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   }
 ]
 
-// 动态路由
+/** 动态路由 */
 export const asyncRoutes: Array<RouteRecordRaw> = [
   {
     path: '/permission',
@@ -86,8 +86,8 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
       }
     ]
   },
-  { // 必须将 'Error' 路由放在最后 Must put the 'Error' route at the end
-    path: '/:pathMatch(.*)*',
+  {
+    path: '/:pathMatch(.*)*', // 必须将 'Error' 路由放在最后, Must put the 'Error' route at the end.
     component: Layout,
     name: 'Error',
     redirect: '/404',
@@ -122,8 +122,8 @@ const router = createRouter({
   routes: constantRoutes
 })
 
+/** 重置路由 */
 export function resetRouter() {
-  // 重置路由
   // 注意：所有动态路由路由必须带有 name 属性，否则可能会不能完全重置干净
   try {
     router.getRoutes().forEach((route) => {

@@ -1,7 +1,9 @@
-<!-- 侧边栏item -->
-
+<!-- 侧边栏 Item -->
 <template>
-  <div v-if="!item.meta || !item.meta.hidden" :class="{'simple-mode': isCollapse, 'first-level': isFirstLevel}">
+  <div
+    v-if="!item.meta || !item.meta.hidden"
+    :class="{'simple-mode': isCollapse, 'first-level': isFirstLevel}"
+  >
     <template v-if="!alwaysShowRootMenu && theOnlyOneChild && !theOnlyOneChild.children">
       <SidebarItemLink v-if="theOnlyOneChild.meta" :to="resolvePath(theOnlyOneChild.path)">
         <el-menu-item :index="resolvePath(theOnlyOneChild.path)">

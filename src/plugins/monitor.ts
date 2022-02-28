@@ -1,8 +1,7 @@
-/* 监控插件 */
-
 import { init } from '@mitojs/browser'
 import { vuePlugin } from '@mitojs/vue'
 
+/** 监控插件 */
 export default function loadComponent(app: any) {
   const MitoInstance = init(
     {

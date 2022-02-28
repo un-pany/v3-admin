@@ -5,7 +5,7 @@ interface IUserRequestData {
   password: string
 }
 
-// 登录以后返回 token
+/** 登录，返回 token */
 export function accountLogin(data: IUserRequestData) {
   return request({
     url: 'users/login',
@@ -13,7 +13,7 @@ export function accountLogin(data: IUserRequestData) {
     data
   })
 }
-// 获取用户详情
+/** 获取用户详情 */
 export function userInfoRequest() {
   return request({
     url: 'users/info',

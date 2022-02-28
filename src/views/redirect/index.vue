@@ -1,5 +1,4 @@
 <!-- 重定向 -->
-
 <template>
   <div />
 </template>

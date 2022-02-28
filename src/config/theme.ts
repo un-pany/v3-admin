@@ -1,5 +1,4 @@
-/* 注册的主题 */
-
+/** 注册的主题 */
 const themeList = [
   {
     title: '默认',

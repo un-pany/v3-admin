@@ -1,4 +1,4 @@
-// cookies封装
+/** cookies 封装 */
 
 import Keys from '@/constant/key'
 import Cookies from 'js-cookie'

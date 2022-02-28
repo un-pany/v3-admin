@@ -1,5 +1,4 @@
 <!-- 面包屑组件 -->
-
 <template>
   <el-breadcrumb class="app-breadcrumb">
     <transition-group name="breadcrumb">
@@ -81,7 +80,6 @@ onBeforeMount(() => {
   font-size: 14px;
   line-height: 50px;
   margin-left: 8px;
-
   .no-redirect {
     color: #97a8be;
     cursor: text;

@@ -1,8 +1,7 @@
-/* 权限指令 */
-
 import { store } from '@/store'
 import { Directive } from 'vue'
 
+/** 权限指令 */
 export const permission: Directive = {
   mounted(el, binding) {
     const { value } = binding

@@ -61,20 +61,16 @@ const isCollapse = computed(() => {
     transition: 0s width ease-in-out, 0s padding-left ease-in-out,
       0s padding-right ease-in-out;
   }
-
   .scrollbar-wrapper {
     overflow-x: hidden !important;
   }
-
   .el-scrollbar__view {
     height: 100%;
   }
-
   .el-scrollbar__bar {
     &.is-vertical {
       right: 0;
     }
-
     &.is-horizontal {
       display: none;
     }

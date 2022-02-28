@@ -1,5 +1,4 @@
 <!-- 指令权限、权限判断函数的使用 -->
-
 <template>
   <div class="app-container">
     <SwitchRoles @change="state.handleRolesChange" />

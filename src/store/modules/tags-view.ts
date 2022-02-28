@@ -15,7 +15,7 @@ const state: ITagsViewState = {
 
 const mutations = {
   ADD_VISITED_VIEW: (state: ITagsViewState, view: ITagView) => {
-    if (state.visitedViews.some(v => v.path === view.path)) return
+    if (state.visitedViews.some((v) => v.path === view.path)) return
     state.visitedViews.push(
       Object.assign({}, view, {
         title: view.meta?.title || 'no-name'
@@ -31,13 +31,13 @@ const mutations = {
     }
   },
   DEL_OTHERS_VISITED_VIEWS: (state: ITagsViewState, view: ITagView) => {
-    state.visitedViews = state.visitedViews.filter(v => {
+    state.visitedViews = state.visitedViews.filter((v) => {
       return v.meta?.affix || v.path === view.path
     })
   },
   DEL_ALL_VISITED_VIEWS: (state: ITagsViewState) => {
     // keep affix tags
-    const affixTags = state.visitedViews.filter(tag => tag.meta?.affix)
+    const affixTags = state.visitedViews.filter((tag) => tag.meta?.affix)
     state.visitedViews = affixTags
   },
   UPDATE_VISITED_VIEW: (state: ITagsViewState, view: ITagView) => {

@@ -1,5 +1,4 @@
-<!-- 侧边栏logo(需要跟随侧边栏折叠) -->
-
+<!-- 侧边栏 logo（需要跟随侧边栏折叠） -->
 <template>
   <div class="sidebar-logo-container" :class="{collapse: collapse}">
     <transition name="sidebarLogoFade">
@@ -43,20 +42,16 @@ defineProps({
   background: #0c202b;
   text-align: center;
   overflow: hidden;
-
   .sidebar-logo {
     display: none;
   }
-
   & .sidebar-logo-link {
     height: 100%;
     width: 100%;
-
     & .sidebar-logo-text {
       width: 205px;
       vertical-align: middle;
     }
-
     & .sidebar-title {
       display: inline-block;
       margin: 0;
@@ -68,7 +63,6 @@ defineProps({
       vertical-align: middle;
     }
   }
-
   &.collapse {
     .sidebar-logo {
       width: 32px;

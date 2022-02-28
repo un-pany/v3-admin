@@ -111,7 +111,7 @@ const loginRules = reactive({
 })
 const loading = ref<boolean>(false)
 const passwordType = ref<string>('password')
-// 方法
+// methods
 const showPwd: () => void = () => {
   if (passwordType.value === 'password') {
     passwordType.value = ''
@@ -140,7 +140,7 @@ const handleLogin: () => void | boolean = () => {
     }
   })
 }
-// 创建验证码
+/** 创建验证码 */
 const createCode: () => void = () => {
   // 先清空验证码的输入
   let code = ''
@@ -153,8 +153,10 @@ const createCode: () => void = () => {
     code += random[index]
   }
   loginForm.checkCode = code
-  src.value = `/api/v1/login/authcode?token=${code}` // 实际开放中，可替换成自己的地址，模板只是提供一个参考
+  // 实际开发中，可替换成自己的地址，这里只是提供一个参考
+  src.value = `/api/v1/login/authcode?token=${code}`
 }
+// 需要验证码的时候，需打开下方注释
 // createCode()
 </script>
 
@@ -223,7 +225,7 @@ const createCode: () => void = () => {
 </style>
 
 <style lang="scss">
-/* 修复input 背景不协调 和光标变色 */
+// 修复 input 背景不协调和光标变色
 $bg: #fff;
 $light_gray: #666;
 $cursor: #666;
@@ -233,7 +235,7 @@ $cursor: #666;
     color: $cursor;
   }
 }
-/* 重置当前页面的 element-plus css，注意，虽然没有加 scoped 标识，但是被该页面的 login-container 类名包裹，所以不会影响其他页面 */
+// 重置当前页面的 element-plus css，注意，虽然没有加 scoped 标识，但是被该页面的 login-container 类名包裹，所以不会影响其他页面
 .login-container {
   .el-input {
     display: inline-block;
@@ -248,7 +250,6 @@ $cursor: #666;
       color: $light_gray;
       height: 47px;
       caret-color: $cursor;
-
       &:-webkit-autofill {
         box-shadow: 0 0 0px 1000px $bg inset !important;
         -webkit-text-fill-color: $cursor !important;

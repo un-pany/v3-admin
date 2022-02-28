@@ -1,5 +1,4 @@
 <!-- 主视图 -->
-
 <template>
   <section class="app-main">
     <router-view v-slot="{Component}">

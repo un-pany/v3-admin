@@ -1,5 +1,4 @@
 <!-- 页面权限测试页 -->
-
 <template>
   <div class="app-container">
     <SwitchRoles @change="handleRolesChange" />

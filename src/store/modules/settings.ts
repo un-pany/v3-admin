@@ -19,7 +19,10 @@ const state: ISettingsState = {
 }
 
 const mutations = {
-  CHANGE_SETTING: (state: ISettingsState, payload: { key: string, value: any }) => {
+  CHANGE_SETTING: (
+    state: ISettingsState,
+    payload: { key: string, value: any }
+  ) => {
     const { key, value } = payload
     switch (key) {
       case 'fixedHeader':

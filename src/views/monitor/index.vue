@@ -1,5 +1,4 @@
 <!-- 前端监控测试页 -->
-
 <template>
   <div class="app-container monitor">
     <el-card shadow="never">

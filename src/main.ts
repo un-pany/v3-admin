@@ -12,10 +12,10 @@ import loadSvg from '@/icons'
 const app = createApp(App)
 // 加载所有插件
 loadAllPlugins(app)
-// 加载全局SVG
+// 加载全局 SVG
 loadSvg(app)
 // 自定义指令
-Object.keys(directives).forEach(key => {
+Object.keys(directives).forEach((key) => {
   app.directive(key, (directives as { [key: string]: Directive })[key])
 })
 

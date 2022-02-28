@@ -1,7 +1,6 @@
-/* 加载插件文件 */
-
 import { createApp } from 'vue'
 
+/** 加载插件文件 */
 export function loadAllPlugins(app: ReturnType<typeof createApp>) {
   const files = require['context']('.', true, /\.ts$/)
   files.keys().forEach((key: any) => {

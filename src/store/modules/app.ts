@@ -1,4 +1,9 @@
-import { getSidebarStatus, getActiveThemeName, setSidebarStatus, setActiveThemeName } from '@/utils/cookies'
+import {
+  getSidebarStatus,
+  getActiveThemeName,
+  setSidebarStatus,
+  setActiveThemeName
+} from '@/utils/cookies'
 import themeList from '@/config/theme'
 
 export enum DeviceType {
@@ -12,7 +17,9 @@ export interface IAppState {
     opened: boolean
     withoutAnimation: boolean
   }
+  /** 主题列表 */
   themeList: { title: string, name: string }[]
+  /** 正在应用的主题的名字 */
   activeThemeName: string
 }
 
@@ -22,11 +29,12 @@ const state: IAppState = {
     opened: getSidebarStatus() !== 'closed',
     withoutAnimation: false
   },
-  themeList: themeList, // 主题列表
-  activeThemeName: getActiveThemeName() || 'normal' // 正在应用的主题的名字
+  themeList: themeList,
+  activeThemeName: getActiveThemeName() || 'normal'
 }
 
-document.body.className = `theme-${state.activeThemeName}` // 初始化
+// 初始化
+document.body.className = `theme-${state.activeThemeName}`
 
 const mutations = {
   TOGGLE_SIDEBAR: (state: IAppState, withoutAnimation: boolean) => {
@@ -48,7 +56,11 @@ const mutations = {
   },
   SET_THEME: (state: IAppState, activeThemeName: string) => {
     // 检查这个主题在主题列表里是否存在
-    state.activeThemeName = state.themeList.find(theme => theme.name === activeThemeName) ? activeThemeName : state.themeList[0].name
+    state.activeThemeName = state.themeList.find(
+      (theme) => theme.name === activeThemeName
+    )
+      ? activeThemeName
+      : state.themeList[0].name
     // 应用到 dom
     document.body.className = `theme-${state.activeThemeName}`
     // 持久化

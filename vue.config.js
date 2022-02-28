@@ -1,4 +1,3 @@
-/* 配置文件 */
 const path = require('path')
 const WebpackBar = require('webpackbar')
 const TerserPlugin = require('terser-webpack-plugin')
@@ -7,8 +6,10 @@ module.exports = {
   publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
-  lintOnSave: true, // 是否开启 eslint 自动校验
-  productionSourceMap: false, // 不输出 map 文件，以加速生产环境构建
+  // 是否开启 eslint 自动校验
+  lintOnSave: true,
+  // 不输出 map 文件，以加速生产环境构建
+  productionSourceMap: false,
   devServer: {
     devMiddleware: {
       publicPath: '/',
@@ -21,7 +22,8 @@ module.exports = {
         errors: true
       }
     }
-    // proxy: { // 反向代理
+    // 反向代理
+    // proxy: {
     //   '/mock-api/': {
     //     target: 'https://vue-typescript-admin-mock-server-armour.vercel.app/mock-api',
     //     ws: true,
@@ -35,9 +37,11 @@ module.exports = {
   },
   configureWebpack: () => {
     const config = {
-      name: 'v3-admin', // webpack 配置的项目名称, 可以在 index.html 中被访问，用来注入页面标题
+      // webpack 配置的项目名称, 可以在 index.html 中被访问，用来注入页面标题
+      name: 'v3-admin',
       resolve: {
         fallback: {
+          // 默认情况下，Webpack5 不再包含用于 Node.js 模块的 polyfills，所以引入 path-browserify
           path: require.resolve('path-browserify')
         }
       }
@@ -45,7 +49,8 @@ module.exports = {
     if (process.env.NODE_ENV === 'production') {
       config.plugins = [
         new WebpackBar({
-          name: 'v3-admin' // webpack 配置的项目名称
+          // webpack 配置的项目名称
+          name: 'v3-admin'
         })
       ]
       // 生产环境清除 console.log
@@ -58,10 +63,12 @@ module.exports = {
                 warnings: false,
                 drop_console: false,
                 drop_debugger: false,
-                pure_funcs: ['console.log'] // 清除 console.log
+                // 清除 console.log
+                pure_funcs: ['console.log']
               },
               output: {
-                comments: false // 删除注释
+                // 删除注释
+                comments: false
               }
             }
           })
@@ -90,8 +97,12 @@ module.exports = {
       .options({ extract: false })
       .end()
     config.plugin('svg-sprite')
-      .use(require('svg-sprite-loader/plugin')), [{ pluginSprite: true }]
-    config.module.rule('svg').exclude.add(dir)
+      .use(require('svg-sprite-loader/plugin')),
+      [{ pluginSprite: true }]
+    config.module
+      .rule('svg')
+      .exclude
+      .add(dir)
     // 将运行代码单独生成文件
     if (process.env.NODE_ENV !== 'development') {
       config.optimization.runtimeChunk('single')

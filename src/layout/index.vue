@@ -1,5 +1,4 @@
 <!-- 布局入口 -->
-
 <template>
   <div :class="classObj" class="app-wrapper">
     <div
@@ -120,32 +119,27 @@ $sideBarWidth: 240px;
   .main-container {
     margin-left: 54px;
   }
-
   .sidebar-container {
     width: 54px !important;
   }
-
   .fixed-header {
     width: calc(100% - 54px);
   }
 }
 
-/* for mobile response 适配移动端 */
+// for mobile response 适配移动端
 .mobile {
   .main-container {
     margin-left: 0;
   }
-
   .sidebar-container {
     transition: transform 0.28s;
     width: $sideBarWidth !important;
   }
-
   &.openSidebar {
     position: fixed;
     top: 0;
   }
-
   &.hideSidebar {
     .sidebar-container {
       pointer-events: none;

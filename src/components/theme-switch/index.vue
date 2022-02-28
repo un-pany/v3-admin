@@ -29,5 +29,4 @@ const activeThemeName = computed(() => {
 const handleSetTheme = (name: string) => {
   store.commit('app/SET_THEME', name)
 }
-
 </script>

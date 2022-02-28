@@ -8,7 +8,7 @@ export interface IPermissionState {
 
 const hasPermission = (roles: string[], route: RouteRecordRaw) => {
   if (route.meta && route.meta.roles) {
-    return roles.some(role => {
+    return roles.some((role) => {
       if (route.meta?.roles !== undefined) {
         return route.meta.roles.includes(role)
       } else {
@@ -22,7 +22,7 @@ const hasPermission = (roles: string[], route: RouteRecordRaw) => {
 
 const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[]) => {
   const res: RouteRecordRaw[] = []
-  routes.forEach(route => {
+  routes.forEach((route) => {
     const r = { ...route }
     if (hasPermission(roles, r)) {
       if (r.children) {

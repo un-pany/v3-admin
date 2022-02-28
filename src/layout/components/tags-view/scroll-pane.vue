@@ -4,9 +4,6 @@
   </el-scrollbar>
 </template>
 
-<script lang="ts" setup>
-</script>
-
 <style lang="scss" scoped>
 .scroll-container {
   // 超出窗口长度时，显示滚动条

@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 
-// 格式化时间
+/** 格式化时间 */
 export const formatDateTime = (time: any) => {
   if (time == null || time === '') {
     return 'N/A'
