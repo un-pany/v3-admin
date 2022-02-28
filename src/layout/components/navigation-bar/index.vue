@@ -4,8 +4,8 @@
     <Hamburger :is-active="sidebar.opened" class="hamburger" @toggle-click="state.toggleSideBar" />
     <BreadCrumb class="breadcrumb" />
     <div class="right-menu">
-      <Screenfull class="right-menu-item" v-if="showScreenfull" />
-      <ThemeSwitch class="right-menu-item" v-if="showThemeSwitch" />
+      <Screenfull v-if="showScreenfull" class="right-menu-item" />
+      <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" />
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
           <img src="@/assets/layout/avatar.gif" class="user-avatar">

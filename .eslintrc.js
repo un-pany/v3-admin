@@ -1,16 +1,21 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    browser: true,
+    node: true,
+    es6: true
+  },
+  parserOptions: {
+    parser: '@typescript-eslint/parser',
+    ecmaVersion: 2020
   },
   extends: [
+    'plugin:vue/vue3-recommended',
     'plugin:vue/vue3-strongly-recommended',
+    'plugin:@typescript-eslint/recommended',
     '@vue/standard',
     '@vue/typescript/recommended'
   ],
-  parserOptions: {
-    ecmaVersion: 2020
-  },
   rules: {
     'vue/comment-directive': 'off',
     'no-console': 'off',
@@ -55,15 +60,4 @@ module.exports = {
     'vue/custom-event-name-casing': 'off',
     'dot-notation': 'off'
   }
-  // overrides: [
-  //   {
-  //     files: [
-  //       '**/__tests__/*.{j,t}s?(x)',
-  //       '**/tests/unit/**/*.spec.{j,t}s?(x)'
-  //     ],
-  //     env: {
-  //       jest: true
-  //     }
-  //   }
-  // ]
 }

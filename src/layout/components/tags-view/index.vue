@@ -14,8 +14,8 @@
       >
         {{ tag.meta?.title }}
         <el-icon
-          :size="12"
           v-if="!state.isAffix(tag)"
+          :size="12"
           @click.prevent.stop="state.closeSelectedTag(tag)"
         >
           <Close />

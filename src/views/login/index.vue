@@ -10,61 +10,46 @@
           ref="loginFormDom"
           :model="loginForm"
           :rules="loginRules"
-          auto-complete="on"
-          label-position="left"
           @keyup.enter="handleLogin"
         >
           <el-form-item prop="username">
-            <span class="svg-container">
-              <svg-icon name="user" />
-            </span>
             <el-input
-              ref="userNameDom"
               v-model="loginForm.username"
-              placeholder="用户名"
               name="username"
+              placeholder="用户名"
               type="text"
               tabindex="1"
-              auto-complete="off"
+              :prefix-icon="User"
+              size="large"
             />
           </el-form-item>
           <el-form-item prop="password">
-            <span class="svg-container">
-              <svg-icon name="password" />
-            </span>
             <el-input
-              :key="passwordType"
-              ref="passwordDom"
               v-model="loginForm.password"
-              :type="passwordType"
-              placeholder="密码"
               name="password"
+              placeholder="密码"
+              type="password"
               tabindex="2"
-              auto-complete="off"
+              :prefix-icon="Lock"
+              size="large"
             />
-            <span class="show-pwd" @click="showPwd">
-              <svg-icon :name="passwordType === 'password' ? 'eye' : 'eye-open'" />
-            </span>
           </el-form-item>
           <el-form-item prop="code">
-            <span class="svg-container">
-              <svg-icon name="table" />
-            </span>
             <el-input
-              ref="codeDom"
               v-model="loginForm.code"
-              placeholder="验证码"
               name="code"
+              placeholder="验证码"
               type="text"
               tabindex="3"
-              auto-complete="off"
+              :prefix-icon="Key"
+              size="large"
             />
             <span class="show-code">
-              <img :src="src" alt="验证码" @click="createCode">
+              <img :src="codeUrl" @click="createCode">
             </span>
           </el-form-item>
-          <el-button :loading="loading" type="primary" @click.prevent="handleLogin">
-            登录
+          <el-button :loading="loading" type="primary" round size="large" @click.prevent="handleLogin">
+            登 录
           </el-button>
         </el-form>
       </div>
@@ -76,26 +61,29 @@
 import { reactive, ref } from 'vue'
 import { store } from '@/store'
 import { useRouter } from 'vue-router'
+import { User, Lock, Key } from '@element-plus/icons-vue'
 
 interface ILoginForm {
+  /** admin 或 editor */
   username: string
+  /** 密码 */
   password: string
+  /** 验证码 */
   code: string
-  checkCode: string
+  /** 随机数 */
+  codeToken: string
 }
 
-// hooks
 const router = useRouter()
-// dom
+
+const loading = ref<boolean>(false)
 const loginFormDom = ref<any>()
-const passwordDom = ref<any>()
-// data
-const src = ref<string>('')
+const codeUrl = ref<string>('')
 const loginForm = reactive<ILoginForm>({
-  username: 'admin', // admin 或 editor
+  username: 'admin',
   password: '123456',
   code: '1234',
-  checkCode: ''
+  codeToken: ''
 })
 const loginRules = reactive({
   username: [
@@ -109,18 +97,8 @@ const loginRules = reactive({
     { required: true, message: '请输入验证码', trigger: 'blur' }
   ]
 })
-const loading = ref<boolean>(false)
-const passwordType = ref<string>('password')
-// methods
-const showPwd: () => void = () => {
-  if (passwordType.value === 'password') {
-    passwordType.value = ''
-  } else {
-    passwordType.value = 'password'
-  }
-}
-const handleLogin: () => void | boolean = () => {
-  loginFormDom.value.validate(async(valid: boolean) => {
+const handleLogin = () => {
+  loginFormDom.value.validate((valid: boolean) => {
     if (valid) {
       loading.value = true
       store.dispatch('user/login', {
@@ -143,18 +121,18 @@ const handleLogin: () => void | boolean = () => {
 /** 创建验证码 */
 const createCode: () => void = () => {
   // 先清空验证码的输入
-  let code = ''
   loginForm.code = ''
+  let codeToken = ''
   const codeLength = 12
   // 随机数
   const random: Array<number | string> = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
   for (let i = 0; i < codeLength; i++) {
     const index = Math.floor(Math.random() * 36)
-    code += random[index]
+    codeToken += random[index]
   }
-  loginForm.checkCode = code
+  loginForm.codeToken = codeToken
   // 实际开发中，可替换成自己的地址，这里只是提供一个参考
-  src.value = `/api/v1/login/authcode?token=${code}`
+  codeUrl.value = `/api/v1/login/authcode?token=${codeToken}`
 }
 // 需要验证码的时候，需打开下方注释
 // createCode()
@@ -162,108 +140,48 @@ const createCode: () => void = () => {
 
 <style lang="scss" scoped>
 .login-container {
-  min-height: 100%;
-  width: 100%;
-  background: url("../../assets/login/bg.png") center/cover no-repeat;
-  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  min-height: 100%;
+  background: url("../../assets/login/bg.png") center/cover no-repeat;
   .login-card {
     overflow: hidden;
-    width: 600px;
+    width: 450px;
     border-radius: 20px;
     box-shadow: 0px 0px 10px #000;
     .title {
-      height: 150px;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #fff;
+      height: 120px;
       font-size: 26px;
+      color: #fff;
       img {
         height: 100%;
       }
     }
     .content {
       background-color: #fff;
-      padding: 60px;
-      .svg-container {
-        padding: 6px 5px 6px 15px;
-        color: #889aa4;
-        vertical-align: middle;
-        width: 30px;
-        display: inline-block;
-      }
-      .show-pwd {
-        position: absolute;
-        right: 10px;
-        top: 7px;
-        font-size: 16px;
-        color: #889aa4;
-        cursor: pointer;
-        user-select: none;
-      }
+      padding: 45px;
       .show-code {
         position: absolute;
         right: 0px;
         top: 0px;
-        font-size: 16px;
-        color: #889aa4;
         cursor: pointer;
         user-select: none;
         img {
           width: 100px;
-          height: 52px;
-          background: #f4def6;
+          height: 40px;
           border-radius: 4px;
         }
       }
-    }
-  }
-}
-</style>
-
-<style lang="scss">
-// 修复 input 背景不协调和光标变色
-$bg: #fff;
-$light_gray: #666;
-$cursor: #666;
-
-@supports (-webkit-mask: none) and (not (cater-color: $cursor)) {
-  .login-container .el-input input {
-    color: $cursor;
-  }
-}
-// 重置当前页面的 element-plus css，注意，虽然没有加 scoped 标识，但是被该页面的 login-container 类名包裹，所以不会影响其他页面
-.login-container {
-  .el-input {
-    display: inline-block;
-    height: 47px;
-    width: 85%;
-    input {
-      background: transparent;
-      border: 0px;
-      -webkit-appearance: none;
-      border-radius: 0px;
-      padding: 12px 5px 12px 15px;
-      color: $light_gray;
-      height: 47px;
-      caret-color: $cursor;
-      &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px $bg inset !important;
-        -webkit-text-fill-color: $cursor !important;
+      .el-button {
+        width: 100%;
+        margin-top: 10px;
       }
     }
-  }
-  .el-form-item {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 1);
-    border-radius: 5px;
-  }
-  .el-button {
-    height: 52px;
-    width: 100%;
   }
 }
 </style>
