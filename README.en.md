@@ -1,8 +1,8 @@
-> Upgrading the plugin vetur to **volar** will better support vue3.2
+> Upgrading the plugin vetur to **volar** will better support vue3.2+
 
 # ⚡️ Introduction
 
-A basic solution for middle and background management system, based on vue3, typescript, element plus and Vue cli
+A basic solution for middle and background management system, based on vue3, typescript, element-plus and vue-cli 5.x
 
 ## Documentation
 
@@ -318,7 +318,7 @@ Concisely implement button level permission judgment (registered to the global a
 <el-tag v-permission="['admin','editor']">admin and editor are visible</el-tag>
 ```
 
-However, in some cases, `v-permission` is not suitable. For example: ` el-tab ` or `el-table-column`  of ` Element-UI`and other scenes that dynamically render `DOM`. You can only do this by manually setting `v-if`.
+However, in some cases, `v-permission` is not suitable. For example: ` el-tab ` or `el-table-column`  of ` Element`and other scenes that dynamically render `DOM`. You can only do this by manually setting `v-if`.
 
 At this time, you can use **permission judgment function**.
 
@@ -515,6 +515,7 @@ Change the value of `publicPath` in the ` @/config/vue.custom.config.ts` file fr
 - [vue-vben-admin](https://github.com/anncwb/vue-vben-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
 - [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
+- [vue3-antd-admin](https://github.com/buqiyuan/vue3-antd-admin)
 
 # 📄 License
 

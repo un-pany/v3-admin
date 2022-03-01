@@ -54,7 +54,7 @@
       <el-tag
         type="info"
       >
-        在某些情况下，不适合使用 v-permission。例如：Element-UI 的 el-tab 或 el-table-column 以及其它动态渲染 dom 的场景。你只能通过手动设置 v-if 来实现。
+        在某些情况下，不适合使用 v-permission。例如：Element 的 el-tab 或 el-table-column 以及其它动态渲染 dom 的场景。你只能通过手动设置 v-if 来实现。
       </el-tag>
 
       <el-tabs type="border-card" style="width: 550px; margin-top: 60px">

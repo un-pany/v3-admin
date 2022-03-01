@@ -2,7 +2,7 @@
 
 ## ⚡️ 简介
 
-一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli
+一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Vue-Cli 5.x
 
 - 桌面端: [v3-admin-electron](https://github.com/un-pany/v3-admin-electron)
 
@@ -152,6 +152,7 @@ yarn deploy
 - [vue-vben-admin](https://github.com/anncwb/vue-vben-admin)
 - [d2-admin](https://github.com/d2-projects/d2-admin)
 - [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
+- [vue3-antd-admin](https://github.com/buqiyuan/vue3-antd-admin)
 
 ## 交流（吹水）群
 
