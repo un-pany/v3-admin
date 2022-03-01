@@ -421,34 +421,24 @@ gitHooks is configured in `package. json`, and the code will be detected every t
 
 ## Cross origin
 
-Some built-in configuration items are stored in `@/config` folder, such as `white-list`(routing white list), `vue.custom.config` (vue.config file configuration), etc.
-
-Use `proxy` in `vue.custom.config` for reverse proxy.
+Use `proxy` in `vue.config` for reverse proxy.
 
 For the corresponding production environment, `nginx` can be used as the reverse proxy.
 
 ### Reverse proxy
 
 ```typescript
-const vueDefaultConfig = {
-  // ...other config
-  devServer: {
-    // ...other config
-    proxy: {
-      '/api/': {
-        target: 'http://xxxxxx/api/',
-        ws: true,
-        pathRewrite: {
-          '^/api/': ''
-        },
-        changeOrigin: true,
-        secure: false
-      }
-    }
+proxy: {
+  '/api/': {
+    target: 'http://xxxxxx/api/',
+    ws: true,
+    pathRewrite: {
+      '^/api/': ''
+    },
+    changeOrigin: true,
+    secure: false
   }
 }
-
-module.exports = vueDefaultConfig
 ```
 
 ### CORS
