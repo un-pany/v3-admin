@@ -61,7 +61,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     name: 'Permission',
     redirect: '/permission/page',
     meta: {
-      title: '权限测试页',
+      title: '权限管理',
       icon: 'lock',
       roles: ['admin', 'editor'], // 可以在根路由中设置角色
       alwaysShow: true // 将始终显示根菜单
@@ -92,7 +92,8 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     name: 'Error',
     redirect: '/404',
     meta: {
-      hidden: true
+      title: '错误页面',
+      icon: '404'
     },
     children: [
       {
@@ -100,8 +101,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue'),
         name: '401',
         meta: {
-          title: '401',
-          hidden: true
+          title: '401'
         }
       },
       {
@@ -109,8 +109,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         component: () => import(/* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue'),
         name: '404',
         meta: {
-          title: '404',
-          hidden: true
+          title: '404'
         }
       }
     ]

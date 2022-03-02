@@ -1,9 +1,9 @@
 <template>
   <div class="login-container">
+    <ThemeSwitch class="theme-switch" />
     <div class="login-card">
       <div class="title">
-        <!-- <h3>V3 - Admin</h3> -->
-        <img src="@/assets/layout/logo-text.png">
+        <img src="@/assets/layout/logo-text-2.png">
       </div>
       <div class="content">
         <el-form
@@ -15,7 +15,6 @@
           <el-form-item prop="username">
             <el-input
               v-model="loginForm.username"
-              name="username"
               placeholder="用户名"
               type="text"
               tabindex="1"
@@ -26,7 +25,6 @@
           <el-form-item prop="password">
             <el-input
               v-model="loginForm.password"
-              name="password"
               placeholder="密码"
               type="password"
               tabindex="2"
@@ -37,18 +35,18 @@
           <el-form-item prop="code">
             <el-input
               v-model="loginForm.code"
-              name="code"
               placeholder="验证码"
               type="text"
               tabindex="3"
               :prefix-icon="Key"
+              maxlength="4"
               size="large"
             />
             <span class="show-code">
               <img :src="codeUrl" @click="createCode">
             </span>
           </el-form-item>
-          <el-button :loading="loading" type="primary" round size="large" @click.prevent="handleLogin">
+          <el-button :loading="loading" type="primary" size="large" @click.prevent="handleLogin">
             登 录
           </el-button>
         </el-form>
@@ -62,6 +60,7 @@ import { reactive, ref } from 'vue'
 import { store } from '@/store'
 import { useRouter } from 'vue-router'
 import { User, Lock, Key } from '@element-plus/icons-vue'
+import ThemeSwitch from '@/components/theme-switch/index.vue'
 
 interface ILoginForm {
   /** admin 或 editor */
@@ -145,26 +144,29 @@ const createCode: () => void = () => {
   align-items: center;
   width: 100%;
   min-height: 100%;
-  background: url("../../assets/login/bg.png") center/cover no-repeat;
+  .theme-switch {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    cursor: pointer;
+  }
   .login-card {
-    overflow: hidden;
-    width: 450px;
+    width: 480px;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px #000;
+    box-shadow: 0 0 10px #dcdfe6;
+    background-color: #fff;
+    overflow: hidden;
     .title {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 120px;
-      font-size: 26px;
-      color: #fff;
+      height: 150px;
       img {
         height: 100%;
       }
     }
     .content {
-      background-color: #fff;
-      padding: 45px;
+      padding: 20px 50px 50px 50px;
       .show-code {
         position: absolute;
         right: 0px;

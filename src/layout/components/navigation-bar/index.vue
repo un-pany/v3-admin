@@ -6,10 +6,8 @@
     <div class="right-menu">
       <Screenfull v-if="showScreenfull" class="right-menu-item" />
       <ThemeSwitch v-if="showThemeSwitch" class="right-menu-item" />
-      <el-dropdown class="avatar-container right-menu-item" trigger="click">
-        <div class="avatar-wrapper">
-          <img src="@/assets/layout/avatar.gif" class="user-avatar">
-        </div>
+      <el-dropdown class="right-menu-item">
+        <el-avatar :icon="UserFilled" :size="34" />
         <template #dropdown>
           <el-dropdown-menu>
             <a target="_blank" href="https://juejin.cn/post/6963876125428678693">
@@ -32,13 +30,14 @@
 </template>
 
 <script lang="ts" setup>
+import { UserFilled } from '@element-plus/icons-vue'
+import { computed, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import { store } from '@/store'
 import BreadCrumb from '../bread-crumb/index.vue'
 import Hamburger from '../hamburger/index.vue'
 import ThemeSwitch from '@/components/theme-switch/index.vue'
 import Screenfull from '@/components/screenfull/index.vue'
-import { computed, reactive } from 'vue'
-import { store } from '@/store'
-import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const sidebar = computed(() => {
@@ -69,42 +68,26 @@ const state = reactive({
   overflow: hidden;
   background: #fff;
   .hamburger {
-    line-height: 50px;
+    display: flex;
+    align-items: center;
     height: 100%;
     float: left;
     padding: 0 15px;
     cursor: pointer;
-    &:hover {
-      background: rgba(0, 0, 0, 0.025);
-    }
   }
-
   .breadcrumb {
     float: left;
   }
-
   .right-menu {
     float: right;
-    margin-right: 8px;
+    margin-right: 10px;
     height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     color: #5a5e66;
     .right-menu-item {
-      padding: 0 8px;
+      padding: 0 10px;
       cursor: pointer;
-    }
-    .avatar-container {
-      .avatar-wrapper {
-        padding: 0 8px;
-        cursor: pointer;
-        .user-avatar {
-          width: 40px;
-          height: 40px;
-          border-radius: 10px;
-        }
-      }
     }
   }
 }

@@ -1,5 +1,3 @@
-/* 每个主题特有的设置 */
-
 .theme-#{$theme-name} {
 
   /* 
@@ -18,7 +16,8 @@
         background-color: lighten($theme-bg-color, 4%) !important;
         .el-menu-item {
           background-color: lighten($theme-bg-color, 4%) !important;
-          &.is-active, &:hover {
+          &.is-active,
+          &:hover {
             background-color: lighten($theme-bg-color, 8%) !important;
             color: $active-font-color !important;
           }
@@ -44,8 +43,14 @@
         }
       }
       .right-menu {
-        .svg-icon {
+        .el-icon {
           color: $font-color;
+        }
+        .el-avatar {
+          background: lighten($theme-bg-color, 20%);
+          .el-icon {
+            color: #fff;
+          }
         }
       }
     }
@@ -64,7 +69,8 @@
           border-color: $border-color !important;
         }
       }
-      .contextmenu { // 右键菜单
+      .contextmenu {
+        // 右键菜单
         background-color: lighten($theme-bg-color, 8%);
         color: $font-color;
         li:hover {
@@ -80,7 +86,8 @@
     }
     .el-drawer.rtl {
       background-color: $theme-bg-color;
-      .drawer-title, .drawer-item {
+      .drawer-title,
+      .drawer-item {
         color: $font-color;
       }
     }
@@ -101,19 +108,34 @@
     }
   }
 
+  /* 
+  * Login 页面
+  */
+
+  .login-container {
+    background-color: $theme-bg-color;
+    color: $font-color;
+    .login-card {
+      background-color: lighten($theme-bg-color, 4%) !important;
+    }
+    .el-icon {
+      color: $font-color;
+    }
+  }
 
   /* 
   * Element UI
   */
 
-  // 侧边栏的 item 的 popper 
+  // 侧边栏的 item 的 popper
   .el-popper {
     border: none !important;
     .el-menu {
       background-color: lighten($theme-bg-color, 4%) !important;
       .el-menu-item {
         background-color: lighten($theme-bg-color, 4%) !important;
-        &.is-active, &:hover {
+        &.is-active,
+        &:hover {
           background-color: lighten($theme-bg-color, 8%) !important;
           color: $active-font-color !important;
         }
@@ -131,8 +153,8 @@
       background-color: lighten($theme-bg-color, 8%);
       .el-dropdown-menu__item {
         color: $font-color;
-        &.is-disabled{
-          color: #aaa;
+        &.is-disabled {
+          color: #606266;
         }
         &:not(.is-disabled):hover {
           background-color: lighten($theme-bg-color, 16%);
@@ -144,7 +166,8 @@
       }
     }
   }
-  .el-popper__arrow::before { // 下拉菜单顶部三角区域
+  .el-popper__arrow::before {
+    // 下拉菜单顶部三角区域
     background-color: lighten($theme-bg-color, 8%) !important;
     border: lighten($theme-bg-color, 8%) !important;
   }
@@ -191,5 +214,10 @@
     background: lighten($theme-bg-color, 8%);
     border: 1px solid $border-color;
     color: $font-color;
+  }
+
+  // 输入框 input
+  .el-input__inner {
+    background: lighten($theme-bg-color, 8%) !important;
   }
 }

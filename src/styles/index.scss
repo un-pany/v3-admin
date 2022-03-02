@@ -1,26 +1,26 @@
-@import './mixins.scss';
-@import './transition.scss';
-@import './theme/register.scss'; // 注册主题
-
-/* 全局生效的样式 */
+@import "./mixins.scss"; // mixins
+@import "./transition.scss"; // transition
+@import "./theme/register.scss"; // 注册主题
 
 .app-container {
   padding: 20px;
-}
-
-body {
-  height: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 }
 
 html {
   height: 100%;
 }
 
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
+    "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
 #app {
   height: 100%;
+  background-color: #f0f2f5; // 全局背景色
 }
 
 *,

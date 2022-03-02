@@ -247,7 +247,7 @@ onBeforeMount(() => {
   width: 100%;
   background: #fff;
   border-bottom: 1px solid #d8dce5;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px 0 #00000010, 0 0 3px 0 #00000010;
   .tags-view-wrapper {
     .tags-view-item {
       display: inline-block;
@@ -269,9 +269,9 @@ onBeforeMount(() => {
         margin-right: 15px;
       }
       &.active {
-        background-color: #42b983;
+        background-color: #409EFF;
         color: #fff;
-        border-color: #42b983;
+        border-color: #409EFF;
         &::before {
           content: "";
           background: #fff;
@@ -306,7 +306,7 @@ onBeforeMount(() => {
     font-size: 12px;
     font-weight: 400;
     color: #333;
-    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 3px 0 #00000030;
     li {
       margin: 0;
       padding: 7px 16px;

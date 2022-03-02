@@ -1,6 +1,9 @@
 <!-- 页面权限测试页 -->
 <template>
   <div class="app-container">
+    <el-tag type="success" size="large" style="margin-bottom: 15px;">
+      当前页面只有 admin 权限可见
+    </el-tag>
     <SwitchRoles @change="handleRolesChange" />
   </div>
 </template>

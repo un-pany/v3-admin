@@ -7,7 +7,7 @@
         :unique-opened="true"
         :default-active="activeMenu"
         background-color="#152d3d"
-        text-color="rgb(167, 177, 194)"
+        text-color="#C0C4CC"
         active-text-color="#fff"
         mode="vertical"
       >
@@ -25,10 +25,10 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { store } from '@/store'
 import SidebarItem from './sidebar-item.vue'
 import SidebarLogo from './sidebar-logo.vue'
-import { store } from '@/store'
-import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const sidebar = computed(() => {
@@ -79,6 +79,18 @@ const isCollapse = computed(() => {
 </style>
 
 <style lang="scss" scoped>
+@mixin tip-line {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #66b1ff;
+  }
+}
+
 .el-scrollbar {
   height: 100%;
 }
@@ -96,43 +108,34 @@ const isCollapse = computed(() => {
   width: 100% !important;
 }
 
-::v-deep(.el-menu-item) {
-  height: 65px;
-  line-height: 65px;
+::v-deep(.el-menu-item),
+::v-deep(.el-sub-menu__title),
+::v-deep(.el-sub-menu .el-menu-item) {
+  height: 60px;
+  line-height: 60px;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #ffffff10;
   }
+  display: block;
+  * {
+    vertical-align: middle;
+  }
+}
+
+::v-deep(.el-menu-item) {
   &.is-active {
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background-color: #39cedd;
+    @include tip-line;
+  }
+}
+
+.el-menu--collapse {
+  ::v-deep(.el-sub-menu) {
+    &.is-active {
+      .el-sub-menu__title {
+        color: #fff !important;
+        @include tip-line;
+      }
     }
   }
-  display: block;
-  * {
-    vertical-align: middle;
-  }
-}
-
-::v-deep(.el-sub-menu__title) {
-  height: 65px;
-  line-height: 65px;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-  display: block;
-  * {
-    vertical-align: middle;
-  }
-}
-
-::v-deep(.el-sub-menu .el-menu-item) {
-  height: 60px !important;
-  line-height: 60px !important;
 }
 </style>

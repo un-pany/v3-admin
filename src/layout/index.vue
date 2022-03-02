@@ -68,7 +68,7 @@ onBeforeUnmount(() => {
 
 <style lang="scss" scoped>
 @import "@/styles/mixins.scss";
-$sideBarWidth: 240px;
+$sideBarWidth: 220px;
 
 .app-wrapper {
   @include clearfix;

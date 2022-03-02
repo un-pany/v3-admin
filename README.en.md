@@ -147,7 +147,7 @@ meta: {
   roles: ['admin', 'editor']
   // Set the name of the route displayed in the sidebar and breadcrumbs
   title: 'title'
-  // Icon to set this route, Remember to import svg into @/assets/svg-icons/icons
+  // Icon to set this route, Remember to import svg into @/icons/svg
   icon: 'svg-name'
   // The default is true. If it is set to false, it will not be displayed in breadcrumbs
   breadcrumb: false

@@ -4,11 +4,13 @@
     <div style="margin-bottom: 15px">
       你的权限：{{ roles }}
     </div>
-    <p>切换权限：</p>
-    <el-radio-group v-model="currentRole">
-      <el-radio-button label="editor" />
-      <el-radio-button label="admin" />
-    </el-radio-group>
+    <div style="display: flex;align-items: center;">
+      <span>切换权限：</span>
+      <el-radio-group v-model="currentRole" size="large">
+        <el-radio-button label="editor" />
+        <el-radio-button label="admin" />
+      </el-radio-group>
+    </div>
   </div>
 </template>
 

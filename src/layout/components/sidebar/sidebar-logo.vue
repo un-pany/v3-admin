@@ -1,4 +1,4 @@
-<!-- 侧边栏 logo（需要跟随侧边栏折叠） -->
+<!-- 侧边栏 Logo（需要跟随侧边栏折叠） -->
 <template>
   <div class="sidebar-logo-container" :class="{collapse: collapse}">
     <transition name="sidebarLogoFade">
@@ -6,7 +6,7 @@
         <img src="@/assets/layout/logo.png" class="sidebar-logo">
       </router-link>
       <router-link v-else key="expand" class="sidebar-logo-link" to="/">
-        <img src="@/assets/layout/logo-text.png" class="sidebar-logo-text">
+        <img src="@/assets/layout/logo-text-1.png" class="sidebar-logo-text">
       </router-link>
     </transition>
   </div>
@@ -49,7 +49,7 @@ defineProps({
     height: 100%;
     width: 100%;
     & .sidebar-logo-text {
-      width: 205px;
+      height: 100%;
       vertical-align: middle;
     }
     & .sidebar-title {
