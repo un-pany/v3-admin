@@ -10,7 +10,6 @@
 
 <script lang="ts" setup>
 import { Expand, Fold } from '@element-plus/icons-vue'
-import { defineProps, defineEmits } from 'vue'
 
 defineProps({
   isActive: {

@@ -39,7 +39,7 @@
 
 <script lang="ts" setup>
 import path from 'path'
-import { computed, defineProps, PropType } from 'vue'
+import { computed, PropType } from 'vue'
 import { RouteRecordRaw } from 'vue-router'
 import { isExternal } from '@/utils/validate'
 import SidebarItemLink from './sidebar-item-link.vue'

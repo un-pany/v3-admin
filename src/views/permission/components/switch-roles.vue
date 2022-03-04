@@ -16,7 +16,7 @@
 
 <script lang="ts" setup>
 import { store } from '@/store'
-import { computed, ref, watch, defineEmits } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 const emit = defineEmits(['change'])
 const roles = computed(() => store.state.user.roles)

@@ -5,6 +5,11 @@ module.exports = {
     node: true,
     es6: true
   },
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly'
+  },
   parserOptions: {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 2020

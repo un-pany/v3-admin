@@ -8,7 +8,6 @@
 </template>
 
 <script lang="ts" setup>
-import { defineProps } from 'vue'
 import { isExternal } from '@/utils/validate'
 import { useRouter } from 'vue-router'
 
