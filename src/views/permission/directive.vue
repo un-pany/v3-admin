@@ -6,7 +6,7 @@
       <div>
         <span v-permission="['admin']" class="permission-alert">
           只有
-          <el-tag size="large">admin</el-tag>可以看见这个
+          <el-tag>admin</el-tag>可以看见这个
         </span>
         <el-tag
           v-permission="['admin']"

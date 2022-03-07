@@ -1,6 +1,6 @@
 {
   "name": "v3-admin",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "homepage": "https://github.com/un-pany/v3-admin",
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -10,12 +10,12 @@
     "deploy": "node ./deploy"
   },
   "dependencies": {
-    "@element-plus/icons-vue": "^1.0.0",
+    "@element-plus/icons-vue": "^1.0.1",
     "@mitojs/browser": "^3.0.1",
     "@mitojs/vue": "^3.0.1",
     "axios": "^0.26.0",
-    "dayjs": "^1.10.7",
-    "element-plus": "^2.0.4",
+    "dayjs": "^1.10.8",
+    "element-plus": "^2.0.5",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
@@ -23,7 +23,7 @@
     "path-to-regexp": "^6.2.0",
     "screenfull": "^6.0.1",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.12",
+    "vue-router": "^4.0.13",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

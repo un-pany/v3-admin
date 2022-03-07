@@ -10,7 +10,6 @@
           <svg-icon
             v-if="theOnlyOneChild.meta.icon"
             :name="theOnlyOneChild.meta.icon"
-            font-size="16px"
           />
           <template v-if="theOnlyOneChild.meta.title" #title>
             {{ theOnlyOneChild.meta.title }}
@@ -20,7 +19,7 @@
     </template>
     <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
       <template #title>
-        <svg-icon v-if="item.meta && item.meta.icon" :name="item.meta.icon" font-size="16px" />
+        <svg-icon v-if="item.meta && item.meta.icon" :name="item.meta.icon" />
         <span v-if="item.meta && item.meta.title">{{ item.meta.title }}</span>
       </template>
       <template v-if="item.children">
@@ -106,6 +105,8 @@ const resolvePath = (routePath: string) => {
 <style lang="scss" scoped>
 .svg-icon {
   margin-right: 20px;
+  min-width: 1em;
+  font-size: 16px;
 }
 
 .simple-mode {
