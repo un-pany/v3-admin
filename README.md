@@ -1,5 +1,3 @@
-> 最新 Element-Plus 2.1.1 版本样式有一些小问题，等待 Element-Plus 官方修复后升级依赖即可
-
 > 将插件 Vetur 替换为 Volar 将更好的支持 Vue3.2+
 
 ## ⚡️ 简介
