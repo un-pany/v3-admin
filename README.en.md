@@ -4,6 +4,8 @@
 
 A basic solution for middle and background management system, based on vue3, typescript, element-plus and vue-cli 5.x
 
+- Electron: [v3-admin-electron](https://github.com/un-pany/v3-admin-electron)
+
 ## Documentation
 
 [简体中文](https://juejin.cn/post/6963876125428678693) | English Docs
@@ -73,7 +75,6 @@ A basic solution for middle and background management system, based on vue3, typ
 │  ├─ directives      # global directives
 │  ├─ icons           # svg icon
 │  ├─ layout          # layout
-│  ├─ locales         # internationalization
 │  ├─ model           # global model
 │  ├─ plugins         # plugins
 │  ├─ router          # router
@@ -203,7 +204,7 @@ You can set an outer chain in the sidebar, as long as you fill in the useful URL
 
 ![](https://ss.im5i.com/2021/10/20/yFdaR.png)
 
-Breadcrumb ` @/components/bread-crumb`is also generated dynamically according to the route. The route setting `breadcrumb: false` will not appear in the breadcrumb. The route setting `redirect: 'noredirect'`cannot be clicked in the breadcrumb
+Breadcrumb ` @/layout/components/bread-crumb` is also generated dynamically according to the route. The route setting `breadcrumb: false` will not appear in the breadcrumb. The route setting `redirect: 'noredirect'`cannot be clicked in the breadcrumb
 
 ## Permission
 
@@ -399,7 +400,7 @@ console.log(process.env.VUE_APP_BASE_API)
 Code specifications are important!
 
 - Config item：Set in the `.eslintrc.js` file
-- Cancel auto lint：Set `lintOnSave` to `false` in ` @/config/vue.custom.config.ts`
+- Cancel auto lint：Set `lintOnSave` to `false` in `vue.config.js`
 - The ESlint plug-in of VSCode is recommended here. When coding, it can mark the code that does not comply with the specification in red, and when you save the code, it will automatically help you repair some simple problematic code (VScode configuration ESlint tutorial can be found through Google)
 - Perform lint manually：`yarn lint`（Execute this command before submitting the code, especially if your `lintOnSave` is `false`）
 

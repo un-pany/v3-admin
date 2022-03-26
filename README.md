@@ -10,6 +10,10 @@
 
 [简体中文](https://juejin.cn/post/6963876125428678693) | [English Docs](./README.en.md)
 
+## 国内仓库
+
+[Gitee](https://gitee.com/un-pany/v3-admin)
+
 ## 预览
 
 | 位置 | 账号 | 链接 |
@@ -75,7 +79,6 @@
 │  ├─ directives      # 全局指令
 │  ├─ icons           # svg icon
 │  ├─ layout          # 布局
-│  ├─ locales         # 国际化
 │  ├─ model           # 全局 model
 │  ├─ plugins         # 插件
 │  ├─ router          # 路由
