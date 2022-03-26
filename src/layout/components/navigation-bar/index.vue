@@ -19,6 +19,9 @@
             <a target="_blank" href="https://github.com/un-pany/v3-admin">
               <el-dropdown-item>GitHub</el-dropdown-item>
             </a>
+            <a target="_blank" href="https://gitee.com/un-pany/v3-admin">
+              <el-dropdown-item>Gitee</el-dropdown-item>
+            </a>
             <el-dropdown-item divided @click="state.logout">
               <span style="display: block">退出登录</span>
             </el-dropdown-item>
