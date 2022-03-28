@@ -15,7 +15,7 @@
     "@mitojs/vue": "^3.0.1",
     "axios": "^0.26.1",
     "dayjs": "^1.11.0",
-    "element-plus": "^2.1.5",
+    "element-plus": "^2.1.6",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "normalize.css": "^8.0.1",
