@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
-import { get } from 'lodash'
+import { get } from 'lodash-es'
 import { ElMessage } from 'element-plus'
 import { getToken } from '@/utils/cookies'
 

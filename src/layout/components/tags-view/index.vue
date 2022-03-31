@@ -7,7 +7,6 @@
         :key="tag.path"
         :class="state.isActive(tag) ? 'active' : ''"
         :to="{path: tag.path, query: tag.query, fullPath: tag.fullPath}"
-        tag="span"
         class="tags-view-item"
         @click.middle="!state.isAffix(tag) ? state.closeSelectedTag(tag) : ''"
         @contextmenu.prevent="state.openMenu(tag, $event)"

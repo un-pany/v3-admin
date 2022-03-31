@@ -26,10 +26,11 @@ export const useUserStore = defineStore({
     },
     /** 登录 */
     login(userInfo: { username: string, password: string }) {
-      let { username, password } = userInfo
-      username = username.trim()
       return new Promise((resolve, reject) => {
-        accountLogin({ username, password })
+        accountLogin({
+          username: userInfo.username.trim(),
+          password: userInfo.password
+        })
           .then((res: any) => {
             setToken(res.data.accessToken)
             this.token = res.data.accessToken

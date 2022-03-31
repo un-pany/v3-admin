@@ -22,6 +22,7 @@ module.exports = {
     '@vue/typescript/recommended'
   ],
   rules: {
+    'vue/multi-word-component-names': 'off',
     'vue/comment-directive': 'off',
     'no-console': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
