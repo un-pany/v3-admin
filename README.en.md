@@ -2,7 +2,7 @@
 
 # ⚡️ Introduction
 
-A basic solution for middle and background management system, based on vue3, typescript, element-plus and vue-cli 5.x
+A basic solution for middle and background management system, based on vue3, typescript, element-plus and pinia
 
 - Electron: [v3-admin-electron](https://github.com/un-pany/v3-admin-electron)
 
@@ -219,17 +219,19 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import router from '@/router'
 import { RouteLocationNormalized } from 'vue-router'
-import { store } from '@/store'
+import { useUserStoreHook } from '@/store/modules/user'
+import { usePermissionStoreHook } from '@/store/modules/permission'
 import { ElMessage } from 'element-plus'
 import { whiteList } from '@/config/white-list'
 import rolesSettings from '@/config/roles'
 import { getToken } from '@/utils/cookies'
 
+const userStore = useUserStoreHook()
+const permissionStore = usePermissionStoreHook()
 NProgress.configure({ showSpinner: false })
 
 router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
   NProgress.start()
-  const store = useStore()
   // Determine if the user is logged in
   if (getToken()) {
     if (to.path === '/login') {
@@ -238,22 +240,22 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
       NProgress.done()
     } else {
       // Check if the user has obtained its permissions role
-      if (store.state.user.roles.length === 0) {
+      if (userStore.roles.length === 0) {
         try {
           if (rolesSettings.openRoles) {
             // Note: The role must be an array! E.g: ['admin'] 或 ['developer', 'editor']
-            await store.dispatch('user/getInfo')
+            await userStore.getInfo()
             // Fetch the Roles returned by the interface
-            const roles = store.state.user.roles
+            const roles = userStore.roles
             // Generate accessible Routes based on roles
-            store.dispatch('permission/setRoutes', roles)
+            permissionStore.setRoutes(roles)
           } else {
             // Enable the default role without turning on the role function
-            store.commit('user/SET_ROLES', rolesSettings.defaultRoles)
-            store.dispatch('permission/setRoutes', rolesSettings.defaultRoles)
+            userStore.setRoles(rolesSettings.defaultRoles)
+            permissionStore.setRoutes(rolesSettings.defaultRoles)
           }
           // Dynamically add accessible Routes
-          store.state.permission.dynamicRoutes.forEach((route) => {
+          permissionStore.dynamicRoutes.forEach((route) => {
             router.addRoute(route)
           })
           // Ensure that the added route has been completed
@@ -261,7 +263,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
           next({ ...to, replace: true })
         } catch (err: any) {
           // Delete token and redirect to the login page
-          store.dispatch('user/resetToken')
+          userStore.resetToken()
           ElMessage.error(err || 'Has Error')
           next('/login')
           NProgress.done()
