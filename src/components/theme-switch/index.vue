@@ -23,15 +23,16 @@
 <script lang="ts" setup>
 import { MagicStick } from '@element-plus/icons-vue'
 import { computed } from 'vue'
-import { store } from '@/store'
+import { useAppStore } from '@/store/modules/app'
 
+const appStore = useAppStore()
 const themeList = computed(() => {
-  return store.state.app.themeList
+  return appStore.themeList
 })
 const activeThemeName = computed(() => {
-  return store.state.app.activeThemeName
+  return appStore.activeThemeName
 })
 const handleSetTheme = (name: string) => {
-  store.commit('app/SET_THEME', name)
+  appStore.setTheme(name)
 }
 </script>

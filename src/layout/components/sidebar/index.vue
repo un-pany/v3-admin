@@ -26,19 +26,21 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-import { store } from '@/store'
+import { useAppStore } from '@/store/modules/app'
+import { usePermissionStore } from '@/store/modules/permission'
+import { useSettingsStore } from '@/store/modules/settings'
 import SidebarItem from './sidebar-item.vue'
 import SidebarLogo from './sidebar-logo.vue'
 
 const route = useRoute()
 const sidebar = computed(() => {
-  return store.state.app.sidebar
+  return useAppStore().sidebar
 })
 const routes = computed(() => {
-  return store.state.permission.routes
+  return usePermissionStore().routes
 })
 const showLogo = computed(() => {
-  return store.state.settings.showSidebarLogo
+  return useSettingsStore().showSidebarLogo
 })
 const activeMenu = computed(() => {
   const { meta, path } = route

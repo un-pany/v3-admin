@@ -1,3 +1,4 @@
+import { defineStore } from 'pinia'
 import {
   getSidebarStatus,
   getActiveThemeName,
@@ -11,7 +12,7 @@ export enum DeviceType {
   Desktop,
 }
 
-export interface IAppState {
+interface IAppState {
   device: DeviceType
   sidebar: {
     opened: boolean
@@ -23,56 +24,52 @@ export interface IAppState {
   activeThemeName: string
 }
 
-const state: IAppState = {
-  device: DeviceType.Desktop,
-  sidebar: {
-    opened: getSidebarStatus() !== 'closed',
-    withoutAnimation: false
-  },
-  themeList: themeList,
-  activeThemeName: getActiveThemeName() || 'normal'
-}
-
-// 初始化
-document.body.className = `theme-${state.activeThemeName}`
-
-const mutations = {
-  TOGGLE_SIDEBAR: (state: IAppState, withoutAnimation: boolean) => {
-    state.sidebar.opened = !state.sidebar.opened
-    state.sidebar.withoutAnimation = withoutAnimation
-    if (state.sidebar.opened) {
-      setSidebarStatus('opened')
-    } else {
-      setSidebarStatus('closed')
+export const useAppStore = defineStore({
+  id: 'app',
+  state: (): IAppState => {
+    return {
+      device: DeviceType.Desktop,
+      sidebar: {
+        opened: getSidebarStatus() !== 'closed',
+        withoutAnimation: false
+      },
+      themeList: themeList,
+      activeThemeName: getActiveThemeName() || 'normal'
     }
   },
-  CLOSE_SIDEBAR: (state: IAppState, withoutAnimation: boolean) => {
-    state.sidebar.opened = false
-    state.sidebar.withoutAnimation = withoutAnimation
-    setSidebarStatus('closed')
-  },
-  TOGGLE_DEVICE: (state: IAppState, device: DeviceType) => {
-    state.device = device
-  },
-  SET_THEME: (state: IAppState, activeThemeName: string) => {
-    // 检查这个主题在主题列表里是否存在
-    state.activeThemeName = state.themeList.find(
-      (theme) => theme.name === activeThemeName
-    )
-      ? activeThemeName
-      : state.themeList[0].name
-    // 应用到 dom
-    document.body.className = `theme-${state.activeThemeName}`
-    // 持久化
-    setActiveThemeName(state.activeThemeName)
+  actions: {
+    toggleSidebar(withoutAnimation: boolean) {
+      this.sidebar.opened = !this.sidebar.opened
+      this.sidebar.withoutAnimation = withoutAnimation
+      if (this.sidebar.opened) {
+        setSidebarStatus('opened')
+      } else {
+        setSidebarStatus('closed')
+      }
+    },
+    closeSidebar(withoutAnimation: boolean) {
+      this.sidebar.opened = false
+      this.sidebar.withoutAnimation = withoutAnimation
+      setSidebarStatus('closed')
+    },
+    toggleDevice(device: DeviceType) {
+      this.device = device
+    },
+    setTheme(activeThemeName: string) {
+      // 检查这个主题在主题列表里是否存在
+      this.activeThemeName = this.themeList.find(
+        (theme) => theme.name === activeThemeName
+      )
+        ? activeThemeName
+        : this.themeList[0].name
+      // 应用到 dom
+      document.body.className = `theme-${this.activeThemeName}`
+      // 持久化
+      setActiveThemeName(this.activeThemeName)
+    },
+    initTheme() {
+      // 初始化
+      document.body.className = `theme-${this.activeThemeName}`
+    }
   }
-}
-
-const actions = {}
-
-export default {
-  namespaced: true,
-  state,
-  mutations,
-  actions
-}
+})

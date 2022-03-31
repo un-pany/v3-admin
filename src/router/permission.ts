@@ -2,12 +2,15 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import router from '@/router'
 import { RouteLocationNormalized } from 'vue-router'
-import { store } from '@/store'
+import { useUserStoreHook } from '@/store/modules/user'
+import { usePermissionStoreHook } from '@/store/modules/permission'
 import { ElMessage } from 'element-plus'
 import { whiteList } from '@/config/white-list'
 import rolesSettings from '@/config/roles'
 import { getToken } from '@/utils/cookies'
 
+const userStore = useUserStoreHook()
+const permissionStore = usePermissionStoreHook()
 NProgress.configure({ showSpinner: false })
 
 router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
@@ -20,22 +23,22 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
       NProgress.done()
     } else {
       // 检查用户是否已获得其权限角色
-      if (store.state.user.roles.length === 0) {
+      if (userStore.roles.length === 0) {
         try {
           if (rolesSettings.openRoles) {
             // 注意：角色必须是一个数组！ 例如: ['admin'] 或 ['developer', 'editor']
-            await store.dispatch('user/getInfo')
+            await userStore.getInfo()
             // 获取接口返回的 roles
-            const roles = store.state.user.roles
+            const roles = userStore.roles
             // 根据角色生成可访问的 routes
-            store.dispatch('permission/setRoutes', roles)
+            permissionStore.setRoutes(roles)
           } else {
             // 没有开启角色功能，则启用默认角色
-            store.commit('user/SET_ROLES', rolesSettings.defaultRoles)
-            store.dispatch('permission/setRoutes', rolesSettings.defaultRoles)
+            userStore.setRoles(rolesSettings.defaultRoles)
+            permissionStore.setRoutes(rolesSettings.defaultRoles)
           }
           // 动态地添加可访问的 routes
-          store.state.permission.dynamicRoutes.forEach((route) => {
+          permissionStore.dynamicRoutes.forEach((route) => {
             router.addRoute(route)
           })
           // 确保添加路由已完成
@@ -43,7 +46,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
           next({ ...to, replace: true })
         } catch (err: any) {
           // 删除 token，并重定向到登录页面
-          store.dispatch('user/resetToken')
+          userStore.resetToken()
           ElMessage.error(err.message || 'Has Error')
           next('/login')
           NProgress.done()

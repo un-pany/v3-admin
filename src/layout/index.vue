@@ -21,17 +21,19 @@
 </template>
 
 <script lang="ts" setup>
-import { DeviceType } from '@/store/modules/app'
+import { useAppStore, DeviceType } from '@/store/modules/app'
+import { useSettingsStore } from '@/store/modules/settings'
 import { computed, onBeforeMount, onBeforeUnmount, onMounted, reactive } from 'vue'
-import { store } from '@/store'
 import { AppMain, NavigationBar, Settings, Sidebar, TagsView, RightPanel } from './components'
-import userResize from './userResize'
+import useResize from './useResize'
 
-const { sidebar, device, addEventListenerOnResize, resizeMounted, removeEventListenerResize, watchRouter } = userResize()
+const { sidebar, device, addEventListenerOnResize, resizeMounted, removeEventListenerResize, watchRouter } = useResize()
+const appStore = useAppStore()
+const settingsStore = useSettingsStore()
 
 const state = reactive({
   handleClickOutside: () => {
-    store.commit('app/CLOSE_SIDEBAR', false)
+    appStore.closeSidebar(false)
   }
 })
 
@@ -43,15 +45,14 @@ const classObj = computed(() => {
     mobile: device.value === DeviceType.Mobile
   }
 })
-
 const showSettings = computed(() => {
-  return store.state.settings.showSettings
+  return settingsStore.showSettings
 })
 const showTagsView = computed(() => {
-  return store.state.settings.showTagsView
+  return settingsStore.showTagsView
 })
 const fixedHeader = computed(() => {
-  return store.state.settings.fixedHeader
+  return settingsStore.fixedHeader
 })
 
 watchRouter()

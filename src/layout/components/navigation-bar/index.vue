@@ -36,28 +36,33 @@
 import { UserFilled } from '@element-plus/icons-vue'
 import { computed, reactive } from 'vue'
 import { useRouter } from 'vue-router'
-import { store } from '@/store'
+import { useAppStore } from '@/store/modules/app'
+import { useSettingsStore } from '@/store/modules/settings'
+import { useUserStore } from '@/store/modules/user'
 import BreadCrumb from '../bread-crumb/index.vue'
 import Hamburger from '../hamburger/index.vue'
 import ThemeSwitch from '@/components/theme-switch/index.vue'
 import Screenfull from '@/components/screenfull/index.vue'
 
 const router = useRouter()
+const appStore = useAppStore()
+const settingsStore = useSettingsStore()
+const userStore = useUserStore()
 const sidebar = computed(() => {
-  return store.state.app.sidebar
+  return appStore.sidebar
 })
 const showThemeSwitch = computed(() => {
-  return store.state.settings.showThemeSwitch
+  return settingsStore.showThemeSwitch
 })
 const showScreenfull = computed(() => {
-  return store.state.settings.showScreenfull
+  return settingsStore.showScreenfull
 })
 const state = reactive({
   toggleSideBar: () => {
-    store.commit('app/TOGGLE_SIDEBAR', false)
+    appStore.toggleSidebar(false)
   },
   logout: () => {
-    store.dispatch('user/logout')
+    userStore.logout()
     router.push('/login').catch((err) => {
       console.warn(err)
     })

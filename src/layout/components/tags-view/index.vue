@@ -48,13 +48,15 @@
 
 <script lang="ts" setup>
 import path from 'path'
-import { store } from '@/store'
-import { ITagView } from '@/store/modules/tags-view'
+import { useTagsViewStore, ITagView } from '@/store/modules/tags-view'
+import { usePermissionStore } from '@/store/modules/permission'
 import { computed, getCurrentInstance, nextTick, onBeforeMount, reactive, watch } from 'vue'
 import { RouteRecordRaw, useRoute, useRouter } from 'vue-router'
 import ScrollPane from './scroll-pane.vue'
 import { Close } from '@element-plus/icons-vue'
 
+const tagsViewStore = useTagsViewStore()
+const permissionStore = usePermissionStore()
 const router = useRouter()
 const instance = getCurrentInstance()
 const currentRoute = useRoute()
@@ -102,9 +104,9 @@ const state = reactive({
     })
   },
   closeSelectedTag: (view: ITagView) => {
-    store.commit('tagsView/DEL_VISITED_VIEW', view)
+    tagsViewStore.delVisitedView(view)
     if (state.isActive(view)) {
-      toLastView(store.state.tagsView.visitedViews, view)
+      toLastView(tagsViewStore.visitedViews, view)
     }
   },
   closeOthersTags: () => {
@@ -116,17 +118,14 @@ const state = reactive({
         console.warn(err)
       })
     }
-    store.commit(
-      'tagsView/DEL_OTHERS_VISITED_VIEWS',
-      state.selectedTag as ITagView
-    )
+    tagsViewStore.delOthersVisitedViews(state.selectedTag as ITagView)
   },
   closeAllTags: (view: ITagView) => {
-    store.commit('tagsView/DEL_ALL_VISITED_VIEWS')
+    tagsViewStore.delAllVisitedViews()
     if (state.affixTags.some((tag) => tag.path === currentRoute.path)) {
       return
     }
-    toLastView(store.state.tagsView.visitedViews, view)
+    toLastView(tagsViewStore.visitedViews, view)
   },
   openMenu: (tag: ITagView, e: MouseEvent) => {
     const menuMinWidth = 105
@@ -149,9 +148,9 @@ const state = reactive({
 })
 
 const visitedViews = computed(() => {
-  return store.state.tagsView.visitedViews
+  return tagsViewStore.visitedViews
 })
-const routes = computed(() => store.state.permission.routes)
+const routes = computed(() => permissionStore.routes)
 
 const filterAffixTags = (routes: RouteRecordRaw[], basePath = '/') => {
   let tags: ITagView[] = []
@@ -182,17 +181,14 @@ const initTags = () => {
   for (const tag of state.affixTags) {
     // 必须含有 name 属性
     if (tag.name) {
-      store.commit(
-        'tagsView/ADD_VISITED_VIEW',
-        tag as ITagView
-      )
+      tagsViewStore.addVisitedView(tag as ITagView)
     }
   }
 }
 
 const addTags = () => {
   if (currentRoute.name) {
-    store.commit('tagsView/ADD_VISITED_VIEW', currentRoute)
+    tagsViewStore.addVisitedView(currentRoute)
   }
   return false
 }
@@ -206,10 +202,7 @@ const moveToCurrentTag = () => {
     if ((tag.to as ITagView).path === currentRoute.path) {
       // When query is different then update
       if ((tag.to as ITagView).fullPath !== currentRoute.fullPath) {
-        store.commit(
-          'tags-view/UPDATE_VISITED_VIEW',
-          currentRoute
-        )
+        tagsViewStore.updateVisitedView(currentRoute)
       }
     }
   }
@@ -269,9 +262,9 @@ onBeforeMount(() => {
         margin-right: 15px;
       }
       &.active {
-        background-color: #409EFF;
+        background-color: #409eff;
         color: #fff;
-        border-color: #409EFF;
+        border-color: #409eff;
         &::before {
           content: "";
           background: #fff;

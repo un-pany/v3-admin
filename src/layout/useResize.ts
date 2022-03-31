@@ -1,5 +1,4 @@
-import { store } from '@/store'
-import { DeviceType } from '@/store/modules/app'
+import { useAppStore, DeviceType } from '@/store/modules/app'
 import { computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
@@ -8,12 +7,14 @@ const WIDTH = 992
 
 /** 根据大小变化重新布局 */
 export default function() {
+  const appStore = useAppStore()
+
   const device = computed(() => {
-    return store.state.app.device
+    return appStore.device
   })
 
   const sidebar = computed(() => {
-    return store.state.app.sidebar
+    return appStore.sidebar
   })
 
   const currentRoute = useRoute()
@@ -21,11 +22,8 @@ export default function() {
   const watchRouter = watch(
     () => currentRoute.name,
     () => {
-      if (
-        store.state.app.device === DeviceType.Mobile &&
-        store.state.app.sidebar.opened
-      ) {
-        store.commit('app/CLOSE_SIDEBAR', false)
+      if (appStore.device === DeviceType.Mobile && appStore.sidebar.opened) {
+        appStore.closeSidebar(false)
       }
     }
   )
@@ -37,19 +35,18 @@ export default function() {
 
   const resizeMounted = () => {
     if (isMobile()) {
-      store.commit('app/TOGGLE_DEVICE', DeviceType.Mobile)
-      store.commit('app/CLOSE_SIDEBAR', true)
+      appStore.toggleDevice(DeviceType.Mobile)
+      appStore.closeSidebar(true)
     }
   }
 
   const resizeHandler = () => {
     if (!document.hidden) {
-      store.commit(
-        'app/TOGGLE_DEVICE',
+      appStore.toggleDevice(
         isMobile() ? DeviceType.Mobile : DeviceType.Desktop
       )
       if (isMobile()) {
-        store.commit('app/CLOSE_SIDEBAR', true)
+        appStore.closeSidebar(true)
       }
     }
   }

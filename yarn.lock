@@ -1817,10 +1817,15 @@
   optionalDependencies:
     prettier "^1.18.2 || ^2.0.0"
 
-"@vue/devtools-api@^6.0.0", "@vue/devtools-api@^6.0.0-beta.11":
+"@vue/devtools-api@^6.0.0":
   version "6.1.0"
   resolved "https://registry.npmmirror.com/@vue/devtools-api/-/devtools-api-6.1.0.tgz#5b7945e656bc0f85b1774c9aca1dbe075bead3c0"
   integrity sha512-1FtbxEEHN70WGJl1b/h8nLmyN+tOHONNsNLvgVEXF/L/vBrRqQZ0kF+dev1YAz3OtxsQ1sV/vPLKwRlq1axrgg==
+
+"@vue/devtools-api@^6.1.0":
+  version "6.1.4"
+  resolved "https://registry.npmmirror.com/@vue/devtools-api/-/devtools-api-6.1.4.tgz#b4aec2f4b4599e11ba774a50c67fa378c9824e53"
+  integrity sha512-IiA0SvDrJEgXvVxjNkHPFfDx6SXw0b/TUkqMcDZWNg9fnCAHbTpoo59YfJ9QLFkwa3raau5vSlRVzMSLDnfdtQ==
 
 "@vue/eslint-config-standard@^6.1.0":
   version "6.1.0"
@@ -5990,6 +5995,14 @@ pidtree@^0.5.0:
   resolved "https://registry.npmmirror.com/pidtree/-/pidtree-0.5.0.tgz#ad5fbc1de78b8a5f99d6fbdd4f6e4eee21d1aca1"
   integrity sha512-9nxspIM7OpZuhBxPg73Zvyq7j1QMPMPsGKTqRc2XOaFQauDvoNz9fM1Wdkjmeo7l9GXOZiRs97sPkuayl39wjA==
 
+pinia@^2.0.12:
+  version "2.0.12"
+  resolved "https://registry.npmmirror.com/pinia/-/pinia-2.0.12.tgz#4c6f7f59cb41f56f20deee71c403e66d8d3c637d"
+  integrity sha512-tUeuYGFrLU5irmGyRAIxp35q1OTcZ8sKpGT4XkPeVcG35W4R6cfXDbCGexzmVqH5lTQJJTXXbNGutIu9yS5yew==
+  dependencies:
+    "@vue/devtools-api" "^6.1.0"
+    vue-demi "*"
+
 pkg-dir@^4.1.0:
   version "4.2.0"
   resolved "https://registry.npmmirror.com/pkg-dir/-/pkg-dir-4.2.0.tgz#f099133df7ede422e81d1d8448270eeb3e4261f3"
@@ -7812,13 +7825,6 @@ vue@^3.2.31:
     "@vue/runtime-dom" "3.2.31"
     "@vue/server-renderer" "3.2.31"
     "@vue/shared" "3.2.31"
-
-vuex@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.npmmirror.com/vuex/-/vuex-4.0.2.tgz#f896dbd5bf2a0e963f00c67e9b610de749ccacc9"
-  integrity sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q==
-  dependencies:
-    "@vue/devtools-api" "^6.0.0-beta.11"
 
 watchpack@^2.3.1:
   version "2.3.1"

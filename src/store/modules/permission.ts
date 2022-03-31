@@ -1,7 +1,9 @@
+import store from '@/store'
+import { defineStore } from 'pinia'
 import { RouteRecordRaw } from 'vue-router'
 import { constantRoutes, asyncRoutes } from '@/router'
 
-export interface IPermissionState {
+interface IPermissionState {
   routes: RouteRecordRaw[]
   dynamicRoutes: RouteRecordRaw[]
 }
@@ -34,33 +36,29 @@ const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[]) => {
   return res
 }
 
-const state: IPermissionState = {
-  routes: [],
-  dynamicRoutes: []
-}
-
-const mutations = {
-  SET_ROUTES: (state: IPermissionState, routes: RouteRecordRaw[]) => {
-    state.routes = constantRoutes.concat(routes)
-    state.dynamicRoutes = routes
-  }
-}
-
-const actions = {
-  setRoutes({ commit }: any, roles: string[]) {
-    let accessedRoutes
-    if (roles.includes('admin')) {
-      accessedRoutes = asyncRoutes
-    } else {
-      accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+export const usePermissionStore = defineStore({
+  id: 'permission',
+  state: (): IPermissionState => {
+    return {
+      routes: [],
+      dynamicRoutes: []
     }
-    commit('SET_ROUTES', accessedRoutes)
+  },
+  actions: {
+    setRoutes(roles: string[]) {
+      let accessedRoutes
+      if (roles.includes('admin')) {
+        accessedRoutes = asyncRoutes
+      } else {
+        accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+      }
+      this.routes = constantRoutes.concat(accessedRoutes)
+      this.dynamicRoutes = accessedRoutes
+    }
   }
-}
+})
 
-export default {
-  namespaced: true,
-  state,
-  mutations,
-  actions
+/** 在 setup 外使用 */
+export function usePermissionStoreHook() {
+  return usePermissionStore(store)
 }

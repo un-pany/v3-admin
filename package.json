@@ -1,6 +1,6 @@
 {
   "name": "v3-admin",
-  "version": "3.0.7",
+  "version": "3.1.0-rc.1",
   "homepage": "https://github.com/un-pany/v3-admin",
   "scripts": {
     "dev": "vue-cli-service serve",
@@ -21,10 +21,10 @@
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
     "path-to-regexp": "^6.2.0",
+    "pinia": "^2.0.12",
     "screenfull": "^6.0.1",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.14",
-    "vuex": "^4.0.2"
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.1",

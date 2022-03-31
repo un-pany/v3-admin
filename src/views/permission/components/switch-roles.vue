@@ -15,14 +15,15 @@
 </template>
 
 <script lang="ts" setup>
-import { store } from '@/store'
+import { useUserStore } from '@/store/modules/user'
 import { computed, ref, watch } from 'vue'
 
+const userStore = useUserStore()
 const emit = defineEmits(['change'])
-const roles = computed(() => store.state.user.roles)
+const roles = computed(() => userStore.roles)
 const currentRole = ref(roles.value[0])
 watch(currentRole, async(value) => {
-  await store.dispatch('user/changeRoles', value)
+  await userStore.changeRoles(value)
   emit('change')
 })
 </script>

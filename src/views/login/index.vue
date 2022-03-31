@@ -57,7 +57,7 @@
 
 <script lang='ts' setup>
 import { reactive, ref } from 'vue'
-import { store } from '@/store'
+import { useUserStore } from '@/store/modules/user'
 import { useRouter } from 'vue-router'
 import { User, Lock, Key } from '@element-plus/icons-vue'
 import ThemeSwitch from '@/components/theme-switch/index.vue'
@@ -100,7 +100,7 @@ const handleLogin = () => {
   loginFormDom.value.validate((valid: boolean) => {
     if (valid) {
       loading.value = true
-      store.dispatch('user/login', {
+      useUserStore().login({
         username: loginForm.username,
         password: loginForm.password
       }).then(() => {

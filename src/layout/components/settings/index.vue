@@ -30,21 +30,23 @@
 </template>
 
 <script lang="ts" setup>
-import { store } from '@/store'
+import { useSettingsStore } from '@/store/modules/settings'
 import { reactive, watch } from 'vue'
 
+const settingsStore = useSettingsStore()
+
 const state = reactive({
-  fixedHeader: store.state.settings.fixedHeader,
-  showTagsView: store.state.settings.showTagsView,
-  showSidebarLogo: store.state.settings.showSidebarLogo,
-  showThemeSwitch: store.state.settings.showThemeSwitch,
-  showScreenfull: store.state.settings.showScreenfull
+  fixedHeader: settingsStore.fixedHeader,
+  showTagsView: settingsStore.showTagsView,
+  showSidebarLogo: settingsStore.showSidebarLogo,
+  showThemeSwitch: settingsStore.showThemeSwitch,
+  showScreenfull: settingsStore.showScreenfull
 })
 
 watch(
   () => state.fixedHeader,
   (value) => {
-    store.commit('settings/CHANGE_SETTING', {
+    settingsStore.changeSetting({
       key: 'fixedHeader',
       value
     })
@@ -54,7 +56,7 @@ watch(
 watch(
   () => state.showTagsView,
   (value) => {
-    store.commit('settings/CHANGE_SETTING', {
+    settingsStore.changeSetting({
       key: 'showTagsView',
       value
     })
@@ -64,7 +66,7 @@ watch(
 watch(
   () => state.showSidebarLogo,
   (value) => {
-    store.commit('settings/CHANGE_SETTING', {
+    settingsStore.changeSetting({
       key: 'showSidebarLogo',
       value
     })
@@ -74,7 +76,7 @@ watch(
 watch(
   () => state.showThemeSwitch,
   (value) => {
-    store.commit('settings/CHANGE_SETTING', {
+    settingsStore.changeSetting({
       key: 'showThemeSwitch',
       value
     })
@@ -84,7 +86,7 @@ watch(
 watch(
   () => state.showScreenfull,
   (value) => {
-    store.commit('settings/CHANGE_SETTING', {
+    settingsStore.changeSetting({
       key: 'showScreenfull',
       value
     })
