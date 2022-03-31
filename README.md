@@ -82,7 +82,7 @@
 │  ├─ model           # 全局 model
 │  ├─ plugins         # 插件
 │  ├─ router          # 路由
-│  ├─ store           # vuex store
+│  ├─ store           # pinia store
 │  ├─ styles          # 全局样式
 │  ├─ utils           # 全局公共方法
 │  └─ views           # 所有页面
@@ -103,32 +103,32 @@ git clone https://github.com/un-pany/v3-admin.git
 cd v3-admin
 
 # 安装依赖
-yarn
+pnpm i
 
 # 启动服务
-yarn dev
+pnpm dev
 ```
 
 ## 📦️ 多环境打包
 
 ```bash
 # 构建测试环境
-yarn build:test
+pnpm build:test
 
 # 构建生产环境
-yarn build:prod
+pnpm build:prod
 ```
 
 ## 🔧 代码格式检查
 
 ```bash
-yarn lint
+pnpm lint
 ```
 
 ## ✈️ 自动部署
 
 ```bash
-yarn deploy
+pnpm deploy
 ```
 
 ## Git 提交规范

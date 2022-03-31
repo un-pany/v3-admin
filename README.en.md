@@ -78,7 +78,7 @@ A basic solution for middle and background management system, based on vue3, typ
 │  ├─ model           # global model
 │  ├─ plugins         # plugins
 │  ├─ router          # router
-│  ├─ store           # vuex store
+│  ├─ store           # pinia store
 │  ├─ styles          # global styles
 │  ├─ utils           # utils
 │  └─ views           # pages
@@ -99,32 +99,32 @@ git clone https://github.com/un-pany/v3-admin.git
 cd v3-admin
 
 # install dependency
-yarn
+pnpm
 
 # develop
-yarn dev
+pnpm dev
 ```
 
 ## Multi-environment build
 
 ```bash
 # build test environment
-yarn build:test
+pnpm build:test
 
 # build production environment
-yarn build:prod
+pnpm build:prod
 ```
 
 ## Code format check
 
 ```bash
-yarn lint
+pnpm lint
 ```
 
 ## Auto deployment
 
 ```bash
-yarn deploy
+pnpm deploy
 ```
 
 # 📚 Essentials
@@ -372,10 +372,10 @@ When the project is developed and need build, there are two built-in environment
 
 ```sh
 # build test environment
-yarn build:test
+pnpm build:test
 
 # build production environment
-yarn build:prod
+pnpm build:prod
 ```
 
 ### Variables
@@ -402,7 +402,7 @@ Code specifications are important!
 - Config item：Set in the `.eslintrc.js` file
 - Cancel auto lint：Set `lintOnSave` to `false` in `vue.config.js`
 - The ESlint plug-in of VSCode is recommended here. When coding, it can mark the code that does not comply with the specification in red, and when you save the code, it will automatically help you repair some simple problematic code (VScode configuration ESlint tutorial can be found through Google)
-- Perform lint manually：`yarn lint`（Execute this command before submitting the code, especially if your `lintOnSave` is `false`）
+- Perform lint manually：`pnpm lint`（Execute this command before submitting the code, especially if your `lintOnSave` is `false`）
 
 ## Git Hooks
 
@@ -467,7 +467,7 @@ Recommended use [iconfont](https://www.iconfont.cn/)
 
 ## Auto deployment
 
-Fill in the **server IP, port, username, password** and other information in the `deploy/index. JS` file, and then execute the `yarn deploy` command to automatically publish dist file to the corresponding server.
+Fill in the **server IP, port, username, password** and other information in the `deploy/index. JS` file, and then execute the `pnpm deploy` command to automatically publish dist file to the corresponding server.
 
 > Note: the username, password and other information in this file are sensitive information and shouldn't be uploaded to the remote repositories, which is very important!
 
@@ -489,7 +489,7 @@ Google can solve 99% of error reports.
 ## Dependency error
 
 - Don't use cnpm
-- Recommended use yarn
+- Recommended use pnpm//yarn
 - Attempt to delete `node_modules` and install again
 - Google search it
 

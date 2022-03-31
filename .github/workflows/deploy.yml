@@ -19,6 +19,11 @@ jobs:
         with:
           node-version: "16.13.0"
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+      
       - name: Build
         run: pnpm install && pnpm build:prod
 
