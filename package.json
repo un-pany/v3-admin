@@ -14,7 +14,6 @@
     "@mitojs/browser": "^3.0.1",
     "@mitojs/vue": "^3.0.1",
     "axios": "^0.26.1",
-    "core-js": "^3.21.1",
     "dayjs": "^1.11.0",
     "element-plus": "^2.1.7",
     "js-cookie": "^3.0.1",
@@ -24,10 +23,8 @@
     "path-to-regexp": "^6.2.0",
     "pinia": "^2.0.12",
     "screenfull": "^6.0.1",
-    "terser-webpack-plugin": "^5.3.1",
     "vue": "^3.2.31",
-    "vue-router": "^4.0.14",
-    "yorkie": "^2.0.0"
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.1",
@@ -43,6 +40,7 @@
     "@vue/cli-service": "^5.0.4",
     "@vue/eslint-config-standard": "^6.1.0",
     "@vue/eslint-config-typescript": "^10.0.0",
+    "core-js": "^3.21.1",
     "eslint": "^8.12.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-node": "^11.1.0",
@@ -54,8 +52,10 @@
     "sass-loader": "^12.6.0",
     "scp2": "^0.5.0",
     "svg-sprite-loader": "^6.0.11",
+    "terser-webpack-plugin": "^5.3.1",
     "typescript": "^4.6.3",
-    "webpackbar": "^5.0.2"
+    "webpackbar": "^5.0.2",
+    "yorkie": "^2.0.0"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
