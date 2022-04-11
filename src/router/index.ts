@@ -44,7 +44,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/monitor',
     component: Layout,
-    redirect: '/monitor',
+    redirect: '/monitor/index',
     children: [
       {
         path: 'index',
