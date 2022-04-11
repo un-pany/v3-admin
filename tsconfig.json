@@ -16,7 +16,7 @@
     "types": [
       "node",
       "webpack-env",
-      "element-plus/global", // Element-Plus 的 Volar 支持
+      "element-plus/global", // element-plus 的 volar 插件支持
     ],
     "paths": {
       "@/*": [

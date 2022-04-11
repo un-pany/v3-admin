@@ -41,7 +41,7 @@ module.exports = {
       name: 'v3-admin',
       resolve: {
         fallback: {
-          // 默认情况下，Webpack5 不再包含用于 Node.js 模块的 polyfills，所以引入 path-browserify
+          // 默认情况下，webpack5 不再包含用于 node.js 模块的 polyfills，所以引入 path-browserify
           path: require.resolve('path-browserify')
         }
       }

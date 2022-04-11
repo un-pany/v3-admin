@@ -134,9 +134,6 @@ pnpm deploy
 ### Config items
 
 ```
-// if set to true, lt will not appear in sidebar nav
-hidden: true
-
 // this route cannot be clicked in breadcrumb navigation when noRedirect is set
 redirect: 'noRedirect'
 
@@ -144,12 +141,14 @@ redirect: 'noRedirect'
 name: 'router-name'
 
 meta: {
-  // required roles to navigate to this route, Support multiple permissions stacking
-  roles: ['admin', 'editor']
   // Set the name of the route displayed in the sidebar and breadcrumbs
   title: 'title'
   // Icon to set this route, Remember to import svg into @/icons/svg
   icon: 'svg-name'
+  // if set to true, lt will not appear in sidebar nav
+  hidden: true
+  // required roles to navigate to this route, Support multiple permissions stacking
+  roles: ['admin', 'editor']
   // The default is true. If it is set to false, it will not be displayed in breadcrumbs
   breadcrumb: false
   // The default is false. If set to true, it will be fixed in tags-view
@@ -321,7 +320,7 @@ Concisely implement button level permission judgment (registered to the global a
 <el-tag v-permission="['admin','editor']">admin and editor are visible</el-tag>
 ```
 
-However, in some cases, `v-permission` is not suitable. For example: ` el-tab ` or `el-table-column`  of ` Element`and other scenes that dynamically render `DOM`. You can only do this by manually setting `v-if`.
+However, in some cases, `v-permission` is not suitable. For example: ` el-tab ` or `el-table-column`  of ` element-plus` and other scenes that dynamically render `DOM`. You can only do this by manually setting `v-if`.
 
 At this time, you can use **permission judgment function**.
 

@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-
-/** 注意：
- * 该自动部署文件的中的账号密码不能上传到 git 仓库，这涉及的账号安全问题；
- * 请在上传前删除账号密码，或者将该文件设置为忽略文件。
+/**
+ * 第一步: pnpm run build 打包项目生成 dist 目录
+ * 第二步: 准确填写下方账号密码
+ * 第三步: pnpm deploy 触发该自动部署程序
+ * 注意: 账号密码不能上传到 git 仓库，这涉及的账号安全问题，请在上传前删除账号密码，或者将该文件设置为忽略文件
  */
 
 'use strict'
@@ -20,7 +20,7 @@ const server = {
   username: 'root', // 用户名
   password: '', // 密码
   path: '/var/www/html/', // 项目部署的服务器目标位置
-  command: 'rm -rf /var/www/html/*' // 删除命令
+  command: 'rm -rf /var/www/html/*' // 删除历史静态文件
 }
 
 conn.on('ready', () => {
