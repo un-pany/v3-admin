@@ -6,17 +6,23 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/redirect',
     component: Layout,
-    meta: { hidden: true },
+    meta: {
+      hidden: true
+    },
     children: [
       {
         path: '/redirect/:path(.*)',
-        component: () => import(/* webpackChunkName: "redirect" */ '@/views/redirect/index.vue')
+        component: () => import('@/views/redirect/index.vue')
       }
     ]
   },
   {
     path: '/login',
-    component: () => import(/* webpackChunkName: "login" */ '@/views/login/index.vue')
+    component: () => import('@/views/login/index.vue'),
+    name: 'Login',
+    meta: {
+      hidden: true
+    }
   },
   {
     path: '/',
@@ -25,7 +31,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'dashboard',
-        component: () => import(/* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'),
+        component: () => import('@/views/dashboard/index.vue'),
         name: 'Dashboard',
         meta: {
           title: '首页',
@@ -41,8 +47,8 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     redirect: '/monitor',
     children: [
       {
-        path: 'monitor',
-        component: () => import(/* webpackChunkName: "monitor" */ '@/views/monitor/index.vue'),
+        path: 'index',
+        component: () => import('@/views/monitor/index.vue'),
         name: 'Monitor',
         meta: {
           title: '监控',
@@ -53,13 +59,17 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   }
 ]
 
-/** 动态路由 */
+/**
+ * 动态路由
+ * 用来放置有权限的路由
+ * 必须带有 name 属性
+ */
 export const asyncRoutes: Array<RouteRecordRaw> = [
   {
     path: '/permission',
     component: Layout,
-    name: 'Permission',
     redirect: '/permission/page',
+    name: 'Permission',
     meta: {
       title: '权限管理',
       icon: 'lock',
@@ -69,7 +79,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     children: [
       {
         path: 'page',
-        component: () => import(/* webpackChunkName: "permission-page" */ '@/views/permission/page.vue'),
+        component: () => import('@/views/permission/page.vue'),
         name: 'PagePermission',
         meta: {
           title: '页面权限',
@@ -78,7 +88,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
       },
       {
         path: 'directive',
-        component: () => import(/* webpackChunkName: "permission-directive" */ '@/views/permission/directive.vue'),
+        component: () => import('@/views/permission/directive.vue'),
         name: 'DirectivePermission',
         meta: {
           title: '指令权限' // 如果未设置角色，则表示：该页面不需要权限，但会继承根路由的角色
@@ -87,18 +97,19 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: '/:pathMatch(.*)*', // 必须将 'Error' 路由放在最后, Must put the 'Error' route at the end.
+    path: '/:pathMatch(.*)*', // 必须将 'ErrorPage' 路由放在最后, Must put the 'ErrorPage' route at the end
     component: Layout,
-    name: 'Error',
     redirect: '/404',
+    name: 'ErrorPage',
     meta: {
       title: '错误页面',
-      icon: '404'
+      icon: '404',
+      hidden: true
     },
     children: [
       {
         path: '401',
-        component: () => import(/* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue'),
+        component: () => import('@/views/error-page/401.vue'),
         name: '401',
         meta: {
           title: '401'
@@ -106,7 +117,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
       },
       {
         path: '404',
-        component: () => import(/* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue'),
+        component: () => import('@/views/error-page/404.vue'),
         name: '404',
         meta: {
           title: '404'
