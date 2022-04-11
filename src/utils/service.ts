@@ -2,6 +2,7 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios'
 import { get } from 'lodash-es'
 import { ElMessage } from 'element-plus'
 import { getToken } from '@/utils/cookies'
+import { useUserStoreHook } from '@/store/modules/user'
 
 /** 创建请求实例 */
 function createService() {
@@ -50,7 +51,9 @@ function createService() {
           error.message = '未授权，请登录'
           break
         case 403:
-          error.message = '拒绝访问'
+          // token 过期时，直接退出登录并强制刷新页面（会重定向到登录页）
+          useUserStoreHook().logout()
+          location.reload()
           break
         case 404:
           error.message = '请求地址出错'
@@ -91,8 +94,7 @@ function createRequestFunction(service: AxiosInstance) {
   return function(config: AxiosRequestConfig) {
     const configDefault = {
       headers: {
-        // Authorization: 'Bearer ' + getToken(),
-        // mock 接口专用，开发时可自行修改
+        // 携带 token
         'X-Access-Token': getToken(),
         'Content-Type': get(config, 'headers.Content-Type', 'application/json')
       },
