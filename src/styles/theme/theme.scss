@@ -1,8 +1,5 @@
 .theme-#{$theme-name} {
-
-  /* 
-  * Layout
-  */
+  /** Layout */
 
   .app-wrapper {
     background-color: $theme-bg-color;
@@ -93,9 +90,7 @@
     }
   }
 
-  /* 
-  * app-main 主要写 view 页面的黑暗样式
-  */
+  /** app-main 主要写 view 页面的黑暗样式 */
 
   .app-main {
     // 指令权限页面 /permission/directive
@@ -108,9 +103,7 @@
     }
   }
 
-  /* 
-  * Login 页面
-  */
+  /** login 页面 */
 
   .login-container {
     background-color: $theme-bg-color;
@@ -123,9 +116,7 @@
     }
   }
 
-  /* 
-  * element-plus
-  */
+  /** element-plus */
 
   // 侧边栏的 item 的 popper
   .el-popper {
@@ -194,7 +185,7 @@
     }
   }
 
-  // Tabs 标签页
+  // tabs 标签页
   .el-tabs--border-card {
     background: lighten($theme-bg-color, 8%);
     border: 1px solid $border-color;
@@ -217,7 +208,7 @@
   }
 
   // 输入框 input
-  .el-input__inner {
+  .el-input__wrapper {
     background: lighten($theme-bg-color, 8%) !important;
   }
 }
