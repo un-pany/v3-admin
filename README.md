@@ -1,5 +1,3 @@
-> 将插件 Vetur 替换为 Volar 将更好的支持 Vue3.2+
-
 ## ⚡️ 简介
 
 一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Pinia
@@ -96,6 +94,10 @@
 ## 🚀 开发
 
 ```bash
+# 配置
+1. 安装 ESLint 插件
+2. 安装 Volar 插件
+
 # 克隆项目
 git clone https://github.com/un-pany/v3-admin.git
 
@@ -161,7 +163,7 @@ pnpm deploy
 
 QQ群：1014374415
 
-![v3-admin.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19291ab4cbb24c8c9e743f1701609cb6~tplv-k3u1fbpfcp-watermark.image)
+![v3-admin.png](https://github.com/un-pany/v3-admin/blob/master/src/assets/docs/qq.png)
 
 ## 📄 License
 

@@ -1,5 +1,3 @@
-> Upgrading the plugin vetur to **volar** will better support vue3.2+
-
 # ⚡️ Introduction
 
 A basic solution for middle and background management system, based on vue3, typescript, element-plus and pinia
@@ -92,6 +90,10 @@ A basic solution for middle and background management system, based on vue3, typ
 ## Getting started
 
 ```bash
+# config
+1. Install the 'ESLint' plugin
+2. Install the 'Volar' plugin
+
 # clone the project
 git clone https://github.com/un-pany/v3-admin.git
 
