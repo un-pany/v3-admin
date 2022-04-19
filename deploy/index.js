@@ -6,7 +6,7 @@
  */
 
 'use strict'
-const scpClient = require('scp2') // 引入scp2
+const scpClient = require('scp2') // 引入 scp2
 const ora = require('ora')
 const chalk = require('chalk')
 const spinner = ora('正在发布到服务器...')
@@ -15,8 +15,8 @@ const Client = require('ssh2').Client
 const conn = new Client()
 
 const server = {
-  host: '', // 服务器的IP地址
-  port: '22', // 服务器端口, 一般为22
+  host: '', // 服务器的 ip 地址
+  port: '22', // 服务器端口, 一般为 22
   username: 'root', // 用户名
   password: '', // 密码
   path: '/var/www/html/', // 项目部署的服务器目标位置

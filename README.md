@@ -95,8 +95,10 @@
 
 ```bash
 # 配置
-1. 安装 ESLint 插件
-2. 安装 Volar 插件
+1. 安装 eslint 插件
+2. 安装 volar 插件
+3. node v16.x
+4. pnpm v6.x
 
 # 克隆项目
 git clone https://github.com/un-pany/v3-admin.git

@@ -91,8 +91,10 @@ A basic solution for middle and background management system, based on vue3, typ
 
 ```bash
 # config
-1. Install the 'ESLint' plugin
-2. Install the 'Volar' plugin
+1. Install the 'eslint' plugin
+2. Install the 'volar' plugin
+3. node v16.x
+4. pnpm v6.x
 
 # clone the project
 git clone https://github.com/un-pany/v3-admin.git
