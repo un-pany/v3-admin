@@ -494,9 +494,8 @@ Google can solve 99% of error reports.
 
 ## Dependency error
 
-- Don't use cnpm
-- Recommended use pnpm//yarn
-- Attempt to delete `node_modules` and install again
+- Recommended use pnpm
+- Attempt to delete `node_modules` `.lock` and install again
 - Google search it
 
 ## When the routing mode is switched to browserhistory, a blank page appears after refreshing
