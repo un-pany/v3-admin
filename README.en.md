@@ -141,7 +141,8 @@ pnpm deploy
 // this route cannot be clicked in breadcrumb navigation when noRedirect is set
 redirect: 'noRedirect'
 
-// Be sure to fill in the name of the set route, otherwise there may be problems in resetting the route
+// 'asyncRoutes': Be sure to fill in the name of the set route, otherwise there may be problems in resetting the route
+// If you want to show to 'tags-view', is required
 name: 'router-name'
 
 meta: {
