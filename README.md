@@ -1,8 +1,11 @@
+## ✨ 新版
+
+强烈推荐：基于 vite 的新版本 [v3-admin-vite](https://github.com/un-pany/v3-admin-vite)
+
 ## ⚡️ 简介
 
 一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Pinia
 
-- vite 版: [v3-admin-vite](https://github.com/un-pany/v3-admin-vite)
 - electron 桌面版: [v3-admin-electron](https://github.com/un-pany/v3-admin-electron)
 
 ## 📚 文档
@@ -61,7 +64,7 @@
 ```
 # v3-admin
 ├─ .env.development   # 开发环境
-├─ .env.production    # 生产环境
+├─ .env.production    # 正式环境
 ├─ .env.test          # 测试环境
 ├─ .eslintrc.js       # eslint
 ├─ deploy             # 自动部署
