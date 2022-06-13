@@ -6,7 +6,7 @@
 
 一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Pinia
 
-- electron 桌面版: [v3-admin-electron](https://github.com/un-pany/v3-admin-electron)
+- Electron 桌面版: [v3-electron](https://github.com/un-pany/v3-electron)
 
 ## 📚 文档
 
