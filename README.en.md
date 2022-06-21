@@ -1,8 +1,12 @@
+## ✨ New version
+
+Highly recommended: new version based on 'vite': [v3-admin-vite](https://github.com/un-pany/v3-admin-vite)
+
 # ⚡️ Introduction
 
 A basic solution for middle and background management system, based on vue3, typescript, element-plus and pinia
 
-- Electron: [v3-admin-electron](https://github.com/un-pany/v3-admin-electron)
+- Electron: [v3-electron](https://github.com/un-pany/v3-electron)
 
 ## Documentation
 
