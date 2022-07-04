@@ -1,7 +1,7 @@
 import { createApp, Directive } from 'vue'
 import App from './App.vue'
-import router from './router'
 import store from './store'
+import router from './router'
 import { loadAllPlugins } from './plugins'
 import '@/styles/index.scss'
 import 'normalize.css'

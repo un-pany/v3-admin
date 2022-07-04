@@ -9,12 +9,12 @@ import { whiteList } from '@/config/white-list'
 import rolesSettings from '@/config/roles'
 import { getToken } from '@/utils/cookies'
 
-const userStore = useUserStoreHook()
-const permissionStore = usePermissionStoreHook()
 NProgress.configure({ showSpinner: false })
 
 router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
   NProgress.start()
+  const userStore = useUserStoreHook()
+  const permissionStore = usePermissionStoreHook()
   // 判断该用户是否登录
   if (getToken()) {
     if (to.path === '/login') {
