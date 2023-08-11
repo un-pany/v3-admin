@@ -1,10 +1,10 @@
 ## ❗ 注意
 
-该项目从 3.1.3 版本之后就用 Vite 进行了重构，并且开源在这里：[v3-admin-vite](https://github.com/un-pany/v3-admin-vite)，如果 Vue CLI 不是你的必选项，那么我建议你使用基于 Vite 的新版本，因为它更快、更强、更规范！
+该项目从 3.1.3 版本之后就用 Vite 进行了重构，并且开源在这里：[V3 Admin Vite](https://github.com/un-pany/v3-admin-vite)，如果 Vue CLI 不是你的必选项，那么我建议你使用基于 Vite 的新版本，因为它更快、更强、更规范！
 
 ## ⚡️ 简介
 
-V3 Admin 是一个免费开源的中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、 Pinia 和 Vue CLI 5.x
+一个免费开源的中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、 Pinia 和 Vue CLI 5.x
 
 - Electron 桌面版: [v3-electron](https://github.com/un-pany/v3-electron)
 

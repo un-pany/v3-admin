@@ -1,10 +1,10 @@
 ## ❗ Note
 
-The project has been refactored with Vite since '3.1.3' and is open sourced here: 'v3-admin-vite', if 'Vue CLI' is not required for you, then I recommend you use a new version based on 'Vite' because it is faster, stronger, and more speciative!
+The project has been refactored with Vite since 3.1.3 and is open sourced here: [V3 Admin Vite](https://github.com/un-pany/v3-admin-vite), if Vue CLI is not required for you, then I recommend you use a new version based on Vite because it is faster, stronger, and more speciative!
 
 # ⚡️ Introduction
 
-V3 Admin is a free and open source middle and background management system basic solution, based on mainstream framework such as Vue3, TypeScript, Element Plus, Pinia and Vue CLI 5.x
+A free and open source mid-back management system basic solution based on Vue3, TypeScript, Element Plus, Pinia and Vue CLI 5.x
 
 - Electron: [v3-electron](https://github.com/un-pany/v3-electron)
 
