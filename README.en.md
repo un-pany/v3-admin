@@ -1,6 +1,6 @@
 <div align="center">
-  <h2>✨ Recommended use ✨ </h2>
-  <span>A new version based on 'Vite': <a href="https://github.com/un-pany/v3-admin-vite">V3 Admin Vite</a></span>
+  <h1>✨ Recommended use ✨ </h1>
+  <span>A new version based on 'Vite' <a href="https://github.com/un-pany/v3-admin-vite">V3 Admin Vite</a></span>
 </div>
 
 # ⚡️ Introduction

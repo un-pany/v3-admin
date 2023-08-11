@@ -1,6 +1,6 @@
 <div align="center">
-  <h2>✨ 推荐使用 ✨ </h2>
-  <span>基于 Vite 的新版本：<a href="https://github.com/un-pany/v3-admin-vite">V3 Admin Vite</a></span>
+  <h1>✨ 推荐使用 ✨ </h1>
+  <span>基于 Vite 的新版本 <a href="https://github.com/un-pany/v3-admin-vite">V3 Admin Vite</a></span>
 </div>
 
 ## ⚡️ 简介
