@@ -1,7 +1,6 @@
-<div align="center">
-  <h1>✨ 推荐使用 ✨ </h1>
-  <span>基于 Vite 的新版本 <a href="https://github.com/un-pany/v3-admin-vite">V3 Admin Vite</a></span>
-</div>
+## ❗ 注意
+
+该项目从 3.1.3 版本之后就用 Vite 进行了重构，并且开源在这里：[v3-admin-vite](https://github.com/un-pany/v3-admin-vite)，如果 Vue CLI 不是你的必选项，那么我建议你使用基于 Vite 的新版本，因为它更快、更强、更规范！
 
 ## ⚡️ 简介
 
@@ -102,8 +101,8 @@ V3 Admin 是一个免费开源的中后台管理系统基础解决方案，基�
 # 配置
 1. 安装 eslint 插件
 2. 安装 volar 插件
-3. node v16.x
-4. pnpm v6.x
+3. node 16+
+4. pnpm 6+
 
 # 克隆项目
 git clone https://github.com/un-pany/v3-admin.git
@@ -166,7 +165,7 @@ pnpm deploy
 - [vue-typescript-admin-template](https://github.com/Armour/vue-typescript-admin-template)
 - [vue3-antd-admin](https://github.com/buqiyuan/vue3-antd-admin)
 
-## 交流（吹水）群
+## 交流群
 
 QQ 群：1014374415（左）&& 加我微信，拉你进微信群（右）
 

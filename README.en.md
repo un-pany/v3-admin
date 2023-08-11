@@ -1,7 +1,6 @@
-<div align="center">
-  <h1>✨ Recommended use ✨ </h1>
-  <span>A new version based on 'Vite' <a href="https://github.com/un-pany/v3-admin-vite">V3 Admin Vite</a></span>
-</div>
+## ❗ Note
+
+The project has been refactored with Vite since '3.1.3' and is open sourced here: 'v3-admin-vite', if 'Vue CLI' is not required for you, then I recommend you use a new version based on 'Vite' because it is faster, stronger, and more speciative!
 
 # ⚡️ Introduction
 
@@ -56,7 +55,7 @@ V3 Admin is a free and open source middle and background management system basic
 - Auto deployment
 ```
 
-## directory
+## Directory
 
 ```
 # v3-admin
@@ -98,8 +97,8 @@ V3 Admin is a free and open source middle and background management system basic
 # config
 1. Install the 'eslint' plugin
 2. Install the 'volar' plugin
-3. node v16.x
-4. pnpm v6.x
+3. node 16+
+4. pnpm 6+
 
 # clone the project
 git clone https://github.com/un-pany/v3-admin.git
@@ -506,7 +505,7 @@ Google can solve 99% of error reports.
 
 Change the value of `publicPath` in the ` @/config/vue.custom.config.ts` file from `./` to`/`
 
-# ☕ other
+# ☕ Other
 
 ## Standing on the shoulders of giants
 
