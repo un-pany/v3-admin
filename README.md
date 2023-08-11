@@ -1,10 +1,11 @@
-## ✨ 新版
-
-强烈推荐：基于 vite 的新版本 [v3-admin-vite](https://github.com/un-pany/v3-admin-vite)
+<div align="center">
+  <h2>✨ 推荐使用 ✨ </h2>
+  <span>基于 Vite 的新版本：<a href="https://github.com/un-pany/v3-admin-vite">V3 Admin Vite</a></span>
+</div>
 
 ## ⚡️ 简介
 
-一个中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element-Plus 和 Pinia
+V3 Admin 是一个免费开源的中后台管理系统基础解决方案，基于 Vue3、TypeScript、Element Plus、 Pinia 和 Vue CLI 5.x
 
 - Electron 桌面版: [v3-electron](https://github.com/un-pany/v3-electron)
 
@@ -18,9 +19,9 @@
 
 ## 预览
 
-| 位置 | 账号 | 链接 |
-| --- | --- | --- |
-| github-pages | admin或editor | [链接](https://un-pany.github.io/v3-admin) |
+| 位置         | 账号            | 链接                                       |
+| ------------ | --------------- | ------------------------------------------ |
+| github-pages | admin 或 editor | [链接](https://un-pany.github.io/v3-admin) |
 
 ## ⌛ 功能
 
@@ -28,7 +29,7 @@
 - 用户管理
   - 登录
   - 注销
-	
+
 - 权限验证
   - 页面权限
   - 指令权限
@@ -37,7 +38,7 @@
   - development
   - test
   - production
-  
+
 - 全局功能
   - svg
   - 多主题切换（内置黑暗主题）
@@ -167,9 +168,10 @@ pnpm deploy
 
 ## 交流（吹水）群
 
-QQ群：1014374415
+QQ 群：1014374415（左）&& 加我微信，拉你进微信群（右）
 
-![v3-admin.png](https://github.com/un-pany/v3-admin/blob/master/src/assets/docs/qq.png)
+![qq.png](./src/assets/docs/qq.png)
+![wechat.png](./src/assets/docs/wechat.png)
 
 ## 📄 License
 

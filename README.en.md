@@ -1,10 +1,11 @@
-## ✨ New version
-
-Highly recommended: new version based on 'vite': [v3-admin-vite](https://github.com/un-pany/v3-admin-vite)
+<div align="center">
+  <h2>✨ Recommended use ✨ </h2>
+  <span>A new version based on 'Vite': <a href="https://github.com/un-pany/v3-admin-vite">V3 Admin Vite</a></span>
+</div>
 
 # ⚡️ Introduction
 
-A basic solution for middle and background management system, based on vue3, typescript, element-plus and pinia
+V3 Admin is a free and open source middle and background management system basic solution, based on mainstream framework such as Vue3, TypeScript, Element Plus, Pinia and Vue CLI 5.x
 
 - Electron: [v3-electron](https://github.com/un-pany/v3-electron)
 
@@ -14,8 +15,8 @@ A basic solution for middle and background management system, based on vue3, typ
 
 ## preview
 
-| position | account | link |
-| --- | --- | --- |
+| position     | account         | link                                       |
+| ------------ | --------------- | ------------------------------------------ |
 | github-pages | admin or editor | [link](https://un-pany.github.io/v3-admin) |
 
 ## Features
@@ -24,7 +25,7 @@ A basic solution for middle and background management system, based on vue3, typ
 - User management
   - login
   - logout
-	
+
 - Permission Authentication
   - page permissions
   - directive permissions
@@ -33,7 +34,7 @@ A basic solution for middle and background management system, based on vue3, typ
   - development
   - test
   - production
-  
+
 - Global Features
   - svg
   - Multiple themes switching（Contains dark themes）
@@ -162,7 +163,7 @@ meta: {
   breadcrumb: false
   // The default is false. If set to true, it will be fixed in tags-view
   affix: true
-  
+
   // When the children under a route declare more than one route, it will automatically become a nested mode
   // When there is only one, the sub route will be displayed in the sidebar as the root route
   // If you want to display your root route regardless of the number of children declarations below
@@ -223,28 +224,28 @@ When logging in, compare the routing table by obtaining the permissions (roles) 
 The control codes are all in `@/router/permission.ts`, which can be modified according to specific business:
 
 ```typescript
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
-import router from '@/router'
-import { RouteLocationNormalized } from 'vue-router'
-import { useUserStoreHook } from '@/store/modules/user'
-import { usePermissionStoreHook } from '@/store/modules/permission'
-import { ElMessage } from 'element-plus'
-import { whiteList } from '@/config/white-list'
-import rolesSettings from '@/config/roles'
-import { getToken } from '@/utils/cookies'
+import NProgress from "nprogress"
+import "nprogress/nprogress.css"
+import router from "@/router"
+import { RouteLocationNormalized } from "vue-router"
+import { useUserStoreHook } from "@/store/modules/user"
+import { usePermissionStoreHook } from "@/store/modules/permission"
+import { ElMessage } from "element-plus"
+import { whiteList } from "@/config/white-list"
+import rolesSettings from "@/config/roles"
+import { getToken } from "@/utils/cookies"
 
 const userStore = useUserStoreHook()
 const permissionStore = usePermissionStoreHook()
 NProgress.configure({ showSpinner: false })
 
-router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
+router.beforeEach(async (to: RouteLocationNormalized, _: RouteLocationNormalized, next: any) => {
   NProgress.start()
   // Determine if the user is logged in
   if (getToken()) {
-    if (to.path === '/login') {
+    if (to.path === "/login") {
       // Redirect to the homepage if you log in and ready to enter the Login page.
-      next({ path: '/' })
+      next({ path: "/" })
       NProgress.done()
     } else {
       // Check if the user has obtained its permissions role
@@ -272,8 +273,8 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
         } catch (err: any) {
           // Delete token and redirect to the login page
           userStore.resetToken()
-          ElMessage.error(err || 'Has Error')
-          next('/login')
+          ElMessage.error(err || "Has Error")
+          next("/login")
           NProgress.done()
         }
       } else {
@@ -287,7 +288,7 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
       next()
     } else {
       // Other pages without access rights will be redirected to the login page
-      next('/login')
+      next("/login")
       NProgress.done()
     }
   }
@@ -312,11 +313,10 @@ interface RolesSettings {
 
 const rolesSettings: RolesSettings = {
   openRoles: true,
-  defaultRoles: ['admin']
+  defaultRoles: ["admin"],
 }
 
 export default rolesSettings
-
 ```
 
 ### Directive permissions
@@ -329,12 +329,12 @@ Concisely implement button level permission judgment (registered to the global a
 <el-tag v-permission="['admin','editor']">admin and editor are visible</el-tag>
 ```
 
-However, in some cases, `v-permission` is not suitable. For example: ` el-tab ` or `el-table-column`  of ` element-plus` and other scenes that dynamically render `DOM`. You can only do this by manually setting `v-if`.
+However, in some cases, `v-permission` is not suitable. For example: `el-tab` or `el-table-column` of ` element-plus` and other scenes that dynamically render `DOM`. You can only do this by manually setting `v-if`.
 
 At this time, you can use **permission judgment function**.
 
 ```typescript
-import { checkPermission } from '@/utils/permission'
+import { checkPermission } from "@/utils/permission"
 ```
 
 ```html
@@ -349,12 +349,12 @@ The general process is as follows：
 
 ![](https://ss.im5i.com/2021/10/20/yFlGd.png)
 
-###  Common management API
+### Common management API
 
 `@/api/login.ts`
 
 ```typescript
-import { request } from '@/utils/service'
+import { request } from "@/utils/service"
 
 interface UserRequestData {
   username: string
@@ -363,9 +363,9 @@ interface UserRequestData {
 
 export function accountLogin(data: UserRequestData) {
   return request({
-    url: 'user/login',
-    method: 'post',
-    data
+    url: "user/login",
+    method: "post",
+    data,
   })
 }
 ```
@@ -378,7 +378,7 @@ export function accountLogin(data: UserRequestData) {
 
 ### Build
 
-When the project is developed and need build, there are two built-in environments: 
+When the project is developed and need build, there are two built-in environments:
 
 ```sh
 # build test environment
@@ -390,7 +390,7 @@ pnpm build:prod
 
 ### Variables
 
-In the `.env.xxx` and other files, the variables corresponding to the environment are configured: 
+In the `.env.xxx` and other files, the variables corresponding to the environment are configured:
 
 ```sh
 # Interface corresponding to current environment baseURL
